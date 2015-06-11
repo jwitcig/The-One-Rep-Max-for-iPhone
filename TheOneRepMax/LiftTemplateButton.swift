@@ -43,7 +43,6 @@ class LiftTemplateButton: NSButton {
         
         self.buttonCell.backgroundColor = NSColor.blueColor()
         self.buttonCell.bezelStyle = NSBezelStyle.InlineBezelStyle
-//        self.buttonCell.
         
         var centeredStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
         centeredStyle.alignment = NSTextAlignment.CenterTextAlignment

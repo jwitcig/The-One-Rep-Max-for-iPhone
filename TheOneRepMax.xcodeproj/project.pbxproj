@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8B095BAE1B29770800818DE0 /* LiftEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B095BAD1B29770800818DE0 /* LiftEntry.swift */; };
 		8B095BB01B29820400818DE0 /* ModelField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B095BAF1B29820400818DE0 /* ModelField.swift */; };
+		8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; };
 		8BF3435D1B27FA08007CBF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */; };
 		8BF3435F1B27FA08007CBF44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3435E1B27FA08007CBF44 /* LoginViewController.swift */; };
 		8BF343621B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF343601B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld */; };
@@ -21,7 +22,6 @@
 		8BF3438A1B28D885007CBF44 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF343891B28D885007CBF44 /* MainViewController.swift */; };
 		8BF3438C1B28EE8E007CBF44 /* LiftTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3438B1B28EE8E007CBF44 /* LiftTemplate.swift */; };
 		8BF3438E1B290228007CBF44 /* LiftTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3438D1B290228007CBF44 /* LiftTemplateButton.swift */; };
-		B557EBA7033534C7097287C3 /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90B5BFB140D9D9475D356EC7 /* Pods.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +35,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		86F657DD2B61E147B730EBFC /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		8948FC8A450EFC0F1144A6C7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		8B095BAD1B29770800818DE0 /* LiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntry.swift; sourceTree = "<group>"; };
 		8B095BAF1B29820400818DE0 /* ModelField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModelField.swift; sourceTree = "<group>"; };
+		8B095BB11B29A68900818DE0 /* TheOneRepMax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheOneRepMax.entitlements; sourceTree = "<group>"; };
+		8B095BB21B29A68F00818DE0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8BF343571B27FA08007CBF44 /* TheOneRepMax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheOneRepMax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF3435B1B27FA08007CBF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -49,8 +49,6 @@
 		8BF3436C1B27FA08007CBF44 /* TheOneRepMaxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TheOneRepMaxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF343711B27FA08007CBF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF343721B27FA08007CBF44 /* TheOneRepMaxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheOneRepMaxTests.swift; sourceTree = "<group>"; };
-		8BF3437C1B27FE1D007CBF44 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods/Alamofire.framework"; sourceTree = "<group>"; };
-		8BF3437E1B27FE4B007CBF44 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "Pods/../build/Debug-iphoneos/Pods-TheOneRepMax/Alamofire.framework"; sourceTree = "<group>"; };
 		8BF343831B28AEE5007CBF44 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BF343851B28B4A4007CBF44 /* SlideSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SlideSegue.swift; sourceTree = "<group>"; };
 		8BF343871B28C123007CBF44 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -58,7 +56,6 @@
 		8BF3438B1B28EE8E007CBF44 /* LiftTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LiftTemplate.swift; path = Models/LiftTemplate.swift; sourceTree = "<group>"; };
 		8BF3438D1B290228007CBF44 /* LiftTemplateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTemplateButton.swift; sourceTree = "<group>"; };
 		8BF3438F1B295A6F007CBF44 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
-		90B5BFB140D9D9475D356EC7 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B557EBA7033534C7097287C3 /* Pods.framework in Frameworks */,
+				8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,21 +80,10 @@
 		0A18E43CBDE524072F87162C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B095BB21B29A68F00818DE0 /* CloudKit.framework */,
 				8BF3438F1B295A6F007CBF44 /* CFNetwork.framework */,
-				8BF3437E1B27FE4B007CBF44 /* Alamofire.framework */,
-				8BF3437C1B27FE1D007CBF44 /* Alamofire.framework */,
-				90B5BFB140D9D9475D356EC7 /* Pods.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		5122FA6701D61F28C2369A39 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8948FC8A450EFC0F1144A6C7 /* Pods.debug.xcconfig */,
-				86F657DD2B61E147B730EBFC /* Pods.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		8BF3434E1B27FA08007CBF44 = {
@@ -106,7 +92,6 @@
 				8BF343591B27FA08007CBF44 /* TheOneRepMax */,
 				8BF3436F1B27FA08007CBF44 /* TheOneRepMaxTests */,
 				8BF343581B27FA08007CBF44 /* Products */,
-				5122FA6701D61F28C2369A39 /* Pods */,
 				0A18E43CBDE524072F87162C /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -123,6 +108,7 @@
 		8BF343591B27FA08007CBF44 /* TheOneRepMax */ = {
 			isa = PBXGroup;
 			children = (
+				8B095BB11B29A68900818DE0 /* TheOneRepMax.entitlements */,
 				8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */,
 				8BF3435E1B27FA08007CBF44 /* LoginViewController.swift */,
 				8BF3438B1B28EE8E007CBF44 /* LiftTemplate.swift */,
@@ -173,12 +159,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BF343761B27FA08007CBF44 /* Build configuration list for PBXNativeTarget "TheOneRepMax" */;
 			buildPhases = (
-				2AD81EBC897A86B8E36E75BF /* Check Pods Manifest.lock */,
 				8BF343531B27FA08007CBF44 /* Sources */,
 				8BF343541B27FA08007CBF44 /* Frameworks */,
 				8BF343551B27FA08007CBF44 /* Resources */,
-				9A97FB4F869D1CD3579A2676 /* Embed Pods Frameworks */,
-				1B0545F2787B8A16FE6D1502 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -218,6 +201,12 @@
 				TargetAttributes = {
 					8BF343561B27FA08007CBF44 = {
 						CreatedOnToolsVersion = 6.3.2;
+						DevelopmentTeam = 7R899BEBGC;
+						SystemCapabilities = {
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					8BF3436B1B27FA08007CBF44 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -262,54 +251,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		1B0545F2787B8A16FE6D1502 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		2AD81EBC897A86B8E36E75BF /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		9A97FB4F869D1CD3579A2676 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8BF343531B27FA08007CBF44 /* Sources */ = {
@@ -442,9 +383,11 @@
 		};
 		8BF343771B27FA08007CBF44 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8948FC8A450EFC0F1144A6C7 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TheOneRepMax/TheOneRepMax.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -454,14 +397,17 @@
 				INFOPLIST_FILE = TheOneRepMax/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
 		8BF343781B27FA08007CBF44 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86F657DD2B61E147B730EBFC /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TheOneRepMax/TheOneRepMax.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -471,6 +417,7 @@
 				INFOPLIST_FILE = TheOneRepMax/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
