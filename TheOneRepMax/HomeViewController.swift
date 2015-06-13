@@ -7,27 +7,45 @@
 //
 
 import Cocoa
+import CloudKit
+import ORMKit
 
 class HomeViewController: NSViewController {
     
     @IBOutlet weak var templatesContainerView: NSView!
     
     var parentVC: MainViewController!
-    
-    var templates: [LiftTemplate]?
-    
+
+    var container: CKContainer!
+    var publicDB: CKDatabase!
+
+    var templates: [ORLiftTemplate]?
+        
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         self.parentVC = self.parentViewController! as! MainViewController
-
+        
+//        let predicate = NSPredicate(format: "isDefault == 1")
+//        let query = ORLiftTemplate.query(predicate: NSPredicate(value: true))
+//        self.publicDB.performQuery(query, inZoneWithID: nil) { (templateRecords, error) -> Void in
+//            if error == nil {
+//                
+//                self.templates = []
+//                for record in templateRecords as! [CKRecord] {
+//                    self.templates!.append(ORLiftTemplate(record: record))
+//                }
+//                println("displaying \(self.templates)")
+//                self.displayTemplates(self.templates!)
+//            } else {
+//                println(error)
+//            }
+//        }
+        
     }
     
-    func takes(some: ModelField) {
-        println(some.databaseKey)
-    }
-    
-    func displayTemplates(templates: [LiftTemplate]) {
+    func displayTemplates(templates: [ORLiftTemplate]) {
         for (i, template) in enumerate(templates) {
             
             var templateButton = LiftTemplateButton(frame: CGRect(), template: template, index: i)

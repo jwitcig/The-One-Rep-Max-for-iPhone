@@ -7,16 +7,15 @@
 //
 
 import Cocoa
+import ORMKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
     func applicationDidFinishLaunching(aNotification: NSNotification) {
         // Insert code here to initialize your application
     }
-
+    
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
     }
@@ -95,7 +94,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Core Data Saving and Undo support
 
     @IBAction func saveAction(sender: AnyObject!) {
-        // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the user.
+        // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the ORUser.
         if let moc = self.managedObjectContext {
             if !moc.commitEditing() {
                 NSLog("\(NSStringFromClass(self.dynamicType)) unable to commit editing before saving")
