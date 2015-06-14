@@ -12,6 +12,8 @@
 		8BCF1F131B2B5F3600D05EEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F0F1B2B5F3600D05EEE /* LoginViewController.swift */; };
 		8BCF1F141B2B5F3600D05EEE /* LiftTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */; };
 		8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */; };
+		8BE0772E1B2D5AB10070D128 /* MappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772D1B2D5AB10070D128 /* MappingModel.xcmappingmodel */; };
+		8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */; };
 		8BF3435D1B27FA08007CBF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */; };
 		8BF343621B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF343601B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld */; };
 		8BF343641B27FA08007CBF44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF343631B27FA08007CBF44 /* Images.xcassets */; };
@@ -40,6 +42,15 @@
 		8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTemplateButton.swift; sourceTree = "<group>"; };
 		8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BCF1F161B2B612700D05EEE /* ORMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORMKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/TheOneRepMacx-apqhkpxyimykeogmqjcwpqterbbm/Build/Products/Debug/ORMKit.framework"; sourceTree = "<group>"; };
+		8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-Bridging-Header.h"; sourceTree = "<group>"; };
+		8BE077251B2D472C0070D128 /* TheOneRepMax_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v2.xcdatamodel; sourceTree = "<group>"; };
+		8BE077261B2D492F0070D128 /* TheOneRepMax_v 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TheOneRepMax_v 3.xcdatamodel"; sourceTree = "<group>"; };
+		8BE077291B2D55120070D128 /* TheOneRepMax_v4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v4.xcdatamodel; sourceTree = "<group>"; };
+		8BE0772A1B2D57550070D128 /* TheOneRepMax_v5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v5.xcdatamodel; sourceTree = "<group>"; };
+		8BE0772D1B2D5AB10070D128 /* MappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel.xcmappingmodel; sourceTree = "<group>"; };
+		8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityMigrationPolicy.swift; sourceTree = "<group>"; };
+		8BE077311B2D5E4E0070D128 /* TheOneRepMax_v6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v6.xcdatamodel; sourceTree = "<group>"; };
+		8BE077321B2D5ECC0070D128 /* TheOneRepMax_v7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v7.xcdatamodel; sourceTree = "<group>"; };
 		8BF343571B27FA08007CBF44 /* TheOneRepMax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheOneRepMax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF3435B1B27FA08007CBF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +128,10 @@
 				8BF343851B28B4A4007CBF44 /* SlideSegue.swift */,
 				8BF343871B28C123007CBF44 /* BackgroundView.swift */,
 				8BF343601B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld */,
+				8BE0772D1B2D5AB10070D128 /* MappingModel.xcmappingmodel */,
+				8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */,
 				8BF3435A1B27FA08007CBF44 /* Supporting Files */,
+				8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */,
 			);
 			path = TheOneRepMax;
 			sourceTree = "<group>";
@@ -198,6 +212,9 @@
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 7R899BEBGC;
 						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
 							com.apple.iCloud = {
 								enabled = 1;
 							};
@@ -253,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BCF1F131B2B5F3600D05EEE /* LoginViewController.swift in Sources */,
+				8BE0772E1B2D5AB10070D128 /* MappingModel.xcmappingmodel in Sources */,
 				8BF343881B28C123007CBF44 /* BackgroundView.swift in Sources */,
 				8BF343861B28B4A4007CBF44 /* SlideSegue.swift in Sources */,
 				8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */,
@@ -260,6 +278,7 @@
 				8BF3435D1B27FA08007CBF44 /* AppDelegate.swift in Sources */,
 				8BCF1F121B2B5F3600D05EEE /* MainViewController.swift in Sources */,
 				8BCF1F141B2B5F3600D05EEE /* LiftTemplateButton.swift in Sources */,
+				8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -377,6 +396,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TheOneRepMax/TheOneRepMax.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -389,6 +409,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax/TheOneRepMax-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -396,6 +418,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TheOneRepMax/TheOneRepMax.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -408,6 +431,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax/TheOneRepMax-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -483,9 +507,15 @@
 		8BF343601B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				8BE077321B2D5ECC0070D128 /* TheOneRepMax_v7.xcdatamodel */,
+				8BE077311B2D5E4E0070D128 /* TheOneRepMax_v6.xcdatamodel */,
+				8BE0772A1B2D57550070D128 /* TheOneRepMax_v5.xcdatamodel */,
+				8BE077291B2D55120070D128 /* TheOneRepMax_v4.xcdatamodel */,
+				8BE077261B2D492F0070D128 /* TheOneRepMax_v 3.xcdatamodel */,
+				8BE077251B2D472C0070D128 /* TheOneRepMax_v2.xcdatamodel */,
 				8BF343611B27FA08007CBF44 /* TheOneRepMax.xcdatamodel */,
 			);
-			currentVersion = 8BF343611B27FA08007CBF44 /* TheOneRepMax.xcdatamodel */;
+			currentVersion = 8BE077321B2D5ECC0070D128 /* TheOneRepMax_v7.xcdatamodel */;
 			path = TheOneRepMax.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

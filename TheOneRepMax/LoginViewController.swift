@@ -20,9 +20,6 @@ class LoginViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ORSession.managedObjectContext.persistentStoreCoordinator = ORSession.persistentStoreCooridnator
-
-        
         self.parentVC = self.parentViewController! as! MainViewController
         
         self.view.layer?.backgroundColor = NSColor.whiteColor().CGColor
@@ -30,19 +27,30 @@ class LoginViewController: NSViewController {
         let container = CKContainer.defaultContainer()
         let publicDB = container.publicCloudDatabase
         
+        
         var delegate = NSApplication.sharedApplication().delegate! as! AppDelegate
         var context = delegate.managedObjectContext!
         
-        var template = ORLiftTemplate(context: context)
-        template.liftName = "Swag Toss"
-        template.isDefault = false
-        template.liftDescription = "Lean wit it"
-        template.creator = ORSession.currentSession.currentUser!
-        template.owner = template.creator
+//        var template = ORLiftTemplate(context: context)
+//        template.liftName = "Swag Toss"
+//        template.liftName = "Tosser"
+//        template.defaultLift = false
+//        template.liftDescription = "Lean wit it"
+//        template.creator = ORSession.currentSession.currentUser!
+//        template.owner = template.creator
         
-        
-        var error = NSErrorPointer()
-        context.save(error)
+//        var object = NSEntityDescription.entityForName(ORLiftTemplate.recordType, inManagedObjectContext: context)
+//        
+//        println(object)
+//        
+//        var error = NSErrorPointer()
+//        context.save(error)
+//        
+//        var request = NSFetchRequest(entityName: ORLiftTemplate.recordType)
+//        request.predicate = NSPredicate(value: true)
+//        
+//        let results = context.executeFetchRequest(request, error: NSErrorPointer())
+//        println(results)
         
 //        template.save { (record, error) in
 //            if error == nil {
@@ -52,11 +60,11 @@ class LoginViewController: NSViewController {
 //            }
 //        }
         
-        var entry = ORLiftEntry(context: ORSession.managedObjectContext)
-        entry.liftTemplate = template
-        entry.maxOut = true
-        entry.weightLifted = 341
-        entry.reps = 6
+//        var entry = ORLiftEntry(context: ORSession.managedObjectContext)
+//        entry.liftTemplate = template
+//        entry.maxOut = true
+//        entry.weightLifted = 341
+//        entry.reps = 6
 //        entry.save { (record, error) in
 //            if error == nil {
 //                println("yay")
@@ -69,14 +77,29 @@ class LoginViewController: NSViewController {
     }
 
     @IBAction func loginPressed(sender: NSButton) {
-        let ORUser = "jwitcig"
-        let password = "540223"
+        let context = ORSession.currentSession.managedObjectContext
         
-        let credential = NSURLCredential(user: ORUser, password: password, persistence: NSURLCredentialPersistence.None)
+//        var error = NSErrorPointer()
+//        let user = ORUser.signIn(username: usernameField.stringValue, password: passwordField.stringValue, context: context, error: error)
         
+        CKContainer.defaultContainer().publicCloudDatabase.performQuery(ORLiftTemplate.query(nil), inZoneWithID: nil, completionHandler: { (results, error) -> Void in
+            
+            println(results)
+            
+        })
      
-        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.childViewControllers[1] as! NSViewController, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
+//        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.childViewControllers[1] as! NSViewController, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
     }
+    
+    @IBAction func signUpPressed(sender: NSButton) {
+        let context = ORSession.currentSession.managedObjectContext
+
+        let user = ORUser.signUp(username: usernameField.stringValue, password: passwordField.stringValue, context: context, error: nil)
+        
+        println(user)
+        
+    }
+    
     
     override var representedObject: AnyObject? {
         didSet {

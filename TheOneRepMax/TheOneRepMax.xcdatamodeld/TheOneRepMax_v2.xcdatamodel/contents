@@ -4,7 +4,7 @@
         <attribute name="date" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="maxOut" optional="YES" attributeType="Boolean" syncable="YES"/>
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="weightLlifted" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="weightLifted" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
         <relationship name="liftTemplate" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LiftTemplate" syncable="YES"/>
         <relationship name="owner" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" syncable="YES"/>
     </entity>

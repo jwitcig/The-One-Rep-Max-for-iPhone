@@ -18,6 +18,10 @@ class MainViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let appDelegate = NSApplication.sharedApplication().delegate! as! AppDelegate
+        
+        ORSession.currentSession.managedObjectContext = appDelegate.managedObjectContext
+        
         CKContainer.defaultContainer().fetchUserRecordIDWithCompletionHandler { (userRecordId, error) -> Void in
             if error == nil {
                 
