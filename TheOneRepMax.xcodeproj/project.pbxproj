@@ -9,10 +9,9 @@
 /* Begin PBXBuildFile section */
 		8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; };
 		8BCF1F121B2B5F3600D05EEE /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F0E1B2B5F3600D05EEE /* MainViewController.swift */; };
-		8BCF1F131B2B5F3600D05EEE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F0F1B2B5F3600D05EEE /* LoginViewController.swift */; };
+		8BCF1F131B2B5F3600D05EEE /* OrganizationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F0F1B2B5F3600D05EEE /* OrganizationListViewController.swift */; };
 		8BCF1F141B2B5F3600D05EEE /* LiftTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */; };
 		8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */; };
-		8BE0772E1B2D5AB10070D128 /* MappingModel.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772D1B2D5AB10070D128 /* MappingModel.xcmappingmodel */; };
 		8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */; };
 		8BF3435D1B27FA08007CBF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */; };
 		8BF343621B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF343601B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld */; };
@@ -37,17 +36,26 @@
 /* Begin PBXFileReference section */
 		8B095BB11B29A68900818DE0 /* TheOneRepMax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheOneRepMax.entitlements; sourceTree = "<group>"; };
 		8B095BB21B29A68F00818DE0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		8B778C9A1B2F6DFF002841B1 /* TheOneRepMax_v11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v11.xcdatamodel; sourceTree = "<group>"; };
+		8B778C9B1B2F6EDD002841B1 /* TheOneRepMax_v12.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v12.xcdatamodel; sourceTree = "<group>"; };
+		8B778C9C1B2F6F2F002841B1 /* TheOneRepMax_v13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v13.xcdatamodel; sourceTree = "<group>"; };
+		8B778C9D1B2FB1C3002841B1 /* TheOneRepMax_v14.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v14.xcdatamodel; sourceTree = "<group>"; };
+		8B778CA01B2FB838002841B1 /* TheOneRepMax_v15.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v15.xcdatamodel; sourceTree = "<group>"; };
+		8B900FFB1B2DF2C800173DED /* TheOneRepMax_v8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v8.xcdatamodel; sourceTree = "<group>"; };
+		8BA1D7DB1B2E6E20007437D6 /* TheOneRepMax_v9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v9.xcdatamodel; sourceTree = "<group>"; };
+		8BA1D7DE1B2E88D1007437D6 /* TheOneRepMax_v10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v10.xcdatamodel; sourceTree = "<group>"; };
 		8BCF1F0E1B2B5F3600D05EEE /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		8BCF1F0F1B2B5F3600D05EEE /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		8BCF1F0F1B2B5F3600D05EEE /* OrganizationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationListViewController.swift; sourceTree = "<group>"; };
 		8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTemplateButton.swift; sourceTree = "<group>"; };
 		8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BCF1F161B2B612700D05EEE /* ORMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORMKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/TheOneRepMacx-apqhkpxyimykeogmqjcwpqterbbm/Build/Products/Debug/ORMKit.framework"; sourceTree = "<group>"; };
+		8BD0F1B01B309AB400F96C96 /* TheOneRepMax_v16.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v16.xcdatamodel; sourceTree = "<group>"; };
+		8BD0F1B11B30F19000F96C96 /* TheOneRepMax_v17.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v17.xcdatamodel; sourceTree = "<group>"; };
 		8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-Bridging-Header.h"; sourceTree = "<group>"; };
 		8BE077251B2D472C0070D128 /* TheOneRepMax_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v2.xcdatamodel; sourceTree = "<group>"; };
 		8BE077261B2D492F0070D128 /* TheOneRepMax_v 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TheOneRepMax_v 3.xcdatamodel"; sourceTree = "<group>"; };
 		8BE077291B2D55120070D128 /* TheOneRepMax_v4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v4.xcdatamodel; sourceTree = "<group>"; };
 		8BE0772A1B2D57550070D128 /* TheOneRepMax_v5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v5.xcdatamodel; sourceTree = "<group>"; };
-		8BE0772D1B2D5AB10070D128 /* MappingModel.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = MappingModel.xcmappingmodel; sourceTree = "<group>"; };
 		8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityMigrationPolicy.swift; sourceTree = "<group>"; };
 		8BE077311B2D5E4E0070D128 /* TheOneRepMax_v6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v6.xcdatamodel; sourceTree = "<group>"; };
 		8BE077321B2D5ECC0070D128 /* TheOneRepMax_v7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v7.xcdatamodel; sourceTree = "<group>"; };
@@ -120,7 +128,7 @@
 				8B095BB11B29A68900818DE0 /* TheOneRepMax.entitlements */,
 				8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */,
 				8BCF1F0E1B2B5F3600D05EEE /* MainViewController.swift */,
-				8BCF1F0F1B2B5F3600D05EEE /* LoginViewController.swift */,
+				8BCF1F0F1B2B5F3600D05EEE /* OrganizationListViewController.swift */,
 				8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */,
 				8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */,
 				8BF343631B27FA08007CBF44 /* Images.xcassets */,
@@ -128,7 +136,6 @@
 				8BF343851B28B4A4007CBF44 /* SlideSegue.swift */,
 				8BF343871B28C123007CBF44 /* BackgroundView.swift */,
 				8BF343601B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld */,
-				8BE0772D1B2D5AB10070D128 /* MappingModel.xcmappingmodel */,
 				8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */,
 				8BF3435A1B27FA08007CBF44 /* Supporting Files */,
 				8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */,
@@ -269,8 +276,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BCF1F131B2B5F3600D05EEE /* LoginViewController.swift in Sources */,
-				8BE0772E1B2D5AB10070D128 /* MappingModel.xcmappingmodel in Sources */,
+				8BCF1F131B2B5F3600D05EEE /* OrganizationListViewController.swift in Sources */,
 				8BF343881B28C123007CBF44 /* BackgroundView.swift in Sources */,
 				8BF343861B28B4A4007CBF44 /* SlideSegue.swift in Sources */,
 				8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */,
@@ -507,6 +513,16 @@
 		8BF343601B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				8BD0F1B11B30F19000F96C96 /* TheOneRepMax_v17.xcdatamodel */,
+				8BD0F1B01B309AB400F96C96 /* TheOneRepMax_v16.xcdatamodel */,
+				8B778CA01B2FB838002841B1 /* TheOneRepMax_v15.xcdatamodel */,
+				8B778C9D1B2FB1C3002841B1 /* TheOneRepMax_v14.xcdatamodel */,
+				8B778C9C1B2F6F2F002841B1 /* TheOneRepMax_v13.xcdatamodel */,
+				8B778C9B1B2F6EDD002841B1 /* TheOneRepMax_v12.xcdatamodel */,
+				8B778C9A1B2F6DFF002841B1 /* TheOneRepMax_v11.xcdatamodel */,
+				8BA1D7DE1B2E88D1007437D6 /* TheOneRepMax_v10.xcdatamodel */,
+				8BA1D7DB1B2E6E20007437D6 /* TheOneRepMax_v9.xcdatamodel */,
+				8B900FFB1B2DF2C800173DED /* TheOneRepMax_v8.xcdatamodel */,
 				8BE077321B2D5ECC0070D128 /* TheOneRepMax_v7.xcdatamodel */,
 				8BE077311B2D5E4E0070D128 /* TheOneRepMax_v6.xcdatamodel */,
 				8BE0772A1B2D57550070D128 /* TheOneRepMax_v5.xcdatamodel */,
@@ -515,7 +531,7 @@
 				8BE077251B2D472C0070D128 /* TheOneRepMax_v2.xcdatamodel */,
 				8BF343611B27FA08007CBF44 /* TheOneRepMax.xcdatamodel */,
 			);
-			currentVersion = 8BE077321B2D5ECC0070D128 /* TheOneRepMax_v7.xcdatamodel */;
+			currentVersion = 8BD0F1B11B30F19000F96C96 /* TheOneRepMax_v17.xcdatamodel */;
 			path = TheOneRepMax.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

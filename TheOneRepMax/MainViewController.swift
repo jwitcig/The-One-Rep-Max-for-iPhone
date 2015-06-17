@@ -12,38 +12,28 @@ import ORMKit
 
 class MainViewController: NSViewController {
     
-    var loginVC: LoginViewController!
+    var organizationListVC: OrganizationListViewController!
     var homeVC: HomeViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         let appDelegate = NSApplication.sharedApplication().delegate! as! AppDelegate
-        
-        ORSession.currentSession.managedObjectContext = appDelegate.managedObjectContext
-        
-        CKContainer.defaultContainer().fetchUserRecordIDWithCompletionHandler { (userRecordId, error) -> Void in
-            if error == nil {
-                
-                
-                ORSession.currentSession.currentUserId = userRecordId
+        let context = appDelegate.managedObjectContext!
+        ORSession.currentSession.managedObjectContext = context
 
-                
-            } else {
-                println(error)
-            }
+        
+        let (success, athlete) = ORAthlete.signInLocally()
+        if success {
+            self.instantiateViewControllers()
+            self.registerChildViewControllers()
+            
+            self.view.addSubview(self.organizationListVC.view)
         }
-        
-        self.instantiateViewControllers()
-        self.registerChildViewControllers()
-        
-        self.view.addSubview(self.loginVC.view)
-
-    
     }
     
     func instantiateViewControllers() {
-        self.loginVC = self.storyboard?.instantiateControllerWithIdentifier("LoginViewController") as! LoginViewController
+        self.organizationListVC = self.storyboard?.instantiateControllerWithIdentifier("OrganizationListViewController") as! OrganizationListViewController
         self.homeVC = self.storyboard?.instantiateControllerWithIdentifier("HomeViewController") as! HomeViewController
         
         self.homeVC.container = CKContainer.defaultContainer()
@@ -51,7 +41,7 @@ class MainViewController: NSViewController {
     }
     
     func registerChildViewControllers() {
-        self.addChildViewController(self.loginVC)
+        self.addChildViewController(self.organizationListVC)
         self.addChildViewController(self.homeVC)
     }
     

@@ -676,70 +676,25 @@
             </objects>
             <point key="canvasLocation" x="133" y="778"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Organization List View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController identifier="LoginViewController" storyboardIdentifier="LoginViewController" id="XfG-lQ-9wD" customClass="LoginViewController" customModule="TheOneRepMax" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl" customClass="BackgroundView" customModule="TheOneRepMax" customModuleProvider="target">
+                <viewController identifier="OrganizationListViewController" storyboardIdentifier="OrganizationListViewController" id="XfG-lQ-9wD" customClass="OrganizationListViewController" customModule="TheOneRepMax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" identifier="OrganizationListViewController" id="m2S-Jp-Qdl" customClass="BackgroundView" customModule="TheOneRepMax" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="nJ2-lp-3to">
-                                <rect key="frame" x="252" y="257" width="96" height="22"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="96" id="NrE-hD-rJ3"/>
-                                </constraints>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" alignment="center" title="jwitcig" placeholderString="username" drawsBackground="YES" id="zNn-4d-jJz">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jJz-GD-f8c">
+                                <rect key="frame" x="260" y="130" width="31" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="orgs" id="T05-zu-iBL">
                                     <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SpD-fO-gD1">
-                                <rect key="frame" x="265" y="146" width="70" height="32"/>
-                                <buttonCell key="cell" type="push" title="login" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="E7S-E9-9tV">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="loginPressed:" target="XfG-lQ-9wD" id="fLl-LP-DoZ"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3yr-j6-ql1">
-                                <rect key="frame" x="257" y="90" width="86" height="32"/>
-                                <buttonCell key="cell" type="push" title="sign up" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iQM-tK-BI8">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="signUpPressed:" target="XfG-lQ-9wD" id="EEx-AG-s4M"/>
-                                </connections>
-                            </button>
-                            <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Q89-m8-WgN">
-                                <rect key="frame" x="252" y="212" width="96" height="22"/>
-                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" title="540223" placeholderString="password" drawsBackground="YES" usesSingleLineMode="YES" id="fq9-s9-Qv5">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    <allowedInputSourceLocales>
-                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                                    </allowedInputSourceLocales>
-                                </secureTextFieldCell>
-                            </secureTextField>
                         </subviews>
-                        <constraints>
-                            <constraint firstItem="Q89-m8-WgN" firstAttribute="top" secondItem="nJ2-lp-3to" secondAttribute="bottom" constant="23" id="4kx-dK-pgs"/>
-                            <constraint firstItem="nJ2-lp-3to" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="7OH-7p-mgw"/>
-                            <constraint firstItem="Q89-m8-WgN" firstAttribute="leading" secondItem="nJ2-lp-3to" secondAttribute="leading" id="XFk-fv-9gl"/>
-                            <constraint firstItem="nJ2-lp-3to" firstAttribute="trailing" secondItem="Q89-m8-WgN" secondAttribute="trailing" id="d5C-th-46I"/>
-                            <constraint firstItem="nJ2-lp-3to" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="71" id="r3q-PY-u0A"/>
-                            <constraint firstItem="SpD-fO-gD1" firstAttribute="centerX" secondItem="Q89-m8-WgN" secondAttribute="centerX" id="yYk-lh-ytX"/>
-                            <constraint firstItem="SpD-fO-gD1" firstAttribute="top" secondItem="Q89-m8-WgN" secondAttribute="bottom" constant="38" id="zSD-6P-F5J"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="passwordField" destination="Q89-m8-WgN" id="Ivn-pe-JvQ"/>
-                        <outlet property="usernameField" destination="nJ2-lp-3to" id="Xa4-BP-7Jd"/>
                         <segue destination="bhi-c5-M8g" kind="custom" identifier="login" customClass="SlideSegue" customModule="TheOneRepMax" customModuleProvider="target" id="rKi-aG-k5E"/>
                     </connections>
                 </viewController>

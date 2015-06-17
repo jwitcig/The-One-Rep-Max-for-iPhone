@@ -55,7 +55,7 @@ class HomeViewController: NSViewController {
     }
     
     @IBAction func logoutPressed(sender: NSButton) {
-        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.loginVC, options: NSViewControllerTransitionOptions.SlideRight, completionHandler: nil)
+        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.organizationListVC, options: NSViewControllerTransitionOptions.SlideRight, completionHandler: nil)
     }
     
 }

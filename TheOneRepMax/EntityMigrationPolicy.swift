@@ -14,7 +14,7 @@ class EntityMigrationPolicy: NSEntityMigrationPolicy {
                 
         var newObject = NSEntityDescription.insertNewObjectForEntityForName(mapping.destinationEntityName!, inManagedObjectContext: manager.destinationContext) as! NSManagedObject
         
-        newObject.setValue(sInstance.valueForKey("passwordHash"), forKey: "passwordHash")
+        newObject.setValue("", forKey: "recordName")
         
         manager.associateSourceInstance(sInstance, withDestinationInstance: newObject, forEntityMapping: mapping)
         
