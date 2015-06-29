@@ -12,14 +12,14 @@ import ORMKit
 
 class HomeViewController: NSViewController {
     
-    @IBOutlet weak var templatesContainerView: NSView!
+    @IBOutlet weak var organizationsContainerView: NSView!
     
     var parentVC: MainViewController!
+    
+    var session: ORSession!
+    var cloudData: ORCloudData!
 
-    var container: CKContainer!
-    var publicDB: CKDatabase!
-
-    var templates: [ORLiftTemplate]?
+    var organizations = [OROrganization]()
         
     override func viewDidLoad() {
         
@@ -27,35 +27,45 @@ class HomeViewController: NSViewController {
         
         self.parentVC = self.parentViewController! as! MainViewController
         
-//        let predicate = NSPredicate(format: "isDefault == 1")
-//        let query = ORLiftTemplate.query(predicate: NSPredicate(value: true))
-//        self.publicDB.performQuery(query, inZoneWithID: nil) { (templateRecords, error) -> Void in
-//            if error == nil {
-//                
-//                self.templates = []
-//                for record in templateRecords as! [CKRecord] {
-//                    self.templates!.append(ORLiftTemplate(record: record))
-//                }
-//                println("displaying \(self.templates)")
-//                self.displayTemplates(self.templates!)
-//            } else {
-//                println(error)
-//            }
-//        }
+        self.session = ORSession.currentSession
+        self.cloudData = self.session.cloudData
+        
+        self.cloudData.fetchAssociatedOrganizations(self.session.currentAthlete!) { (response) -> () in
+            if response.error == nil {
+                
+                for record in response.results as! [CKRecord] {
+                    self.organizations.append(OROrganization(record: record))
+                }
+                
+                runOnMainThread {
+                    self.displayOrganizations(self.organizations)
+                }
+                
+            } else {
+                println(response.error)
+            }
+        }
         
     }
     
-    func displayTemplates(templates: [ORLiftTemplate]) {
-        for (i, template) in enumerate(templates) {
+    func displayOrganizations(organizations: [OROrganization]) {
+        for (i, organization) in enumerate(organizations) {
             
-            var templateButton = LiftTemplateButton(frame: CGRect(), template: template, index: i)
+            let topPadding = 15 as CGFloat
+            let width = self.organizationsContainerView.frame.width
+            let height = 60 as CGFloat
+            let x = 0 as CGFloat
+            let y = (height + topPadding) * CGFloat(i)
+            var organizationItem = AssociatedOrganizationListItem(frame: NSRect(x: x, y: y, width: width, height: height), organization: organization)
             
-            self.templatesContainerView.addSubview(templateButton)
+            organizationItem.selectedHandler = { organization in
+                ORSession.currentSession.currentOrganization = organization
+                
+                self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: NSViewControllerTransitionOptions.SlideForward, completionHandler: nil)
+            }
+            
+            self.organizationsContainerView.addSubview(organizationItem)
         }
-    }
-    
-    @IBAction func logoutPressed(sender: NSButton) {
-        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.organizationListVC, options: NSViewControllerTransitionOptions.SlideRight, completionHandler: nil)
     }
     
 }

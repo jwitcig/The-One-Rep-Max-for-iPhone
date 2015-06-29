@@ -35,7 +35,6 @@ class SlideTransitionAnimator: NSObject, NSViewControllerPresentationAnimator {
             topVC.view.animator().alphaValue = 1
             
             }, completionHandler: nil)
-        println("\(bottomVC.view.superview)")
     }
     
     func animateDismissalOfViewController(viewController: NSViewController, fromViewController: NSViewController) {

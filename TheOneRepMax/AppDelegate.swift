@@ -10,11 +10,19 @@ import Cocoa
 import CloudKit
 import ORMKit
 
+func runOnMainThread(block: (()->())) {
+    dispatch_async(dispatch_get_main_queue()) {
+        block()
+    }
+}
+
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-
+    
+    var orSession: ORSession!
+    
     func applicationDidFinishLaunching(aNotification: NSNotification) {
-                
+        
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {

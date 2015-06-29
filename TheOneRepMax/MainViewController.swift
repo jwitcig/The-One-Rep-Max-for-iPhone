@@ -14,35 +14,47 @@ class MainViewController: NSViewController {
     
     var organizationListVC: OrganizationListViewController!
     var homeVC: HomeViewController!
+    var ormVC: ORMViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appDelegate = NSApplication.sharedApplication().delegate! as! AppDelegate
+        let appDelegate = NSApplication.sharedApplication().delegate! as!  AppDelegate
         let context = appDelegate.managedObjectContext!
-        ORSession.currentSession.managedObjectContext = context
-
+        let session = ORSession.currentSession
+        let container = CKContainer.defaultContainer()
+        let publicDatabase = container.publicCloudDatabase
         
-        let (success, athlete) = ORAthlete.signInLocally()
-        if success {
-            self.instantiateViewControllers()
-            self.registerChildViewControllers()
-            
-            self.view.addSubview(self.organizationListVC.view)
+        let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: publicDatabase)
+        
+        ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
+        ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
+        
+        ORSession.currentSession.signInWithCloud { (success, error) -> () in
+            if success {
+                self.instantiateViewControllers()
+                self.registerChildViewControllers()
+                
+                runOnMainThread {
+//                    self.view.addSubview(self.organizationListVC.view)
+                    self.view.addSubview(self.homeVC.view)
+                }
+            } else {
+                println(error)
+            }
         }
     }
     
     func instantiateViewControllers() {
         self.organizationListVC = self.storyboard?.instantiateControllerWithIdentifier("OrganizationListViewController") as! OrganizationListViewController
         self.homeVC = self.storyboard?.instantiateControllerWithIdentifier("HomeViewController") as! HomeViewController
-        
-        self.homeVC.container = CKContainer.defaultContainer()
-        self.homeVC.publicDB = self.homeVC.container.publicCloudDatabase
+        self.ormVC = self.storyboard?.instantiateControllerWithIdentifier("ORMViewController") as! ORMViewController
     }
     
     func registerChildViewControllers() {
         self.addChildViewController(self.organizationListVC)
         self.addChildViewController(self.homeVC)
+        self.addChildViewController(self.ormVC)
     }
     
 }

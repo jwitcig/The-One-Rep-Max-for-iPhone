@@ -10,9 +10,21 @@ import Cocoa
 import CloudKit
 import ORMKit
 
-class OrganizationListViewController: NSViewController {
+class OrganizationListViewController: NSViewController, NSCollectionViewDelegate {
+    
+    @IBOutlet weak var organizationListView: NSView!
+    @IBOutlet weak var organizationInfoContainer: NSView!
+    @IBOutlet weak var orgNameLabel: NSTextField!
+    @IBOutlet weak var orgAthleteCountLabel: NSTextField!
     
     var parentVC: MainViewController!
+    var organizations = [OROrganization]()
+    
+    var container: CKContainer!
+    var publicDB: CKDatabase!
+    var session: ORSession!
+    var localData: ORLocalData!
+    var cloudData: ORCloudData!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,20 +33,57 @@ class OrganizationListViewController: NSViewController {
         
         self.view.layer?.backgroundColor = NSColor.whiteColor().CGColor
         
-        let container = CKContainer.defaultContainer()
-        let publicDB = container.publicCloudDatabase
-        let athlete = ORSession.currentSession.currentAthlete!
+        self.container = CKContainer.defaultContainer()
+        self.publicDB = container.publicCloudDatabase
+        self.session = ORSession.currentSession
+        self.localData = session.localData
+        self.cloudData = session.cloudData
         
-        var delegate = NSApplication.sharedApplication().delegate! as! AppDelegate
-        var context = delegate.managedObjectContext!
         
-        athlete.fetchAssociatedOrganizations { (response) -> () in
+        self.cloudData.fetchAllOrganizations { (response) -> () in
+            
             if response.error == nil {
+                for record in response.results as! [CKRecord] {
+                    
+                    let org = OROrganization(record: record)
+                    self.organizations.append(org)
+                }
                 
-            } else {
-                println(response.error)
+                runOnMainThread {
+                    self.displayOrganizationsList(self.organizations)
+                }
             }
         }
+
+    }
+    
+    func displayOrganizationsList(organizations: [OROrganization]) {
+        let container = self.organizationListView
+        
+        for (i, organization) in enumerate(organizations) {
+            
+            let topPadding = 15 as CGFloat
+            let width = container.frame.width
+            let height = 50 as CGFloat
+            let x = 0 as CGFloat
+            let y = (height + topPadding) * CGFloat(i)
+            var orgView = OrganizationListItem(frame: CGRect(x: x, y: y, width: width, height: height), organization: organization)
+            
+            orgView.viewInfoHandler = { (organization) in
+                self.orgNameLabel.stringValue = organization.orgName
+                self.orgAthleteCountLabel.stringValue = "\(organization.athletes.count) athletes"
+            }
+            
+            orgView.joinHandler = { (organization) in
+                organization.athletes.append(self.session.currentAthlete!.reference)
+                self.publicDB.saveRecord(organization.record) { (record, error) -> Void in
+                    println(error)
+                }
+            }
+            
+            self.organizationListView.addSubview(orgView)
+        }
+        
     }
     
     override var representedObject: AnyObject? {
@@ -42,6 +91,5 @@ class OrganizationListViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
+    
 }
