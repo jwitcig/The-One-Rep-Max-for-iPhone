@@ -16,6 +16,8 @@ class MainViewController: NSViewController {
     var homeVC: HomeViewController!
     var ormVC: ORMViewController!
     var historyVC: HistoryViewController!
+    var messagesVC: MessagesViewController!
+    var viewMessageVC: ViewMessageViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +39,6 @@ class MainViewController: NSViewController {
                 self.registerChildViewControllers()
                 
                 runOnMainThread {
-//                    self.view.addSubview(self.organizationListVC.view)
                     self.view.addSubview(self.homeVC.view)
                 }
             } else {
@@ -51,6 +52,8 @@ class MainViewController: NSViewController {
         self.homeVC = self.storyboard?.instantiateControllerWithIdentifier("HomeViewController") as! HomeViewController
         self.ormVC = self.storyboard?.instantiateControllerWithIdentifier("ORMViewController") as! ORMViewController
         self.historyVC = self.storyboard?.instantiateControllerWithIdentifier("HistoryViewController") as! HistoryViewController
+        self.messagesVC = self.storyboard?.instantiateControllerWithIdentifier("MessagesViewController") as! MessagesViewController
+        self.viewMessageVC = self.storyboard?.instantiateControllerWithIdentifier("ViewMessageViewController") as! ViewMessageViewController
     }
     
     func registerChildViewControllers() {
@@ -58,6 +61,8 @@ class MainViewController: NSViewController {
         self.addChildViewController(self.homeVC)
         self.addChildViewController(self.ormVC)
         self.addChildViewController(self.historyVC)
+        self.addChildViewController(self.messagesVC)
+        self.addChildViewController(self.viewMessageVC)
     }
     
 }

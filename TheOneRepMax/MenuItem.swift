@@ -9,6 +9,8 @@
 import Cocoa
 
 @IBDesignable class MenuItem: NSLabel {
+    
+    var clickHandler: (()->())?
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
@@ -18,13 +20,15 @@ import Cocoa
         let topRight1 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMinY(dirtyRect))
         let topRight2 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMinY(dirtyRect)+width)
 
-        
         var path = NSBezierPath()
         path.moveToPoint(topRight1)
         path.lineToPoint(topRight)
         path.lineToPoint(topRight2)
         path.fill()
-        
+    }
+    
+    override func mouseDown(theEvent: NSEvent) {
+        self.clickHandler?()
     }
     
 }

@@ -17,6 +17,8 @@
 		8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6481B426E5200C21F7F /* NSLabel.swift */; };
 		8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */; };
 		8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520971B44CA27005E0FF0 /* MenuItem.swift */; };
+		8BA5209F1B45125C005E0FF0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA5209E1B45125C005E0FF0 /* MessagesViewController.swift */; };
+		8BA520A11B4517F2005E0FF0 /* MessagesListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520A01B4517F2005E0FF0 /* MessagesListItem.swift */; };
 		8BC4AB2D1B40F9C20010510E /* HistoryTemplateOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */; };
 		8BC9DC971B41235B00BDA199 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9DC961B41235B00BDA199 /* BackgroundView.swift */; };
 		8BC9DC991B4123F300BDA199 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */; };
@@ -25,6 +27,7 @@
 		8BCF1F131B2B5F3600D05EEE /* OrganizationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F0F1B2B5F3600D05EEE /* OrganizationListViewController.swift */; };
 		8BCF1F141B2B5F3600D05EEE /* LiftTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */; };
 		8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */; };
+		8BD38DC51B45C4C500A1E830 /* ViewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */; };
 		8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */; };
 		8BEB2DD11B39EBDB001D10FE /* NSFlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB2DD01B39EBDB001D10FE /* NSFlippedView.swift */; };
 		8BEB2DD31B39F3D8001D10FE /* RightRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB2DD21B39F3D8001D10FE /* RightRoundedButton.swift */; };
@@ -67,6 +70,8 @@
 		8BA1D7DE1B2E88D1007437D6 /* TheOneRepMax_v10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v10.xcdatamodel; sourceTree = "<group>"; };
 		8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRepMaxContainer.swift; sourceTree = "<group>"; };
 		8BA520971B44CA27005E0FF0 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		8BA5209E1B45125C005E0FF0 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
+		8BA520A01B4517F2005E0FF0 /* MessagesListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesListItem.swift; sourceTree = "<group>"; };
 		8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTemplateOptionButton.swift; sourceTree = "<group>"; };
 		8BC9DC961B41235B00BDA199 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +83,7 @@
 		8BCF1F161B2B612700D05EEE /* ORMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORMKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/TheOneRepMacx-apqhkpxyimykeogmqjcwpqterbbm/Build/Products/Debug/ORMKit.framework"; sourceTree = "<group>"; };
 		8BD0F1B01B309AB400F96C96 /* TheOneRepMax_v16.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v16.xcdatamodel; sourceTree = "<group>"; };
 		8BD0F1B11B30F19000F96C96 /* TheOneRepMax_v17.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v17.xcdatamodel; sourceTree = "<group>"; };
+		8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageViewController.swift; sourceTree = "<group>"; };
 		8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-Bridging-Header.h"; sourceTree = "<group>"; };
 		8BE077251B2D472C0070D128 /* TheOneRepMax_v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v2.xcdatamodel; sourceTree = "<group>"; };
 		8BE077261B2D492F0070D128 /* TheOneRepMax_v 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "TheOneRepMax_v 3.xcdatamodel"; sourceTree = "<group>"; };
@@ -142,6 +148,16 @@
 				8BEB2DD21B39F3D8001D10FE /* RightRoundedButton.swift */,
 			);
 			name = "Organization List Item";
+			sourceTree = "<group>";
+		};
+		8BA5209D1B451246005E0FF0 /* Messages */ = {
+			isa = PBXGroup;
+			children = (
+				8BA5209E1B45125C005E0FF0 /* MessagesViewController.swift */,
+				8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */,
+				8BA520A01B4517F2005E0FF0 /* MessagesListItem.swift */,
+			);
+			name = Messages;
 			sourceTree = "<group>";
 		};
 		8BC9DC901B4122AA00BDA199 /* Misc */ = {
@@ -237,6 +253,7 @@
 				8BC9DC931B41230D00BDA199 /* Application */,
 				8BC9DC941B41231F00BDA199 /* Organization List */,
 				8BC9DC9A1B41240800BDA199 /* History */,
+				8BA5209D1B451246005E0FF0 /* Messages */,
 				8BC9DC921B4122EA00BDA199 /* One Rep Max */,
 				8BC9DC951B41233100BDA199 /* Home */,
 				8BF343631B27FA08007CBF44 /* Images.xcassets */,
@@ -383,6 +400,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BA520A11B4517F2005E0FF0 /* MessagesListItem.swift in Sources */,
 				8BCF1F131B2B5F3600D05EEE /* OrganizationListViewController.swift in Sources */,
 				8BC9DC9D1B41242D00BDA199 /* ORViewController.swift in Sources */,
 				8BC4AB2D1B40F9C20010510E /* HistoryTemplateOptionButton.swift in Sources */,
@@ -390,6 +408,7 @@
 				8BC9DC991B4123F300BDA199 /* HistoryViewController.swift in Sources */,
 				8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */,
 				8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */,
+				8BD38DC51B45C4C500A1E830 /* ViewMessageViewController.swift in Sources */,
 				8BF343621B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld in Sources */,
 				8B73D6471B4266F400C21F7F /* LiftEntryTableItem.swift in Sources */,
 				8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */,
@@ -398,6 +417,7 @@
 				8BEB2DD11B39EBDB001D10FE /* NSFlippedView.swift in Sources */,
 				8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */,
 				8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */,
+				8BA5209F1B45125C005E0FF0 /* MessagesViewController.swift in Sources */,
 				8BCF1F121B2B5F3600D05EEE /* MainViewController.swift in Sources */,
 				8BC9DC971B41235B00BDA199 /* BackgroundView.swift in Sources */,
 				8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */,

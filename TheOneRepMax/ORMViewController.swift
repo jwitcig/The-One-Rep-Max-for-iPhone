@@ -23,6 +23,8 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     
     @IBOutlet weak var liftTemplatesContainer: NSScrollView!
     
+    @IBOutlet weak var messagesMenuItem: MenuItem!
+    
     var liftTemplates = [ORLiftTemplate]()
     
     var weightLifted: Int {
@@ -44,6 +46,8 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.initMenuItems()
                 
         self.cloudData.fetchLiftTemplates(session: self.session) { (response) -> () in
             
@@ -62,6 +66,15 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
                 println(response.error)
             }
             
+        }
+    }
+    
+    func initMenuItems() {
+        self.messagesMenuItem.clickHandler = {
+            var destination = self.parentVC.messagesVC
+            destination.organization = self.session.currentOrganization
+            
+            self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
         }
     }
     
