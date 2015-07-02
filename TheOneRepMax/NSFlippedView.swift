@@ -9,11 +9,9 @@
 import Cocoa
 
 class NSFlippedView: NSView {
-
     override var flipped:Bool { get { return true } }
-    
-    override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
-    }
-    
+}
+
+class NSFlippedScrollView: NSScrollView {
+    override var flipped:Bool { get { return true } }
 }

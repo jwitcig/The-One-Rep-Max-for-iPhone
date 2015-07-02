@@ -27,8 +27,23 @@ class HistoryTemplateOptionButton: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
         
-        var path = NSBezierPath(roundedRect: dirtyRect, xRadius: 14, yRadius: 14)
-        NSColor(red: 51/255, green: 102/255, blue: 255/255, alpha: 1).setFill()
+        let width = 3 as CGFloat
+        let length = 10 as CGFloat
+        let topRight1 = NSPoint(x: CGRectGetMaxX(dirtyRect)-length, y: CGRectGetMaxY(dirtyRect))
+        let topRight2 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMaxY(dirtyRect))
+        let topRight3 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMaxY(dirtyRect)-length)
+        let topRight4 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMaxY(dirtyRect)-length)
+        let topRight5 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMaxY(dirtyRect)-width)
+        let topRight6 = NSPoint(x: CGRectGetMaxX(dirtyRect)-length, y: CGRectGetMaxY(dirtyRect)-width)
+        
+        var path = NSBezierPath()
+        path.moveToPoint(topRight1)
+        path.lineToPoint(topRight2)
+        path.lineToPoint(topRight3)
+        path.lineToPoint(topRight4)
+        path.lineToPoint(topRight5)
+        path.lineToPoint(topRight6)
+        NSColor.blackColor().setFill()
         path.fill()
         
         self.setTitle(self.liftTemplate.liftName)

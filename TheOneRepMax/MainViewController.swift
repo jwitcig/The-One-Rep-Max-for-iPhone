@@ -15,6 +15,7 @@ class MainViewController: NSViewController {
     var organizationListVC: OrganizationListViewController!
     var homeVC: HomeViewController!
     var ormVC: ORMViewController!
+    var historyVC: HistoryViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,12 +50,14 @@ class MainViewController: NSViewController {
         self.organizationListVC = self.storyboard?.instantiateControllerWithIdentifier("OrganizationListViewController") as! OrganizationListViewController
         self.homeVC = self.storyboard?.instantiateControllerWithIdentifier("HomeViewController") as! HomeViewController
         self.ormVC = self.storyboard?.instantiateControllerWithIdentifier("ORMViewController") as! ORMViewController
+        self.historyVC = self.storyboard?.instantiateControllerWithIdentifier("HistoryViewController") as! HistoryViewController
     }
     
     func registerChildViewControllers() {
         self.addChildViewController(self.organizationListVC)
         self.addChildViewController(self.homeVC)
         self.addChildViewController(self.ormVC)
+        self.addChildViewController(self.historyVC)
     }
     
 }

@@ -10,9 +10,9 @@ import Cocoa
 import CloudKit
 import ORMKit
 
-class ORMViewController: NSViewController, NSTextFieldDelegate {
+class ORMViewController: ORViewController, NSTextFieldDelegate {
     
-    @IBOutlet weak var ormToolContainer: NSView!
+    @IBOutlet weak var ormToolContainer: OneRepMaxContainer!
     
     @IBOutlet weak var weightField: NSTextField!
     @IBOutlet weak var repsField: NSTextField!
@@ -22,11 +22,6 @@ class ORMViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var liftTemplatesSelect: NSPopUpButton!
     
     @IBOutlet weak var liftTemplatesContainer: NSView!
-    
-    var parentVC: MainViewController!
-    
-    var session: ORSession!
-    var cloudData: ORCloudData!
     
     var liftTemplates = [ORLiftTemplate]()
     
@@ -49,16 +44,8 @@ class ORMViewController: NSViewController, NSTextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.parentVC = self.parentViewController! as! MainViewController
-        
-        self.session = ORSession.currentSession
-        self.cloudData = self.session.cloudData
-        
-        self.ormToolContainer.wantsLayer = true
-        self.ormToolContainer.layer?.backgroundColor = NSColor.darkGrayColor().CGColor
-        
-        self.cloudData.fetchLiftTemplates(self.session) { (response) -> () in
+                
+        self.cloudData.fetchLiftTemplates(session: self.session) { (response) -> () in
             
             if response.error == nil {
                 
@@ -82,12 +69,18 @@ class ORMViewController: NSViewController, NSTextFieldDelegate {
         for (i, template) in enumerate(templates) {
             
             let topPadding = 15 as CGFloat
-            let width = self.liftTemplatesContainer.frame.width
+            let width = self.liftTemplatesContainer.frame.width * (2/3)
             let height = 40 as CGFloat
-            let x = 0 as CGFloat
+            let x = (self.liftTemplatesContainer.frame.width - width) * (1/2)
             let y = (height + topPadding) * CGFloat(i)
             
             var button = HistoryTemplateOptionButton(frame: NSRect(x: x, y: y, width: width, height: height), liftTemplate: template)
+            button.clickHandler = { template in
+                var destinationViewController = self.parentVC.historyVC
+                destinationViewController.representedObject = template
+                destinationViewController.fromViewController = self
+                self.parentVC.transitionFromViewController(self, toViewController: destinationViewController, options: NSViewControllerTransitionOptions.SlideDown, completionHandler: nil)
+            }
             
             self.liftTemplatesContainer.addSubview(button)
         }

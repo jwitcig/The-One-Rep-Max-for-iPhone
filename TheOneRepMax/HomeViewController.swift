@@ -10,25 +10,14 @@ import Cocoa
 import CloudKit
 import ORMKit
 
-class HomeViewController: NSViewController {
+class HomeViewController: ORViewController {
     
     @IBOutlet weak var organizationsContainerView: NSView!
-    
-    var parentVC: MainViewController!
-    
-    var session: ORSession!
-    var cloudData: ORCloudData!
 
     var organizations = [OROrganization]()
         
     override func viewDidLoad() {
-        
         super.viewDidLoad()
-        
-        self.parentVC = self.parentViewController! as! MainViewController
-        
-        self.session = ORSession.currentSession
-        self.cloudData = self.session.cloudData
         
         self.cloudData.fetchAssociatedOrganizations(self.session.currentAthlete!) { (response) -> () in
             if response.error == nil {
