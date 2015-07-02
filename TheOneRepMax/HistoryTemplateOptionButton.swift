@@ -29,12 +29,12 @@ class HistoryTemplateOptionButton: NSView {
         
         let width = 3 as CGFloat
         let length = 10 as CGFloat
-        let topRight1 = NSPoint(x: CGRectGetMaxX(dirtyRect)-length, y: CGRectGetMaxY(dirtyRect))
-        let topRight2 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMaxY(dirtyRect))
-        let topRight3 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMaxY(dirtyRect)-length)
-        let topRight4 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMaxY(dirtyRect)-length)
-        let topRight5 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMaxY(dirtyRect)-width)
-        let topRight6 = NSPoint(x: CGRectGetMaxX(dirtyRect)-length, y: CGRectGetMaxY(dirtyRect)-width)
+        let topRight1 = NSPoint(x: CGRectGetMinX(dirtyRect), y: CGRectGetMinY(dirtyRect)+width)
+        let topRight2 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMinY(dirtyRect)+width)
+        let topRight3 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMinY(dirtyRect)+length)
+        let topRight4 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMinY(dirtyRect)+length)
+        let topRight5 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMinY(dirtyRect))
+        let topRight6 = NSPoint(x: CGRectGetMinX(dirtyRect), y: CGRectGetMinY(dirtyRect))
         
         var path = NSBezierPath()
         path.moveToPoint(topRight1)

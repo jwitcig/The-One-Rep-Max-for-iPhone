@@ -16,7 +16,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     
     @IBOutlet weak var liftEntriesContainer: NSFlippedScrollView!
     @IBOutlet weak var graphHostingView: CPTGraphHostingView!
-    var graph: CPTXYGraph!
+    var graph: CPTXYGraph?
     typealias plotDataType = [CPTScatterPlotField: Double]
     var plotData = [plotDataType]()
     
@@ -33,10 +33,12 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     }
     
     func initGraph(#entries: [ORLiftEntry]) {
+        
         // Create graph from theme
         let newGraph = CPTXYGraph(frame: CGRectZero)
         newGraph.applyTheme(CPTTheme(named: kCPTDarkGradientTheme))
         
+        self.graphHostingView.hidden = false
         self.graphHostingView.hostedGraph = newGraph
         
         // Paddings
@@ -172,8 +174,10 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
                 }
                 
                 runOnMainThread {
-                    self.displayLiftEntries(self.liftEntries)
-                    self.initGraph(entries: self.liftEntries)
+                    if self.liftEntries.count > 0 {
+                        self.displayLiftEntries(self.liftEntries)
+                        self.initGraph(entries: self.liftEntries)
+                    }
                 }
                 
             } else {
@@ -182,8 +186,18 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         }
     }
     
-    func displayLiftEntries(entries: [ORLiftEntry]) {
+    override func viewDidDisappear() {
+        self.clearDataDisplays()
+    }
+    
+    func clearDataDisplays() {
         self.liftEntriesContainer.documentView = nil
+        self.graph = nil
+        self.graphHostingView.hidden = true
+    }
+    
+    func displayLiftEntries(entries: [ORLiftEntry]) {
+        self.clearDataDisplays()
         
         var container = NSFlippedView()
         for (i, entry) in enumerate(entries) {

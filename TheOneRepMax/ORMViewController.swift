@@ -21,7 +21,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
 
     @IBOutlet weak var liftTemplatesSelect: NSPopUpButton!
     
-    @IBOutlet weak var liftTemplatesContainer: NSView!
+    @IBOutlet weak var liftTemplatesContainer: NSScrollView!
     
     var liftTemplates = [ORLiftTemplate]()
     
@@ -66,10 +66,11 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     }
     
     func updateHistoryList(templates: [ORLiftTemplate]) {
+        var container = NSView(frame: self.liftTemplatesContainer.frame)
         for (i, template) in enumerate(templates) {
             
-            let topPadding = 15 as CGFloat
-            let width = self.liftTemplatesContainer.frame.width * (2/3)
+            let topPadding = 5 as CGFloat
+            let width = self.liftTemplatesContainer.frame.width
             let height = 40 as CGFloat
             let x = (self.liftTemplatesContainer.frame.width - width) * (1/2)
             let y = (height + topPadding) * CGFloat(i)
@@ -82,8 +83,10 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
                 self.parentVC.transitionFromViewController(self, toViewController: destinationViewController, options: NSViewControllerTransitionOptions.SlideDown, completionHandler: nil)
             }
             
-            self.liftTemplatesContainer.addSubview(button)
+            container.addSubview(button)
+            container.frame = NSRect(x: 0, y: 0, width: container.frame.width, height: CGRectGetMaxY(button.frame))
         }
+        self.liftTemplatesContainer.documentView = container
     }
     
     func updateLiftTemplatePopUp(templates: [ORLiftTemplate]) {

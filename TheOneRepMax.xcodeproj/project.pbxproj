@@ -16,6 +16,7 @@
 		8B73D6471B4266F400C21F7F /* LiftEntryTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */; };
 		8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6481B426E5200C21F7F /* NSLabel.swift */; };
 		8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */; };
+		8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520971B44CA27005E0FF0 /* MenuItem.swift */; };
 		8BC4AB2D1B40F9C20010510E /* HistoryTemplateOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */; };
 		8BC9DC971B41235B00BDA199 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9DC961B41235B00BDA199 /* BackgroundView.swift */; };
 		8BC9DC991B4123F300BDA199 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */; };
@@ -65,6 +66,7 @@
 		8BA1D7DB1B2E6E20007437D6 /* TheOneRepMax_v9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v9.xcdatamodel; sourceTree = "<group>"; };
 		8BA1D7DE1B2E88D1007437D6 /* TheOneRepMax_v10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v10.xcdatamodel; sourceTree = "<group>"; };
 		8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRepMaxContainer.swift; sourceTree = "<group>"; };
+		8BA520971B44CA27005E0FF0 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTemplateOptionButton.swift; sourceTree = "<group>"; };
 		8BC9DC961B41235B00BDA199 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -165,6 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */,
+				8BA520971B44CA27005E0FF0 /* MenuItem.swift */,
 				8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */,
 				8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */,
 			);
@@ -389,6 +392,7 @@
 				8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */,
 				8BF343621B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld in Sources */,
 				8B73D6471B4266F400C21F7F /* LiftEntryTableItem.swift in Sources */,
+				8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */,
 				8B1C5C621B35F57A00B47E5E /* OrganizationListItem.swift in Sources */,
 				8BF3435D1B27FA08007CBF44 /* AppDelegate.swift in Sources */,
 				8BEB2DD11B39EBDB001D10FE /* NSFlippedView.swift in Sources */,
