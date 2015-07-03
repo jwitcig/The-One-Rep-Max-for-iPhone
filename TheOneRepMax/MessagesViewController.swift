@@ -35,6 +35,9 @@ class MessagesViewController: ORViewController {
                     self.messages.append(ORMessage(record: record))
                 }
                 
+                // Recent -> Old
+                self.messages.sort { $0.createdDate.compare($1.createdDate) == .OrderedDescending }
+                
                 runOnMainThread {
                     self.displayMessages(self.messages)
                 }
@@ -43,6 +46,7 @@ class MessagesViewController: ORViewController {
     }
     
     func displayMessages(messages: [ORMessage]) {
+        self.messagesScrollView.documentView?.removeFromSuperview()
         var container = NSFlippedView(frame: self.messagesScrollView.frame)
         
         for (i, message) in enumerate(messages) {
@@ -57,6 +61,7 @@ class MessagesViewController: ORViewController {
             
             item.clickHandler = { message in
                 self.parentVC.viewMessageVC.message = message
+                self.parentVC.viewMessageVC.editing = false
                 
                 if self.parentVC.viewMessageVC.presentingViewController == nil {
                     self.presentViewController(self.parentVC.viewMessageVC, asPopoverRelativeToRect: self.view.frame, ofView: self.view, preferredEdge: NSMaxXEdge, behavior: NSPopoverBehavior.Transient)
@@ -68,6 +73,15 @@ class MessagesViewController: ORViewController {
         }
         
         self.messagesScrollView.documentView = container
+    }
+    
+    @IBAction func newMessagePressed(newMessageButton: NSButton) {
+        self.parentVC.viewMessageVC.message = ORMessage()
+        self.parentVC.viewMessageVC.editing = true
+        
+        if self.parentVC.viewMessageVC.presentingViewController == nil {
+            self.presentViewController(self.parentVC.viewMessageVC, asPopoverRelativeToRect: self.parentVC.viewMessageVC.view.frame, ofView: newMessageButton, preferredEdge: NSMaxXEdge, behavior: NSPopoverBehavior.Transient)
+        }
     }
     
     @IBAction func backPressed(sender: NSButton) {

@@ -173,6 +173,8 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
                     self.liftEntries.append(ORLiftEntry(record: record))
                 }
                 
+                self.liftEntries.sort { $0.date.compare($1.date) == .OrderedDescending }
+                
                 runOnMainThread {
                     if self.liftEntries.count > 0 {
                         self.displayLiftEntries(self.liftEntries)
@@ -203,8 +205,8 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         for (i, entry) in enumerate(entries) {
             let topPadding = 0 as CGFloat
             var width = self.liftEntriesContainer.frame.width
-            var height = 40 as CGFloat
-            var x = 0 as CGFloat
+            var height = 35 as CGFloat
+            var x = (self.liftEntriesContainer.frame.width / 2) - (width / 2)
             var y = (height + topPadding) * CGFloat(i)
             var item = LiftEntryTableItem(frame: NSRect(x: x, y: y, width: width, height: height), liftEntry: entry)
             container.addSubview(item)

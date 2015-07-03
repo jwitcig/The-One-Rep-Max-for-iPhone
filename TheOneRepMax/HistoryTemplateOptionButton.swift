@@ -27,25 +27,6 @@ class HistoryTemplateOptionButton: NSView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
         
-        let width = 3 as CGFloat
-        let length = 10 as CGFloat
-        let topRight1 = NSPoint(x: CGRectGetMinX(dirtyRect), y: CGRectGetMinY(dirtyRect)+width)
-        let topRight2 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMinY(dirtyRect)+width)
-        let topRight3 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMinY(dirtyRect)+length)
-        let topRight4 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMinY(dirtyRect)+length)
-        let topRight5 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMinY(dirtyRect))
-        let topRight6 = NSPoint(x: CGRectGetMinX(dirtyRect), y: CGRectGetMinY(dirtyRect))
-        
-        var path = NSBezierPath()
-        path.moveToPoint(topRight1)
-        path.lineToPoint(topRight2)
-        path.lineToPoint(topRight3)
-        path.lineToPoint(topRight4)
-        path.lineToPoint(topRight5)
-        path.lineToPoint(topRight6)
-        NSColor.blackColor().setFill()
-        path.fill()
-        
         self.setTitle(self.liftTemplate.liftName)
     }
     
@@ -55,18 +36,29 @@ class HistoryTemplateOptionButton: NSView {
         label.bezeled = false
         label.bordered = false
         label.editable = false
-        label.alignment = .CenterTextAlignment
         label.stringValue = title
         label.font = NSFont(name: "Lucida Grande", size: 20)
         label.sizeToFit()
         
-        let width = label.frame.width
+        var paddingLeft = 20 as CGFloat
+        let width = self.frame.width - paddingLeft
         let height = label.frame.height
-        let x = (self.frame.width / 2) - (width / 2)
+        let x = paddingLeft
         let y = (self.frame.height / 2) - (height / 2)
         
         label.frame = NSRect(x: x, y: y, width: width, height: height)
         self.addSubview(label)
+        
+        
+        paddingLeft -= 5
+        let top = NSPoint(x: paddingLeft, y: CGRectGetMaxY(label.frame))
+        let bottom = NSPoint(x: paddingLeft, y: CGRectGetMinY(label.frame))
+        
+        var path = NSBezierPath()
+        path.moveToPoint(top)
+        path.lineToPoint(bottom)
+        NSColor.blackColor().setFill()
+        path.stroke()
     }
     
     override func mouseUp(theEvent: NSEvent) {

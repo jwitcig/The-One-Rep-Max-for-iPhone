@@ -79,12 +79,12 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     }
     
     func updateHistoryList(templates: [ORLiftTemplate]) {
-        var container = NSView(frame: self.liftTemplatesContainer.frame)
+        var container = NSFlippedView(frame: self.liftTemplatesContainer.frame)
         for (i, template) in enumerate(templates) {
             
-            let topPadding = 5 as CGFloat
+            let topPadding = 3 as CGFloat
             let width = self.liftTemplatesContainer.frame.width
-            let height = 40 as CGFloat
+            let height = 35 as CGFloat
             let x = (self.liftTemplatesContainer.frame.width - width) * (1/2)
             let y = (height + topPadding) * CGFloat(i)
             

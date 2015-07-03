@@ -27,19 +27,25 @@ class LiftEntryTableItem: NSView {
         super.drawRect(dirtyRect)
         
         let tableFont = NSFont(name: "Lucida Grande", size: 20)
-
-        var width = self.frame.width * (1/3)
+        
+        var paddingLeft = 20 as CGFloat
+        var width = (self.frame.width - paddingLeft) * (1/2)
         var height = self.frame.height
-        var x = 0 as CGFloat
+        var x = paddingLeft
         var y = 0 as CGFloat
         
-        var maxLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
+        var maxLabel = NSLabel(frame: NSRect())
         maxLabel.font = tableFont
         maxLabel.stringValue = "\(self.liftEntry.max)"
+        maxLabel.sizeToFit()
+        
+        height = maxLabel.frame.height
+        
+        maxLabel.frame = NSRect(x: x, y: y, width: width, height: height)
         
         // ------------------------------------------------------------------------------ //
         
-        x = self.frame.width * (2/3)
+        x = CGRectGetMaxX(maxLabel.frame)
         
         var dateLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
         let formatter = NSDateFormatter()
@@ -53,7 +59,15 @@ class LiftEntryTableItem: NSView {
         
         x = CGRectGetMaxX(dateLabel.frame)
         
+        paddingLeft -= 5
+        let top = NSPoint(x: paddingLeft, y: CGRectGetMaxY(maxLabel.frame))
+        let bottom = NSPoint(x: paddingLeft, y: CGRectGetMinY(maxLabel.frame))
         
+        var path = NSBezierPath()
+        path.moveToPoint(top)
+        path.lineToPoint(bottom)
+        NSColor.blackColor().setFill()
+        path.stroke()
         
         
         // ------------------------------------------------------------------------------ //
