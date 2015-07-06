@@ -18,6 +18,7 @@ class MainViewController: NSViewController {
     var historyVC: HistoryViewController!
     var messagesVC: MessagesViewController!
     var viewMessageVC: ViewMessageViewController!
+    var setupVC: SetupViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +55,7 @@ class MainViewController: NSViewController {
         self.historyVC = self.storyboard?.instantiateControllerWithIdentifier("HistoryViewController") as! HistoryViewController
         self.messagesVC = self.storyboard?.instantiateControllerWithIdentifier("MessagesViewController") as! MessagesViewController
         self.viewMessageVC = self.storyboard?.instantiateControllerWithIdentifier("ViewMessageViewController") as! ViewMessageViewController
+        self.setupVC = self.storyboard?.instantiateControllerWithIdentifier("SetupViewController") as! SetupViewController
     }
     
     func registerChildViewControllers() {
@@ -63,6 +65,7 @@ class MainViewController: NSViewController {
         self.addChildViewController(self.historyVC)
         self.addChildViewController(self.messagesVC)
         self.addChildViewController(self.viewMessageVC)
+        self.addChildViewController(self.setupVC)
     }
     
 }

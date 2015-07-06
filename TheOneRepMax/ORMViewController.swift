@@ -24,6 +24,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     @IBOutlet weak var liftTemplatesContainer: NSScrollView!
     
     @IBOutlet weak var messagesMenuItem: MenuItem!
+    @IBOutlet weak var setupMenuItem: MenuItem!
     
     var liftTemplates = [ORLiftTemplate]()
     
@@ -72,6 +73,13 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     func initMenuItems() {
         self.messagesMenuItem.clickHandler = {
             var destination = self.parentVC.messagesVC
+            destination.organization = self.session.currentOrganization
+            
+            self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
+        }
+        
+        self.setupMenuItem.clickHandler = {
+            var destination = self.parentVC.setupVC
             destination.organization = self.session.currentOrganization
             
             self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
