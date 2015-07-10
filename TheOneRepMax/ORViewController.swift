@@ -17,6 +17,7 @@ class ORViewController: NSViewController {
     public var fromViewController: ORViewController?
     
     var session: ORSession!
+    var localData: ORLocalData!
     var cloudData: ORCloudData!
     
     override func viewDidLoad() {
@@ -25,6 +26,7 @@ class ORViewController: NSViewController {
         self.parentVC = self.parentViewController! as! MainViewController
         
         self.session = ORSession.currentSession
+        self.localData = self.session.localData
         self.cloudData = self.session.cloudData
     }
     

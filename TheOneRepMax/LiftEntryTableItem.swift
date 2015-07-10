@@ -36,7 +36,7 @@ class LiftEntryTableItem: NSView {
         
         var maxLabel = NSLabel(frame: NSRect())
         maxLabel.font = tableFont
-        maxLabel.stringValue = "\(self.liftEntry.max)"
+        maxLabel.stringValue = "\(self.liftEntry.max.integerValue)"
         maxLabel.sizeToFit()
         
         height = maxLabel.frame.height

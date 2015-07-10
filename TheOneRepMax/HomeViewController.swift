@@ -19,25 +19,32 @@ class HomeViewController: ORViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.cloudData.fetchAssociatedOrganizations(self.session.currentAthlete!) { (response) -> () in
-            if response.error == nil {
-                
-                for record in response.results as! [CKRecord] {
-                    self.organizations.append(OROrganization(record: record))
-                }
-                
-                runOnMainThread {
-                    self.displayOrganizations(self.organizations)
-                }
-                
-            } else {
-                println(response.error)
-            }
-        }
+//        self.cloudData.syncronizeDataToLocalStore { (response) in
+//            if response.success {
+//                
+//                self.organizations = self.localData.fetchAll(model: OROrganization.self).localResults as! [OROrganization]
+//                
+//                runOnMainThread {
+//                    self.displayOrganizations(self.organizations)
+//                }
+//                
+//            }
+//        }
         
+    
+    
+//        self.localData.deleteAll(model: OROrganization.self)
+
+        let response = self.localData.fetchAll(model: OROrganization.self)
+        if response.success {
+            self.organizations = response.localResults as! [OROrganization]
+            self.displayOrganizations(self.organizations)
+        }
     }
     
     func displayOrganizations(organizations: [OROrganization]) {
+        self.organizationsContainerView.subviews = []
+        
         for (i, organization) in enumerate(organizations) {
             
             let topPadding = 15 as CGFloat
@@ -50,7 +57,21 @@ class HomeViewController: ORViewController {
             organizationItem.selectedHandler = { organization in
                 ORSession.currentSession.currentOrganization = organization
                 
+                self.cloudData.fetchLiftTemplates(session: ORSession.currentSession, completionHandler: nil)
+
                 self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: NSViewControllerTransitionOptions.SlideForward, completionHandler: nil)
+                
+                self.cloudData.fetchMessages(organization: organization) { (response) -> () in
+                    if response.success {
+                        
+                        var messages = ORMessage.messages(records: response.cloudResults)
+                        self.localData.save()
+                        
+                    } else {
+                        println(response.error)
+                    }
+                }
+                
             }
             
             self.organizationsContainerView.addSubview(organizationItem)

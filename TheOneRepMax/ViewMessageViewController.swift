@@ -58,12 +58,12 @@ class ViewMessageViewController: ORViewController {
         if let athlete = ORSession.currentSession.currentAthlete {
             
             if let organization = ORSession.currentSession.currentOrganization {
-                self.message.owner = organization
+                self.message.organization = organization
             }
             self.message.title = self.titleLabel.stringValue
             self.message.body = self.bodyTextView.string!
-            self.message.poster = athlete
-            
+            self.message.creator = athlete
+            self.message.createdDate = NSDate()
             
             self.cloudData.save(model: self.message) { (response) -> () in
                 if response.error == nil {

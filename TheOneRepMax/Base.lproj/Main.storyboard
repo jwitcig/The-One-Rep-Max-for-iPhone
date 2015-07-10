@@ -778,6 +778,32 @@
             </objects>
             <point key="canvasLocation" x="860" y="782"/>
         </scene>
+        <!--Stats View Controller-->
+        <scene sceneID="g4O-9J-1Vc">
+            <objects>
+                <viewController identifier="StatsViewController" storyboardIdentifier="StatsViewController" id="kPh-QM-Q6E" customClass="StatsViewController" customModule="TheOneRepMax" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Hbv-Wf-lOX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MjK-eY-aQS">
+                                <rect key="frame" x="108" y="273" width="38" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Label" id="iNY-Bt-QY9">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="averageMaxLabel" destination="MjK-eY-aQS" id="Y4Z-g1-ixK"/>
+                    </connections>
+                </viewController>
+                <customObject id="1Cz-er-8FA" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1539" y="782"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="MHi-ql-URF">
             <objects>

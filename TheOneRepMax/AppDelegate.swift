@@ -10,10 +10,24 @@ import Cocoa
 import CloudKit
 import ORMKit
 
+let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.value), 0)
+let userInitiatedThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)
+let backgroundThread = dispatch_get_global_queue(Int(QOS_CLASS_UNSPECIFIED.value), 0)
+
 func runOnMainThread(block: (()->())) {
-    dispatch_async(dispatch_get_main_queue()) {
-        block()
-    }
+    dispatch_async(dispatch_get_main_queue(), block)
+}
+
+func runOnUserInteractiveThread(block: (()->())) {
+    dispatch_async(userInteractiveThread, block)
+}
+
+func runOnUserInitiatedThread(block: (()->())) {
+    dispatch_async(userInitiatedThread, block)
+}
+
+func runOnBackgroundThread(block: (()->())) {
+    dispatch_async(backgroundThread, block)
 }
 
 @NSApplicationMain
@@ -95,7 +109,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if coordinator == nil {
             return nil
         }
-        var managedObjectContext = NSManagedObjectContext()
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()

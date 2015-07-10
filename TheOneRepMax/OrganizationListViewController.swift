@@ -39,13 +39,12 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
         self.localData = session.localData
         self.cloudData = session.cloudData
         
-        
         self.cloudData.fetchAllOrganizations { (response) -> () in
             
             if response.error == nil {
                 for record in response.results as! [CKRecord] {
                     
-                    let org = OROrganization(record: record)
+                    let org = OROrganization.organization(record: record)
                     self.organizations.append(org)
                 }
                 
@@ -75,7 +74,11 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
             }
             
             orgView.joinHandler = { (organization) in
-                organization.athletes.append(self.session.currentAthlete!.reference)
+                
+                var mutableAthletes = NSMutableSet(set: organization.athletes)
+                mutableAthletes.addObject(self.session.currentAthlete!)
+                self.localData.save()
+                
                 self.publicDB.saveRecord(organization.record) { (record, error) -> Void in
                     println(error)
                 }

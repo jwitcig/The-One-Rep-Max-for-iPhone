@@ -16,8 +16,8 @@ class MessagesViewController: ORViewController {
     
     var messages = [ORMessage]()
     
-    var organization: OROrganization? {
-        get { return self.representedObject as? OROrganization }
+    var organization: OROrganization {
+        get { return self.representedObject as! OROrganization }
         set { self.representedObject = newValue }
     }
     
@@ -27,22 +27,14 @@ class MessagesViewController: ORViewController {
     
     override func viewWillAppear() {
         
-        if let organization = self.session.currentOrganization {
-            self.cloudData.fetchMessages(organization: organization) { (response) -> () in
-                
-                self.messages = []
-                for record in response.results as! [CKRecord] {
-                    self.messages.append(ORMessage(record: record))
-                }
-                
-                // Recent -> Old
-                self.messages.sort { $0.createdDate.compare($1.createdDate) == .OrderedDescending }
-                
-                runOnMainThread {
-                    self.displayMessages(self.messages)
-                }
-            }
-        }
+        self.messages = Array(self.organization.messages)
+        
+        // Recent -> Old
+        self.messages.sort { $0.createdDate.compare($1.createdDate) == .OrderedDescending }
+        self.displayMessages(self.messages)
+        
+        
+        
     }
     
     func displayMessages(messages: [ORMessage]) {

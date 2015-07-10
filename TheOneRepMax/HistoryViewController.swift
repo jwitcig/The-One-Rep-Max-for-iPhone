@@ -33,7 +33,6 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     }
     
     func initGraph(#entries: [ORLiftEntry]) {
-        
         // Create graph from theme
         let newGraph = CPTXYGraph(frame: CGRectZero)
         newGraph.applyTheme(CPTTheme(named: kCPTDarkGradientTheme))
@@ -165,27 +164,23 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         
         self.updateLiftNameLabel(self.liftTemplate.liftName)
         
-        self.cloudData.fetchLiftEntries(template: self.liftTemplate) { (response) -> () in
-            if response.error == nil {
+        let athlete = ORSession.currentSession.currentAthlete!
+        let organization = ORSession.currentSession.currentOrganization!
+        
+        let response = self.localData.fetchLiftEntries(athlete: athlete, template: self.liftTemplate, organization: organization, order: Sort.ReverseChronological)
+
+        if response.success {
+            self.liftEntries = response.localResults as! [ORLiftEntry]
                 
-                self.liftEntries = []
-                for record in response.results as! [CKRecord] {
-                    self.liftEntries.append(ORLiftEntry(record: record))
-                }
+            let entriesChronological = self.liftEntries.sorted { $0.date.compare($1.date) == .OrderedAscending }
                 
-                self.liftEntries.sort { $0.date.compare($1.date) == .OrderedDescending }
-                
-                runOnMainThread {
-                    if self.liftEntries.count > 0 {
-                        self.displayLiftEntries(self.liftEntries)
-                        self.initGraph(entries: self.liftEntries)
-                    }
-                }
-                
-            } else {
-                println(response.error)
+            if self.liftEntries.count > 0 {
+                self.displayLiftEntries(self.liftEntries)
+                self.initGraph(entries: entriesChronological)
             }
+                
         }
+        
     }
     
     override func viewDidDisappear() {

@@ -28,12 +28,12 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     
     var liftTemplates = [ORLiftTemplate]()
     
-    var weightLifted: Int {
-        return NSString(string: self.weightField.stringValue).integerValue
+    var weightLifted: NSNumber {
+        return NSNumber(integer: NSString(string: self.weightField.stringValue).integerValue)
     }
     
-    var reps: Int {
-        return NSString(string: self.repsField.stringValue).integerValue
+    var reps: NSNumber {
+        return NSNumber(integer: NSString(string: self.repsField.stringValue).integerValue)
     }
     
     var oneRepMax: Int {
@@ -41,39 +41,25 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
             if self.reps == 0 {
                 return 0
             }
-            return Int(Float(self.weightLifted * self.reps) * 0.033) + self.weightLifted
+            return Int( (self.weightLifted.floatValue * self.reps.floatValue * 0.033) + self.weightLifted.floatValue )
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.liftTemplates = Array(self.session.currentOrganization!.liftTemplates)
+        
+        self.updateHistoryList(self.liftTemplates)
+        self.updateLiftTemplatePopUp(self.liftTemplates)
+        
         self.initMenuItems()
-                
-        self.cloudData.fetchLiftTemplates(session: self.session) { (response) -> () in
-            
-            if response.error == nil {
-                
-                for record in response.results as! [CKRecord] {
-                    self.liftTemplates.append(ORLiftTemplate(record: record))
-                    
-                    runOnMainThread {
-                        self.updateHistoryList(self.liftTemplates)
-                        self.updateLiftTemplatePopUp(self.liftTemplates)
-                    }
-                }
-                
-            } else {
-                println(response.error)
-            }
-            
-        }
     }
     
     func initMenuItems() {
         self.messagesMenuItem.clickHandler = {
             var destination = self.parentVC.messagesVC
-            destination.organization = self.session.currentOrganization
+            destination.organization = self.session.currentOrganization!
             
             self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
         }
@@ -120,17 +106,20 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     }
     
     @IBAction func saveEntryClicked(button: NSButton) {
-        var entry = ORLiftEntry()
+        var entry = ORLiftEntry.entry()
         entry.weightLifted = self.weightLifted
         entry.reps = self.reps
         entry.maxOut = true
         entry.date = NSDate()
         entry.liftTemplate = self.liftTemplates[self.liftTemplatesSelect.indexOfSelectedItem]
+        entry.athlete = ORSession.currentSession.currentAthlete!
+        entry.organization = ORSession.currentSession.currentOrganization!
         self.cloudData.save(model: entry) { (response) in
             if response.error != nil {
                 println(response.error)
             }
         }
+        self.localData.save()
     }
     
     override func controlTextDidChange(notification: NSNotification) {
