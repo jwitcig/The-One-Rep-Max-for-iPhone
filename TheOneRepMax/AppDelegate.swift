@@ -36,7 +36,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     var orSession: ORSession!
     
     func applicationDidFinishLaunching(aNotification: NSNotification) {
+        for bundle in NSBundle.allBundles() {
+            println(bundle)
+            println()
+            println()
+        }
         
+        println(NSBundle(forClass: ORModel.self))
     }
     
     func applicationWillTerminate(aNotification: NSNotification) {

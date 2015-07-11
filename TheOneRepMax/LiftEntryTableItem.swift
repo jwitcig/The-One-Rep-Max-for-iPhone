@@ -22,6 +22,8 @@ class LiftEntryTableItem: NSView {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    var deletePopover: NSPopover?
 
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)
@@ -75,6 +77,28 @@ class LiftEntryTableItem: NSView {
         self.addSubview(maxLabel)
         self.addSubview(dateLabel)
         
+        
+        self.addGestureRecognizers()
     }
+    
+    func addGestureRecognizers() {
+        let deleteRecognizer = NSClickGestureRecognizer(target: self, action: Selector("launchDeletePopover"))
+        deleteRecognizer.numberOfClicksRequired = 2
+        self.addGestureRecognizer(deleteRecognizer)
+    }
+    
+    func launchDeletePopover() {
+        if self.deletePopover == nil {
+            self.deletePopover = NSPopover()
+        }
+        
+        self.deletePopover?.contentViewController = LiftEntryTableItemOptionsViewController()
+        self.deletePopover?.behavior = .Transient
+        
+        let relativeRect = self.window?.convertRectToScreen(self.frame)
+        
+        self.deletePopover?.showRelativeToRect(self.bounds, ofView: self, preferredEdge: NSMaxXEdge)
+    }
+    
     
 }

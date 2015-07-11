@@ -18,6 +18,7 @@
 		8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */; };
 		8B73D6471B4266F400C21F7F /* LiftEntryTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */; };
 		8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6481B426E5200C21F7F /* NSLabel.swift */; };
+		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
 		8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */; };
 		8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520971B44CA27005E0FF0 /* MenuItem.swift */; };
 		8BA5209F1B45125C005E0FF0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA5209E1B45125C005E0FF0 /* MessagesViewController.swift */; };
@@ -34,6 +35,8 @@
 		8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */; };
 		8BEB2DD11B39EBDB001D10FE /* NSFlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB2DD01B39EBDB001D10FE /* NSFlippedView.swift */; };
 		8BEB2DD31B39F3D8001D10FE /* RightRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB2DD21B39F3D8001D10FE /* RightRoundedButton.swift */; };
+		8BEEC6F61B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEC6F41B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift */; };
+		8BEEC6F71B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEC6F51B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib */; };
 		8BF3435D1B27FA08007CBF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */; };
 		8BF343621B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8BF343601B27FA08007CBF44 /* TheOneRepMax.xcdatamodeld */; };
 		8BF343641B27FA08007CBF44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF343631B27FA08007CBF44 /* Images.xcassets */; };
@@ -82,6 +85,7 @@
 		8B778C9C1B2F6F2F002841B1 /* TheOneRepMax_v13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v13.xcdatamodel; sourceTree = "<group>"; };
 		8B778C9D1B2FB1C3002841B1 /* TheOneRepMax_v14.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v14.xcdatamodel; sourceTree = "<group>"; };
 		8B778CA01B2FB838002841B1 /* TheOneRepMax_v15.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v15.xcdatamodel; sourceTree = "<group>"; };
+		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		8B900FFB1B2DF2C800173DED /* TheOneRepMax_v8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v8.xcdatamodel; sourceTree = "<group>"; };
 		8BA1D7DB1B2E6E20007437D6 /* TheOneRepMax_v9.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v9.xcdatamodel; sourceTree = "<group>"; };
 		8BA1D7DE1B2E88D1007437D6 /* TheOneRepMax_v10.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v10.xcdatamodel; sourceTree = "<group>"; };
@@ -113,6 +117,8 @@
 		8BE077321B2D5ECC0070D128 /* TheOneRepMax_v7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v7.xcdatamodel; sourceTree = "<group>"; };
 		8BEB2DD01B39EBDB001D10FE /* NSFlippedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFlippedView.swift; sourceTree = "<group>"; };
 		8BEB2DD21B39F3D8001D10FE /* RightRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightRoundedButton.swift; sourceTree = "<group>"; };
+		8BEEC6F41B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntryTableItemOptionsViewController.swift; sourceTree = "<group>"; };
+		8BEEC6F51B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftEntryTableItemOptionsViewController.xib; sourceTree = "<group>"; };
 		8BF343571B27FA08007CBF44 /* TheOneRepMax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheOneRepMax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF3435B1B27FA08007CBF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -252,7 +258,10 @@
 		8BC9DC9A1B41240800BDA199 /* History */ = {
 			isa = PBXGroup;
 			children = (
+				8B8D6E511B50EF760046C1D2 /* trash.png */,
 				8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */,
+				8BEEC6F41B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift */,
+				8BEEC6F51B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib */,
 				8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */,
 			);
 			name = History;
@@ -423,6 +432,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF343641B27FA08007CBF44 /* Images.xcassets in Resources */,
+				8BEEC6F71B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib in Resources */,
+				8B8D6E521B50EF760046C1D2 /* trash.png in Resources */,
 				8BF343671B27FA08007CBF44 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +475,7 @@
 				8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */,
 				8BA5209F1B45125C005E0FF0 /* MessagesViewController.swift in Sources */,
 				8BCF1F121B2B5F3600D05EEE /* MainViewController.swift in Sources */,
+				8BEEC6F61B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift in Sources */,
 				8BC9DC971B41235B00BDA199 /* BackgroundView.swift in Sources */,
 				8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */,
 				8BCF1F141B2B5F3600D05EEE /* LiftTemplateButton.swift in Sources */,

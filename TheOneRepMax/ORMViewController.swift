@@ -48,7 +48,10 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.liftTemplates = Array(self.session.currentOrganization!.liftTemplates)
+        
+        self.liftTemplates = Array(self.session.currentOrganization!.liftTemplates).sorted {
+            $0.0.liftName.compare($0.1.liftName, options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedAscending
+        }
         
         self.updateHistoryList(self.liftTemplates)
         self.updateLiftTemplatePopUp(self.liftTemplates)
