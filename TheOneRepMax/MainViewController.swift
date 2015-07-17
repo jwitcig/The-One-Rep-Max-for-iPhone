@@ -36,6 +36,8 @@ class MainViewController: NSViewController {
         
         ORSession.currentSession.signInWithCloud { (success, error) -> () in
             if success {
+                ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
+                
                 self.instantiateViewControllers()
                 self.registerChildViewControllers()
                 

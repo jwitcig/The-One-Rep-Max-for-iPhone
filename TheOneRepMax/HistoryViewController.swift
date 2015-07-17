@@ -14,6 +14,9 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     
     @IBOutlet weak var liftNameLabel: NSTextField!
     
+    @IBOutlet weak var intervalProgressLabel: NSTextField!
+    @IBOutlet weak var intervalStatContainer: NSView!
+    
     @IBOutlet weak var liftEntriesContainer: NSFlippedScrollView!
     @IBOutlet weak var graphHostingView: CPTGraphHostingView!
     var graph: CPTXYGraph?
@@ -155,8 +158,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
             let i = Int(index)
             return self.plotData[i][field]
         }
-        
-       return nil
+        return nil
     }
     
     override func viewWillAppear() {
@@ -167,23 +169,31 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         let athlete = ORSession.currentSession.currentAthlete!
         let organization = ORSession.currentSession.currentOrganization!
         
-        let response = self.localData.fetchLiftEntries(athlete: athlete, template: self.liftTemplate, organization: organization, order: Sort.ReverseChronological)
+        let response = self.localData.fetchLiftEntries(athlete: athlete, organization: organization, template: self.liftTemplate, order: .Chronological)
 
         if response.success {
             self.liftEntries = response.localResults as! [ORLiftEntry]
                 
-            let entriesChronological = self.liftEntries.sorted { $0.date.compare($1.date) == .OrderedAscending }
+            let entriesReverse = self.liftEntries.sorted { $0.date.compare($1.date) == .OrderedDescending }
                 
             if self.liftEntries.count > 0 {
-                self.displayLiftEntries(self.liftEntries)
-                self.initGraph(entries: entriesChronological)
+                self.displayLiftEntries(entriesReverse)
+                self.initGraph(entries: self.liftEntries)
             }
-                
         }
         
+        let endDate = NSDate()
+        let startDate = endDate.dateByAddingTimeInterval(-60*60*24*14)
+            
+        if let progress = self.session.soloStats.averageProgress(template: self.liftTemplate, dateRange: (startDate, endDate), dayInterval: 14) {
+            self.intervalProgressLabel.stringValue = "\(Int(progress)) lbs."
+        } else {
+            self.intervalStatContainer.removeFromSuperview()
+        }
     }
     
     override func viewDidDisappear() {
+        super.viewDidDisappear()
         self.clearDataDisplays()
     }
     

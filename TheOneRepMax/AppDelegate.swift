@@ -35,15 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     var orSession: ORSession!
     
-    func applicationDidFinishLaunching(aNotification: NSNotification) {
-        for bundle in NSBundle.allBundles() {
-            println(bundle)
-            println()
-            println()
-        }
-        
-        println(NSBundle(forClass: ORModel.self))
-    }
+    func applicationDidFinishLaunching(aNotification: NSNotification) { }
     
     func applicationWillTerminate(aNotification: NSNotification) {
         // Insert code here to tear down your application
@@ -60,7 +52,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("TheOneRepMax", withExtension: "momd")!
+        let modelURL = NSBundle(forClass: ORModel.self).URLForResource("TheOneRepMax", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 

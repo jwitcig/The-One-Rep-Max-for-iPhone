@@ -19,17 +19,17 @@ class HomeViewController: ORViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.cloudData.syncronizeDataToLocalStore { (response) in
-//            if response.success {
-//                
-//                self.organizations = self.localData.fetchAll(model: OROrganization.self).localResults as! [OROrganization]
-//                
-//                runOnMainThread {
-//                    self.displayOrganizations(self.organizations)
-//                }
-//                
-//            }
-//        }
+        self.cloudData.syncronizeDataToLocalStore { (response) in
+            if response.success {
+                
+                self.organizations = self.localData.fetchAll(model: OROrganization.self).localResults as! [OROrganization]
+                
+                runOnMainThread {
+                    self.displayOrganizations(self.organizations)
+                }
+                
+            }
+        }
         
     
     
