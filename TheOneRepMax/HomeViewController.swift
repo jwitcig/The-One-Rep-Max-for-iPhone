@@ -19,30 +19,7 @@ class HomeViewController: ORViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if true {
-            
-            let request = NSFetchRequest(entityName: "CloudRecord")
-            do {
-                let cloudRecords = try self.localData.context.executeFetchRequest(request)
-            } catch  { }
-            
-            self.cloudData.syncronizeDataToLocalStore { (response) in
-                if response.success {
-                    
-                    self.organizations = self.localData.fetchAll(model: OROrganization.self).objects as! [OROrganization]
-                    
-//                    print(self.organizations)
-                    
-                    runOnMainThread {
-                        self.displayOrganizations(self.organizations)
-                    }
-                }
-            }
-            
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("managedObjectContextWillSave:"), name: NSManagedObjectContextWillSaveNotification, object: self.localData.context)
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("managedObjectContextDidSave:"), name: NSManagedObjectContextDidSaveNotification, object: self.localData.context)
-            
-        } else {
+        if false {
             self.localData.deleteAll(model: OROrganization.self)
             self.localData.deleteAll(model: ORLiftTemplate.self)
             self.localData.deleteAll(model: ORLiftEntry.self)
@@ -51,15 +28,27 @@ class HomeViewController: ORViewController {
             
             let request = NSFetchRequest(entityName: "CloudRecord")
             do {
-                let cloudRecords = try self.localData.context.executeFetchRequest(request)
-
-                for record in cloudRecords as! [NSManagedObject] {
-                    self.localData.context.deleteObject(record)
-                }
-                try self.localData.context.save()
+                let cloudRecords = try self.localData.context.executeFetchRequest(request) as! [NSManagedObject]
+                
+                cloudRecords.map { self.localData.context.deleteObject($0) }
+                self.localData.save()
             } catch  { }
         }
-    
+        
+        self.cloudData.syncronizeDataToLocalStore {
+            if $0.success {
+                self.organizations = self.localData.fetchAll(model: OROrganization.self).objects as! [OROrganization]
+                
+                runOnMainThread {
+                    self.displayOrganizations(self.organizations)
+                }
+            }
+        }
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("managedObjectContextWillSave:"), name: NSManagedObjectContextWillSaveNotification, object: self.localData.context)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("managedObjectContextDidSave:"), name: NSManagedObjectContextDidSaveNotification, object: self.localData.context)
+        
+
         
 //        let response = self.localData.fetchAll(model: OROrganization.self)
 //        if response.success {
@@ -92,8 +81,7 @@ class HomeViewController: ORViewController {
         
         let mainMOC = ORSession.currentSession.localData.context
         
-        // ignore change notifications for the main MOC
-        guard mainMOC != ORSession.currentSession.localData.context else { return }
+        guard savedContext != mainMOC else { return }
     
         guard mainMOC.persistentStoreCoordinator == savedContext.persistentStoreCoordinator else { return }
         
@@ -105,7 +93,9 @@ class HomeViewController: ORViewController {
     func displayOrganizations(organizations: [OROrganization]) {
         self.organizationsContainerView.subviews = []
         
-        for (i, organization) in organizations.enumerate() {
+        let reorderedOrgs = organizations.sort { $0.0.orgName.isBefore(string: $0.1.orgName) }
+        
+        for (i, organization) in reorderedOrgs.enumerate() {
             
             let topPadding = 15 as CGFloat
             let width = self.organizationsContainerView.frame.width
@@ -121,14 +111,14 @@ class HomeViewController: ORViewController {
 
                 self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: NSViewControllerTransitionOptions.SlideForward, completionHandler: nil)
                 
-                self.cloudData.fetchMessages(organization: organization) { (response) -> () in
-                    if response.success {
+                self.cloudData.fetchMessages(organization: organization) {
+                    if $0.success {
                         
-                        ORMessage.messages(records: response.objects)
+                        ORMessage.messages(records: $0.objects)
                         self.localData.save()
                         
                     } else {
-                        print(response.error)
+                        print($0.error)
                     }
                 }
                 

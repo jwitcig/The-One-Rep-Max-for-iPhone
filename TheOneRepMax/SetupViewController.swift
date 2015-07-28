@@ -29,27 +29,24 @@ class SetupViewController: ORViewController {
     }
     
     func initOptionItems() {
-        if let organization = self.organization {
-            self.cloudData.fetchAthletes(organization: organization) { (response) -> () in
-                
-                if response.success {
-                    let athletes = ORAthlete.athletes(records: response.objects)
-                    self.localData.save()
-                    
-                    var container = NSFlippedView()
-                    container.addSubview(self.buildOption(title: "name", type: .Text, value: self.organization?.orgName))
-                    container.addSubview(self.buildOption(title: "description", type: .Text, value: self.organization?.orgDescription))
-                    container.addSubview(self.buildAthletesOptionView(title: "athletes", athletes: athletes))
-                    
-                    var width = self.optionsScrollView.frame.width * (1/2)
-                    var height =  (self.optionViewHeight + self.optionViewTopPadding) * CGFloat(self.optionNumber)
-                    
-                    container.frame = NSRect(origin: CGPointZero, size: CGSize(width: self.optionsScrollView.frame.width, height: height))
-                    
-                    runOnMainThread {
-                        self.optionsScrollView.documentView = container
-                    }
-                }
+        guard let organization = self.organization else { return }
+        
+        self.cloudData.fetchAthletes(organization: organization) {
+            guard $0.success else { return }
+            
+            let athletes = ORAthlete.athletes(records: $0.objects)
+            self.localData.save()
+            
+            let container = NSFlippedView()
+            container.addSubview(self.buildOption(title: "name", type: .Text, value: self.organization?.orgName))
+            container.addSubview(self.buildOption(title: "description", type: .Text, value: self.organization?.orgDescription))
+            container.addSubview(self.buildAthletesOptionView(title: "athletes", athletes: athletes))
+            
+            let height =  (self.optionViewHeight + self.optionViewTopPadding) * CGFloat(self.optionNumber)
+            container.frame = NSRect(origin: CGPointZero, size: CGSize(width: self.optionsScrollView.frame.width, height: height))
+            
+            runOnMainThread {
+                self.optionsScrollView.documentView = container
             }
         }
     }
@@ -60,7 +57,7 @@ class SetupViewController: ORViewController {
         let frame = NSRect(origin: origin, size: size)
         
         self.optionNumber += 1
-        var option = SetupOptionView(frame: frame, title: title, type: type, organization: self.organization, value: value)
+        let option = SetupOptionView(frame: frame, title: title, type: type, organization: self.organization, value: value)
         option.parentController = self
         self.options.append(option)
         return option
@@ -68,7 +65,7 @@ class SetupViewController: ORViewController {
     
     func buildAthletesOptionView(title title: String, athletes: [ORAthlete]) -> SetupOptionView {
         let optionView = self.buildOption(title: title, type: .Custom, value: nil)
-        var container = NSFlippedView(frame: NSRect(origin: NSZeroPoint, size: NSSize(width: optionView.frame.width, height: 0 as CGFloat)))
+        let container = NSFlippedView(frame: NSRect(origin: NSZeroPoint, size: NSSize(width: optionView.frame.width, height: 0 as CGFloat)))
         
         for (i, athlete) in athletes.enumerate() {
             let topSpacing = 5 as CGFloat
@@ -77,13 +74,13 @@ class SetupViewController: ORViewController {
             var x = 0 as CGFloat
             var y = (height + topSpacing) * CGFloat(i)
             
-            var individualContainer = NSFlippedView(frame: NSRect(x: x, y: y, width: width, height: height))
+            let individualContainer = NSFlippedView(frame: NSRect(x: x, y: y, width: width, height: height))
             
             width = individualContainer.frame.width * (7/10)
             height = individualContainer.frame.height
             x = 0 as CGFloat
             y = 0 as CGFloat
-            var nameLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
+            let nameLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
             nameLabel.stringValue = athlete.fullName
             individualContainer.addSubview(nameLabel)
             
@@ -92,7 +89,7 @@ class SetupViewController: ORViewController {
             height = individualContainer.frame.height
             x = CGRectGetMaxX(nameLabel.frame)
             y = 0 as CGFloat
-            var removeAthleteButton = NSClosureButton(frame: NSRect(x: x, y: y, width: width, height: height))
+            let removeAthleteButton = NSClosureButton(frame: NSRect(x: x, y: y, width: width, height: height))
             removeAthleteButton.title = "remove"
             removeAthleteButton.bezelStyle = NSBezelStyle.RoundRectBezelStyle
             removeAthleteButton.clickHandlerClosure = {

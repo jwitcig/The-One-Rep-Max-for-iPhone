@@ -65,7 +65,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         }
         
         self.setupMenuItem.clickHandler = {
-            var destination = self.parentVC.setupVC
+            let destination = self.parentVC.setupVC
             destination.organization = self.session.currentOrganization
             
             self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
@@ -73,7 +73,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     }
     
     func updateHistoryList(templates: [ORLiftTemplate]) {
-        var container = NSFlippedView(frame: self.liftTemplatesContainer.frame)
+        let container = NSFlippedView(frame: self.liftTemplatesContainer.frame)
         for (i, template) in templates.enumerate() {
             
             let topPadding = 3 as CGFloat
@@ -82,9 +82,9 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
             let x = (self.liftTemplatesContainer.frame.width - width) * (1/2)
             let y = (height + topPadding) * CGFloat(i)
             
-            var button = HistoryTemplateOptionButton(frame: NSRect(x: x, y: y, width: width, height: height), liftTemplate: template)
+            let button = HistoryTemplateOptionButton(frame: NSRect(x: x, y: y, width: width, height: height), liftTemplate: template)
             button.clickHandler = { template in
-                var destinationViewController = self.parentVC.historyVC
+                let destinationViewController = self.parentVC.historyVC
                 destinationViewController.liftTemplate = template
                 destinationViewController.fromViewController = self
                 self.parentVC.transitionFromViewController(self, toViewController: destinationViewController, options: NSViewControllerTransitionOptions.SlideDown, completionHandler: nil)

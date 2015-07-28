@@ -21,25 +21,19 @@ class MessagesViewController: ORViewController {
         set { self.representedObject = newValue }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear() {
+        super.viewWillAppear()
         
         self.messages = Array(self.organization.messages)
         
         // Recent -> Old
-        self.messages.sort { $0.createdDate.compare($1.createdDate) == .OrderedDescending }
+        self.messages.sortInPlace { $0.createdDate.compare($1.createdDate) == .OrderedDescending }
         self.displayMessages(self.messages)
-        
-        
-        
     }
     
     func displayMessages(messages: [ORMessage]) {
         self.messagesScrollView.documentView?.removeFromSuperview()
-        var container = NSFlippedView(frame: self.messagesScrollView.frame)
+        let container = NSFlippedView(frame: self.messagesScrollView.frame)
         
         for (i, message) in messages.enumerate() {
             
@@ -49,7 +43,7 @@ class MessagesViewController: ORViewController {
             let x = 0 as CGFloat
             let y = (height + topPadding) * CGFloat(i)
             
-            var item = MessagesListItem(frame: NSRect(x: x, y: y, width: width, height: height), message: message)
+            let item = MessagesListItem(frame: NSRect(x: x, y: y, width: width, height: height), message: message)
             
             item.clickHandler = { message in
                 self.parentVC.viewMessageVC.message = message

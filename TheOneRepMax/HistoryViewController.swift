@@ -62,7 +62,8 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         
         // Plot space
         let plotSpace = newGraph.defaultPlotSpace as! CPTXYPlotSpace
-        let dateRange = self.daysBetweenDate(startDate: entries.first!.date, endDate: entries.last!.date) + 2
+        
+        let dateRange = NSDate.daysBetween(startDate: entries.first!.date, endDate: entries.last!.date) + 2
         plotSpace.allowsUserInteraction = true
         plotSpace.xRange = CPTPlotRange(location: 0, length: dateRange)
         plotSpace.yRange = CPTPlotRange(location: 0, length: 600.0)
@@ -141,7 +142,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         var contentArray = [plotDataType]()
         
         for i in 0 ..< entries.count {
-            let x = self.daysBetweenDate(startDate: entries.first!.date, endDate: entries[i].date)
+            let x = NSDate.daysBetween(startDate: entries.first!.date, endDate: entries[i].date)
             let y = entries[i].max
             let dataPoint: plotDataType = [.X: Double(x+1), .Y: Double(y)]
             contentArray.append(dataPoint)
@@ -151,13 +152,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         self.graph = newGraph
     }
     
-    func daysBetweenDate(startDate startDate: NSDate, endDate: NSDate) -> Int {
-        var calendar = NSCalendar.currentCalendar()
-        let cal = NSCalendar.currentCalendar()
-        let unit: NSCalendarUnit = .Day
-        let components = cal.components(unit, fromDate: startDate, toDate: endDate, options: [])
-        return components.day
-    }
+    
     
     func numberOfRecordsForPlot(plot: CPTPlot) -> UInt {
         return UInt(self.plotData.count)
@@ -217,14 +212,14 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     func displayLiftEntries(entries: [ORLiftEntry]) {
         self.clearDataDisplays()
         
-        var container = NSFlippedView()
+        let container = NSFlippedView()
         for (i, entry) in entries.enumerate() {
             let topPadding = 0 as CGFloat
-            var width = self.liftEntriesContainer.frame.width
-            var height = 35 as CGFloat
-            var x = (self.liftEntriesContainer.frame.width / 2) - (width / 2)
-            var y = (height + topPadding) * CGFloat(i)
-            var item = LiftEntryTableItem(frame: NSRect(x: x, y: y, width: width, height: height), liftEntry: entry)
+            let width = self.liftEntriesContainer.frame.width
+            let height = 35 as CGFloat
+            let x = (self.liftEntriesContainer.frame.width / 2) - (width / 2)
+            let y = (height + topPadding) * CGFloat(i)
+            let item = LiftEntryTableItem(frame: NSRect(x: x, y: y, width: width, height: height), liftEntry: entry)
             container.addSubview(item)
             container.frame = NSRect(x: 0, y: 0, width: self.liftEntriesContainer.frame.width, height: CGRectGetMaxY(item.frame))
         }
