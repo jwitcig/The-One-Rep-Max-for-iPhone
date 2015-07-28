@@ -20,7 +20,7 @@ import Cocoa
         let topRight1 = NSPoint(x: CGRectGetMaxX(dirtyRect)-width, y: CGRectGetMinY(dirtyRect))
         let topRight2 = NSPoint(x: CGRectGetMaxX(dirtyRect), y: CGRectGetMinY(dirtyRect)+width)
 
-        var path = NSBezierPath()
+        let path = NSBezierPath()
         path.moveToPoint(topRight1)
         path.lineToPoint(topRight)
         path.lineToPoint(topRight2)

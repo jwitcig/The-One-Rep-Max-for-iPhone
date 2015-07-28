@@ -29,7 +29,7 @@ class LiftTemplateButton: NSButton {
     
     var buttonCell: NSButtonCell {
         get {
-            return self.cell()! as! NSButtonCell
+            return self.cell! as! NSButtonCell
         }
     }
     
@@ -46,9 +46,9 @@ class LiftTemplateButton: NSButton {
         self.buttonCell.bezelStyle = NSBezelStyle.InlineBezelStyle
         
         var centeredStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        centeredStyle.alignment = NSTextAlignment.CenterTextAlignment
+        centeredStyle.alignment = NSTextAlignment.Center
         
-        let range = NSMakeRange(0, count(self.title))
+        let range = NSMakeRange(0, self.title.characters.count)
         let colorTitle = NSAttributedString(string: template.liftName, attributes: [NSForegroundColorAttributeName: NSColor.greenColor(), NSParagraphStyleAttributeName: centeredStyle])
         
         self.attributedTitle = colorTitle

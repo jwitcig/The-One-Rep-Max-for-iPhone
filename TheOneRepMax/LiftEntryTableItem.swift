@@ -53,7 +53,7 @@ class LiftEntryTableItem: NSView {
         let formatter = NSDateFormatter()
         formatter.dateFormat = "M/d"
         dateLabel.font = tableFont
-        dateLabel.alignment = .RightTextAlignment
+        dateLabel.alignment = .Right
         dateLabel.stringValue = formatter.stringFromDate(self.liftEntry.date)
         
         // ------------------------------------------------------------------------------ //
@@ -97,7 +97,7 @@ class LiftEntryTableItem: NSView {
         
         let relativeRect = self.window?.convertRectToScreen(self.frame)
         
-        self.deletePopover?.showRelativeToRect(self.bounds, ofView: self, preferredEdge: NSMaxXEdge)
+        self.deletePopover?.showRelativeToRect(self.bounds, ofView: self, preferredEdge: NSRectEdge.MaxX)
     }
     
     

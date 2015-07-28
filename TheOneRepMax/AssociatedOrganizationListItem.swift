@@ -26,22 +26,24 @@ class AssociatedOrganizationListItem: NSFlippedView {
     override func drawRect(dirtyRect: NSRect) {
         super.drawRect(dirtyRect)        
         
-        var path = NSBezierPath(roundedRect: dirtyRect, xRadius: 14, yRadius: 14)
+        let path = NSBezierPath(roundedRect: dirtyRect, xRadius: 14, yRadius: 14)
         
         NSColor.darkGrayColor().setFill()
         path.fill()
         
-        var width = self.frame.width * (3/4)
-        var height = self.frame.height * (1/2)
-        var x = (self.frame.width / 2) - (width / 2)
-        var y = (self.frame.height / 2) - (height / 2)
-        var orgNameLabel = NSTextField(frame: NSRect(x: x, y: y, width: width, height: height))
+        let width = self.frame.width * (3/4)
+        let height = self.frame.height * (1/2)
+        let x = (self.frame.width / 2) - (width / 2)
+        let y = (self.frame.height / 2) - (height / 2)
+        let orgNameLabel = NSTextField(frame: NSRect(x: x, y: y, width: width, height: height))
         orgNameLabel.bezeled = false
         orgNameLabel.bordered = false
         orgNameLabel.editable = false
         orgNameLabel.stringValue = self.organization.orgName
         orgNameLabel.backgroundColor = NSColor.clearColor()
-        orgNameLabel.alignment = .CenterTextAlignment
+        orgNameLabel.alignment = .Center
+        
+        
         orgNameLabel.font = NSFont(name: "Lucida Grande", size: 26)
         
         self.addSubview(orgNameLabel)

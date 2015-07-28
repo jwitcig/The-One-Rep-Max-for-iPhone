@@ -14,12 +14,10 @@ extension NSButton {
         get { return NSColor.clearColor() }
         set {
             let attributedTitle = NSMutableAttributedString(attributedString: self.attributedTitle)
-            let titleRange = NSMakeRange(0, count(self.title))
+            let titleRange = NSMakeRange(0, self.title.characters.count)
             
             attributedTitle.addAttribute(NSForegroundColorAttributeName, value: newValue, range: titleRange)
             self.setButtonType( NSButtonType.MomentaryPushInButton )
-
-            
             self.attributedTitle = attributedTitle
         }
     }

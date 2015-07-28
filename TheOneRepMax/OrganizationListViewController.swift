@@ -59,14 +59,14 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
     func displayOrganizationsList(organizations: [OROrganization]) {
         let container = self.organizationListView
         
-        for (i, organization) in enumerate(organizations) {
+        for (i, organization) in organizations.enumerate() {
             
             let topPadding = 15 as CGFloat
             let width = container.frame.width
             let height = 50 as CGFloat
             let x = 0 as CGFloat
             let y = (height + topPadding) * CGFloat(i)
-            var orgView = OrganizationListItem(frame: CGRect(x: x, y: y, width: width, height: height), organization: organization)
+            let orgView = OrganizationListItem(frame: CGRect(x: x, y: y, width: width, height: height), organization: organization)
             
             orgView.viewInfoHandler = { (organization) in
                 self.orgNameLabel.stringValue = organization.orgName
@@ -75,12 +75,12 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
             
             orgView.joinHandler = { (organization) in
                 
-                var mutableAthletes = NSMutableSet(set: organization.athletes)
+                let mutableAthletes = NSMutableSet(set: organization.athletes)
                 mutableAthletes.addObject(self.session.currentAthlete!)
                 self.localData.save()
                 
                 self.publicDB.saveRecord(organization.record) { (record, error) -> Void in
-                    println(error)
+                    print(error)
                 }
             }
             

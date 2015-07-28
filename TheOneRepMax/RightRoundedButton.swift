@@ -20,7 +20,7 @@ class RightRoundedButton: NSButton {
         
         let cornerRadius = 25 as CGFloat
         
-        var path = NSBezierPath()
+        let path = NSBezierPath()
         let topLeft = NSPoint(x: NSMinX(self.bounds), y: NSMinY(self.bounds))
         let topRight = NSPoint(x: NSMaxX(self.bounds), y: NSMinY(self.bounds))
         let bottomRight = NSPoint(x: NSMaxX(self.bounds), y: NSMaxY(self.bounds))
@@ -56,14 +56,15 @@ class RightRoundedButton: NSButton {
         var height = self.frame.height
         var x = 0 as CGFloat
         var y = 0 as CGFloat
-        var label = NSTextField()
+        let label = NSTextField()
         label.bezeled = false
         label.editable = false
         label.bordered = false
         label.stringValue = title
         label.font = NSFont(name: "Lucida Grande", size: 25)
         label.backgroundColor = NSColor.clearColor()
-        label.alignment = .CenterTextAlignment
+        label.alignment = .Center
+        
         label.sizeToFit()
         
         var frame = label.frame

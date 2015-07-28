@@ -10,15 +10,13 @@ import Cocoa
 
 class EntityMigrationPolicy: NSEntityMigrationPolicy {
 
-    override func createDestinationInstancesForSourceInstance(sInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager, error: NSErrorPointer) -> Bool {
+    override func createDestinationInstancesForSourceInstance(sInstance: NSManagedObject, entityMapping mapping: NSEntityMapping, manager: NSMigrationManager) throws {
                 
-        var newObject = NSEntityDescription.insertNewObjectForEntityForName(mapping.destinationEntityName!, inManagedObjectContext: manager.destinationContext) as! NSManagedObject
+        let newObject = NSEntityDescription.insertNewObjectForEntityForName(mapping.destinationEntityName!, inManagedObjectContext: manager.destinationContext) 
         
         newObject.setValue("", forKey: "recordName")
         
         manager.associateSourceInstance(sInstance, withDestinationInstance: newObject, forEntityMapping: mapping)
-        
-        return true
     }
     
     

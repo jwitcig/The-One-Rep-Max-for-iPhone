@@ -35,16 +35,16 @@ class MessagesListItem: NSView {
         var x = leftPadding
         var y = 0 as CGFloat
         
-        var titleLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
+        let titleLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
         titleLabel.font = NSFont(name: "Lucida Grande", size: 35)
         titleLabel.stringValue = self.message.title
         titleLabel.lineBreakMode = NSLineBreakMode.ByTruncatingTail
         
         
-        var dateLabel = NSLabel(frame: NSRect())
+        let dateLabel = NSLabel(frame: NSRect())
         let formatter = NSDateFormatter()
         formatter.dateFormat = "M/d"
-        dateLabel.alignment = .RightTextAlignment
+        dateLabel.alignment = .Right
         dateLabel.font = NSFont(name: "Lucida Grande", size: 20)
         dateLabel.stringValue = formatter.stringFromDate(self.message.createdDate)
         dateLabel.sizeToFit()
@@ -60,11 +60,11 @@ class MessagesListItem: NSView {
         self.addSubview(dateLabel)
     }
     
-    func drawDetail(#frame: NSRect) {
+    func drawDetail(frame frame: NSRect) {
         let bottomLeft = NSPoint(x: CGRectGetMinX(frame), y: CGRectGetMinY(frame))
         let bottomRight = NSPoint(x: CGRectGetMaxX(frame), y: CGRectGetMinY(frame))
         
-        var path = NSBezierPath()
+        let path = NSBezierPath()
         path.moveToPoint(bottomLeft)
         path.lineToPoint(bottomRight)
         path.stroke()

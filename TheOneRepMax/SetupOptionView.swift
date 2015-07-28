@@ -11,6 +11,7 @@ import ORMKit
 
 public enum OROptionType {
     case Text
+    case Custom
 }
 
 class SetupOptionView: NSView, NSTextFieldDelegate {
@@ -24,7 +25,9 @@ class SetupOptionView: NSView, NSTextFieldDelegate {
     var valueContainer = NSFlippedView()
     
     var optionValue: AnyObject?
-    var textField: ClickableTextField?
+    var valueLabel: NSLabel!
+    
+    var editButton: NSButton!
     
     init(frame frameRect: NSRect, title: String, type: OROptionType, organization: OROrganization?, value: AnyObject?) {
         self.title = title
@@ -54,7 +57,7 @@ class SetupOptionView: NSView, NSTextFieldDelegate {
         
         // -------------------------------------------------------------------------
         
-        var titleLabel = NSLabel(frame: NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
+        let titleLabel = NSLabel(frame: NSRect(x: 0, y: 0, width: self.frame.width, height: self.frame.height))
         titleLabel.delegate = self
         titleLabel.stringValue = self.title
         titleLabel.font = NSFont(name: "Lucida Grande", size: 22)
@@ -63,36 +66,59 @@ class SetupOptionView: NSView, NSTextFieldDelegate {
         
         // -------------------------------------------------------------------------
         
-        if let type = self.type {
-            switch type {
-            
-            case .Text:
-                self.textField = ClickableTextField(frame: self.valueContainer.bounds)
-                self.textField?.delegate = self
-                self.textField?.target = self
-                self.textField?.action = Selector("textFieldSelected:")
-                (self.textField?.cell() as! NSTextFieldCell).wraps = false
-                self.textField?.font = NSFont(name: "Lucida Grande", size: 26)
-                
-                if let value = self.optionValue as? String {
-                    self.textField!.stringValue = value as String
-                }
-                
-                self.valueContainer.addSubview(self.textField!)
-            }
+        
+        width = self.valueContainer.frame.width * (4/5)
+        height = self.valueContainer.frame.height
+        
+        self.valueLabel = NSLabel(frame: NSRect(origin: NSZeroPoint, size: NSSize(width: width, height: height)))
+        self.valueLabel.font = NSFont(name: "Lucida Grande", size: 26)
+        self.valueLabel.lineBreakMode = .ByTruncatingTail
+        (self.valueLabel.cell as! NSTextFieldCell).wraps = false
+        
+        if let value = self.optionValue as? String {
+            self.valueLabel.stringValue = value as String
         }
+        self.valueContainer.addSubview(self.valueLabel!)
+        
+        let leftPadding = 10 as CGFloat
+        width = self.valueContainer.frame.width - self.valueLabel.frame.width - leftPadding
+        height = self.valueContainer.frame.height
+        x = CGRectGetMaxX(self.valueLabel!.frame) + leftPadding
+        y = 0 as CGFloat
+        self.editButton = NSButton(frame: NSRect(x: x, y: y, width: width, height: height))
+        self.editButton.title = "edit"
+        self.editButton.bezelStyle = NSBezelStyle.RoundRectBezelStyle
+        self.editButton.target = self
+        self.editButton.action = Selector("editClicked:")
+        self.valueContainer.addSubview(self.editButton)
         
         self.addSubview(self.titleContainer)
         self.addSubview(self.valueContainer)
     }
     
-    func textFieldSelected(textField: ClickableTextField) {
-        let destination = self.parentController.parentVC.storyboard?.instantiateControllerWithIdentifier("OptionTextInputViewController") as! OptionTextInputViewController
-        self.parentController.addChildViewController(destination)
+    func editClicked(editButton: NSButton) {
         
-        self.parentController.presentViewController(destination, asPopoverRelativeToRect: textField.frame, ofView: textField, preferredEdge: NSMaxXEdge, behavior: NSPopoverBehavior.Transient)
-        destination.textValue = textField.stringValue
-        destination.baseTextField = textField
+        if let type = self.type {
+            switch type {
+                
+            case .Text:
+                let destination = self.parentController.parentVC.storyboard?.instantiateControllerWithIdentifier("OptionTextInputViewController") as! OptionTextInputViewController
+                self.parentController.addChildViewController(destination)
+                
+                self.parentController.presentViewController(destination, asPopoverRelativeToRect: editButton.bounds, ofView: editButton, preferredEdge: NSRectEdge.MaxX, behavior: NSPopoverBehavior.Transient)
+                
+                destination.textValue = self.valueLabel!.stringValue
+                destination.baseTextField = self.valueLabel
+                
+            case .Custom:
+                let destination = self.parentController.parentVC.storyboard?.instantiateControllerWithIdentifier("OptionCustomInputViewController") as! OptionCustomInputViewController
+                self.parentController.addChildViewController(destination)
+                
+                self.parentController.presentViewController(destination, asPopoverRelativeToRect: editButton.bounds, ofView: editButton, preferredEdge: NSRectEdge.MaxX, behavior: NSPopoverBehavior.Transient)
+                
+                destination.customView = self.optionValue as? NSView
+            }
+        }
     }
     
 }

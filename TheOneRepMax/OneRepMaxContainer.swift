@@ -28,7 +28,7 @@ class OneRepMaxContainer: NSFlippedView {
         let bottomLeft1 = NSPoint(x: CGRectGetMinX(dirtyRect)+cornerRadius, y: CGRectGetMaxY(dirtyRect))
         let bottomLeft2 = NSPoint(x: CGRectGetMinX(dirtyRect), y: CGRectGetMaxY(dirtyRect)-cornerRadius)
         
-        var path = NSBezierPath()
+        let path = NSBezierPath()
         path.moveToPoint(topLeft)
         path.lineToPoint(topRight)
         

@@ -28,7 +28,6 @@ class MainViewController: NSViewController {
         let session = ORSession.currentSession
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
-        
         let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: publicDatabase)
         
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
@@ -36,6 +35,7 @@ class MainViewController: NSViewController {
         
         ORSession.currentSession.signInWithCloud { (success, error) -> () in
             if success {
+                
                 ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
                 
                 self.instantiateViewControllers()
@@ -45,7 +45,7 @@ class MainViewController: NSViewController {
                     self.view.addSubview(self.homeVC.view)
                 }
             } else {
-                println(error)
+                print(error)
             }
         }
     }

@@ -14,8 +14,10 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     
     @IBOutlet weak var liftNameLabel: NSTextField!
     
+    @IBOutlet weak var entryCountLabel: NSTextField!
+    
+    @IBOutlet var intervalStatContainer: NSView!
     @IBOutlet weak var intervalProgressLabel: NSTextField!
-    @IBOutlet weak var intervalStatContainer: NSView!
     
     @IBOutlet weak var liftEntriesContainer: NSFlippedScrollView!
     @IBOutlet weak var graphHostingView: CPTGraphHostingView!
@@ -23,19 +25,28 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     typealias plotDataType = [CPTScatterPlotField: Double]
     var plotData = [plotDataType]()
     
-    var liftEntries = [ORLiftEntry]()
+    var liftEntries = [ORLiftEntry]() {
+        didSet {
+            self.entryCountLabel.stringValue = "[\(self.liftEntries.count)]"
+        }
+    }
     
     private let oneDay: Double = 24 * 60 * 60
     
-    private var liftTemplate: ORLiftTemplate {
-        return self.representedObject as! ORLiftTemplate
+    var liftTemplate: ORLiftTemplate {
+        get {
+            return self.representedObject as! ORLiftTemplate
+        }
+        set {
+            self.representedObject = newValue
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    func initGraph(#entries: [ORLiftEntry]) {
+    func initGraph(entries entries: [ORLiftEntry]) {
         // Create graph from theme
         let newGraph = CPTXYGraph(frame: CGRectZero)
         newGraph.applyTheme(CPTTheme(named: kCPTDarkGradientTheme))
@@ -140,11 +151,11 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         self.graph = newGraph
     }
     
-    func daysBetweenDate(#startDate: NSDate, endDate: NSDate) -> Int {
+    func daysBetweenDate(startDate startDate: NSDate, endDate: NSDate) -> Int {
         var calendar = NSCalendar.currentCalendar()
         let cal = NSCalendar.currentCalendar()
-        let unit: NSCalendarUnit = .CalendarUnitDay
-        let components = cal.components(unit, fromDate: startDate, toDate: endDate, options: nil)
+        let unit: NSCalendarUnit = .Day
+        let components = cal.components(unit, fromDate: startDate, toDate: endDate, options: [])
         return components.day
     }
     
@@ -172,10 +183,10 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         let response = self.localData.fetchLiftEntries(athlete: athlete, organization: organization, template: self.liftTemplate, order: .Chronological)
 
         if response.success {
-            self.liftEntries = response.localResults as! [ORLiftEntry]
+            self.liftEntries = response.objects as! [ORLiftEntry]
                 
-            let entriesReverse = self.liftEntries.sorted { $0.date.compare($1.date) == .OrderedDescending }
-                
+            let entriesReverse = self.liftEntries.sort { $0.date.compare($1.date) == .OrderedDescending }
+                            
             if self.liftEntries.count > 0 {
                 self.displayLiftEntries(entriesReverse)
                 self.initGraph(entries: self.liftEntries)
@@ -207,7 +218,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         self.clearDataDisplays()
         
         var container = NSFlippedView()
-        for (i, entry) in enumerate(entries) {
+        for (i, entry) in entries.enumerate() {
             let topPadding = 0 as CGFloat
             var width = self.liftEntriesContainer.frame.width
             var height = 35 as CGFloat

@@ -10,9 +10,9 @@ import Cocoa
 import CloudKit
 import ORMKit
 
-let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.value), 0)
-let userInitiatedThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.value), 0)
-let backgroundThread = dispatch_get_global_queue(Int(QOS_CLASS_UNSPECIFIED.value), 0)
+let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
+let userInitiatedThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
+let backgroundThread = dispatch_get_global_queue(Int(QOS_CLASS_UNSPECIFIED.rawValue), 0)
 
 func runOnMainThread(block: (()->())) {
     dispatch_async(dispatch_get_main_queue(), block)
@@ -46,7 +46,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     lazy var applicationDocumentsDirectory: NSURL = {
         // The directory the application uses to store the Core Data store file. This code uses a directory named "com.jwitapps.TheOneRepMax" in the user's Application Support directory.
         let urls = NSFileManager.defaultManager().URLsForDirectory(.ApplicationSupportDirectory, inDomains: .UserDomainMask)
-        let appSupportURL = urls[urls.count - 1] as! NSURL
+        let appSupportURL = urls[urls.count - 1] 
         return appSupportURL.URLByAppendingPathComponent("com.jwitapps.TheOneRepMax")
     }()
 
@@ -64,7 +64,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         var failureReason = "There was an error creating or loading the application's saved data."
 
         // Make sure the application files directory is there
-        let propertiesOpt = self.applicationDocumentsDirectory.resourceValuesForKeys([NSURLIsDirectoryKey], error: &error)
+        let propertiesOpt: [NSObject: AnyObject]?
+        do {
+            propertiesOpt = try self.applicationDocumentsDirectory.resourceValuesForKeys([NSURLIsDirectoryKey])
+        } catch var error1 as NSError {
+            error = error1
+            propertiesOpt = nil
+        } catch {
+            fatalError()
+        }
         if let properties = propertiesOpt {
             if !properties[NSURLIsDirectoryKey]!.boolValue {
                 failureReason = "Expected a folder to store application data, found a file \(self.applicationDocumentsDirectory.path)."
@@ -72,7 +80,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         } else if error!.code == NSFileReadNoSuchFileError {
             error = nil
-            fileManager.createDirectoryAtPath(self.applicationDocumentsDirectory.path!, withIntermediateDirectories: true, attributes: nil, error: &error)
+            do {
+                try fileManager.createDirectoryAtPath(self.applicationDocumentsDirectory.path!, withIntermediateDirectories: true, attributes: nil)
+            } catch var error1 as NSError {
+                error = error1
+            } catch {
+                fatalError()
+            }
         }
         
         // Create the coordinator and store
@@ -80,8 +94,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if !shouldFail && (error == nil) {
             coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
             let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("TheOneRepMax.storedata")
-            if coordinator!.addPersistentStoreWithType(NSXMLStoreType, configuration: nil, URL: url, options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true], error: &error) == nil {
+            do {
+                try coordinator!.addPersistentStoreWithType(NSXMLStoreType, configuration: nil, URL: url, options: [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true])
+            } catch var error1 as NSError {
+                error = error1
                 coordinator = nil
+            } catch {
+                fatalError()
             }
         }
         
@@ -109,6 +128,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
+        managedObjectContext.reset()
+
         return managedObjectContext
     }()
 
@@ -121,8 +142,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
                 NSLog("\(NSStringFromClass(self.dynamicType)) unable to commit editing before saving")
             }
             var error: NSError? = nil
-            if moc.hasChanges && !moc.save(&error) {
-                NSApplication.sharedApplication().presentError(error!)
+            if moc.hasChanges {
+                do {
+                    try moc.save()
+                } catch let error1 as NSError {
+                    error = error1
+                    NSApplication.sharedApplication().presentError(error!)
+                }
             }
         }
     }
@@ -150,7 +176,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
             
             var error: NSError? = nil
-            if !moc.save(&error) {
+            do {
+                try moc.save()
+            } catch let error1 as NSError {
+                error = error1
                 // Customize this code block to include application-specific recovery steps.
                 let result = sender.presentError(error!)
                 if (result) {

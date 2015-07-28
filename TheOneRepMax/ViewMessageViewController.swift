@@ -73,7 +73,7 @@ class ViewMessageViewController: ORViewController {
                         self.presentingViewController?.dismissViewController(self)
                     }
                 } else {
-                    println(response.error)
+                    print(response.error)
                 }
             }
         }

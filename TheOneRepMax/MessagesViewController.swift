@@ -41,7 +41,7 @@ class MessagesViewController: ORViewController {
         self.messagesScrollView.documentView?.removeFromSuperview()
         var container = NSFlippedView(frame: self.messagesScrollView.frame)
         
-        for (i, message) in enumerate(messages) {
+        for (i, message) in messages.enumerate() {
             
             let topPadding = 15 as CGFloat
             let width = container.frame.width
@@ -56,7 +56,7 @@ class MessagesViewController: ORViewController {
                 self.parentVC.viewMessageVC.editing = false
                 
                 if self.parentVC.viewMessageVC.presentingViewController == nil {
-                    self.presentViewController(self.parentVC.viewMessageVC, asPopoverRelativeToRect: self.view.frame, ofView: self.view, preferredEdge: NSMaxXEdge, behavior: NSPopoverBehavior.Transient)
+                    self.presentViewController(self.parentVC.viewMessageVC, asPopoverRelativeToRect: self.view.frame, ofView: self.view, preferredEdge: .MaxX, behavior: NSPopoverBehavior.Transient)
                 }
             }
             
@@ -72,7 +72,7 @@ class MessagesViewController: ORViewController {
         self.parentVC.viewMessageVC.editing = true
         
         if self.parentVC.viewMessageVC.presentingViewController == nil {
-            self.presentViewController(self.parentVC.viewMessageVC, asPopoverRelativeToRect: self.parentVC.viewMessageVC.view.frame, ofView: newMessageButton, preferredEdge: NSMaxXEdge, behavior: NSPopoverBehavior.Transient)
+            self.presentViewController(self.parentVC.viewMessageVC, asPopoverRelativeToRect: self.parentVC.viewMessageVC.view.frame, ofView: newMessageButton, preferredEdge: NSRectEdge.MaxX, behavior: NSPopoverBehavior.Transient)
         }
     }
     

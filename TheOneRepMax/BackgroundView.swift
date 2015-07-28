@@ -16,7 +16,7 @@ class BackgroundView: NSView {
         
         self.layer?.backgroundColor = NSColor.lightGrayColor().CGColor
         
-        self.autoresizingMask = NSAutoresizingMaskOptions.ViewWidthSizable | NSAutoresizingMaskOptions.ViewHeightSizable
+        self.autoresizingMask = [.ViewWidthSizable, .ViewHeightSizable]
 
     }
     

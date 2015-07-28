@@ -16,8 +16,10 @@
 		8B56392B1B48FB2D002E9A49 /* SetupOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */; };
 		8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */; };
 		8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */; };
+		8B722ACC1B5AC3E6008835C4 /* NSClosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B722ACB1B5AC3E6008835C4 /* NSClosureButton.swift */; };
 		8B73D6471B4266F400C21F7F /* LiftEntryTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */; };
 		8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6481B426E5200C21F7F /* NSLabel.swift */; };
+		8B7405991B59CE44007F3258 /* OptionCustomInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
 		8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */; };
 		8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520971B44CA27005E0FF0 /* MenuItem.swift */; };
@@ -78,8 +80,10 @@
 		8B60477A1B4A57C8001A2A68 /* TheOneRepMax_v18.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v18.xcdatamodel; sourceTree = "<group>"; };
 		8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedOrganizationListItem.swift; sourceTree = "<group>"; };
 		8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORMViewController.swift; sourceTree = "<group>"; };
+		8B722ACB1B5AC3E6008835C4 /* NSClosureButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSClosureButton.swift; sourceTree = "<group>"; };
 		8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntryTableItem.swift; sourceTree = "<group>"; };
 		8B73D6481B426E5200C21F7F /* NSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLabel.swift; sourceTree = "<group>"; };
+		8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCustomInputViewController.swift; sourceTree = "<group>"; };
 		8B778C9A1B2F6DFF002841B1 /* TheOneRepMax_v11.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v11.xcdatamodel; sourceTree = "<group>"; };
 		8B778C9B1B2F6EDD002841B1 /* TheOneRepMax_v12.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v12.xcdatamodel; sourceTree = "<group>"; };
 		8B778C9C1B2F6F2F002841B1 /* TheOneRepMax_v13.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v13.xcdatamodel; sourceTree = "<group>"; };
@@ -183,6 +187,7 @@
 				8B5639251B48F164002E9A49 /* SetupViewController.swift */,
 				8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */,
 				8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */,
+				8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */,
 			);
 			name = Setup;
 			sourceTree = "<group>";
@@ -202,6 +207,7 @@
 			children = (
 				8BC9DC961B41235B00BDA199 /* BackgroundView.swift */,
 				8BEB2DD01B39EBDB001D10FE /* NSFlippedView.swift */,
+				8B722ACB1B5AC3E6008835C4 /* NSClosureButton.swift */,
 				8B73D6481B426E5200C21F7F /* NSLabel.swift */,
 			);
 			name = Misc;
@@ -386,7 +392,9 @@
 		8BF3434F1B27FA08007CBF44 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
+				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = JwitApps;
 				TargetAttributes = {
 					8BF343561B27FA08007CBF44 = {
@@ -454,6 +462,7 @@
 			files = (
 				8B2418301B49C63F00E4CEE7 /* OptionTextInputViewController.swift in Sources */,
 				8B56392B1B48FB2D002E9A49 /* SetupOptionView.swift in Sources */,
+				8B722ACC1B5AC3E6008835C4 /* NSClosureButton.swift in Sources */,
 				8BA520A11B4517F2005E0FF0 /* MessagesListItem.swift in Sources */,
 				8BCF1F131B2B5F3600D05EEE /* OrganizationListViewController.swift in Sources */,
 				8BC9DC9D1B41242D00BDA199 /* ORViewController.swift in Sources */,
@@ -474,6 +483,7 @@
 				8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */,
 				8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */,
 				8BA5209F1B45125C005E0FF0 /* MessagesViewController.swift in Sources */,
+				8B7405991B59CE44007F3258 /* OptionCustomInputViewController.swift in Sources */,
 				8BCF1F121B2B5F3600D05EEE /* MainViewController.swift in Sources */,
 				8BEEC6F61B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift in Sources */,
 				8BC9DC971B41235B00BDA199 /* BackgroundView.swift in Sources */,
@@ -534,6 +544,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -610,6 +621,7 @@
 				);
 				INFOPLIST_FILE = TheOneRepMax/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.TheOneRepMax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax/TheOneRepMax-Bridging-Header.h";
@@ -634,6 +646,7 @@
 				);
 				INFOPLIST_FILE = TheOneRepMax/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.TheOneRepMax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax/TheOneRepMax-Bridging-Header.h";
@@ -655,6 +668,7 @@
 				);
 				INFOPLIST_FILE = TheOneRepMaxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheOneRepMax.app/Contents/MacOS/TheOneRepMax";
 			};
@@ -671,6 +685,7 @@
 				);
 				INFOPLIST_FILE = TheOneRepMaxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheOneRepMax.app/Contents/MacOS/TheOneRepMax";
 			};

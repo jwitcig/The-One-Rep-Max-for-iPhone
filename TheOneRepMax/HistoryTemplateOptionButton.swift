@@ -31,7 +31,7 @@ class HistoryTemplateOptionButton: NSView {
     }
     
     func setTitle(title: String) {
-        var label = NSTextField(frame: NSRect())
+        let label = NSTextField(frame: NSRect())
         label.backgroundColor = NSColor.clearColor()
         label.bezeled = false
         label.bordered = false
@@ -54,7 +54,7 @@ class HistoryTemplateOptionButton: NSView {
         let top = NSPoint(x: paddingLeft, y: CGRectGetMaxY(label.frame))
         let bottom = NSPoint(x: paddingLeft, y: CGRectGetMinY(label.frame))
         
-        var path = NSBezierPath()
+        let path = NSBezierPath()
         path.moveToPoint(top)
         path.lineToPoint(bottom)
         NSColor.blackColor().setFill()

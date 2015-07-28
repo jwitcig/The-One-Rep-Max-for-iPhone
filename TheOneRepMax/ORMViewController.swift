@@ -38,9 +38,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     
     var oneRepMax: Int {
         get {
-            if self.reps == 0 {
-                return 0
-            }
+            guard self.reps != 0 else { return 0 }
             return Int( (self.weightLifted.floatValue * self.reps.floatValue * 0.033) + self.weightLifted.floatValue )
         }
     }
@@ -48,11 +46,10 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        self.liftTemplates = Array(self.session.currentOrganization!.liftTemplates).sorted {
+        self.liftTemplates = Array(self.session.currentOrganization!.liftTemplates).sort {
             $0.0.liftName.compare($0.1.liftName, options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedAscending
         }
-        
+                
         self.updateHistoryList(self.liftTemplates)
         self.updateLiftTemplatePopUp(self.liftTemplates)
         
@@ -61,7 +58,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     
     func initMenuItems() {
         self.messagesMenuItem.clickHandler = {
-            var destination = self.parentVC.messagesVC
+            let destination = self.parentVC.messagesVC
             destination.organization = self.session.currentOrganization!
             
             self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
@@ -77,7 +74,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     
     func updateHistoryList(templates: [ORLiftTemplate]) {
         var container = NSFlippedView(frame: self.liftTemplatesContainer.frame)
-        for (i, template) in enumerate(templates) {
+        for (i, template) in templates.enumerate() {
             
             let topPadding = 3 as CGFloat
             let width = self.liftTemplatesContainer.frame.width
@@ -88,7 +85,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
             var button = HistoryTemplateOptionButton(frame: NSRect(x: x, y: y, width: width, height: height), liftTemplate: template)
             button.clickHandler = { template in
                 var destinationViewController = self.parentVC.historyVC
-                destinationViewController.representedObject = template
+                destinationViewController.liftTemplate = template
                 destinationViewController.fromViewController = self
                 self.parentVC.transitionFromViewController(self, toViewController: destinationViewController, options: NSViewControllerTransitionOptions.SlideDown, completionHandler: nil)
             }
@@ -109,7 +106,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     }
     
     @IBAction func saveEntryClicked(button: NSButton) {
-        var entry = ORLiftEntry.entry()
+        let entry = ORLiftEntry.entry()
         entry.weightLifted = self.weightLifted
         entry.reps = self.reps
         entry.maxOut = true
@@ -117,12 +114,15 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         entry.liftTemplate = self.liftTemplates[self.liftTemplatesSelect.indexOfSelectedItem]
         entry.athlete = ORSession.currentSession.currentAthlete!
         entry.organization = ORSession.currentSession.currentOrganization!
-        self.cloudData.save(model: entry) { (response) in
-            if response.error != nil {
-                println(response.error)
-            }
-        }
+//        
+//        self.cloudData.save(model: entry) { (response) in
+//            if !response.success {
+//                print(response.error)
+//            }
+//        }
         self.localData.save()
+
+        self.cloudData.syncronizeDataToCloudStore()
     }
     
     override func controlTextDidChange(notification: NSNotification) {
