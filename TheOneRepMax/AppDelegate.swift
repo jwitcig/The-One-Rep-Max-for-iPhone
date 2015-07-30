@@ -126,7 +126,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if coordinator == nil {
             return nil
         }
-        var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+        
+        var managedObjectContext = NSManagedObjectContext(parentContext: nil)
         managedObjectContext.persistentStoreCoordinator = coordinator
         managedObjectContext.reset()
 

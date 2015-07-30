@@ -49,7 +49,6 @@ class HistoryTemplateOptionButton: NSView {
         label.frame = NSRect(x: x, y: y, width: width, height: height)
         self.addSubview(label)
         
-        
         paddingLeft -= 5
         let top = NSPoint(x: paddingLeft, y: CGRectGetMaxY(label.frame))
         let bottom = NSPoint(x: paddingLeft, y: CGRectGetMinY(label.frame))

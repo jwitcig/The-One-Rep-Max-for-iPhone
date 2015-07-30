@@ -45,11 +45,6 @@ class HomeViewController: ORViewController {
             }
         }
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("managedObjectContextWillSave:"), name: NSManagedObjectContextWillSaveNotification, object: self.localData.context)
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("managedObjectContextDidSave:"), name: NSManagedObjectContextDidSaveNotification, object: self.localData.context)
-        
-
-        
 //        let response = self.localData.fetchAll(model: OROrganization.self)
 //        if response.success {
 //            self.organizations = response.objects as! [OROrganization]
@@ -57,37 +52,6 @@ class HomeViewController: ORViewController {
 //        }
         
 //        print(self.localData.fetchDirtyObjects(model: ORLiftEntry.self).objects)
-    }
-    
-    func managedObjectContextWillSave(notification: NSNotification) {
-        let context = notification.object as! NSManagedObjectContext
-        
-        var observedObjects = context.insertedObjects
-        for item in context.updatedObjects {
-            observedObjects.insert(item)
-        }
-                
-        for object in observedObjects {
-            guard let model = object as? ORModel else { continue }
-            if model.changedValues().keys.array.count != 0 {
-                model.updateRecord()
-                model.cloudRecordDirty = true
-            }
-        }
-    }
-    
-    func managedObjectContextDidSave(notification: NSNotification) {
-        let savedContext = notification.object as! NSManagedObjectContext
-        
-        let mainMOC = ORSession.currentSession.localData.context
-        
-        guard savedContext != mainMOC else { return }
-    
-        guard mainMOC.persistentStoreCoordinator == savedContext.persistentStoreCoordinator else { return }
-        
-        runOnMainThread {
-            mainMOC.mergeChangesFromContextDidSaveNotification(notification)
-        }
     }
     
     func displayOrganizations(organizations: [OROrganization]) {
@@ -112,14 +76,9 @@ class HomeViewController: ORViewController {
                 self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: NSViewControllerTransitionOptions.SlideForward, completionHandler: nil)
                 
                 self.cloudData.fetchMessages(organization: organization) {
-                    if $0.success {
-                        
-                        ORMessage.messages(records: $0.objects)
-                        self.localData.save()
-                        
-                    } else {
-                        print($0.error)
-                    }
+                    guard $0.success else { print($0.error); return }
+                    ORMessage.messages(records: $0.objects)
+                    self.localData.save()
                 }
                 
             }
