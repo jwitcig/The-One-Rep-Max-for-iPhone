@@ -12,7 +12,7 @@ import ORMKit
 
 class HomeViewController: ORViewController {
     
-    @IBOutlet weak var organizationsContainerView: NSView!
+    @IBOutlet weak var organizationsScrollView: NSScrollView!
 
     var organizations = [OROrganization]()
         
@@ -33,36 +33,32 @@ class HomeViewController: ORViewController {
                 cloudRecords.map { self.localData.context.deleteObject($0) }
                 self.localData.save()
             } catch  { }
-        }
-        
-        self.cloudData.syncronizeDataToLocalStore {
-            if $0.success {
-                self.organizations = self.localData.fetchAll(model: OROrganization.self).objects as! [OROrganization]
+        } else {
+    
+            self.cloudData.syncronizeDataToLocalStore {
+                guard $0.success else { return }
                 
                 runOnMainThread {
+                    self.organizations = self.session.currentAthlete!.athleteOrganizations.array
                     self.displayOrganizations(self.organizations)
                 }
             }
         }
         
-//        let response = self.localData.fetchAll(model: OROrganization.self)
-//        if response.success {
-//            self.organizations = response.objects as! [OROrganization]
-//            self.displayOrganizations(self.organizations)
-//        }
-        
-//        print(self.localData.fetchDirtyObjects(model: ORLiftEntry.self).objects)
     }
     
     func displayOrganizations(organizations: [OROrganization]) {
-        self.organizationsContainerView.subviews = []
+        self.organizationsScrollView.documentView?.removeFromSuperview()
+        self.organizationsScrollView.documentView = nil
+        
+        let organizationsContainerView = NSFlippedView(frame: self.organizationsScrollView.bounds)
         
         let reorderedOrgs = organizations.sort { $0.0.orgName.isBefore(string: $0.1.orgName) }
         
         for (i, organization) in reorderedOrgs.enumerate() {
             
             let topPadding = 15 as CGFloat
-            let width = self.organizationsContainerView.frame.width
+            let width = organizationsContainerView.frame.width
             let height = 60 as CGFloat
             let x = 0 as CGFloat
             let y = (height + topPadding) * CGFloat(i)
@@ -70,10 +66,8 @@ class HomeViewController: ORViewController {
             
             organizationItem.selectedHandler = { organization in
                 ORSession.currentSession.currentOrganization = organization
-                
-                self.cloudData.fetchLiftTemplates(session: ORSession.currentSession, completionHandler: nil)
 
-                self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: NSViewControllerTransitionOptions.SlideForward, completionHandler: nil)
+                self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: .SlideForward, completionHandler: nil)
                 
                 self.cloudData.fetchMessages(organization: organization) {
                     guard $0.success else { print($0.error); return }
@@ -83,8 +77,14 @@ class HomeViewController: ORViewController {
                 
             }
             
-            self.organizationsContainerView.addSubview(organizationItem)
+            organizationsContainerView.addSubview(organizationItem)
+            organizationsContainerView.frame = NSRect(x: 0, y: 0, width: organizationsContainerView.frame.width, height: CGRectGetMaxY(organizationItem.frame))
         }
+        self.organizationsScrollView.documentView = organizationsContainerView
+    }
+    
+    @IBAction func joinOrgsPressed(sender: NSButton) {
+        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.organizationListVC, options: .SlideDown, completionHandler: nil)
     }
     
 }

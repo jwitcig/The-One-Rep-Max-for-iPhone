@@ -33,19 +33,17 @@ class MainViewController: NSViewController {
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
         ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
         
-        ORSession.currentSession.signInWithCloud { (success, error) -> () in
-            if success {
-                
-                ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
-                
-                self.instantiateViewControllers()
-                self.registerChildViewControllers()
-                
-                runOnMainThread {
-                    self.view.addSubview(self.homeVC.view)
-                }
-            } else {
-                print(error)
+        ORSession.currentSession.signInWithCloud {
+            guard $0.success else { return }
+            
+            ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
+            
+            self.instantiateViewControllers()
+            self.registerChildViewControllers()
+            
+            runOnMainThread {
+                self.view.addSubview(self.organizationListVC.view)
+//                self.view.addSubview(self.homeVC.view)
             }
         }
     }

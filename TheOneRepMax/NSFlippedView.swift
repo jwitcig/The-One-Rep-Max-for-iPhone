@@ -15,3 +15,15 @@ class NSFlippedView: NSView {
 class NSFlippedScrollView: NSScrollView {
     override var flipped:Bool { get { return true } }
 }
+
+extension NSView {
+    
+    var backgroundColor: NSColor? {
+        set {
+            self.wantsLayer = true
+            self.layer?.backgroundColor = newValue?.CGColor
+        }
+        get { return nil }
+    }
+    
+}

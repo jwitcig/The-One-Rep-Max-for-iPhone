@@ -42,8 +42,6 @@ class AssociatedOrganizationListItem: NSFlippedView {
         orgNameLabel.stringValue = self.organization.orgName
         orgNameLabel.backgroundColor = NSColor.clearColor()
         orgNameLabel.alignment = .Center
-        
-        
         orgNameLabel.font = NSFont(name: "Lucida Grande", size: 26)
         
         self.addSubview(orgNameLabel)

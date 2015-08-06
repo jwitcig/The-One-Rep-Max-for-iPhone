@@ -12,7 +12,7 @@ import ORMKit
 
 class OrganizationListViewController: NSViewController, NSCollectionViewDelegate {
     
-    @IBOutlet weak var organizationListView: NSView!
+    @IBOutlet weak var organizationScrollView: NSScrollView!
     @IBOutlet weak var organizationInfoContainer: NSView!
     @IBOutlet weak var orgNameLabel: NSTextField!
     @IBOutlet weak var orgAthleteCountLabel: NSTextField!
@@ -28,40 +28,43 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+                
         self.parentVC = self.parentViewController! as! MainViewController
-        
-        self.view.layer?.backgroundColor = NSColor.whiteColor().CGColor
-        
+                
         self.container = CKContainer.defaultContainer()
         self.publicDB = container.publicCloudDatabase
         self.session = ORSession.currentSession
         self.localData = session.localData
         self.cloudData = session.cloudData
         
-        self.cloudData.fetchAllOrganizations { (response) -> () in
+        
+        let options = ORDataOperationOptions()
+        options.sortDescriptors = [NSSortDescriptor(key: "orgName", ascending: false)]
+        self.cloudData.fetchAllOrganizations(options: options) {
+            guard $0.success else { return }
             
-            if response.error == nil {
-                for record in response.results as! [CKRecord] {
-                    
-                    let org = OROrganization.organization(record: record)
-                    self.organizations.append(org)
-                }
+            let threadedOrgs = OROrganization.organizations(records: $0.objects, context: $0.currentThreadContext)
+            
+            self.localData.save(context: $0.currentThreadContext)
+            
+            print(threadedOrgs.map {$0.orgName})
+            
+            runOnMainThread {
+                let context = NSManagedObjectContext.contextForCurrentThread()
+                self.organizations = context.crossContextEquivalents(objects: threadedOrgs)
                 
-                runOnMainThread {
-                    self.displayOrganizationsList(self.organizations)
-                }
+                self.displayOrganizationsList(self.organizations)
             }
         }
-
+        
     }
     
     func displayOrganizationsList(organizations: [OROrganization]) {
-        let container = self.organizationListView
+        let container = NSFlippedView(frame: self.organizationScrollView.bounds)
         
         for (i, organization) in organizations.enumerate() {
             
-            let topPadding = 15 as CGFloat
+            let topPadding = 10 as CGFloat
             let width = container.frame.width
             let height = 50 as CGFloat
             let x = 0 as CGFloat
@@ -74,19 +77,25 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
             }
             
             orgView.joinHandler = { (organization) in
-                
-                let mutableAthletes = NSMutableSet(set: organization.athletes)
-                mutableAthletes.addObject(self.session.currentAthlete!)
+                organization.athletes.insert(self.session.currentAthlete!)
                 self.localData.save()
                 
-                self.publicDB.saveRecord(organization.record) { (record, error) -> Void in
-                    print(error)
+                self.cloudData.syncronizeDataToCloudStore {
+                    guard $0.success else { return }
+                    
+                    ORSession.currentSession.currentOrganization = organization
+                    
+                    runOnMainThread {
+                        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.homeVC, options: .SlideUp, completionHandler: nil)
+                    }
                 }
+            
             }
             
-            self.organizationListView.addSubview(orgView)
+            container.addSubview(orgView)
+            container.frame = NSRect(x: 0, y: 0, width: container.frame.width, height: CGRectGetMaxY(orgView.frame))
         }
-        
+        self.organizationScrollView.documentView = container
     }
     
     override var representedObject: AnyObject? {

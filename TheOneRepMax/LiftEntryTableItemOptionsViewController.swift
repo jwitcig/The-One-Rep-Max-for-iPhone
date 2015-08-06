@@ -17,7 +17,7 @@ extension NSButton {
             let titleRange = NSMakeRange(0, self.title.characters.count)
             
             attributedTitle.addAttribute(NSForegroundColorAttributeName, value: newValue, range: titleRange)
-            self.setButtonType( NSButtonType.MomentaryPushInButton )
+            self.setButtonType(.MomentaryPushInButton)
             self.attributedTitle = attributedTitle
         }
     }

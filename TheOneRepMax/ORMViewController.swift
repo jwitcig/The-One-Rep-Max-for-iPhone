@@ -121,6 +121,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
 //            }
 //        }
         self.localData.save()
+        
         self.cloudData.syncronizeDataToCloudStore()
     }
     

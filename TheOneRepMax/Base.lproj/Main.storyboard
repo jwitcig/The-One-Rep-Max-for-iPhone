@@ -671,6 +671,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
+                    <connections>
+                        <segue destination="bhi-c5-M8g" kind="show" identifier="organizationSelection" id="uHV-S7-dad"/>
+                    </connections>
                 </viewController>
                 <customObject id="jRB-1S-nXy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -684,21 +687,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Yfo-n6-UxU">
-                                <rect key="frame" x="305" y="0.0" width="295" height="330"/>
+                            <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yfo-n6-UxU">
+                                <rect key="frame" x="305" y="0.0" width="295" height="281"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mdI-cu-0bf">
-                                        <rect key="frame" x="12" y="258" width="265" height="17"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="7 athletes" id="gN0-XQ-REr">
-                                            <font key="font" metaFont="system"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3am-Oj-nur">
+                                        <rect key="frame" x="12" y="246" width="265" height="27"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Organization Name" id="rmG-vt-KTr">
+                                            <font key="font" metaFont="system" size="22"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3am-Oj-nur">
-                                        <rect key="frame" x="12" y="283" width="265" height="27"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Organization Name" id="rmG-vt-KTr">
-                                            <font key="font" metaFont="system" size="22"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mdI-cu-0bf">
+                                        <rect key="frame" x="12" y="221" width="265" height="17"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="7 athletes" id="gN0-XQ-REr">
+                                            <font key="font" metaFont="system"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -708,38 +711,77 @@
                                     <constraint firstItem="3am-Oj-nur" firstAttribute="leading" secondItem="Yfo-n6-UxU" secondAttribute="leading" constant="14" id="0uk-qu-aaf"/>
                                     <constraint firstItem="3am-Oj-nur" firstAttribute="trailing" secondItem="mdI-cu-0bf" secondAttribute="trailing" id="DMB-Ho-bVu"/>
                                     <constraint firstItem="mdI-cu-0bf" firstAttribute="top" secondItem="3am-Oj-nur" secondAttribute="bottom" constant="8" symbolic="YES" id="MRM-CT-32a"/>
-                                    <constraint firstItem="3am-Oj-nur" firstAttribute="top" secondItem="Yfo-n6-UxU" secondAttribute="top" constant="20" symbolic="YES" id="Ryn-De-nWH"/>
+                                    <constraint firstItem="3am-Oj-nur" firstAttribute="top" secondItem="Yfo-n6-UxU" secondAttribute="top" constant="8" id="Ryn-De-nWH"/>
                                     <constraint firstAttribute="trailing" secondItem="3am-Oj-nur" secondAttribute="trailing" constant="20" symbolic="YES" id="SHg-1q-LiW"/>
                                     <constraint firstItem="3am-Oj-nur" firstAttribute="leading" secondItem="mdI-cu-0bf" secondAttribute="leading" id="klc-CO-XJn"/>
                                 </constraints>
                             </customView>
-                            <customView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MzE-0K-6hx" customClass="NSFlippedView" customModule="TheOneRepMax" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="304" height="330"/>
-                                <shadow key="shadow" blurRadius="3">
-                                    <size key="offset" width="3" height="3"/>
-                                    <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </shadow>
-                            </customView>
+                            <scrollView horizontalLineScroll="0.0" horizontalPageScroll="0.0" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" horizontalScrollElasticity="none" translatesAutoresizingMaskIntoConstraints="NO" id="iOz-Nv-Htw">
+                                <rect key="frame" x="0.0" y="0.0" width="289" height="281"/>
+                                <clipView key="contentView" id="fwO-wC-DC6">
+                                    <rect key="frame" x="1" y="1" width="287" height="279"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eLN-hV-PvZ">
+                                            <rect key="frame" x="0.0" y="185" width="181" height="94"/>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="eLN-hV-PvZ" secondAttribute="bottom" id="YrH-J0-GlM"/>
+                                        <constraint firstItem="eLN-hV-PvZ" firstAttribute="top" secondItem="fwO-wC-DC6" secondAttribute="top" constant="185" id="hd6-w9-wVB"/>
+                                        <constraint firstItem="eLN-hV-PvZ" firstAttribute="leading" secondItem="fwO-wC-DC6" secondAttribute="leading" id="pSz-jP-LqW"/>
+                                        <constraint firstAttribute="trailing" secondItem="eLN-hV-PvZ" secondAttribute="trailing" constant="106" id="q0n-WP-mp5"/>
+                                    </constraints>
+                                    <color key="backgroundColor" name="scrollBarColor" catalog="System" colorSpace="catalog"/>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" horizontal="YES" id="peE-gU-G1k">
+                                    <rect key="frame" x="-100" y="-100" width="287" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="T8R-Gg-Thu">
+                                    <rect key="frame" x="272" y="1" width="16" height="279"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="995-Ux-ts8">
+                                <rect key="frame" x="84" y="294" width="433" height="46"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Find Your Organization" id="aXp-Ze-4gm">
+                                    <font key="font" size="38" name="LucidaGrande"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="MzE-0K-6hx" firstAttribute="bottom" secondItem="Yfo-n6-UxU" secondAttribute="bottom" id="0Uu-pz-2NT"/>
-                            <constraint firstItem="Yfo-n6-UxU" firstAttribute="top" secondItem="MzE-0K-6hx" secondAttribute="top" id="0xW-Rq-fGd"/>
+                            <constraint firstItem="iOz-Nv-Htw" firstAttribute="bottom" secondItem="Yfo-n6-UxU" secondAttribute="bottom" id="9fQ-3G-4ox"/>
+                            <constraint firstItem="iOz-Nv-Htw" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="LvS-RC-HAj"/>
                             <constraint firstAttribute="bottom" secondItem="Yfo-n6-UxU" secondAttribute="bottom" id="R6K-tM-XAA"/>
-                            <constraint firstItem="Yfo-n6-UxU" firstAttribute="leading" secondItem="MzE-0K-6hx" secondAttribute="trailing" constant="1" id="XYF-8s-fIk"/>
+                            <constraint firstItem="iOz-Nv-Htw" firstAttribute="top" secondItem="995-Ux-ts8" secondAttribute="bottom" constant="13" id="S3H-Gv-Bln"/>
+                            <constraint firstItem="Yfo-n6-UxU" firstAttribute="leading" secondItem="iOz-Nv-Htw" secondAttribute="trailing" constant="16" id="Tq2-0A-oaA"/>
+                            <constraint firstItem="995-Ux-ts8" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="V0v-vd-BzM"/>
+                            <constraint firstItem="995-Ux-ts8" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="YrZ-2C-d6c"/>
+                            <constraint firstItem="995-Ux-ts8" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="86" id="a17-6h-o5j"/>
+                            <constraint firstItem="iOz-Nv-Htw" firstAttribute="top" secondItem="Yfo-n6-UxU" secondAttribute="top" id="bI0-HI-HTO"/>
                             <constraint firstAttribute="trailing" secondItem="Yfo-n6-UxU" secondAttribute="trailing" id="dcz-R8-EJ3"/>
-                            <constraint firstItem="MzE-0K-6hx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" symbolic="YES" id="p7q-ui-Izl"/>
                             <constraint firstItem="Yfo-n6-UxU" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="305" id="slt-vX-oYH"/>
-                            <constraint firstItem="MzE-0K-6hx" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="wZB-AR-ZNM"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="orgAthleteCountLabel" destination="mdI-cu-0bf" id="c4Z-NS-VNf"/>
                         <outlet property="orgNameLabel" destination="3am-Oj-nur" id="qCj-wh-fqo"/>
                         <outlet property="organizationInfoContainer" destination="Yfo-n6-UxU" id="k7o-5s-5fi"/>
-                        <outlet property="organizationListView" destination="MzE-0K-6hx" id="5Kg-rY-uXy"/>
+                        <outlet property="organizationScrollView" destination="iOz-Nv-Htw" id="4ot-fz-CKX"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customView id="9cU-aT-3hw" customClass="OrganizationListItem" customModule="TheOneRepMax">
+                    <rect key="frame" x="0.0" y="0.0" width="317" height="61"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Staley Weights"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="subtitle" value="679 athletes"/>
+                    </userDefinedRuntimeAttributes>
+                </customView>
             </objects>
             <point key="canvasLocation" x="860" y="283"/>
         </scene>
@@ -752,9 +794,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="qai-f5-IgZ" customClass="NSFlippedView" customModule="TheOneRepMax" customModuleProvider="target">
-                                <rect key="frame" x="20" y="20" width="560" height="259"/>
-                            </customView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-ud-pBK">
                                 <rect key="frame" x="147" y="300" width="323" height="34"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Select an Organization" id="8cz-UY-Ikr">
@@ -763,16 +802,40 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRm-is-7CP">
+                                <rect key="frame" x="486" y="302" width="100" height="32"/>
+                                <buttonCell key="cell" type="push" title="Join Orgs" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CcH-G1-lWJ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="joinOrgsPressed:" target="bhi-c5-M8g" id="7Q8-2g-At7"/>
+                                </connections>
+                            </button>
+                            <scrollView fixedFrame="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Nf-H5-LfQ">
+                                <rect key="frame" x="20" y="20" width="560" height="269"/>
+                                <clipView key="contentView" ambiguous="YES" id="iKh-HE-2Nb">
+                                    <rect key="frame" x="1" y="1" width="558" height="267"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3An-QT-RxF">
+                                            <rect key="frame" x="0.0" y="173" width="181" height="94"/>
+                                        </view>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="w3A-A8-7GQ">
+                                    <rect key="frame" x="1" y="252" width="558" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aaz-5u-mQ4">
+                                    <rect key="frame" x="543" y="1" width="16" height="267"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
                         </subviews>
-                        <constraints>
-                            <constraint firstAttribute="trailing" secondItem="qai-f5-IgZ" secondAttribute="trailing" constant="20" symbolic="YES" id="OMF-fR-yZR"/>
-                            <constraint firstItem="qai-f5-IgZ" firstAttribute="top" secondItem="go1-Ux-IJR" secondAttribute="top" constant="71" id="Uvf-zC-PMu"/>
-                            <constraint firstItem="qai-f5-IgZ" firstAttribute="leading" secondItem="go1-Ux-IJR" secondAttribute="leading" constant="20" symbolic="YES" id="V9f-1d-uoM"/>
-                            <constraint firstAttribute="bottom" secondItem="qai-f5-IgZ" secondAttribute="bottom" constant="20" symbolic="YES" id="oNs-vM-uoo"/>
-                        </constraints>
                     </view>
                     <connections>
-                        <outlet property="organizationsContainerView" destination="qai-f5-IgZ" id="LUt-yN-5k2"/>
+                        <outlet property="organizationsScrollView" destination="9Nf-H5-LfQ" id="h2S-mu-WgD"/>
                     </connections>
                 </viewController>
             </objects>
@@ -937,7 +1000,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aBh-SG-2m8">
-                                    <rect key="frame" x="143" y="0.0" width="16" height="179"/>
+                                    <rect key="frame" x="144" y="0.0" width="15" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1045,7 +1108,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="19G-fJ-bD7">
-                                    <rect key="frame" x="492" y="0.0" width="16" height="240"/>
+                                    <rect key="frame" x="493" y="0.0" width="15" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1115,7 +1178,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fVc-yb-d7K">
-                                    <rect key="frame" x="478" y="0.0" width="16" height="267"/>
+                                    <rect key="frame" x="479" y="0.0" width="15" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1354,7 +1417,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="cm6-8j-BQX">
-                                    <rect key="frame" x="188" y="0.0" width="16" height="197"/>
+                                    <rect key="frame" x="189" y="0.0" width="15" height="197"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
