@@ -69,12 +69,10 @@ class HomeViewController: ORViewController {
 
                 self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: .SlideForward, completionHandler: nil)
                 
-                self.cloudData.fetchMessages(organization: organization) {
-                    guard $0.success else { print($0.error); return }
-                    ORMessage.messages(records: $0.objects)
-                    self.localData.save()
+                self.cloudData.fetchMessages(organization: organization) { (messages, response) in
+                    guard response.success else { print(response.error); return }
+                    self.localData.save(context: response.currentThreadContext)
                 }
-                
             }
             
             organizationsContainerView.addSubview(organizationItem)

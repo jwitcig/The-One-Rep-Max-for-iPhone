@@ -31,11 +31,10 @@ class SetupViewController: ORViewController {
     func initOptionItems() {
         guard let organization = self.organization else { return }
         
-        self.cloudData.fetchAthletes(organization: organization) {
-            guard $0.success else { return }
+        self.cloudData.fetchAthletes(organization: organization) { (athletes, response) in
+            guard response.success else { return }
             
-            let athletes = ORAthlete.athletes(records: $0.objects)
-            self.localData.save()
+            self.localData.save(context: response.currentThreadContext)
             
             let container = NSFlippedView()
             container.addSubview(self.buildOption(title: "name", type: .Text, value: self.organization?.orgName))

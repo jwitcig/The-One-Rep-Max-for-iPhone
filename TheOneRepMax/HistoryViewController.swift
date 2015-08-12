@@ -34,12 +34,8 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     private let oneDay: Double = 24 * 60 * 60
     
     var liftTemplate: ORLiftTemplate {
-        get {
-            return self.representedObject as! ORLiftTemplate
-        }
-        set {
-            self.representedObject = newValue
-        }
+        get { return self.representedObject as! ORLiftTemplate }
+        set { self.representedObject = newValue }
     }
     
     override func viewDidLoad() {
@@ -141,6 +137,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         // Add some initial data
         var contentArray = [plotDataType]()
         
+        
         for i in 0 ..< entries.count {
             let x = NSDate.daysBetween(startDate: entries.first!.date, endDate: entries[i].date)
             let y = entries[i].max
@@ -148,11 +145,8 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
             contentArray.append(dataPoint)
         }
         self.plotData = contentArray
-        
         self.graph = newGraph
     }
-    
-    
     
     func numberOfRecordsForPlot(plot: CPTPlot) -> UInt {
         return UInt(self.plotData.count)
@@ -175,11 +169,10 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         let athlete = ORSession.currentSession.currentAthlete!
         let organization = ORSession.currentSession.currentOrganization!
         
-        let response = self.localData.fetchLiftEntries(athlete: athlete, organization: organization, template: self.liftTemplate, order: .Chronological)
-
+        let (liftEntries, response) = self.localData.fetchLiftEntries(athlete: athlete, organization: organization, template: self.liftTemplate, order: .Chronological)
+        
+        self.liftEntries = liftEntries
         if response.success {
-            self.liftEntries = response.objects as! [ORLiftEntry]
-                
             let entriesReverse = self.liftEntries.sort { $0.date.compare($1.date) == .OrderedDescending }
                             
             if self.liftEntries.count > 0 {
@@ -190,7 +183,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         
         let endDate = NSDate()
         let startDate = endDate.dateByAddingTimeInterval(-60*60*24*14)
-            
+
         if let progress = self.session.soloStats.averageProgress(template: self.liftTemplate, dateRange: (startDate, endDate), dayInterval: 14) {
             self.intervalProgressLabel.stringValue = "\(Int(progress)) lbs."
         } else {
@@ -204,13 +197,21 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     }
     
     func clearDataDisplays() {
+        self.clearLiftEntriesDisplay()
+        self.clearGraph()
+    }
+    
+    func clearLiftEntriesDisplay() {
         self.liftEntriesContainer.documentView = nil
+    }
+    
+    func clearGraph() {
         self.graph = nil
         self.graphHostingView.hidden = true
     }
     
     func displayLiftEntries(entries: [ORLiftEntry]) {
-        self.clearDataDisplays()
+        self.clearLiftEntriesDisplay()
         
         let container = NSFlippedView()
         for (i, entry) in entries.enumerate() {

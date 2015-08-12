@@ -828,7 +828,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aaz-5u-mQ4">
-                                    <rect key="frame" x="543" y="1" width="16" height="267"/>
+                                    <rect key="frame" x="544" y="1" width="15" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1000,7 +1000,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aBh-SG-2m8">
-                                    <rect key="frame" x="144" y="0.0" width="15" height="179"/>
+                                    <rect key="frame" x="143" y="0.0" width="16" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1108,7 +1108,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="19G-fJ-bD7">
-                                    <rect key="frame" x="493" y="0.0" width="15" height="240"/>
+                                    <rect key="frame" x="492" y="0.0" width="16" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1178,7 +1178,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fVc-yb-d7K">
-                                    <rect key="frame" x="479" y="0.0" width="15" height="267"/>
+                                    <rect key="frame" x="478" y="0.0" width="16" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1392,9 +1392,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="137-Fi-13Y" customClass="CPTGraphHostingView">
-                                <rect key="frame" x="261" y="20" width="319" height="197"/>
-                            </customView>
                             <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtv-Gy-1CH" customClass="NSFlippedScrollView" customModule="TheOneRepMax" customModuleProvider="target">
                                 <rect key="frame" x="20" y="20" width="204" height="197"/>
                                 <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="nXq-kj-vV6">
@@ -1417,7 +1414,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="cm6-8j-BQX">
-                                    <rect key="frame" x="189" y="0.0" width="15" height="197"/>
+                                    <rect key="frame" x="188" y="0.0" width="16" height="197"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1462,21 +1459,21 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-Ul-ngl">
+                            <customView ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A4Q-Ul-ngl">
                                 <rect key="frame" x="392" y="221" width="188" height="50"/>
                                 <subviews>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e2C-TZ-pKz">
-                                        <rect key="frame" x="-26" y="0.0" width="208" height="30"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="12 lbs." id="CZs-gf-ta0">
-                                            <font key="font" metaFont="systemBold" size="27"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yfd-1F-r67">
+                                        <rect key="frame" x="-26" y="29" width="208" height="18"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="avg. 14 day progress:" id="a1g-46-327">
+                                            <font key="font" metaFont="systemBold"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
                                     </textField>
-                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="yfd-1F-r67">
-                                        <rect key="frame" x="-26" y="29" width="208" height="18"/>
-                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="avg. 14 day progress:" id="a1g-46-327">
-                                            <font key="font" metaFont="systemBold"/>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e2C-TZ-pKz">
+                                        <rect key="frame" x="-26" y="0.0" width="208" height="30"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="12 lbs." id="CZs-gf-ta0">
+                                            <font key="font" metaFont="systemBold" size="27"/>
                                             <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                         </textFieldCell>
@@ -1504,10 +1501,13 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="137-Fi-13Y" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="261" y="20" width="319" height="197"/>
+                            </customView>
                         </subviews>
                         <constraints>
+                            <constraint firstAttribute="bottom" secondItem="137-Fi-13Y" secondAttribute="bottom" constant="20" id="00N-Mf-7xk"/>
                             <constraint firstItem="Rtv-Gy-1CH" firstAttribute="bottom" secondItem="137-Fi-13Y" secondAttribute="bottom" id="0y3-wj-1OC"/>
-                            <constraint firstItem="137-Fi-13Y" firstAttribute="top" secondItem="A4Q-Ul-ngl" secondAttribute="bottom" constant="4" id="1aL-4G-Bdt"/>
                             <constraint firstItem="2XJ-ti-cxS" firstAttribute="top" secondItem="ctf-TU-O9j" secondAttribute="bottom" constant="60" id="7Uc-JV-LIe"/>
                             <constraint firstAttribute="bottom" secondItem="Rtv-Gy-1CH" secondAttribute="bottom" constant="20" symbolic="YES" id="BQN-yp-JEj"/>
                             <constraint firstItem="A4Q-Ul-ngl" firstAttribute="leading" secondItem="NVd-DC-hdI" secondAttribute="leading" constant="392" id="JnC-ed-QTS"/>
@@ -1517,6 +1517,7 @@
                             <constraint firstItem="ctf-TU-O9j" firstAttribute="top" secondItem="NVd-DC-hdI" secondAttribute="top" constant="5" id="ONA-MB-k47"/>
                             <constraint firstItem="Ojl-lD-OSD" firstAttribute="trailing" secondItem="Rtv-Gy-1CH" secondAttribute="trailing" id="QSG-K4-gwu"/>
                             <constraint firstItem="2XJ-ti-cxS" firstAttribute="leading" secondItem="NVd-DC-hdI" secondAttribute="leading" constant="20" symbolic="YES" id="QuL-q7-rrI"/>
+                            <constraint firstAttribute="trailing" secondItem="137-Fi-13Y" secondAttribute="trailing" constant="20" id="RR6-ch-Zu1"/>
                             <constraint firstItem="2XJ-ti-cxS" firstAttribute="top" secondItem="aUZ-UG-XLe" secondAttribute="bottom" constant="51" id="aJf-1d-jRu"/>
                             <constraint firstItem="137-Fi-13Y" firstAttribute="top" secondItem="Rtv-Gy-1CH" secondAttribute="top" id="bc3-wK-HSF"/>
                             <constraint firstItem="Ojl-lD-OSD" firstAttribute="leading" secondItem="Rtv-Gy-1CH" secondAttribute="leading" id="kTg-Gt-WAp"/>

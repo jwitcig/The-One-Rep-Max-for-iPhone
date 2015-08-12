@@ -33,8 +33,8 @@ class MainViewController: NSViewController {
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
         ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
         
-        ORSession.currentSession.signInWithCloud {
-            guard $0.success else { return }
+        ORSession.currentSession.signInWithCloud { (athlete, response) in
+            guard response.success else { return }
             
             ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
             

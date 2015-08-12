@@ -40,18 +40,12 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
         
         let options = ORDataOperationOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "orgName", ascending: false)]
-        self.cloudData.fetchAllOrganizations(options: options) {
-            guard $0.success else { return }
-            
-            let threadedOrgs = OROrganization.organizations(records: $0.objects, context: $0.currentThreadContext)
-            
-            self.localData.save(context: $0.currentThreadContext)
-            
-            print(threadedOrgs.map {$0.orgName})
+        self.cloudData.fetchAllOrganizations(options: options) { (threadedOrganizations, response) in
+            guard response.success else { return }
             
             runOnMainThread {
                 let context = NSManagedObjectContext.contextForCurrentThread()
-                self.organizations = context.crossContextEquivalents(objects: threadedOrgs)
+                self.organizations = context.crossContextEquivalents(objects: threadedOrganizations)
                 
                 self.displayOrganizationsList(self.organizations)
             }
