@@ -20,6 +20,7 @@
 		8B73D6471B4266F400C21F7F /* LiftEntryTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */; };
 		8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6481B426E5200C21F7F /* NSLabel.swift */; };
 		8B7405991B59CE44007F3258 /* OptionCustomInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */; };
+		8B787F1C1B7ADF27006BA4A9 /* ManagedAthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787F1B1B7ADF27006BA4A9 /* ManagedAthleteView.swift */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
 		8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */; };
 		8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520971B44CA27005E0FF0 /* MenuItem.swift */; };
@@ -73,6 +74,7 @@
 		8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntryTableItem.swift; sourceTree = "<group>"; };
 		8B73D6481B426E5200C21F7F /* NSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLabel.swift; sourceTree = "<group>"; };
 		8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCustomInputViewController.swift; sourceTree = "<group>"; };
+		8B787F1B1B7ADF27006BA4A9 /* ManagedAthleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedAthleteView.swift; sourceTree = "<group>"; };
 		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRepMaxContainer.swift; sourceTree = "<group>"; };
 		8BA520971B44CA27005E0FF0 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 				8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */,
 				8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */,
 				8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */,
+				8B787F1B1B7ADF27006BA4A9 /* ManagedAthleteView.swift */,
 			);
 			name = Setup;
 			sourceTree = "<group>";
@@ -442,6 +445,7 @@
 				8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */,
 				8BD38DC51B45C4C500A1E830 /* ViewMessageViewController.swift in Sources */,
 				8B73D6471B4266F400C21F7F /* LiftEntryTableItem.swift in Sources */,
+				8B787F1C1B7ADF27006BA4A9 /* ManagedAthleteView.swift in Sources */,
 				8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */,
 				8B1C5C621B35F57A00B47E5E /* OrganizationListItem.swift in Sources */,
 				8BFC3C981B4EE51400B8F54E /* StatsViewController.swift in Sources */,

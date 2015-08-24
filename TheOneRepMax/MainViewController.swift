@@ -33,7 +33,7 @@ class MainViewController: NSViewController {
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
         ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
         
-        ORSession.currentSession.signInWithCloud { (athlete, response) in
+        ORSession.currentSession.signInWithCloud { athlete, response in
             guard response.success else { return }
             
             ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
@@ -42,8 +42,8 @@ class MainViewController: NSViewController {
             self.registerChildViewControllers()
             
             runOnMainThread {
-                self.view.addSubview(self.organizationListVC.view)
-//                self.view.addSubview(self.homeVC.view)
+//                self.view.addSubview(self.organizationListVC.view)
+                self.view.addSubview(self.homeVC.view)
             }
         }
     }

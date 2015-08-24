@@ -29,9 +29,14 @@ class SetupOptionView: NSView, NSTextFieldDelegate {
     
     var editButton: NSButton!
     
-    init(frame frameRect: NSRect, title: String, type: OROptionType, organization: OROrganization?, value: AnyObject?) {
+    var viewController: NSViewController?
+    
+    var option: SetupOption!
+    
+    init(frame frameRect: NSRect, title: String, option: SetupOption, type: OROptionType, organization: OROrganization?, value: AnyObject?) {
         self.title = title
         self.type = type
+        self.option = option
         self.organization = organization
         self.optionValue = value
         super.init(frame: frameRect)
@@ -97,27 +102,37 @@ class SetupOptionView: NSView, NSTextFieldDelegate {
     }
     
     func editClicked(editButton: NSButton) {
+        self.viewController?.dismissController(self)
         
-        if let type = self.type {
-            switch type {
-                
-            case .Text:
-                let destination = self.parentController.parentVC.storyboard?.instantiateControllerWithIdentifier("OptionTextInputViewController") as! OptionTextInputViewController
-                self.parentController.addChildViewController(destination)
-                
-                self.parentController.presentViewController(destination, asPopoverRelativeToRect: editButton.bounds, ofView: editButton, preferredEdge: NSRectEdge.MaxX, behavior: NSPopoverBehavior.Transient)
-                
-                destination.textValue = self.valueLabel!.stringValue
-                destination.baseTextField = self.valueLabel
-                
-            case .Custom:
-                let destination = self.parentController.parentVC.storyboard?.instantiateControllerWithIdentifier("OptionCustomInputViewController") as! OptionCustomInputViewController
-                self.parentController.addChildViewController(destination)
-                
-                self.parentController.presentViewController(destination, asPopoverRelativeToRect: editButton.bounds, ofView: editButton, preferredEdge: NSRectEdge.MaxX, behavior: NSPopoverBehavior.Transient)
-                
-                destination.customView = self.optionValue as? NSView
+        guard let type = self.type else { return }
+        
+        switch type {
+            
+        case .Text:
+            if self.viewController == nil {
+                self.viewController = self.parentController.parentVC.storyboard?.instantiateControllerWithIdentifier("OptionTextInputViewController") as! OptionTextInputViewController
+                self.parentController.addChildViewController(self.viewController!)
             }
+            
+            let destination = self.viewController! as! OptionTextInputViewController
+            
+            self.parentController.presentViewController(destination, asPopoverRelativeToRect: editButton.bounds, ofView: editButton, preferredEdge: .MaxX, behavior: .Transient)
+            
+            destination.option = self.option
+            destination.textValue = self.valueLabel!.stringValue
+            destination.baseTextField = self.valueLabel
+            
+        case .Custom:
+            if self.viewController == nil {
+                self.viewController = self.parentController.parentVC.storyboard?.instantiateControllerWithIdentifier("OptionCustomInputViewController") as! OptionCustomInputViewController
+                self.parentController.addChildViewController(self.viewController!)
+            }
+            
+            let destination = self.viewController! as! OptionCustomInputViewController
+            
+            self.parentController.presentViewController(destination, asPopoverRelativeToRect: editButton.bounds, ofView: editButton, preferredEdge: .MaxX, behavior: .Transient)
+            
+            destination.customView = self.optionValue as? NSView
         }
     }
     

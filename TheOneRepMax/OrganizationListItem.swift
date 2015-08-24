@@ -42,7 +42,11 @@ class OrganizationListItem: NSView {
     
     func updateProperties() {
         self.title = self.organization.orgName
-        self.subtitle = "\(self.organization.athletes.count) athletes"
+        if let athleteCount = self.organization.athleteReferences?.count {
+            self.subtitle = "\(athleteCount) athletes"
+        } else {
+            self.subtitle = ""
+        }
     }
     
     override func drawRect(dirtyRect: NSRect) {

@@ -24,7 +24,9 @@ class MessagesViewController: ORViewController {
     override func viewWillAppear() {
         super.viewWillAppear()
         
-        self.messages = Array(self.organization.messages)
+        let (messages, _) = self.localData.fetchAll(model: ORMessage.self)
+        print("messages : \(messages)")
+        self.messages = self.organization.messages.array
         
         // Recent -> Old
         self.messages.sortInPlace { $0.createdDate.compare($1.createdDate) == .OrderedDescending }

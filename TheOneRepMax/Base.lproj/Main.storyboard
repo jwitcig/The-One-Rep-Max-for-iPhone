@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14E46" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8164.2" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8164.2"/>
     </dependencies>
@@ -751,6 +751,16 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pDX-DK-kH6">
+                                <rect key="frame" x="468" y="322" width="138" height="32"/>
+                                <buttonCell key="cell" type="push" title="clear local store" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0go-fR-P3u">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="clearLocalStoreClicked:" target="XfG-lQ-9wD" id="aos-FC-dJa"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="iOz-Nv-Htw" firstAttribute="bottom" secondItem="Yfo-n6-UxU" secondAttribute="bottom" id="9fQ-3G-4ox"/>
@@ -828,7 +838,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aaz-5u-mQ4">
-                                    <rect key="frame" x="544" y="1" width="15" height="267"/>
+                                    <rect key="frame" x="543" y="1" width="16" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1000,7 +1010,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aBh-SG-2m8">
-                                    <rect key="frame" x="143" y="0.0" width="16" height="179"/>
+                                    <rect key="frame" x="144" y="0.0" width="15" height="179"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1108,7 +1118,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="19G-fJ-bD7">
-                                    <rect key="frame" x="492" y="0.0" width="16" height="240"/>
+                                    <rect key="frame" x="493" y="0.0" width="15" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1161,6 +1171,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="16"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="backPressed:" target="Ah7-Qi-izy" id="Ht3-Ap-Y80"/>
+                                </connections>
                             </button>
                             <scrollView fixedFrame="YES" borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UM2-tQ-kkD">
                                 <rect key="frame" x="53" y="20" width="494" height="267"/>
@@ -1178,7 +1191,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fVc-yb-d7K">
-                                    <rect key="frame" x="478" y="0.0" width="16" height="267"/>
+                                    <rect key="frame" x="479" y="0.0" width="15" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1381,6 +1394,13 @@
                     </connections>
                 </viewController>
                 <customObject id="HLZ-NQ-MGt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customView id="Dfr-j1-myG" customClass="ManagedAthleteView" customModule="TheOneRepMax" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="249" height="18"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="title" value="Jonah Witcig"/>
+                    </userDefinedRuntimeAttributes>
+                </customView>
             </objects>
             <point key="canvasLocation" x="2354" y="1554"/>
         </scene>
@@ -1414,7 +1434,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="cm6-8j-BQX">
-                                    <rect key="frame" x="188" y="0.0" width="16" height="197"/>
+                                    <rect key="frame" x="189" y="0.0" width="15" height="197"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>

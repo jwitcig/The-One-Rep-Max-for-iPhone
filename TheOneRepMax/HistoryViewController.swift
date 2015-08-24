@@ -169,7 +169,10 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         let athlete = ORSession.currentSession.currentAthlete!
         let organization = ORSession.currentSession.currentOrganization!
         
-        let (liftEntries, response) = self.localData.fetchLiftEntries(athlete: athlete, organization: organization, template: self.liftTemplate, order: .Chronological)
+        
+        let options = ORDataOperationOptions()
+        options.sortDescriptors = [NSSortDescriptor(key: "date", order: .Chronological)]
+        let (liftEntries, response) = self.localData.fetchLiftEntries(athlete: athlete, organization: organization, template: self.liftTemplate, options: options)
         
         self.liftEntries = liftEntries
         if response.success {
@@ -234,7 +237,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     
     @IBAction func backPressed(sender: NSButton) {
         if let destination = self.fromViewController {
-            self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideUp, completionHandler: nil)
+            self.parentVC.transitionFromViewController(self, toViewController: destination, options: .SlideUp, completionHandler: nil)
         }
     }
     

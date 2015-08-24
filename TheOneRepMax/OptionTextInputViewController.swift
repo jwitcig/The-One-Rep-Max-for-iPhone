@@ -8,11 +8,14 @@
 
 import Cocoa
 
+@IBDesignable
 class OptionTextInputViewController: NSViewController, NSTextViewDelegate {
     
     @IBOutlet var textView: NSTextView!
     
-    var baseTextField: NSTextField!
+    var option: SetupOption!
+
+    var baseTextField: NSLabel!
     
     var textValue: String {
         get {
@@ -24,12 +27,13 @@ class OptionTextInputViewController: NSViewController, NSTextViewDelegate {
         set { self.textView.string = newValue }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     func textDidChange(notification: NSNotification) {
         self.baseTextField.stringValue = self.textValue
+    }
+    
+    override func viewDidDisappear() {
+        super.viewDidDisappear()
+        self.option.newValue = self.textView.string
     }
     
 }

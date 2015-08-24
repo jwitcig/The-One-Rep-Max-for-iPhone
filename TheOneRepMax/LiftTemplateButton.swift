@@ -17,38 +17,31 @@ class LiftTemplateButton: NSButton {
     static let width = 100
     static let height = 30
     static var size: CGSize {
-        get { return CGSize(width: self.width, height: self.height) }
+        return CGSize(width: self.width, height: self.height)
     }
     var origin: CGPoint {
-        get {
-            return CGPoint(x: (self.index*LiftTemplateButton.width)+((index+1)*LiftTemplateButton.padding), y: 0)
-        }
+        return CGPoint(x: (self.index*LiftTemplateButton.width)+((index+1)*LiftTemplateButton.padding), y: 0)
     }
     
     static let padding = 30
     
     var buttonCell: NSButtonCell {
-        get {
-            return self.cell! as! NSButtonCell
-        }
+        return self.cell! as! NSButtonCell
     }
     
     init(frame frameRect: NSRect, template: ORLiftTemplate, index: Int) {
         self.template = template
         self.index = index
-        super.init(frame: CGRect())
-
+        super.init(frame: CGRectZero)
         
         let frame = CGRect(origin: self.origin, size: LiftTemplateButton.size)
         
-        
         self.buttonCell.backgroundColor = NSColor.blueColor()
-        self.buttonCell.bezelStyle = NSBezelStyle.InlineBezelStyle
+        self.buttonCell.bezelStyle = .InlineBezelStyle
         
         let centeredStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-        centeredStyle.alignment = NSTextAlignment.Center
+        centeredStyle.alignment = .Center
         
-        let range = NSMakeRange(0, self.title.characters.count)
         let colorTitle = NSAttributedString(string: template.liftName, attributes: [NSForegroundColorAttributeName: NSColor.greenColor(), NSParagraphStyleAttributeName: centeredStyle])
         
         self.attributedTitle = colorTitle

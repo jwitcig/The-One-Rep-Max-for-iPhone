@@ -8,20 +8,19 @@
 
 import Cocoa
 
+@IBDesignable
 class OptionCustomInputViewController: NSViewController {
     
     @IBOutlet weak var customViewContainer: NSScrollView!
     
     var customView: NSView! {
         didSet {
-            
             var maxY = 0 as CGFloat
+            
             for subview in self.customView.subviews {
                 let y = CGRectGetMaxY(subview.frame)
                 
-                if y > maxY {
-                    maxY = y
-                }
+                if y > maxY { maxY = y }
             }
             
             let width = self.customViewContainer.frame.width

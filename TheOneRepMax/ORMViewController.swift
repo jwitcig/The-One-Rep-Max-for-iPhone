@@ -46,8 +46,11 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.liftTemplates = Array(self.session.currentOrganization!.liftTemplates).sort {
-            $0.0.liftName.compare($0.1.liftName, options: NSStringCompareOptions.CaseInsensitiveSearch, range: nil, locale: nil) == NSComparisonResult.OrderedAscending
+        let context = self.session.currentOrganization!.managedObjectContext!
+        let org = context.objectWithID(self.session.currentOrganization!.objectID) as! OROrganization
+        
+        self.liftTemplates = Array(org.liftTemplates).sort {
+            $0.0.liftName.compare($0.1.liftName, options: .CaseInsensitiveSearch, range: nil, locale: nil) == .OrderedAscending
         }
                 
         self.updateHistoryList(self.liftTemplates)
@@ -60,15 +63,17 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         self.messagesMenuItem.clickHandler = {
             let destination = self.parentVC.messagesVC
             destination.organization = self.session.currentOrganization!
+            destination.fromViewController = self
             
-            self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
+            self.parentVC.transitionFromViewController(self, toViewController: destination, options: .SlideLeft, completionHandler: nil)
         }
         
         self.setupMenuItem.clickHandler = {
             let destination = self.parentVC.setupVC
             destination.organization = self.session.currentOrganization
+            destination.fromViewController = self
             
-            self.parentVC.transitionFromViewController(self, toViewController: destination, options: NSViewControllerTransitionOptions.SlideLeft, completionHandler: nil)
+            self.parentVC.transitionFromViewController(self, toViewController: destination, options: .SlideLeft, completionHandler: nil)
         }
     }
     
@@ -87,7 +92,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
                 let destinationViewController = self.parentVC.historyVC
                 destinationViewController.liftTemplate = template
                 destinationViewController.fromViewController = self
-                self.parentVC.transitionFromViewController(self, toViewController: destinationViewController, options: NSViewControllerTransitionOptions.SlideDown, completionHandler: nil)
+                self.parentVC.transitionFromViewController(self, toViewController: destinationViewController, options: .SlideDown, completionHandler: nil)
             }
             
             container.addSubview(button)

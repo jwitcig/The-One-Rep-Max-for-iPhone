@@ -17,7 +17,6 @@ class BackgroundView: NSView {
         self.layer?.backgroundColor = NSColor.lightGrayColor().CGColor
         
         self.autoresizingMask = [.ViewWidthSizable, .ViewHeightSizable]
-
     }
     
     required init?(coder: NSCoder) {
@@ -25,11 +24,6 @@ class BackgroundView: NSView {
         self.wantsLayer = true
         
         self.layer?.backgroundColor = NSColor.lightGrayColor().CGColor
-    }
-    
-    override func drawRect(dirtyRect: NSRect) {
-        super.drawRect(dirtyRect)
-
     }
     
 }

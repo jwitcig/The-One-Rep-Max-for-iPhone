@@ -21,7 +21,9 @@ class SetupViewController: ORViewController {
     
     var optionNumber = 0
     
-    var options = [SetupOptionView]()
+    var optionViews = [SetupOptionView]()
+    
+    var options = [String: SetupOption]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +39,24 @@ class SetupViewController: ORViewController {
             self.localData.save(context: response.currentThreadContext)
             
             let container = NSFlippedView()
-            container.addSubview(self.buildOption(title: "name", type: .Text, value: self.organization?.orgName))
-            container.addSubview(self.buildOption(title: "description", type: .Text, value: self.organization?.orgDescription))
-            container.addSubview(self.buildAthletesOptionView(title: "athletes", athletes: athletes))
+            container.addSubview(self.buildOption(key: OROrganization.Fields.orgName.rawValue,
+                                                value: self.organization?.orgName,
+                                                 type: .Text,
+                                         optionContainer: organization,
+                                                title: "name"))
+            container.addSubview(self.buildOption(key: OROrganization.Fields.orgDescription.rawValue,
+                                                value: self.organization?.orgDescription,
+                                                 type: .Text,
+                                         optionContainer: organization,
+                                                title: "description"))
+            container.addSubview(self.buildAthletesOptionView(key: OROrganization.Fields.athletes.rawValue,
+                                                         athletes: athletes,
+                                                     optionContainer: organization,
+                                                            title: "athletes"))
             
             let height =  (self.optionViewHeight + self.optionViewTopPadding) * CGFloat(self.optionNumber)
-            container.frame = NSRect(origin: CGPointZero, size: CGSize(width: self.optionsScrollView.frame.width, height: height))
+            container.frame = NSRect(origin: CGPointZero,
+                                       size: CGSize(width: self.optionsScrollView.frame.width, height: height))
             
             runOnMainThread {
                 self.optionsScrollView.documentView = container
@@ -50,70 +64,102 @@ class SetupViewController: ORViewController {
         }
     }
     
-    func buildOption(title title: String, type: OROptionType, value: AnyObject?) -> SetupOptionView {
+    func buildOption(key key: String, value: AnyObject?, type: OROptionType, optionContainer: NSManagedObject, title optionTitle: String? = nil) -> SetupOptionView {
+        
+        let option = SetupOption(key: key, value: value, holder: optionContainer)
+        self.options[key] = option
+        
         let origin = NSPoint(x: 0, y: ((self.optionViewHeight + self.optionViewTopPadding) * CGFloat(self.optionNumber)))
         let size = CGSize(width: self.optionsScrollView.frame.width, height: self.optionViewHeight)
         let frame = NSRect(origin: origin, size: size)
         
+        let title = optionTitle != nil ? optionTitle! : key
         self.optionNumber += 1
-        let option = SetupOptionView(frame: frame, title: title, type: type, organization: self.organization, value: value)
-        option.parentController = self
-        self.options.append(option)
-        return option
+        let optionView = SetupOptionView(frame: frame, title: title, option: option, type: type, organization: self.organization, value: value)
+        optionView.parentController = self
+        self.optionViews.append(optionView)
+      
+        return optionView
     }
     
-    func buildAthletesOptionView(title title: String, athletes: [ORAthlete]) -> SetupOptionView {
-        let optionView = self.buildOption(title: title, type: .Custom, value: nil)
+    func buildAthletesOptionView(key key: String, athletes threadedAthletes: [ORAthlete], optionContainer: NSManagedObject, title optionTitle: String? = nil) -> SetupOptionView {
+        
+        let title = optionTitle != nil ? optionTitle! : key
+        let optionView = self.buildOption(key: key, value: nil, type: .Custom, optionContainer: optionContainer, title: title)
+        
         let container = NSFlippedView(frame: NSRect(origin: NSZeroPoint, size: NSSize(width: optionView.frame.width, height: 0 as CGFloat)))
         
-        for (i, athlete) in athletes.enumerate() {
+        for (i, threadedAthlete) in threadedAthletes.enumerate() {
             let topSpacing = 5 as CGFloat
-            var width = container.frame.width * (1/2)
-            var height = 30 as CGFloat
-            var x = 0 as CGFloat
-            var y = (height + topSpacing) * CGFloat(i)
+            let width = container.frame.width * (1/2)
+            let height = 30 as CGFloat
+            let x = 0 as CGFloat
+            let y = (height + topSpacing) * CGFloat(i)
             
-            let individualContainer = NSFlippedView(frame: NSRect(x: x, y: y, width: width, height: height))
+            let frame = NSRect(x: x, y: y, width: width, height: height)
             
-            width = individualContainer.frame.width * (7/10)
-            height = individualContainer.frame.height
-            x = 0 as CGFloat
-            y = 0 as CGFloat
-            let nameLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
-            nameLabel.stringValue = athlete.fullName
-            individualContainer.addSubview(nameLabel)
-            
-            
-            width = individualContainer.frame.width - nameLabel.frame.width
-            height = individualContainer.frame.height
-            x = CGRectGetMaxX(nameLabel.frame)
-            y = 0 as CGFloat
-            let removeAthleteButton = NSClosureButton(frame: NSRect(x: x, y: y, width: width, height: height))
-            removeAthleteButton.title = "remove"
-            removeAthleteButton.bezelStyle = NSBezelStyle.RoundRectBezelStyle
-            removeAthleteButton.clickHandlerClosure = {
-                self.organization!.athletes.remove(athlete)
+            let individualContainer = ManagedAthleteView(frame: frame, athlete: threadedAthlete)
+            individualContainer.removeAthleteButton.clickHandlerClosure = {
+                guard let context = self.organization?.managedObjectContext else { return }
                 
-                let modifyRecordsOperation = CKModifyRecordsOperation(recordsToSave: [self.organization!.record], recordIDsToDelete: nil)
-                modifyRecordsOperation.savePolicy = .ChangedKeys
-                modifyRecordsOperation
-                modifyRecordsOperation.completionBlock = {
-                    
-                }
+                let unthreadedAthlete = context.crossContextEquivalent(object: threadedAthlete)
+                let unthreadedOrganization = context.crossContextEquivalent(object: self.organization!)
+                unthreadedOrganization.athletes.remove(unthreadedAthlete)
+                self.localData.save(context: context)
                 
-                self.cloudData.database.addOperation(modifyRecordsOperation)
-                
-                self.cloudData.save(model: self.organization!) {
+                self.cloudData.syncronizeDataToCloudStore {
                     print($0.success)
                 }
             }
-            individualContainer.addSubview(removeAthleteButton)
             
             container.addSubview(individualContainer)
         }
         
         optionView.optionValue = container
         return optionView
+    }
+    
+    @IBAction func backPressed(sender: NSButton) {
+        if let destination = self.fromViewController {
+            self.parentVC.transitionFromViewController(self, toViewController: destination, options: .SlideRight, completionHandler: nil)
+            
+            for (key, option) in self.options {
+                option.optionContainer[key] = option.newValue
+            }
+            
+            self.localData.save()
+            self.cloudData.syncronizeDataToCloudStore {
+                guard $0.success else { return }
+                
+                print("updated settings")
+            }
+        }
+    }
+    
+}
+
+extension NSManagedObject {
+    
+    subscript(key: String) -> AnyObject? {
+        get { return self.valueForKey(key) }
+        set { self.setValue(newValue, forKey: key)}
+    }
+    
+}
+
+class SetupOption {
+    
+    var optionContainer: NSManagedObject
+    var key: String
+    private var _oldValue: AnyObject?
+    var oldValue: AnyObject? { return self._oldValue }
+    
+    var newValue: AnyObject?
+    
+    init(key: String, value: AnyObject?, holder: NSManagedObject) {
+        self.key = key
+        self._oldValue = value
+        self.optionContainer = holder
     }
     
 }

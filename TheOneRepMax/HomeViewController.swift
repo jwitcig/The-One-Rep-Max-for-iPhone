@@ -19,32 +19,9 @@ class HomeViewController: ORViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if false {
-            self.localData.deleteAll(model: OROrganization.self)
-            self.localData.deleteAll(model: ORLiftTemplate.self)
-            self.localData.deleteAll(model: ORLiftEntry.self)
-            self.localData.deleteAll(model: ORMessage.self)
-            self.localData.deleteAll(model: ORAthlete.self)
-            
-            let request = NSFetchRequest(entityName: "CloudRecord")
-            do {
-                let cloudRecords = try self.localData.context.executeFetchRequest(request) as! [NSManagedObject]
-                
-                cloudRecords.map { self.localData.context.deleteObject($0) }
-                self.localData.save()
-            } catch  { }
-        } else {
-    
-            self.cloudData.syncronizeDataToLocalStore {
-                guard $0.success else { return }
-                
-                runOnMainThread {
-                    self.organizations = self.session.currentAthlete!.athleteOrganizations.array
-                    self.displayOrganizations(self.organizations)
-                }
-            }
-        }
-        
+        self.organizations = self.session.currentAthlete!.athleteOrganizations.array
+
+        self.displayOrganizations(self.organizations)
     }
     
     func displayOrganizations(organizations: [OROrganization]) {
@@ -68,7 +45,7 @@ class HomeViewController: ORViewController {
                 ORSession.currentSession.currentOrganization = organization
 
                 self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: .SlideForward, completionHandler: nil)
-                
+
                 self.cloudData.fetchMessages(organization: organization) { (messages, response) in
                     guard response.success else { print(response.error); return }
                     self.localData.save(context: response.currentThreadContext)
