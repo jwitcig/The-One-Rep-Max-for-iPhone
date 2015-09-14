@@ -224,6 +224,15 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
             let x = (self.liftEntriesContainer.frame.width / 2) - (width / 2)
             let y = (height + topPadding) * CGFloat(i)
             let item = LiftEntryTableItem(frame: NSRect(x: x, y: y, width: width, height: height), liftEntry: entry)
+            item.deleteEntryClosure = {
+                let context = NSManagedObjectContext.contextForCurrentThread()
+                
+                self.localData.delete(object: entry, context: context)
+                self.localData.save(context: context)
+                
+                self.cloudData.syncronizeDataToCloudStore()
+            }
+                    
             container.addSubview(item)
             container.frame = NSRect(x: 0, y: 0, width: self.liftEntriesContainer.frame.width, height: CGRectGetMaxY(item.frame))
         }

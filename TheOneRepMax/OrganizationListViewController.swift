@@ -38,22 +38,30 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
         self.session = ORSession.currentSession
         self.localData = session.localData
         self.cloudData = session.cloudData
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
         
+        self.orgNameLabel.stringValue = "Find your organization!"
+        self.orgAthleteCountLabel.stringValue = "Click on an organization for more info"
         let options = ORDataOperationOptions()
         options.sortDescriptors = [NSSortDescriptor(key: "orgName", ascending: false)]
         self.cloudData.fetchAllOrganizations(options: options) { (threadedOrganizations, response) in
             guard response.success else { return }
+            
+            print("fetched: \(threadedOrganizations.count)")
 
+            
             self.localData.save(context: response.currentThreadContext)
             
             self.organizationRecordNames = threadedOrganizations.recordNames
             self.temporaryOrganizationRecordNames = self.organizationRecordNames
-
+            
             runOnMainThread {
                 self.displayOrganizationsList()
             }
         }
-        
     }
     
     func displayOrganizationsList() {
@@ -78,7 +86,7 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
                 let context = NSManagedObjectContext.contextForCurrentThread()
                 
                 let unthreadedAthlete = context.crossContextEquivalent(object: self.session.currentAthlete!)
-                
+
                 organization.athletes.insert(unthreadedAthlete)
                 self.localData.save(context: context)
                 
@@ -92,13 +100,10 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
                     guard $0.success else { print($0.error);return }
                     
                     ORSession.currentSession.currentOrganization = organization
+                    context.reset()
                     
-                    self.cloudData.syncronizeDataToLocalStore {
-                        guard $0.success else { return }
-                        
-                        runOnMainThread {
-                            self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.homeVC, options: .SlideUp, completionHandler: nil)
-                        }
+                    runOnMainThread {
+                        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.homeVC, options: .SlideUp, completionHandler: nil)
                     }
                 }
             }
@@ -119,6 +124,10 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
         }
         toDelete.map(context.deleteObject)
         self.localData.save(context: context)
+    }
+    
+    @IBAction func editInfoPressed(sender: NSButton) {
+        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.editAthleteInfoVC, options: .Crossfade, completionHandler: nil)
     }
     
     @IBAction func clearLocalStoreClicked(sender: NSButton) {

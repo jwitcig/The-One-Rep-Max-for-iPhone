@@ -16,15 +16,20 @@ class HomeViewController: ORViewController {
 
     var organizations = [OROrganization]()
         
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear() {
+        super.viewDidAppear()
         
         self.organizations = self.session.currentAthlete!.athleteOrganizations.array
-
+        
         self.displayOrganizations(self.organizations)
     }
     
     func displayOrganizations(organizations: [OROrganization]) {
+        guard organizations.count > 0 else {
+            self.showJoinOrganizationsButton()
+            return
+        }
+        
         self.organizationsScrollView.documentView?.removeFromSuperview()
         self.organizationsScrollView.documentView = nil
         
@@ -43,12 +48,20 @@ class HomeViewController: ORViewController {
             
             organizationItem.selectedHandler = { organization in
                 ORSession.currentSession.currentOrganization = organization
-
-                self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: .SlideForward, completionHandler: nil)
-
-                self.cloudData.fetchMessages(organization: organization) { (messages, response) in
-                    guard response.success else { print(response.error); return }
-                    self.localData.save(context: response.currentThreadContext)
+                
+                self.cloudData.syncronizeDataToLocalStore {
+                    guard $0.success else { return }
+                    
+                    self.parentVC.ormVC.fromViewController = self
+                    
+                    runOnMainThread {
+                        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.ormVC, options: .SlideForward, completionHandler: nil)
+                    }
+                    
+                    self.cloudData.fetchMessages(organization: organization) { (messages, response) in
+                        guard response.success else { print(response.error); return }
+                        self.localData.save(context: response.currentThreadContext)
+                    }
                 }
             }
             
@@ -56,6 +69,13 @@ class HomeViewController: ORViewController {
             organizationsContainerView.frame = NSRect(x: 0, y: 0, width: organizationsContainerView.frame.width, height: CGRectGetMaxY(organizationItem.frame))
         }
         self.organizationsScrollView.documentView = organizationsContainerView
+    }
+    
+    func showJoinOrganizationsButton() {
+        if let sheetViewController = self.storyboard?.instantiateControllerWithIdentifier("JoinOrgsPopoverViewController") as? NSViewController {
+            self.addChildViewController(sheetViewController)
+            self.presentViewControllerAsSheet(sheetViewController)
+        }
     }
     
     @IBAction func joinOrgsPressed(sender: NSButton) {

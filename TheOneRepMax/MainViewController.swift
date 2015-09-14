@@ -19,9 +19,12 @@ class MainViewController: NSViewController {
     var messagesVC: MessagesViewController!
     var viewMessageVC: ViewMessageViewController!
     var setupVC: SetupViewController!
-    
+    var editAthleteInfoVC: EditAthleteInfoViewController!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.registerAsMainViewController()
         
         let appDelegate = NSApplication.sharedApplication().delegate! as!  AppDelegate
         let context = appDelegate.managedObjectContext!
@@ -33,19 +36,31 @@ class MainViewController: NSViewController {
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
         ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
         
-        ORSession.currentSession.signInWithCloud { athlete, response in
+        ORSession.currentSession.signInWithCloud { fetchedAthlete, response in
             guard response.success else { return }
-            
-            ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
             
             self.instantiateViewControllers()
             self.registerChildViewControllers()
             
+            guard let athlete = fetchedAthlete else {
+                runOnMainThread {
+                    self.view.addSubview(self.editAthleteInfoVC.view)
+                }
+                
+                return
+            }
+            
+            ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
+            
             runOnMainThread {
-//                self.view.addSubview(self.organizationListVC.view)
                 self.view.addSubview(self.homeVC.view)
             }
         }
+    }
+    
+    func registerAsMainViewController() {
+        let delegate = NSApplication.sharedApplication().delegate as! AppDelegate
+        delegate.mainViewController = self
     }
     
     func instantiateViewControllers() {
@@ -56,6 +71,8 @@ class MainViewController: NSViewController {
         self.messagesVC = self.storyboard?.instantiateControllerWithIdentifier("MessagesViewController") as! MessagesViewController
         self.viewMessageVC = self.storyboard?.instantiateControllerWithIdentifier("ViewMessageViewController") as! ViewMessageViewController
         self.setupVC = self.storyboard?.instantiateControllerWithIdentifier("SetupViewController") as! SetupViewController
+        self.editAthleteInfoVC = self.storyboard?.instantiateControllerWithIdentifier("EditAthleteInfoViewController") as! EditAthleteInfoViewController
+
     }
     
     func registerChildViewControllers() {
@@ -66,6 +83,7 @@ class MainViewController: NSViewController {
         self.addChildViewController(self.messagesVC)
         self.addChildViewController(self.viewMessageVC)
         self.addChildViewController(self.setupVC)
+        self.addChildViewController(self.editAthleteInfoVC)
     }
     
 }

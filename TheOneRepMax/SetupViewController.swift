@@ -130,7 +130,6 @@ class SetupViewController: ORViewController {
             self.localData.save()
             self.cloudData.syncronizeDataToCloudStore {
                 guard $0.success else { return }
-                
                 print("updated settings")
             }
         }

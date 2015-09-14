@@ -13,6 +13,7 @@ import ORMKit
 class LiftEntryTableItem: NSView {
     
     var liftEntry: ORLiftEntry!
+    var deleteEntryClosure: (()->())!
     
     init(frame frameRect: NSRect, liftEntry: ORLiftEntry) {
         self.liftEntry = liftEntry
@@ -31,12 +32,12 @@ class LiftEntryTableItem: NSView {
         let tableFont = NSFont(name: "Lucida Grande", size: 20)
         
         var paddingLeft = 20 as CGFloat
-        var width = (self.frame.width - paddingLeft) * (1/2)
+        let width = (self.frame.width - paddingLeft) * (1/2)
         var height = self.frame.height
         var x = paddingLeft
-        var y = 0 as CGFloat
+        let y = 0 as CGFloat
         
-        var maxLabel = NSLabel(frame: NSRect())
+        let maxLabel = NSLabel(frame: NSRect())
         maxLabel.font = tableFont
         maxLabel.stringValue = "\(self.liftEntry.max.integerValue)"
         maxLabel.sizeToFit()
@@ -49,7 +50,7 @@ class LiftEntryTableItem: NSView {
         
         x = CGRectGetMaxX(maxLabel.frame)
         
-        var dateLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
+        let dateLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
         let formatter = NSDateFormatter()
         formatter.dateFormat = "M/d"
         dateLabel.font = tableFont
@@ -58,25 +59,22 @@ class LiftEntryTableItem: NSView {
         
         // ------------------------------------------------------------------------------ //
         
-        
         x = CGRectGetMaxX(dateLabel.frame)
         
         paddingLeft -= 5
         let top = NSPoint(x: paddingLeft, y: CGRectGetMaxY(maxLabel.frame))
         let bottom = NSPoint(x: paddingLeft, y: CGRectGetMinY(maxLabel.frame))
         
-        var path = NSBezierPath()
+        let path = NSBezierPath()
         path.moveToPoint(top)
         path.lineToPoint(bottom)
         NSColor.blackColor().setFill()
         path.stroke()
         
-        
         // ------------------------------------------------------------------------------ //
         
         self.addSubview(maxLabel)
         self.addSubview(dateLabel)
-        
         
         self.addGestureRecognizers()
     }
@@ -92,13 +90,14 @@ class LiftEntryTableItem: NSView {
             self.deletePopover = NSPopover()
         }
         
-        self.deletePopover?.contentViewController = LiftEntryTableItemOptionsViewController()
+        let optionsViewController = LiftEntryTableItemOptionsViewController()
+        optionsViewController.liftEntry = self.liftEntry
+        optionsViewController.deleteEntryClosure = self.deleteEntryClosure
+        
+        self.deletePopover?.contentViewController = optionsViewController
         self.deletePopover?.behavior = .Transient
         
-        let relativeRect = self.window?.convertRectToScreen(self.frame)
-        
-        self.deletePopover?.showRelativeToRect(self.bounds, ofView: self, preferredEdge: NSRectEdge.MaxX)
+        self.deletePopover?.showRelativeToRect(self.bounds, ofView: self, preferredEdge: .MaxX)
     }
-    
     
 }

@@ -16,6 +16,15 @@
 		8B56392B1B48FB2D002E9A49 /* SetupOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */; };
 		8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */; };
 		8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */; };
+		8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D01BA764DE0083980E /* AppDelegate.swift */; };
+		8B7123D41BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D21BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld */; };
+		8B7123D61BA764DE0083980E /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D51BA764DE0083980E /* MasterViewController.swift */; };
+		8B7123D81BA764DE0083980E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D71BA764DE0083980E /* DetailViewController.swift */; };
+		8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123D91BA764DE0083980E /* Main.storyboard */; };
+		8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DC1BA764DE0083980E /* Assets.xcassets */; };
+		8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */; };
+		8B7123EB1BA764DE0083980E /* TheOneRepMax_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123EA1BA764DE0083980E /* TheOneRepMax_iOSTests.swift */; };
+		8B7123F61BA764DE0083980E /* TheOneRepMax_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123F51BA764DE0083980E /* TheOneRepMax_iOSUITests.swift */; };
 		8B722ACC1B5AC3E6008835C4 /* NSClosureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B722ACB1B5AC3E6008835C4 /* NSClosureButton.swift */; };
 		8B73D6471B4266F400C21F7F /* LiftEntryTableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */; };
 		8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73D6481B426E5200C21F7F /* NSLabel.swift */; };
@@ -36,6 +45,7 @@
 		8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */; };
 		8BD38DC51B45C4C500A1E830 /* ViewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */; };
 		8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */; };
+		8BE1E19F1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE1E19E1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift */; };
 		8BEB2DD11B39EBDB001D10FE /* NSFlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB2DD01B39EBDB001D10FE /* NSFlippedView.swift */; };
 		8BEB2DD31B39F3D8001D10FE /* RightRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB2DD21B39F3D8001D10FE /* RightRoundedButton.swift */; };
 		8BEEC6F61B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEC6F41B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift */; };
@@ -46,9 +56,24 @@
 		8BF343731B27FA08007CBF44 /* TheOneRepMaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF343721B27FA08007CBF44 /* TheOneRepMaxTests.swift */; };
 		8BFC3C981B4EE51400B8F54E /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC3C971B4EE51400B8F54E /* StatsViewController.swift */; };
 		8BFD644B1B2B897C007B45ED /* ORMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF1F161B2B612700D05EEE /* ORMKit.framework */; };
+		8BFF59801B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF597F1B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8B7123E71BA764DE0083980E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BF3434F1B27FA08007CBF44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7123CD1BA764DE0083980E;
+			remoteInfo = "TheOneRepMax-iOS";
+		};
+		8B7123F21BA764DE0083980E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BF3434F1B27FA08007CBF44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B7123CD1BA764DE0083980E;
+			remoteInfo = "TheOneRepMax-iOS";
+		};
 		8BF3436D1B27FA08007CBF44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BF3434F1B27FA08007CBF44 /* Project object */;
@@ -70,6 +95,21 @@
 		8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupOptionView.swift; sourceTree = "<group>"; };
 		8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedOrganizationListItem.swift; sourceTree = "<group>"; };
 		8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORMViewController.swift; sourceTree = "<group>"; };
+		8B7123CE1BA764DE0083980E /* TheOneRepMax-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheOneRepMax-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7123D01BA764DE0083980E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8B7123D31BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_iOS.xcdatamodel; sourceTree = "<group>"; };
+		8B7123D51BA764DE0083980E /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		8B7123D71BA764DE0083980E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		8B7123DA1BA764DE0083980E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8B7123DC1BA764DE0083980E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8B7123DF1BA764DE0083980E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8B7123E11BA764DE0083980E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7123E61BA764DE0083980E /* TheOneRepMax-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TheOneRepMax-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7123EA1BA764DE0083980E /* TheOneRepMax_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheOneRepMax_iOSTests.swift; sourceTree = "<group>"; };
+		8B7123EC1BA764DE0083980E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B7123F11BA764DE0083980E /* TheOneRepMax-iOSUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "TheOneRepMax-iOSUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8B7123F51BA764DE0083980E /* TheOneRepMax_iOSUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheOneRepMax_iOSUITests.swift; sourceTree = "<group>"; };
+		8B7123F71BA764DE0083980E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B722ACB1B5AC3E6008835C4 /* NSClosureButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSClosureButton.swift; sourceTree = "<group>"; };
 		8B73D6461B4266F400C21F7F /* LiftEntryTableItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntryTableItem.swift; sourceTree = "<group>"; };
 		8B73D6481B426E5200C21F7F /* NSLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSLabel.swift; sourceTree = "<group>"; };
@@ -92,6 +132,7 @@
 		8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageViewController.swift; sourceTree = "<group>"; };
 		8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-Bridging-Header.h"; sourceTree = "<group>"; };
 		8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityMigrationPolicy.swift; sourceTree = "<group>"; };
+		8BE1E19E1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAthleteInfoViewController.swift; sourceTree = "<group>"; };
 		8BEB2DD01B39EBDB001D10FE /* NSFlippedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSFlippedView.swift; sourceTree = "<group>"; };
 		8BEB2DD21B39F3D8001D10FE /* RightRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightRoundedButton.swift; sourceTree = "<group>"; };
 		8BEEC6F41B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntryTableItemOptionsViewController.swift; sourceTree = "<group>"; };
@@ -106,9 +147,31 @@
 		8BF343721B27FA08007CBF44 /* TheOneRepMaxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheOneRepMaxTests.swift; sourceTree = "<group>"; };
 		8BF3438F1B295A6F007CBF44 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8BFC3C971B4EE51400B8F54E /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		8BFF597F1B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinOrgsPopoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8B7123CB1BA764DE0083980E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7123E31BA764DE0083980E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7123EE1BA764DE0083980E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BF343541B27FA08007CBF44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,6 +227,39 @@
 			name = Setup;
 			sourceTree = "<group>";
 		};
+		8B7123CF1BA764DE0083980E /* TheOneRepMax-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8B7123D01BA764DE0083980E /* AppDelegate.swift */,
+				8B7123D51BA764DE0083980E /* MasterViewController.swift */,
+				8B7123D71BA764DE0083980E /* DetailViewController.swift */,
+				8B7123D91BA764DE0083980E /* Main.storyboard */,
+				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
+				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
+				8B7123E11BA764DE0083980E /* Info.plist */,
+				8B7123D21BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld */,
+			);
+			path = "TheOneRepMax-iOS";
+			sourceTree = "<group>";
+		};
+		8B7123E91BA764DE0083980E /* TheOneRepMax-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				8B7123EA1BA764DE0083980E /* TheOneRepMax_iOSTests.swift */,
+				8B7123EC1BA764DE0083980E /* Info.plist */,
+			);
+			path = "TheOneRepMax-iOSTests";
+			sourceTree = "<group>";
+		};
+		8B7123F41BA764DE0083980E /* TheOneRepMax-iOSUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8B7123F51BA764DE0083980E /* TheOneRepMax_iOSUITests.swift */,
+				8B7123F71BA764DE0083980E /* Info.plist */,
+			);
+			path = "TheOneRepMax-iOSUITests";
+			sourceTree = "<group>";
+		};
 		8BA5209D1B451246005E0FF0 /* Messages */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +306,7 @@
 				8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */,
 				8BCF1F0E1B2B5F3600D05EEE /* MainViewController.swift */,
 				8BC9DC9B1B41242D00BDA199 /* ORViewController.swift */,
+				8BE1E19E1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift */,
 			);
 			name = Application;
 			sourceTree = "<group>";
@@ -228,6 +325,7 @@
 			children = (
 				8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */,
 				8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */,
+				8BFF597F1B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -249,6 +347,9 @@
 			children = (
 				8BF343591B27FA08007CBF44 /* TheOneRepMax */,
 				8BF3436F1B27FA08007CBF44 /* TheOneRepMaxTests */,
+				8B7123CF1BA764DE0083980E /* TheOneRepMax-iOS */,
+				8B7123E91BA764DE0083980E /* TheOneRepMax-iOSTests */,
+				8B7123F41BA764DE0083980E /* TheOneRepMax-iOSUITests */,
 				8BF343581B27FA08007CBF44 /* Products */,
 				0A18E43CBDE524072F87162C /* Frameworks */,
 			);
@@ -259,6 +360,9 @@
 			children = (
 				8BF343571B27FA08007CBF44 /* TheOneRepMax.app */,
 				8BF3436C1B27FA08007CBF44 /* TheOneRepMaxTests.xctest */,
+				8B7123CE1BA764DE0083980E /* TheOneRepMax-iOS.app */,
+				8B7123E61BA764DE0083980E /* TheOneRepMax-iOSTests.xctest */,
+				8B7123F11BA764DE0083980E /* TheOneRepMax-iOSUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -322,6 +426,59 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7123FE1BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOS" */;
+			buildPhases = (
+				8B7123CA1BA764DE0083980E /* Sources */,
+				8B7123CB1BA764DE0083980E /* Frameworks */,
+				8B7123CC1BA764DE0083980E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TheOneRepMax-iOS";
+			productName = "TheOneRepMax-iOS";
+			productReference = 8B7123CE1BA764DE0083980E /* TheOneRepMax-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8B7123E51BA764DE0083980E /* TheOneRepMax-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7123FF1BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOSTests" */;
+			buildPhases = (
+				8B7123E21BA764DE0083980E /* Sources */,
+				8B7123E31BA764DE0083980E /* Frameworks */,
+				8B7123E41BA764DE0083980E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B7123E81BA764DE0083980E /* PBXTargetDependency */,
+			);
+			name = "TheOneRepMax-iOSTests";
+			productName = "TheOneRepMax-iOSTests";
+			productReference = 8B7123E61BA764DE0083980E /* TheOneRepMax-iOSTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8B7123F01BA764DE0083980E /* TheOneRepMax-iOSUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8B7124001BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOSUITests" */;
+			buildPhases = (
+				8B7123ED1BA764DE0083980E /* Sources */,
+				8B7123EE1BA764DE0083980E /* Frameworks */,
+				8B7123EF1BA764DE0083980E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8B7123F31BA764DE0083980E /* PBXTargetDependency */,
+			);
+			name = "TheOneRepMax-iOSUITests";
+			productName = "TheOneRepMax-iOSUITests";
+			productReference = 8B7123F11BA764DE0083980E /* TheOneRepMax-iOSUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		8BF343561B27FA08007CBF44 /* TheOneRepMax */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BF343761B27FA08007CBF44 /* Build configuration list for PBXNativeTarget "TheOneRepMax" */;
@@ -368,6 +525,17 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = JwitApps;
 				TargetAttributes = {
+					8B7123CD1BA764DE0083980E = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					8B7123E51BA764DE0083980E = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 8B7123CD1BA764DE0083980E;
+					};
+					8B7123F01BA764DE0083980E = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 8B7123CD1BA764DE0083980E;
+					};
 					8BF343561B27FA08007CBF44 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 7R899BEBGC;
@@ -401,11 +569,38 @@
 			targets = (
 				8BF343561B27FA08007CBF44 /* TheOneRepMax */,
 				8BF3436B1B27FA08007CBF44 /* TheOneRepMaxTests */,
+				8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */,
+				8B7123E51BA764DE0083980E /* TheOneRepMax-iOSTests */,
+				8B7123F01BA764DE0083980E /* TheOneRepMax-iOSUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8B7123CC1BA764DE0083980E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */,
+				8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */,
+				8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7123E41BA764DE0083980E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7123EF1BA764DE0083980E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BF343551B27FA08007CBF44 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -427,6 +622,33 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		8B7123CA1BA764DE0083980E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */,
+				8B7123D41BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld in Sources */,
+				8B7123D61BA764DE0083980E /* MasterViewController.swift in Sources */,
+				8B7123D81BA764DE0083980E /* DetailViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7123E21BA764DE0083980E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7123EB1BA764DE0083980E /* TheOneRepMax_iOSTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B7123ED1BA764DE0083980E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8B7123F61BA764DE0083980E /* TheOneRepMax_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BF343531B27FA08007CBF44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -437,7 +659,9 @@
 				8BA520A11B4517F2005E0FF0 /* MessagesListItem.swift in Sources */,
 				8BCF1F131B2B5F3600D05EEE /* OrganizationListViewController.swift in Sources */,
 				8BC9DC9D1B41242D00BDA199 /* ORViewController.swift in Sources */,
+				8BE1E19F1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift in Sources */,
 				8BC4AB2D1B40F9C20010510E /* HistoryTemplateOptionButton.swift in Sources */,
+				8BFF59801B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift in Sources */,
 				8B5639261B48F164002E9A49 /* SetupViewController.swift in Sources */,
 				8BEB2DD31B39F3D8001D10FE /* RightRoundedButton.swift in Sources */,
 				8BC9DC991B4123F300BDA199 /* HistoryViewController.swift in Sources */,
@@ -475,6 +699,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8B7123E81BA764DE0083980E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */;
+			targetProxy = 8B7123E71BA764DE0083980E /* PBXContainerItemProxy */;
+		};
+		8B7123F31BA764DE0083980E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */;
+			targetProxy = 8B7123F21BA764DE0083980E /* PBXContainerItemProxy */;
+		};
 		8BF3436E1B27FA08007CBF44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8BF343561B27FA08007CBF44 /* TheOneRepMax */;
@@ -483,6 +717,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		8B7123D91BA764DE0083980E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B7123DA1BA764DE0083980E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8B7123DF1BA764DE0083980E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		8BF343651B27FA08007CBF44 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -494,6 +744,95 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		8B7123F81BA764DE0083980E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.TheOneRepMax-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8B7123F91BA764DE0083980E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.TheOneRepMax-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B7123FA1BA764DE0083980E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TheOneRepMax-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.TheOneRepMax-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheOneRepMax-iOS.app/TheOneRepMax-iOS";
+			};
+			name = Debug;
+		};
+		8B7123FB1BA764DE0083980E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TheOneRepMax-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.TheOneRepMax-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheOneRepMax-iOS.app/TheOneRepMax-iOS";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8B7123FC1BA764DE0083980E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TheOneRepMax-iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.TheOneRepMax-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_TARGET_NAME = "TheOneRepMax-iOS";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		8B7123FD1BA764DE0083980E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TheOneRepMax-iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.TheOneRepMax-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_TARGET_NAME = "TheOneRepMax-iOS";
+				USES_XCTRUNNER = YES;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		8BF343741B27FA08007CBF44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -581,7 +920,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TheOneRepMax/TheOneRepMax.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -594,7 +934,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.TheOneRepMax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "292b8215-b5b9-41cc-b82a-f72e1ca829dd";
 				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax/TheOneRepMax-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -606,7 +946,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TheOneRepMax/TheOneRepMax.entitlements;
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -619,7 +960,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.TheOneRepMax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "292b8215-b5b9-41cc-b82a-f72e1ca829dd";
 				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax/TheOneRepMax-Bridging-Header.h";
 			};
 			name = Release;
@@ -665,6 +1006,30 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8B7123FE1BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7123F81BA764DE0083980E /* Debug */,
+				8B7123F91BA764DE0083980E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8B7123FF1BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7123FA1BA764DE0083980E /* Debug */,
+				8B7123FB1BA764DE0083980E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		8B7124001BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOSUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8B7123FC1BA764DE0083980E /* Debug */,
+				8B7123FD1BA764DE0083980E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		8BF343521B27FA08007CBF44 /* Build configuration list for PBXProject "TheOneRepMax" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -693,6 +1058,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		8B7123D21BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8B7123D31BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodel */,
+			);
+			currentVersion = 8B7123D31BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodel */;
+			path = TheOneRepMax_iOS.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 8BF3434F1B27FA08007CBF44 /* Project object */;
 }

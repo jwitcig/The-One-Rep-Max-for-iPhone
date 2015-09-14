@@ -9,6 +9,11 @@
 			<key>orderHint</key>
 			<integer>8</integer>
 		</dict>
+		<key>TheOneRepMax-iOS.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>9</integer>
+		</dict>
 		<key>TheOneRepMax.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -28,6 +33,21 @@
 			<true/>
 		</dict>
 		<key>8B13A7B81B731B7E00E5688C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B7123CD1BA764DE0083980E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B7123E51BA764DE0083980E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8B7123F01BA764DE0083980E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

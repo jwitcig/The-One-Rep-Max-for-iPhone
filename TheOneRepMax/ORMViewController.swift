@@ -43,11 +43,17 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear() {
+        super.viewWillAppear()
         
-        let context = self.session.currentOrganization!.managedObjectContext!
-        let org = context.objectWithID(self.session.currentOrganization!.objectID) as! OROrganization
+        self.initMenuItems()
+    }
+    
+    override func viewDidAppear() {
+        super.viewDidAppear()
+        
+        let context = NSManagedObjectContext.contextForCurrentThread()
+        let org = context.crossContextEquivalent(object: self.session.currentOrganization!)
         
         self.liftTemplates = Array(org.liftTemplates).sort {
             $0.0.liftName.compare($0.1.liftName, options: .CaseInsensitiveSearch, range: nil, locale: nil) == .OrderedAscending
@@ -55,8 +61,6 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
                 
         self.updateHistoryList(self.liftTemplates)
         self.updateLiftTemplatePopUp(self.liftTemplates)
-        
-        self.initMenuItems()
     }
     
     func initMenuItems() {
@@ -66,6 +70,16 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
             destination.fromViewController = self
             
             self.parentVC.transitionFromViewController(self, toViewController: destination, options: .SlideLeft, completionHandler: nil)
+        }
+        
+        let context = self.session.currentOrganization!.managedObjectContext!
+        let organization = context.objectWithID(self.session.currentOrganization!.objectID) as! OROrganization
+        
+        guard organization.admins.contains(self.session.currentAthlete!) else {
+            if self.setupMenuItem != nil {
+                self.setupMenuItem.removeFromSuperview()
+            }
+            return
         }
         
         self.setupMenuItem.clickHandler = {
@@ -119,7 +133,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         entry.liftTemplate = self.liftTemplates[self.liftTemplatesSelect.indexOfSelectedItem]
         entry.athlete = ORSession.currentSession.currentAthlete!
         entry.organization = ORSession.currentSession.currentOrganization!
-//        
+        
 //        self.cloudData.save(model: entry) { (response) in
 //            if !response.success {
 //                print(response.error)
@@ -135,6 +149,12 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         
         if textField == self.weightField || textField == self.repsField {
             self.updateOneRepMax()
+        }
+    }
+    
+    @IBAction func backPressed(sender: NSButton) {
+        if let destination = self.fromViewController {
+            self.parentVC.transitionFromViewController(self, toViewController: destination, options: .SlideRight, completionHandler: nil)
         }
     }
     

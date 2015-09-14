@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import ORMKit
 
 extension NSButton {
     
@@ -26,14 +27,20 @@ extension NSButton {
 
 class LiftEntryTableItemOptionsViewController: NSViewController {
 
-    @IBOutlet var deleteButton: NSButton!
+    @IBOutlet var deleteButton: NSClosureButton!
     
     override var nibName: String {
         return "LiftEntryTableItemOptionsViewController"
     }
     
+    var liftEntry: ORLiftEntry!
+    var deleteEntryClosure: (()->())!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        self.deleteButton.clickHandlerClosure = self.deleteEntryClosure
         
 //        (self.deleteButton.cell() as? NSButtonCell)?.backgroundColor = NSColor.redColor()
 //        (self.deleteButton.cell() as? NSButtonCell)?.highlighted = true
@@ -48,5 +55,6 @@ class LiftEntryTableItemOptionsViewController: NSViewController {
 //        self.deleteButton.textColor = NSColor.blackColor()
 //        self.deleteButton.alignment = .CenterTextAlignment
     }
+    
     
 }

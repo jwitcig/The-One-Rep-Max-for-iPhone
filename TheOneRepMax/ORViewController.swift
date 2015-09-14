@@ -14,7 +14,7 @@ class ORViewController: NSViewController {
     
     var parentVC: MainViewController!
     
-    internal var fromViewController: ORViewController?
+    internal var fromViewController: NSViewController?
     
     var session: ORSession!
     var localData: ORLocalData!

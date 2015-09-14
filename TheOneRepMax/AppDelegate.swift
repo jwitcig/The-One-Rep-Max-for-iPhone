@@ -34,6 +34,7 @@ func runOnBackgroundThread(block: (()->())) {
 class AppDelegate: NSObject, NSApplicationDelegate {
     
     var orSession: ORSession!
+    var mainViewController: MainViewController!
     
     func applicationDidFinishLaunching(aNotification: NSNotification) { }
     
@@ -208,4 +209,3 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
 }
-
