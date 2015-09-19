@@ -7,25 +7,52 @@
 //
 
 import UIKit
+import CloudKit
 import CoreData
+import ORMKit
+
+let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
+let userInitiatedThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
+let backgroundThread = dispatch_get_global_queue(Int(QOS_CLASS_UNSPECIFIED.rawValue), 0)
+
+func runOnMainThread(block: (()->())) {
+    dispatch_async(dispatch_get_main_queue(), block)
+}
+
+func runOnUserInteractiveThread(block: (()->())) {
+    dispatch_async(userInteractiveThread, block)
+}
+
+func runOnUserInitiatedThread(block: (()->())) {
+    dispatch_async(userInitiatedThread, block)
+}
+
+func runOnBackgroundThread(block: (()->())) {
+    dispatch_async(backgroundThread, block)
+}
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as! UISplitViewController
-        let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.count-1] as! UINavigationController
-        navigationController.topViewController!.navigationItem.leftBarButtonItem = splitViewController.displayModeButtonItem()
-        splitViewController.delegate = self
-
-        let masterNavigationController = splitViewController.viewControllers[0] as! UINavigationController
-        let controller = masterNavigationController.topViewController as! MasterViewController
-        controller.managedObjectContext = self.managedObjectContext
+        
+        self.setupDataKit()
+        
         return true
+    }
+    
+    func setupDataKit() {
+        let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
+        let context = appDelegate.managedObjectContext
+        let session = ORSession.currentSession
+        let container = CKContainer(identifier: "iCloud.com.jwitapps.TheOneRepMax")
+        let publicDatabase = container.publicCloudDatabase
+        let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: publicDatabase)
+        
+        ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
+        ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
     }
 
     func applicationWillResignActive(application: UIApplication) {
@@ -52,17 +79,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         self.saveContext()
     }
 
-    // MARK: - Split view
-
-    func splitViewController(splitViewController: UISplitViewController, collapseSecondaryViewController secondaryViewController:UIViewController, ontoPrimaryViewController primaryViewController:UIViewController) -> Bool {
-        guard let secondaryAsNavController = secondaryViewController as? UINavigationController else { return false }
-        guard let topAsDetailController = secondaryAsNavController.topViewController as? DetailViewController else { return false }
-        if topAsDetailController.detailItem == nil {
-            // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
-            return true
-        }
-        return false
-    }
     // MARK: - Core Data stack
 
     lazy var applicationDocumentsDirectory: NSURL = {
@@ -73,7 +89,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle.mainBundle().URLForResource("TheOneRepMax_iOS", withExtension: "momd")!
+        let modelURL = NSBundle(forClass: ORModel.self).URLForResource("TheOneRepMax", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 

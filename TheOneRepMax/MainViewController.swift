@@ -32,7 +32,6 @@ class MainViewController: NSViewController {
         let container = CKContainer.defaultContainer()
         let publicDatabase = container.publicCloudDatabase
         let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: publicDatabase)
-        
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
         ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
         
