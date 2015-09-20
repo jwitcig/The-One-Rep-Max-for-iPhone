@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 import ORMKit
 
 class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
@@ -15,11 +16,23 @@ class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     var temporaryOrganizations = [OROrganization]()
     
+    var temporaryOrganizationRecordNames: [String] {
+        return self.temporaryOrganizations.recordNames
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ORSession.currentSession.cloudData.fetchAllOrganizations { (organizations, response) -> () in
-            self.temporaryOrganizations = organizations
+        let (localOrgs, _) = ORSession.currentSession.localData.fetchAll(model: OROrganization.self)
+        print("\(localOrgs.count) : \(localOrgs)")
+        
+        ORSession.currentSession.cloudData.fetchAllOrganizations { (threadedOrganizations, response) -> () in
+            guard response.success else { return }
+            
+            ORSession.currentSession.localData.save(context: response.currentThreadContext)
+
+            self.temporaryOrganizations = NSManagedObjectContext.contextForThread(NSThread.mainThread()).crossContextEquivalents(objects: threadedOrganizations)
+            
             runOnMainThread {
                 self.tableView.reloadData()
             }
@@ -65,7 +78,8 @@ class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         let destination = segue.destinationViewController as! OrganizationDetailViewController
         
-        destination.organization = selectedCell.organization
+        destination.organizationListViewController = self
+        destination.organizationID = selectedCell.organization.objectID
     }
     
     func cellLongPressed(longPressRecognizer: UIGestureRecognizer) {
@@ -80,6 +94,21 @@ class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         self.presentViewController(alertController, animated: true, completion: nil)
     }
+    
+    func deleteTemporaryOrganizationObjects(spareOrganizationWithRecordName spareRecordName: String) {
+        let idsToDelete = self.temporaryOrganizationRecordNames.filter { $0 != spareRecordName }
+        
+        let context = NSManagedObjectContext.contextForCurrentThread()
+        let resultsToDelete = ORSession.currentSession.localData.fetchObjects(ids: idsToDelete, model: OROrganization.self, context: context)
+        
+        guard let toDelete = resultsToDelete else {
+            print("Error fetching organizations to delete.")
+            return
+        }
+        _ = toDelete.map(context.deleteObject)
+        ORSession.currentSession.localData.save(context: context)
+    }
+
     
 }
 

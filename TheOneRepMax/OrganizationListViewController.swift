@@ -18,7 +18,6 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
     @IBOutlet weak var orgAthleteCountLabel: NSTextField!
     
     var parentVC: MainViewController!
-    var organizationRecordNames = [String]()
     
     var container: CKContainer!
     var publicDB: CKDatabase!
@@ -26,6 +25,7 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
     var localData: ORLocalData!
     var cloudData: ORCloudData!
     
+    var organizationRecordNames = [String]()
     var temporaryOrganizationRecordNames = [String]()
     
     override func viewDidLoad() {
@@ -49,9 +49,6 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
         options.sortDescriptors = [NSSortDescriptor(key: "orgName", ascending: false)]
         self.cloudData.fetchAllOrganizations(options: options) { (threadedOrganizations, response) in
             guard response.success else { return }
-            
-            print("fetched: \(threadedOrganizations.count)")
-
             
             self.localData.save(context: response.currentThreadContext)
             
@@ -97,10 +94,9 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
                 self.deleteTemporaryOrganizationObjects()
                 
                 self.cloudData.syncronizeDataToCloudStore {
-                    guard $0.success else { print($0.error);return }
+                    guard $0.success else { print($0.error); return }
                     
                     ORSession.currentSession.currentOrganization = organization
-                    context.reset()
                     
                     runOnMainThread {
                         self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.homeVC, options: .SlideUp, completionHandler: nil)

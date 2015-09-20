@@ -9,22 +9,19 @@
 /* Begin PBXBuildFile section */
 		8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; };
 		8B1C5C621B35F57A00B47E5E /* OrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1C5C611B35F57A00B47E5E /* OrganizationListItem.swift */; };
-		8B202A5B1B445BE90088A63B /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5A1B445BE90088A63B /* CorePlot.framework */; };
 		8B202A5D1B445C090088A63B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; };
 		8B2418301B49C63F00E4CEE7 /* OptionTextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */; };
 		8B30392B1BACA6E2003F823C /* OrganizationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30392A1BACA6E2003F823C /* OrganizationDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8B4552D81BA9BCE3005547F6 /* OrgListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4552D71BA9BCE3005547F6 /* OrgListViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8B4552D91BA9C029005547F6 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; };
 		8B4552DA1BA9C029005547F6 /* CloudKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B4552DC1BA9C02E005547F6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; };
 		8B4552DD1BA9C02E005547F6 /* QuartzCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B46071F1BAE47AC00E953D7 /* ORMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B46071E1BAE47AC00E953D7 /* ORMKit.framework */; };
+		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		8B5639261B48F164002E9A49 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5639251B48F164002E9A49 /* SetupViewController.swift */; };
 		8B56392B1B48FB2D002E9A49 /* SetupOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */; };
 		8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */; };
 		8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */; };
 		8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D01BA764DE0083980E /* AppDelegate.swift */; };
-		8B7123D41BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D21BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld */; };
 		8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123D91BA764DE0083980E /* Main.storyboard */; };
 		8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DC1BA764DE0083980E /* Assets.xcassets */; };
 		8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */; };
@@ -60,7 +57,6 @@
 		8BF343671B27FA08007CBF44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF343651B27FA08007CBF44 /* Main.storyboard */; };
 		8BF343731B27FA08007CBF44 /* TheOneRepMaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF343721B27FA08007CBF44 /* TheOneRepMaxTests.swift */; };
 		8BFC3C981B4EE51400B8F54E /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC3C971B4EE51400B8F54E /* StatsViewController.swift */; };
-		8BFD644B1B2B897C007B45ED /* ORMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BCF1F161B2B612700D05EEE /* ORMKit.framework */; };
 		8BFF59801B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF597F1B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,26 +103,19 @@
 		8B095BB11B29A68900818DE0 /* TheOneRepMax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheOneRepMax.entitlements; sourceTree = "<group>"; };
 		8B095BB21B29A68F00818DE0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8B1C5C611B35F57A00B47E5E /* OrganizationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationListItem.swift; sourceTree = "<group>"; };
-		8B202A581B445B730088A63B /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug/CorePlot.framework"; sourceTree = "<absolute>"; };
-		8B202A5A1B445BE90088A63B /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = "../../../Library/Developer/Xcode/DerivedData/TheOneRepMax-artwnmymwzjpnefukebcfzajisjw/Build/Products/Debug/CorePlot.framework"; sourceTree = "<group>"; };
 		8B202A5C1B445C090088A63B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionTextInputViewController.swift; sourceTree = "<group>"; };
 		8B30392A1BACA6E2003F823C /* OrganizationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationDetailViewController.swift; sourceTree = "<group>"; };
 		8B4552D71BA9BCE3005547F6 /* OrgListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrgListViewController.swift; sourceTree = "<group>"; };
-		8B4553011BA9C175005547F6 /* ORMKit-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ORMKit-iOS.framework"; path = "../ormkit/build/Debug-iphoneos/ORMKit-iOS.framework"; sourceTree = "<group>"; };
 		8B46071E1BAE47AC00E953D7 /* ORMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORMKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/TheOneRepMax-ehoehzyqldmueagnpaaiizyqsyuw/Build/Products/Debug/ORMKit.framework"; sourceTree = "<group>"; };
+		8B4607201BAF0D4600E953D7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B5639251B48F164002E9A49 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupOptionView.swift; sourceTree = "<group>"; };
 		8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedOrganizationListItem.swift; sourceTree = "<group>"; };
 		8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORMViewController.swift; sourceTree = "<group>"; };
-		8B6A56281BA9EB0600965E4B /* ORMKit iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ORMKit iOS.framework"; path = "../ormkit/build/Debug-iphoneos/ORMKit iOS.framework"; sourceTree = "<group>"; };
-		8B6A56301BA9EC7600965E4B /* ORMKit iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ORMKit iOS.framework"; path = "../ormkit/build/Debug-iphoneos/ORMKit iOS.framework"; sourceTree = "<group>"; };
-		8B6A56321BA9EF0600965E4B /* ORMKit iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ORMKit iOS.framework"; path = "../ormkit/build/Debug-iphoneos/ORMKit iOS.framework"; sourceTree = "<group>"; };
-		8B6A56501BA9EF6E00965E4B /* ORMKitiOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORMKitiOS.framework; path = "../ormkit/build/Debug-iphoneos/ORMKitiOS.framework"; sourceTree = "<group>"; };
 		8B6A56521BA9EF8E00965E4B /* TheOneRepMax-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TheOneRepMax-iOS.entitlements"; sourceTree = "<group>"; };
 		8B7123CE1BA764DE0083980E /* TheOneRepMax-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheOneRepMax-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7123D01BA764DE0083980E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8B7123D31BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_iOS.xcdatamodel; sourceTree = "<group>"; };
 		8B7123DA1BA764DE0083980E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8B7123DC1BA764DE0083980E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8B7123DF1BA764DE0083980E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -155,7 +144,6 @@
 		8BCF1F0F1B2B5F3600D05EEE /* OrganizationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationListViewController.swift; sourceTree = "<group>"; };
 		8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTemplateButton.swift; sourceTree = "<group>"; };
 		8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		8BCF1F161B2B612700D05EEE /* ORMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORMKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/TheOneRepMacx-apqhkpxyimykeogmqjcwpqterbbm/Build/Products/Debug/ORMKit.framework"; sourceTree = "<group>"; };
 		8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageViewController.swift; sourceTree = "<group>"; };
 		8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-Bridging-Header.h"; sourceTree = "<group>"; };
 		8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityMigrationPolicy.swift; sourceTree = "<group>"; };
@@ -183,8 +171,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B46071F1BAE47AC00E953D7 /* ORMKit.framework in Frameworks */,
-				8B4552DC1BA9C02E005547F6 /* QuartzCore.framework in Frameworks */,
-				8B4552D91BA9C029005547F6 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,9 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B202A5D1B445C090088A63B /* QuartzCore.framework in Frameworks */,
-				8B202A5B1B445BE90088A63B /* CorePlot.framework in Frameworks */,
 				8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */,
-				8BFD644B1B2B897C007B45ED /* ORMKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,15 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				8B46071E1BAE47AC00E953D7 /* ORMKit.framework */,
-				8B6A56501BA9EF6E00965E4B /* ORMKitiOS.framework */,
-				8B6A56321BA9EF0600965E4B /* ORMKit iOS.framework */,
-				8B6A56301BA9EC7600965E4B /* ORMKit iOS.framework */,
-				8B6A56281BA9EB0600965E4B /* ORMKit iOS.framework */,
-				8B4553011BA9C175005547F6 /* ORMKit-iOS.framework */,
 				8B202A5C1B445C090088A63B /* QuartzCore.framework */,
-				8B202A5A1B445BE90088A63B /* CorePlot.framework */,
-				8B202A581B445B730088A63B /* CorePlot.framework */,
-				8BCF1F161B2B612700D05EEE /* ORMKit.framework */,
 				8B095BB21B29A68F00818DE0 /* CloudKit.framework */,
 				8BF3438F1B295A6F007CBF44 /* CFNetwork.framework */,
 			);
@@ -268,13 +244,13 @@
 			children = (
 				8B6A56521BA9EF8E00965E4B /* TheOneRepMax-iOS.entitlements */,
 				8B7123D01BA764DE0083980E /* AppDelegate.swift */,
+				8B4607201BAF0D4600E953D7 /* MainViewController.swift */,
 				8B4552D71BA9BCE3005547F6 /* OrgListViewController.swift */,
 				8B30392A1BACA6E2003F823C /* OrganizationDetailViewController.swift */,
 				8B7123D91BA764DE0083980E /* Main.storyboard */,
 				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
 				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
 				8B7123E11BA764DE0083980E /* Info.plist */,
-				8B7123D21BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld */,
 			);
 			path = "TheOneRepMax-iOS";
 			sourceTree = "<group>";
@@ -668,7 +644,7 @@
 				8B30392B1BACA6E2003F823C /* OrganizationDetailViewController.swift in Sources */,
 				8B4552D81BA9BCE3005547F6 /* OrgListViewController.swift in Sources */,
 				8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */,
-				8B7123D41BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld in Sources */,
+				8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,8 +764,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "TheOneRepMax-iOS/TheOneRepMax-iOS.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wendy Witcig (SAE38G688R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wendy Witcig (SAE38G688R)";
 				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
@@ -801,7 +777,7 @@
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7s armv7";
 			};
 			name = Debug;
 		};
@@ -810,8 +786,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "TheOneRepMax-iOS/TheOneRepMax-iOS.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Wendy Witcig (SAE38G688R)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wendy Witcig (SAE38G688R)";
 				DEFINES_MODULE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
@@ -824,7 +800,7 @@
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "i386 x86_64";
+				VALID_ARCHS = "i386 x86_64 arm64 armv7s armv7";
 			};
 			name = Release;
 		};
@@ -1122,19 +1098,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		8B7123D21BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				8B7123D31BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodel */,
-			);
-			currentVersion = 8B7123D31BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodel */;
-			path = TheOneRepMax_iOS.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 8BF3434F1B27FA08007CBF44 /* Project object */;
 }

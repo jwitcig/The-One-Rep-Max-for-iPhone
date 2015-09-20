@@ -52,8 +52,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: publicDatabase)
         
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
-        
-        
         ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
     }
 
