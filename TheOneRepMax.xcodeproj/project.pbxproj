@@ -18,11 +18,11 @@
 		8B4552DA1BA9C029005547F6 /* CloudKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B4552DC1BA9C02E005547F6 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; };
 		8B4552DD1BA9C02E005547F6 /* QuartzCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B46071F1BAE47AC00E953D7 /* ORMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B46071E1BAE47AC00E953D7 /* ORMKit.framework */; };
 		8B5639261B48F164002E9A49 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5639251B48F164002E9A49 /* SetupViewController.swift */; };
 		8B56392B1B48FB2D002E9A49 /* SetupOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */; };
 		8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */; };
 		8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */; };
-		8B6A56511BA9EF6E00965E4B /* ORMKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6A56501BA9EF6E00965E4B /* ORMKitiOS.framework */; };
 		8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D01BA764DE0083980E /* AppDelegate.swift */; };
 		8B7123D41BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D21BA764DE0083980E /* TheOneRepMax_iOS.xcdatamodeld */; };
 		8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123D91BA764DE0083980E /* Main.storyboard */; };
@@ -113,8 +113,8 @@
 		8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionTextInputViewController.swift; sourceTree = "<group>"; };
 		8B30392A1BACA6E2003F823C /* OrganizationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationDetailViewController.swift; sourceTree = "<group>"; };
 		8B4552D71BA9BCE3005547F6 /* OrgListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrgListViewController.swift; sourceTree = "<group>"; };
-		8B4552E21BA9C073005547F6 /* ORMKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = ORMKit.framework; path = "/Users/developer/Library/Developer/Xcode/DerivedData/TheOneRepMax-artwnmymwzjpnefukebcfzajisjw/Build/Products/Debug/ORMKit.framework"; sourceTree = "<absolute>"; };
 		8B4553011BA9C175005547F6 /* ORMKit-iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "ORMKit-iOS.framework"; path = "../ormkit/build/Debug-iphoneos/ORMKit-iOS.framework"; sourceTree = "<group>"; };
+		8B46071E1BAE47AC00E953D7 /* ORMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORMKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/TheOneRepMax-ehoehzyqldmueagnpaaiizyqsyuw/Build/Products/Debug/ORMKit.framework"; sourceTree = "<group>"; };
 		8B5639251B48F164002E9A49 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupOptionView.swift; sourceTree = "<group>"; };
 		8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedOrganizationListItem.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B6A56511BA9EF6E00965E4B /* ORMKitiOS.framework in Frameworks */,
+				8B46071F1BAE47AC00E953D7 /* ORMKit.framework in Frameworks */,
 				8B4552DC1BA9C02E005547F6 /* QuartzCore.framework in Frameworks */,
 				8B4552D91BA9C029005547F6 /* CloudKit.framework in Frameworks */,
 			);
@@ -226,6 +226,7 @@
 		0A18E43CBDE524072F87162C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B46071E1BAE47AC00E953D7 /* ORMKit.framework */,
 				8B6A56501BA9EF6E00965E4B /* ORMKitiOS.framework */,
 				8B6A56321BA9EF0600965E4B /* ORMKit iOS.framework */,
 				8B6A56301BA9EC7600965E4B /* ORMKit iOS.framework */,
@@ -381,7 +382,6 @@
 		8BF3434E1B27FA08007CBF44 = {
 			isa = PBXGroup;
 			children = (
-				8B4552E21BA9C073005547F6 /* ORMKit.framework */,
 				8BF343591B27FA08007CBF44 /* TheOneRepMax */,
 				8BF3436F1B27FA08007CBF44 /* TheOneRepMaxTests */,
 				8B7123CF1BA764DE0083980E /* TheOneRepMax-iOS */,
@@ -977,8 +977,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TheOneRepMax/TheOneRepMax.entitlements;
-				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
+				CODE_SIGN_IDENTITY = "Mac Developer";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -991,7 +991,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.TheOneRepMax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "292b8215-b5b9-41cc-b82a-f72e1ca829dd";
+				PROVISIONING_PROFILE = "";
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax/TheOneRepMax-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1006,7 +1006,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = TheOneRepMax/TheOneRepMax.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "3rd Party Mac Developer Application";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1019,7 +1019,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.TheOneRepMax;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "292b8215-b5b9-41cc-b82a-f72e1ca829dd";
+				PROVISIONING_PROFILE = "";
 				SUPPORTED_PLATFORMS = macosx;
 				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax/TheOneRepMax-Bridging-Header.h";
 				VALID_ARCHS = "i386 x86_64";
