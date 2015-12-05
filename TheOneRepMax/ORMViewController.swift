@@ -53,12 +53,16 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         super.viewDidAppear()
         
         let context = NSManagedObjectContext.contextForCurrentThread()
-        let org = context.crossContextEquivalent(object: self.session.currentOrganization!)
+        let organization = context.crossContextEquivalent(object: self.session.currentOrganization!)
         
-        self.liftTemplates = Array(org.liftTemplates).sort {
+        self.liftTemplates = Array(organization.liftTemplates).sort {
             $0.0.liftName.compare($0.1.liftName, options: .CaseInsensitiveSearch, range: nil, locale: nil) == .OrderedAscending
         }
-                
+        
+        let (defaultTemplates, _) = ORSession.currentSession.localData.fetchObjects(model: ORLiftTemplate.self, predicates: [NSPredicate(key: ORLiftTemplate.Fields.defaultLift.rawValue, comparator: .Equals, value: true)], context: context)
+        
+        self.liftTemplates.appendContentsOf(defaultTemplates)
+        
         self.updateHistoryList(self.liftTemplates)
         self.updateLiftTemplatePopUp(self.liftTemplates)
     }
@@ -72,10 +76,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
             self.parentVC.transitionFromViewController(self, toViewController: destination, options: .SlideLeft, completionHandler: nil)
         }
         
-        let context = self.session.currentOrganization!.managedObjectContext!
-        let organization = context.objectWithID(self.session.currentOrganization!.objectID) as! OROrganization
-        
-        guard organization.admins.contains(self.session.currentAthlete!) else {
+        guard ORSession.currentSession.userIsAdmin else {
             if self.setupMenuItem != nil {
                 self.setupMenuItem.removeFromSuperview()
             }

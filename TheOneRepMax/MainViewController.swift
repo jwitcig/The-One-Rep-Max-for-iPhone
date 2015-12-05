@@ -41,6 +41,7 @@ class MainViewController: NSViewController {
             self.instantiateViewControllers()
             self.registerChildViewControllers()
             
+            
             guard let athlete = fetchedAthlete else {
                 runOnMainThread {
                     self.view.addSubview(self.editAthleteInfoVC.view)

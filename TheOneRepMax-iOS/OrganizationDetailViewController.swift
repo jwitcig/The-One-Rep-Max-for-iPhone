@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreData
-import ORMKit
+import ORMKitiOS
 
 class OrganizationDetailViewController: UIViewController {
     
@@ -17,6 +17,8 @@ class OrganizationDetailViewController: UIViewController {
     
     @IBOutlet weak var athleteCountLabel: UILabel!
     @IBOutlet weak var organizationDescriptionLabel: UILabel!
+    
+    @IBOutlet weak var joinButton: UIBarButtonItem!
     
     var organizationListViewController: OrgListViewController!
     
@@ -28,14 +30,23 @@ class OrganizationDetailViewController: UIViewController {
         }
         self.organization = organization
         self.displayOrganizationInformation()
+        
+        let athlete = ORSession.currentSession.currentAthlete!
+        
+        let predicates = [
+            NSPredicate(key: ORMembership.Fields.organization.rawValue, comparator: .Equals, value: self.organization),
+            NSPredicate(key: ORMembership.Fields.athlete.rawValue, comparator: .Equals, value: athlete)
+        ]
+        let (existing, _) = ORSession.currentSession.localData.fetchObjects(model: ORMembership.self, predicates: predicates)
+        let alreadyMember = existing.count != 0
+        if alreadyMember {
+            self.joinButton.enabled = false
+        }
+
     }
     
     func displayOrganizationInformation() {
         self.navigationItem.title = organization.orgName
-        
-        if let athleteCount = organization.athleteReferences?.count {
-              self.athleteCountLabel.text = "\(athleteCount) athletes"
-        }
 
         self.organizationDescriptionLabel.text = organization.orgDescription
     }
@@ -44,8 +55,18 @@ class OrganizationDetailViewController: UIViewController {
         self.organizationListViewController.deleteTemporaryOrganizationObjects(spareOrganizationWithRecordName: self.organization.recordName)
         let context = NSManagedObjectContext.contextForCurrentThread()
         let athlete = ORSession.currentSession.currentAthlete!
-
-        self.organization.athletes.insert(athlete)
+        
+        let predicates = [
+            NSPredicate(key: ORMembership.Fields.organization.rawValue, comparator: .Equals, value: self.organization),
+            NSPredicate(key: ORMembership.Fields.athlete.rawValue, comparator: .Equals, value: athlete)
+        ]
+        let (existing, _) = ORSession.currentSession.localData.fetchObjects(model: ORMembership.self, predicates: predicates)
+        guard existing.count == 0 else { return }
+        
+        let membership = ORMembership.membership(context: context)
+        membership.athlete = athlete
+        membership.organization = self.organization
+        
         ORSession.currentSession.localData.save(context: context)
         
         ORSession.currentSession.cloudData.syncronizeDataToCloudStore {

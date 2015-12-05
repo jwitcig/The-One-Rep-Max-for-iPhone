@@ -8,11 +8,15 @@
 
 import UIKit
 import CoreData
-import ORMKit
+import CloudKit
+import ORMKitiOS
 
-class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
+class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
+    var searchTimer: NSTimer!
     
     var temporaryOrganizations = [OROrganization]()
     
@@ -23,10 +27,10 @@ class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewD
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let (localOrgs, _) = ORSession.currentSession.localData.fetchAll(model: OROrganization.self)
-        print("\(localOrgs.count) : \(localOrgs)")
-        
+        print("fetching")
         ORSession.currentSession.cloudData.fetchAllOrganizations { (threadedOrganizations, response) -> () in
+            
+            print(response.success)
             guard response.success else { return }
             
             ORSession.currentSession.localData.save(context: response.currentThreadContext)
@@ -65,8 +69,6 @@ class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
-        
         self.performSegueWithIdentifier("ShowOrgDetail", sender: self)
     }
     
@@ -109,6 +111,37 @@ class OrgListViewController: UIViewController, UITableViewDelegate, UITableViewD
         ORSession.currentSession.localData.save(context: context)
     }
 
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        if self.searchTimer != nil {
+            self.searchTimer!.invalidate()
+        }
+        
+        let userInfo = ["searchText": searchText]
+        self.searchTimer = NSTimer.scheduledTimerWithTimeInterval(0.25, target: self, selector: Selector("search:"), userInfo: userInfo, repeats: false)
+    }
+    
+    func search(timer: NSTimer) {
+        guard let searchText = (timer.userInfo as? NSDictionary)?["searchText"] else {
+            print("No search text was provided for the query.")
+            return
+        }
+        
+        let predicate = NSPredicate(key: "self", comparator: .Contains, value: searchText)
+        
+        ORSession.currentSession.cloudData.fetchModels(model: OROrganization.self, predicate: predicate) { (threadedOrganizations, response) in
+            guard response.success else { print(response.error);return }
+            
+            ORSession.currentSession.localData.save(context: response.currentThreadContext)
+            
+            let mainThread = NSThread.mainThread()
+            let mainThreadContext = NSManagedObjectContext.contextForThread(mainThread)
+            self.temporaryOrganizations = mainThreadContext.crossContextEquivalents(objects: threadedOrganizations)
+            
+            runOnMainThread {
+                self.tableView.reloadData()
+            }
+        }
+    }
     
 }
 

@@ -12,20 +12,34 @@ import ORMKit
 
 class HomeViewController: ORViewController {
     
+    @IBOutlet weak var repsField: NSTextField!
+    @IBOutlet weak var weightField: NSTextField!
     @IBOutlet weak var organizationsScrollView: NSScrollView!
 
-    var organizations = [OROrganization]()
+//    var organizations = [OROrganization]()
+    @IBOutlet weak var saveButton: NSButton!
         
     override func viewDidAppear() {
         super.viewDidAppear()
         
-        self.organizations = self.session.currentAthlete!.athleteOrganizations.array
+        self.cloudData.fetchModels(model: ORMembership.self, predicate: NSPredicate(key: ORMembership.Fields.athlete.rawValue, comparator: .Equals, value: ORSession.currentSession.currentAthlete!.reference)) { (memberships, response) -> () in
+            guard response.success else { return }
+            
+            self.localData.save(context: response.currentThreadContext)
+            
+            runOnMainThread {
+                self.displayOrganizations(memberships)
+            }
+        }
         
-        self.displayOrganizations(self.organizations)
     }
     
-    func displayOrganizations(organizations: [OROrganization]) {
-        guard organizations.count > 0 else {
+    func displayOrganizations(memberships: [ORMembership]) {
+        var membershipsAndOrgs = memberships.map { (membership: ORMembership) -> (ORMembership, OROrganization) in
+            return (membership, membership.organization)
+        }
+        
+        guard memberships.count > 0 else {
             self.showJoinOrganizationsButton()
             return
         }
@@ -35,9 +49,12 @@ class HomeViewController: ORViewController {
         
         let organizationsContainerView = NSFlippedView(frame: self.organizationsScrollView.bounds)
         
-        let reorderedOrgs = organizations.sort { $0.0.orgName.isBefore(string: $0.1.orgName) }
+        membershipsAndOrgs.sortInPlace {
+            return $0.0.1.orgName.isBefore(string: $0.1.1.orgName)
+        }
         
-        for (i, organization) in reorderedOrgs.enumerate() {
+        for (i, (membership, organization)) in membershipsAndOrgs.enumerate() {
+            let isAdmin = membership.admin
             
             let topPadding = 15 as CGFloat
             let width = organizationsContainerView.frame.width
@@ -48,6 +65,7 @@ class HomeViewController: ORViewController {
             
             organizationItem.selectedHandler = { organization in
                 ORSession.currentSession.currentOrganization = organization
+                ORSession.currentSession.userIsAdmin = isAdmin
                 
                 self.cloudData.syncronizeDataToLocalStore {
                     guard $0.success else { return }

@@ -8,6 +8,7 @@
 
 import Cocoa
 import ORMKit
+import CloudKit
 
 @IBDesignable
 class OrganizationListItem: NSView {
@@ -42,11 +43,11 @@ class OrganizationListItem: NSView {
     
     func updateProperties() {
         self.title = self.organization.orgName
-        if let athleteCount = self.organization.athleteReferences?.count {
-            self.subtitle = "\(athleteCount) athletes"
-        } else {
-            self.subtitle = ""
-        }
+//        if let athleteCount = self.organization.athleteReferences?.count {
+//            self.subtitle = "\(athleteCount) athletes"
+//        } else {
+//            self.subtitle = ""
+//        }
     }
     
     override func drawRect(dirtyRect: NSRect) {
@@ -83,7 +84,9 @@ class OrganizationListItem: NSView {
         y = self.organizationNameLabel.frame.height
         
         self.athleteCountLabel = NSLabel(frame: NSRect(x: x, y: y, width: width, height: height))
-        self.athleteCountLabel.stringValue = self.subtitle
+        if let subtitle = self.subtitle {
+            self.athleteCountLabel.stringValue = subtitle
+        }
         self.athleteCountLabel.font = NSFont(name: "Lucida Grande", size: 12)
         self.athleteCountLabel.backgroundColor = NSColor.clearColor()
         

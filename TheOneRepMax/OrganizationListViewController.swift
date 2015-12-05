@@ -10,20 +10,12 @@ import Cocoa
 import CloudKit
 import ORMKit
 
-class OrganizationListViewController: NSViewController, NSCollectionViewDelegate {
+class OrganizationListViewController: ORViewController, NSCollectionViewDelegate {
     
     @IBOutlet weak var organizationScrollView: NSScrollView!
     @IBOutlet weak var organizationInfoContainer: NSView!
     @IBOutlet weak var orgNameLabel: NSTextField!
     @IBOutlet weak var orgAthleteCountLabel: NSTextField!
-    
-    var parentVC: MainViewController!
-    
-    var container: CKContainer!
-    var publicDB: CKDatabase!
-    var session: ORSession!
-    var localData: ORLocalData!
-    var cloudData: ORCloudData!
     
     var organizationRecordNames = [String]()
     var temporaryOrganizationRecordNames = [String]()
@@ -32,12 +24,6 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
         super.viewDidLoad()
                 
         self.parentVC = self.parentViewController! as! MainViewController
-                
-        self.container = CKContainer.defaultContainer()
-        self.publicDB = container.publicCloudDatabase
-        self.session = ORSession.currentSession
-        self.localData = session.localData
-        self.cloudData = session.cloudData
     }
     
     override func viewDidAppear() {
@@ -76,32 +62,56 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
             
             orgView.viewInfoHandler = { (organization) in
                 self.orgNameLabel.stringValue = organization.orgName
-                self.orgAthleteCountLabel.stringValue = "\(organization.athletes.count) athletes"
+                
+                let predicate = NSPredicate(key: "organization", comparator: .Equals, value: organization.reference)
+                self.cloudData.fetchModels(model: ORMembership.self, predicate: predicate) { (memberships, response) in
+                    
+                    runOnMainThread {
+                        self.orgAthleteCountLabel.stringValue = "\(memberships.count) athletes"
+                    }
+                }
             }
             
             orgView.joinHandler = { (organization) in
                 let context = NSManagedObjectContext.contextForCurrentThread()
                 
-                let unthreadedAthlete = context.crossContextEquivalent(object: self.session.currentAthlete!)
-
-                organization.athletes.insert(unthreadedAthlete)
-                self.localData.save(context: context)
+                let safeAthlete = context.crossContextEquivalent(object: self.session.currentAthlete!)
                 
-                if let index = self.temporaryOrganizationRecordNames.indexOf(organization.recordName) {
-                    self.temporaryOrganizationRecordNames.removeAtIndex(index)
-                }
                 
-                self.deleteTemporaryOrganizationObjects()
-                
-                self.cloudData.syncronizeDataToCloudStore {
-                    guard $0.success else { print($0.error); return }
+                self.cloudData.syncronizeDataToLocalStore { response in
+                    guard response.success else { print("Error syncing before creating membership"); return }
                     
-                    ORSession.currentSession.currentOrganization = organization
+                    let predicate = NSPredicate(key: ORMembership.Fields.organization.rawValue, comparator: .Equals, value: organization)
+                    let (memberships, _) = self.localData.fetchObjects(model: ORMembership.self, predicates: [predicate], context: context)
+                   
+                    guard memberships.count == 0 else { print("User is already a member of this organization."); return }
                     
-                    runOnMainThread {
-                        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.homeVC, options: .SlideUp, completionHandler: nil)
+                    
+                    let membership = ORMembership.membership(context: context)
+                    membership.athlete = safeAthlete
+                    membership.organization = organization
+                    
+                    self.localData.save(context: context)
+                    
+                    if let index = self.temporaryOrganizationRecordNames.indexOf(organization.recordName) {
+                        self.temporaryOrganizationRecordNames.removeAtIndex(index)
                     }
+                    
+                    self.deleteTemporaryOrganizationObjects()
+                    
+                    self.cloudData.syncronizeDataToCloudStore {
+                        guard $0.success else { print($0.error); return }
+                        
+                        ORSession.currentSession.currentOrganization = organization
+                        
+                        runOnMainThread {
+                            self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.homeVC, options: .SlideUp, completionHandler: nil)
+                        }
+                    }
+                    
                 }
+                
+                
             }
             
             container.addSubview(orgView)
@@ -118,7 +128,7 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
             print("Error fetching organizations to delete.")
             return
         }
-        toDelete.map(context.deleteObject)
+        _ = toDelete.map(context.deleteObject)
         self.localData.save(context: context)
     }
     
@@ -132,6 +142,7 @@ class OrganizationListViewController: NSViewController, NSCollectionViewDelegate
         self.localData.deleteAll(model: ORLiftEntry.self)
         self.localData.deleteAll(model: ORMessage.self)
         self.localData.deleteAll(model: ORAthlete.self)
+        self.localData.deleteAll(model: ORMembership.self)
         
         let request = NSFetchRequest(entityName: "CloudRecord")
         do {

@@ -7,16 +7,42 @@
 //
 
 import UIKit
-import ORMKit
+import ORMKitiOS
 
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        let (success, _) = ORSession.currentSession.signInLocally()
+        
+        if !success {
+            print("no user")
+            
+            let athlete = ORAthlete.athlete()
+            ORAthlete.setCurrentAthlete(athlete)
+            
+            ORSession.currentSession.localData.save()
+        }
+    
+        ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
+        
+        runOnMainThread {
+            print("logged in")
+            self.performSegueWithIdentifier("LoginSegue", sender: self)
+        }
+        
+        guard false else { return }
+        
         ORSession.currentSession.signInWithCloud { fetchedAthlete, response in
             guard response.success else {
-                print("Error signing in: \(response.error)")
+                
+                if response.error?.code == 9 {
+                    let errorAlertController = UIAlertController(title: "Sign in with iCloud", message: "To use the cloud features of The One Rep Max you must be signed into iCloud on your device.", preferredStyle: .Alert)
+                    self.presentViewController(errorAlertController, animated: true, completion: nil)
+                }
+                
                 return
             }
             
@@ -26,11 +52,9 @@ class MainViewController: UIViewController {
                 }
                 return
             }
-            ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
             
-            runOnMainThread {
-                self.performSegueWithIdentifier("LoginSegue", sender: self)
-            }
+            
+            
         }
     }
 

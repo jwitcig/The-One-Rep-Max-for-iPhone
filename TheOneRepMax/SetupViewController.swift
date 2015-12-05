@@ -49,10 +49,10 @@ class SetupViewController: ORViewController {
                                                  type: .Text,
                                          optionContainer: organization,
                                                 title: "description"))
-            container.addSubview(self.buildAthletesOptionView(key: OROrganization.Fields.athletes.rawValue,
-                                                         athletes: athletes,
-                                                     optionContainer: organization,
-                                                            title: "athletes"))
+//            container.addSubview(self.buildAthletesOptionView(key: OROrganization.Fields.athletes.rawValue,
+//                                                         athletes: athletes,
+//                                                     optionContainer: organization,
+//                                                            title: "athletes"))
             
             let height =  (self.optionViewHeight + self.optionViewTopPadding) * CGFloat(self.optionNumber)
             container.frame = NSRect(origin: CGPointZero,
@@ -99,18 +99,18 @@ class SetupViewController: ORViewController {
             let frame = NSRect(x: x, y: y, width: width, height: height)
             
             let individualContainer = ManagedAthleteView(frame: frame, athlete: threadedAthlete)
-            individualContainer.removeAthleteButton.clickHandlerClosure = {
-                guard let context = self.organization?.managedObjectContext else { return }
-                
-                let unthreadedAthlete = context.crossContextEquivalent(object: threadedAthlete)
-                let unthreadedOrganization = context.crossContextEquivalent(object: self.organization!)
-                unthreadedOrganization.athletes.remove(unthreadedAthlete)
-                self.localData.save(context: context)
-                
-                self.cloudData.syncronizeDataToCloudStore {
-                    print($0.success)
-                }
-            }
+//            individualContainer.removeAthleteButton.clickHandlerClosure = {
+//                guard let context = self.organization?.managedObjectContext else { return }
+//                
+//                let unthreadedAthlete = context.crossContextEquivalent(object: threadedAthlete)
+//                let unthreadedOrganization = context.crossContextEquivalent(object: self.organization!)
+//                unthreadedOrganization.athletes.remove(unthreadedAthlete)
+//                self.localData.save(context: context)
+//                
+//                self.cloudData.syncronizeDataToCloudStore {
+//                    print($0.success)
+//                }
+//            }
             
             container.addSubview(individualContainer)
         }

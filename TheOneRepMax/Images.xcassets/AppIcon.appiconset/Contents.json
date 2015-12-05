@@ -18,7 +18,7 @@
     {
       "size" : "32x32",
       "idiom" : "mac",
-      "filename" : "iconx57.png",
+      "filename" : "ORM App Icon [64].png",
       "scale" : "2x"
     },
     {
@@ -29,7 +29,7 @@
     {
       "size" : "128x128",
       "idiom" : "mac",
-      "filename" : "iconx114.png",
+      "filename" : "ORM App Icon [256].png",
       "scale" : "2x"
     },
     {
@@ -38,8 +38,9 @@
       "scale" : "1x"
     },
     {
-      "idiom" : "mac",
       "size" : "256x256",
+      "idiom" : "mac",
+      "filename" : "ORM App Icon [512].png",
       "scale" : "2x"
     },
     {
@@ -50,7 +51,7 @@
     {
       "size" : "512x512",
       "idiom" : "mac",
-      "filename" : "iconx1024.png",
+      "filename" : "ORM App Icon [1024].png",
       "scale" : "2x"
     }
   ],

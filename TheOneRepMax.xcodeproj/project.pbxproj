@@ -11,19 +11,20 @@
 		8B1C5C621B35F57A00B47E5E /* OrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1C5C611B35F57A00B47E5E /* OrganizationListItem.swift */; };
 		8B202A5D1B445C090088A63B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; };
 		8B2418301B49C63F00E4CEE7 /* OptionTextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */; };
-		8B30392B1BACA6E2003F823C /* OrganizationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30392A1BACA6E2003F823C /* OrganizationDetailViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8B30392B1BACA6E2003F823C /* OrganizationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B30392A1BACA6E2003F823C /* OrganizationDetailViewController.swift */; };
 		8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30392C1BAF2A2E003F823C /* QuartzCore.framework */; };
 		8B30392F1BAF2A34003F823C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30392E1BAF2A34003F823C /* CloudKit.framework */; };
-		8B3039301BAF2A42003F823C /* ORMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B4552E21BA9C073005547F6 /* ORMKit.framework */; };
-		8B4552D81BA9BCE3005547F6 /* OrgListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4552D71BA9BCE3005547F6 /* OrgListViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		8B4552DA1BA9C029005547F6 /* CloudKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B4552DD1BA9C02E005547F6 /* QuartzCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B46071F1BAE47AC00E953D7 /* ORMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B46071E1BAE47AC00E953D7 /* ORMKit.framework */; };
-		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		8B3B27821BED1814002CCD74 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3B27811BED1814002CCD74 /* CorePlot.framework */; };
+		8B3B27831BED182C002CCD74 /* ORMKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDD09261BD4920400AD2D44 /* ORMKit.framework */; };
+		8B3B27841BED182C002CCD74 /* ORMKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDD09261BD4920400AD2D44 /* ORMKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B4552D81BA9BCE3005547F6 /* OrgListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4552D71BA9BCE3005547F6 /* OrgListViewController.swift */; };
+		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; };
 		8B5639261B48F164002E9A49 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5639251B48F164002E9A49 /* SetupViewController.swift */; };
 		8B56392B1B48FB2D002E9A49 /* SetupOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */; };
 		8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */; };
 		8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */; };
+		8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */; };
+		8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */; };
 		8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D01BA764DE0083980E /* AppDelegate.swift */; };
 		8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123D91BA764DE0083980E /* Main.storyboard */; };
 		8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DC1BA764DE0083980E /* Assets.xcassets */; };
@@ -36,10 +37,13 @@
 		8B7405991B59CE44007F3258 /* OptionCustomInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */; };
 		8B787F1C1B7ADF27006BA4A9 /* ManagedAthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787F1B1B7ADF27006BA4A9 /* ManagedAthleteView.swift */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
+		8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */; };
 		8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */; };
 		8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520971B44CA27005E0FF0 /* MenuItem.swift */; };
 		8BA5209F1B45125C005E0FF0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA5209E1B45125C005E0FF0 /* MessagesViewController.swift */; };
 		8BA520A11B4517F2005E0FF0 /* MessagesListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520A01B4517F2005E0FF0 /* MessagesListItem.swift */; };
+		8BB811661BB5014800AFAB16 /* AssociatedOrgsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB811651BB5014800AFAB16 /* AssociatedOrgsViewController.swift */; };
+		8BBE04621BBC3EB300EE7D70 /* App Icons in Resources */ = {isa = PBXBuildFile; fileRef = 8BBE04611BBC3EB300EE7D70 /* App Icons */; };
 		8BC4AB2D1B40F9C20010510E /* HistoryTemplateOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */; };
 		8BC9DC971B41235B00BDA199 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9DC961B41235B00BDA199 /* BackgroundView.swift */; };
 		8BC9DC991B4123F300BDA199 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */; };
@@ -49,12 +53,16 @@
 		8BCF1F141B2B5F3600D05EEE /* LiftTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */; };
 		8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */; };
 		8BD38DC51B45C4C500A1E830 /* ViewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */; };
+		8BDD08A31BD149A800AD2D44 /* ORMKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */; };
+		8BDD09321BD4922C00AD2D44 /* ORMKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDD092A1BD4920400AD2D44 /* ORMKitiOS.framework */; };
+		8BDD09331BD4922C00AD2D44 /* ORMKitiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BDD092A1BD4920400AD2D44 /* ORMKitiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */; };
 		8BE1E19F1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE1E19E1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift */; };
 		8BEB2DD11B39EBDB001D10FE /* NSFlippedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB2DD01B39EBDB001D10FE /* NSFlippedView.swift */; };
 		8BEB2DD31B39F3D8001D10FE /* RightRoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEB2DD21B39F3D8001D10FE /* RightRoundedButton.swift */; };
 		8BEEC6F61B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEEC6F41B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift */; };
 		8BEEC6F71B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BEEC6F51B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib */; };
+		8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */; };
 		8BF3435D1B27FA08007CBF44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */; };
 		8BF343641B27FA08007CBF44 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BF343631B27FA08007CBF44 /* Images.xcassets */; };
 		8BF343671B27FA08007CBF44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF343651B27FA08007CBF44 /* Main.storyboard */; };
@@ -64,6 +72,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8B3B27851BED182C002CCD74 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B650C9C1B2BA75400F0EA52;
+			remoteInfo = ORMKit;
+		};
 		8B7123E71BA764DE0083980E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BF3434F1B27FA08007CBF44 /* Project object */;
@@ -78,6 +93,48 @@
 			remoteGlobalIDString = 8B7123CD1BA764DE0083980E;
 			remoteInfo = "TheOneRepMax-iOS";
 		};
+		8BDD089F1BD149A800AD2D44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BF3434F1B27FA08007CBF44 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BF343561B27FA08007CBF44;
+			remoteInfo = TheOneRepMax;
+		};
+		8BDD09251BD4920400AD2D44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B650C9D1B2BA75400F0EA52;
+			remoteInfo = ORMKit;
+		};
+		8BDD09271BD4920400AD2D44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8B650CA81B2BA75400F0EA52;
+			remoteInfo = ORMKitTests;
+		};
+		8BDD09291BD4920400AD2D44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BDD08D11BD1559200AD2D44;
+			remoteInfo = ORMKitiOS;
+		};
+		8BDD092B1BD4920400AD2D44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8BDD08DA1BD1559200AD2D44;
+			remoteInfo = ORMKitiOSTests;
+		};
+		8BDD09341BD4922C00AD2D44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8BDD08D01BD1559200AD2D44;
+			remoteInfo = ORMKitiOS;
+		};
 		8BF3436D1B27FA08007CBF44 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BF3434F1B27FA08007CBF44 /* Project object */;
@@ -86,6 +143,31 @@
 			remoteInfo = TheOneRepMax;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8BDD08AE1BD149A800AD2D44 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8B3B27841BED182C002CCD74 /* ORMKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD09361BD4922C00AD2D44 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8BDD09331BD4922C00AD2D44 /* ORMKitiOS.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8B095BB11B29A68900818DE0 /* TheOneRepMax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheOneRepMax.entitlements; sourceTree = "<group>"; };
@@ -96,14 +178,16 @@
 		8B30392A1BACA6E2003F823C /* OrganizationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationDetailViewController.swift; sourceTree = "<group>"; };
 		8B30392C1BAF2A2E003F823C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		8B30392E1BAF2A34003F823C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
+		8B3B27811BED1814002CCD74 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug/CorePlot.framework"; sourceTree = "<absolute>"; };
 		8B4552D71BA9BCE3005547F6 /* OrgListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrgListViewController.swift; sourceTree = "<group>"; };
-		8B46071E1BAE47AC00E953D7 /* ORMKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ORMKit.framework; path = "../../../Library/Developer/Xcode/DerivedData/TheOneRepMax-ehoehzyqldmueagnpaaiizyqsyuw/Build/Products/Debug/ORMKit.framework"; sourceTree = "<group>"; };
 		8B4607201BAF0D4600E953D7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B5639251B48F164002E9A49 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupOptionView.swift; sourceTree = "<group>"; };
 		8B62DC591B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedOrganizationListItem.swift; sourceTree = "<group>"; };
 		8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORMViewController.swift; sourceTree = "<group>"; };
 		8B6A56521BA9EF8E00965E4B /* TheOneRepMax-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TheOneRepMax-iOS.entitlements"; sourceTree = "<group>"; };
+		8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveMaxViewController.swift; sourceTree = "<group>"; };
+		8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		8B7123CE1BA764DE0083980E /* TheOneRepMax-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheOneRepMax-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7123D01BA764DE0083980E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B7123DA1BA764DE0083980E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -122,10 +206,13 @@
 		8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCustomInputViewController.swift; sourceTree = "<group>"; };
 		8B787F1B1B7ADF27006BA4A9 /* ManagedAthleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedAthleteView.swift; sourceTree = "<group>"; };
 		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
+		8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRepMaxContainer.swift; sourceTree = "<group>"; };
 		8BA520971B44CA27005E0FF0 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		8BA5209E1B45125C005E0FF0 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		8BA520A01B4517F2005E0FF0 /* MessagesListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesListItem.swift; sourceTree = "<group>"; };
+		8BB811651BB5014800AFAB16 /* AssociatedOrgsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssociatedOrgsViewController.swift; sourceTree = "<group>"; };
+		8BBE04611BBC3EB300EE7D70 /* App Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "App Icons"; sourceTree = "<group>"; };
 		8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTemplateOptionButton.swift; sourceTree = "<group>"; };
 		8BC9DC961B41235B00BDA199 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +222,12 @@
 		8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTemplateButton.swift; sourceTree = "<group>"; };
 		8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageViewController.swift; sourceTree = "<group>"; };
+		8BDD08941BD149A800AD2D44 /* ORMKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORMKit.h; sourceTree = "<group>"; };
+		8BDD08961BD149A800AD2D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDD089B1BD149A800AD2D44 /* ORMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMKitTests.swift; sourceTree = "<group>"; };
+		8BDD08A41BD149A800AD2D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORMKit.xcodeproj; path = ../ormkit/ORMKit.xcodeproj; sourceTree = "<group>"; };
 		8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-Bridging-Header.h"; sourceTree = "<group>"; };
 		8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityMigrationPolicy.swift; sourceTree = "<group>"; };
 		8BE1E19E1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAthleteInfoViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +235,7 @@
 		8BEB2DD21B39F3D8001D10FE /* RightRoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightRoundedButton.swift; sourceTree = "<group>"; };
 		8BEEC6F41B5034C200F93126 /* LiftEntryTableItemOptionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntryTableItemOptionsViewController.swift; sourceTree = "<group>"; };
 		8BEEC6F51B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftEntryTableItemOptionsViewController.xib; sourceTree = "<group>"; };
+		8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORViewController.swift; sourceTree = "<group>"; };
 		8BF343571B27FA08007CBF44 /* TheOneRepMax.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheOneRepMax.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BF3435B1B27FA08007CBF44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF3435C1B27FA08007CBF44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -160,13 +254,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
-				8B3039301BAF2A42003F823C /* ORMKit.framework in Frameworks */,
 				8B30392F1BAF2A34003F823C /* CloudKit.framework in Frameworks */,
+				8BDD09321BD4922C00AD2D44 /* ORMKitiOS.framework in Frameworks */,
 				8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */,
-=======
-				8B46071F1BAE47AC00E953D7 /* ORMKit.framework in Frameworks */,
->>>>>>> 12d4930910c491a196b474842c1b6ff2a0719db6
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,11 +274,20 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BDD08981BD149A800AD2D44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BF343541B27FA08007CBF44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B3B27821BED1814002CCD74 /* CorePlot.framework in Frameworks */,
 				8B202A5D1B445C090088A63B /* QuartzCore.framework in Frameworks */,
+				8B3B27831BED182C002CCD74 /* ORMKit.framework in Frameworks */,
 				8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -206,7 +305,7 @@
 		0A18E43CBDE524072F87162C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				8B46071E1BAE47AC00E953D7 /* ORMKit.framework */,
+				8B3B27811BED1814002CCD74 /* CorePlot.framework */,
 				8B202A5C1B445C090088A63B /* QuartzCore.framework */,
 				8B095BB21B29A68F00818DE0 /* CloudKit.framework */,
 				8BF3438F1B295A6F007CBF44 /* CFNetwork.framework */,
@@ -241,8 +340,13 @@
 				8B6A56521BA9EF8E00965E4B /* TheOneRepMax-iOS.entitlements */,
 				8B7123D01BA764DE0083980E /* AppDelegate.swift */,
 				8B4607201BAF0D4600E953D7 /* MainViewController.swift */,
+				8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */,
+				8BB811651BB5014800AFAB16 /* AssociatedOrgsViewController.swift */,
 				8B4552D71BA9BCE3005547F6 /* OrgListViewController.swift */,
 				8B30392A1BACA6E2003F823C /* OrganizationDetailViewController.swift */,
+				8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */,
+				8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */,
+				8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */,
 				8B7123D91BA764DE0083980E /* Main.storyboard */,
 				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
 				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
@@ -351,6 +455,35 @@
 			name = History;
 			sourceTree = "<group>";
 		};
+		8BDD08931BD149A800AD2D44 /* ORMKit */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD08941BD149A800AD2D44 /* ORMKit.h */,
+				8BDD08961BD149A800AD2D44 /* Info.plist */,
+			);
+			path = ORMKit;
+			sourceTree = "<group>";
+		};
+		8BDD08A11BD149A800AD2D44 /* ORMKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */,
+				8BDD08A41BD149A800AD2D44 /* Info.plist */,
+			);
+			path = ORMKitTests;
+			sourceTree = "<group>";
+		};
+		8BDD091F1BD4920400AD2D44 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8BDD09261BD4920400AD2D44 /* ORMKit.framework */,
+				8BDD09281BD4920400AD2D44 /* ORMKitTests.xctest */,
+				8BDD092A1BD4920400AD2D44 /* ORMKitiOS.framework */,
+				8BDD092C1BD4920400AD2D44 /* ORMKitiOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		8BF3434E1B27FA08007CBF44 = {
 			isa = PBXGroup;
 			children = (
@@ -359,8 +492,11 @@
 				8B7123CF1BA764DE0083980E /* TheOneRepMax-iOS */,
 				8B7123E91BA764DE0083980E /* TheOneRepMax-iOSTests */,
 				8B7123F41BA764DE0083980E /* TheOneRepMax-iOSUITests */,
+				8BDD08931BD149A800AD2D44 /* ORMKit */,
+				8BDD08A11BD149A800AD2D44 /* ORMKitTests */,
 				8BF343581B27FA08007CBF44 /* Products */,
 				0A18E43CBDE524072F87162C /* Frameworks */,
+				8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */,
 			);
 			sourceTree = "<group>";
 		};
@@ -372,6 +508,7 @@
 				8B7123CE1BA764DE0083980E /* TheOneRepMax-iOS.app */,
 				8B7123E61BA764DE0083980E /* TheOneRepMax-iOSTests.xctest */,
 				8B7123F11BA764DE0083980E /* TheOneRepMax-iOSUITests.xctest */,
+				8BDD089B1BD149A800AD2D44 /* ORMKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -388,6 +525,7 @@
 				8BC9DC921B4122EA00BDA199 /* One Rep Max */,
 				8BC9DC951B41233100BDA199 /* Home */,
 				8BFC3C991B4EE51900B8F54E /* Stats */,
+				8BBE04611BBC3EB300EE7D70 /* App Icons */,
 				8BF343631B27FA08007CBF44 /* Images.xcassets */,
 				8BF343651B27FA08007CBF44 /* Main.storyboard */,
 				8B1C5C631B35F58100B47E5E /* Organization List Item */,
@@ -442,10 +580,12 @@
 				8B7123CA1BA764DE0083980E /* Sources */,
 				8B7123CB1BA764DE0083980E /* Frameworks */,
 				8B7123CC1BA764DE0083980E /* Resources */,
+				8BDD09361BD4922C00AD2D44 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8BDD09351BD4922C00AD2D44 /* PBXTargetDependency */,
 			);
 			name = "TheOneRepMax-iOS";
 			productName = "TheOneRepMax-iOS";
@@ -488,6 +628,24 @@
 			productReference = 8B7123F11BA764DE0083980E /* TheOneRepMax-iOSUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
+		8BDD089A1BD149A800AD2D44 /* ORMKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8BDD08AF1BD149A800AD2D44 /* Build configuration list for PBXNativeTarget "ORMKitTests" */;
+			buildPhases = (
+				8BDD08971BD149A800AD2D44 /* Sources */,
+				8BDD08981BD149A800AD2D44 /* Frameworks */,
+				8BDD08991BD149A800AD2D44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8BDD08A01BD149A800AD2D44 /* PBXTargetDependency */,
+			);
+			name = ORMKitTests;
+			productName = ORMKitTests;
+			productReference = 8BDD089B1BD149A800AD2D44 /* ORMKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		8BF343561B27FA08007CBF44 /* TheOneRepMax */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BF343761B27FA08007CBF44 /* Build configuration list for PBXNativeTarget "TheOneRepMax" */;
@@ -495,10 +653,12 @@
 				8BF343531B27FA08007CBF44 /* Sources */,
 				8BF343541B27FA08007CBF44 /* Frameworks */,
 				8BF343551B27FA08007CBF44 /* Resources */,
+				8BDD08AE1BD149A800AD2D44 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8B3B27861BED182C002CCD74 /* PBXTargetDependency */,
 			);
 			name = TheOneRepMax;
 			productName = TheOneRepMax;
@@ -546,6 +706,10 @@
 						CreatedOnToolsVersion = 7.0;
 						TestTargetID = 8B7123CD1BA764DE0083980E;
 					};
+					8BDD089A1BD149A800AD2D44 = {
+						CreatedOnToolsVersion = 7.0.1;
+						TestTargetID = 8BF343561B27FA08007CBF44;
+					};
 					8BF343561B27FA08007CBF44 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 7R899BEBGC;
@@ -575,6 +739,12 @@
 			mainGroup = 8BF3434E1B27FA08007CBF44;
 			productRefGroup = 8BF343581B27FA08007CBF44 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 8BDD091F1BD4920400AD2D44 /* Products */;
+					ProjectRef = 8BDD091E1BD4920400AD2D44 /* ORMKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				8BF343561B27FA08007CBF44 /* TheOneRepMax */,
@@ -582,9 +752,41 @@
 				8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */,
 				8B7123E51BA764DE0083980E /* TheOneRepMax-iOSTests */,
 				8B7123F01BA764DE0083980E /* TheOneRepMax-iOSUITests */,
+				8BDD089A1BD149A800AD2D44 /* ORMKitTests */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		8BDD09261BD4920400AD2D44 /* ORMKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ORMKit.framework;
+			remoteRef = 8BDD09251BD4920400AD2D44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8BDD09281BD4920400AD2D44 /* ORMKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ORMKitTests.xctest;
+			remoteRef = 8BDD09271BD4920400AD2D44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8BDD092A1BD4920400AD2D44 /* ORMKitiOS.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ORMKitiOS.framework;
+			remoteRef = 8BDD09291BD4920400AD2D44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8BDD092C1BD4920400AD2D44 /* ORMKitiOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ORMKitiOSTests.xctest;
+			remoteRef = 8BDD092B1BD4920400AD2D44 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8B7123CC1BA764DE0083980E /* Resources */ = {
@@ -611,6 +813,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8BDD08991BD149A800AD2D44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8BF343551B27FA08007CBF44 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -619,6 +828,7 @@
 				8BEEC6F71B5034C200F93126 /* LiftEntryTableItemOptionsViewController.xib in Resources */,
 				8B8D6E521B50EF760046C1D2 /* trash.png in Resources */,
 				8BF343671B27FA08007CBF44 /* Main.storyboard in Resources */,
+				8BBE04621BBC3EB300EE7D70 /* App Icons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,9 +846,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BB811661BB5014800AFAB16 /* AssociatedOrgsViewController.swift in Sources */,
+				8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */,
+				8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */,
 				8B30392B1BACA6E2003F823C /* OrganizationDetailViewController.swift in Sources */,
 				8B4552D81BA9BCE3005547F6 /* OrgListViewController.swift in Sources */,
 				8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */,
+				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
+				8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */,
 				8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,6 +871,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B7123F61BA764DE0083980E /* TheOneRepMax_iOSUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8BDD08971BD149A800AD2D44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8BDD08A31BD149A800AD2D44 /* ORMKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,6 +932,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8B3B27861BED182C002CCD74 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ORMKit;
+			targetProxy = 8B3B27851BED182C002CCD74 /* PBXContainerItemProxy */;
+		};
 		8B7123E81BA764DE0083980E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */;
@@ -718,6 +946,16 @@
 			isa = PBXTargetDependency;
 			target = 8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */;
 			targetProxy = 8B7123F21BA764DE0083980E /* PBXContainerItemProxy */;
+		};
+		8BDD08A01BD149A800AD2D44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8BF343561B27FA08007CBF44 /* TheOneRepMax */;
+			targetProxy = 8BDD089F1BD149A800AD2D44 /* PBXContainerItemProxy */;
+		};
+		8BDD09351BD4922C00AD2D44 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ORMKitiOS;
+			targetProxy = 8BDD09341BD4922C00AD2D44 /* PBXContainerItemProxy */;
 		};
 		8BF3436E1B27FA08007CBF44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -759,9 +997,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "TheOneRepMax-iOS/TheOneRepMax-iOS.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wendy Witcig (SAE38G688R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wendy Witcig (SAE38G688R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -781,9 +1021,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "TheOneRepMax-iOS/TheOneRepMax-iOS.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer: Wendy Witcig (SAE38G688R)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Wendy Witcig (SAE38G688R)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_BITCODE = YES;
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -854,6 +1096,32 @@
 				TEST_TARGET_NAME = "TheOneRepMax-iOS";
 				USES_XCTRUNNER = YES;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8BDD08AB1BD149A800AD2D44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ORMKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORMKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheOneRepMax.app/Contents/MacOS/TheOneRepMax";
+			};
+			name = Debug;
+		};
+		8BDD08AC1BD149A800AD2D44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = ORMKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORMKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheOneRepMax.app/Contents/MacOS/TheOneRepMax";
 			};
 			name = Release;
 		};
@@ -951,6 +1219,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ORMKit-cqocanjiwvmxgvdkfytdxzdhzjvm/Build/Products/Debug",
@@ -979,6 +1248,7 @@
 				CODE_SIGN_IDENTITY = "Mac Developer";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Mac Developer";
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/ORMKit-cqocanjiwvmxgvdkfytdxzdhzjvm/Build/Products/Debug",
@@ -1061,6 +1331,15 @@
 			buildConfigurations = (
 				8B7123FC1BA764DE0083980E /* Debug */,
 				8B7123FD1BA764DE0083980E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8BDD08AF1BD149A800AD2D44 /* Build configuration list for PBXNativeTarget "ORMKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8BDD08AB1BD149A800AD2D44 /* Debug */,
+				8BDD08AC1BD149A800AD2D44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

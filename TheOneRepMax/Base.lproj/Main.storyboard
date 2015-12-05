@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9531"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -863,12 +863,20 @@
             <objects>
                 <viewController identifier="JoinOrgsPopoverViewController" storyboardIdentifier="JoinOrgsPopoverViewController" id="u71-7B-IGB" customClass="JoinOrgsPopoverViewController" customModule="TheOneRepMax" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="nAw-1q-Fb3">
-                        <rect key="frame" x="0.0" y="0.0" width="306" height="126"/>
+                        <rect key="frame" x="0.0" y="0.0" width="306" height="93"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBB-FO-eYJ">
+                                <rect key="frame" x="6" y="49" width="295" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="You are not a member of any organizations!" id="IbG-Rt-WSE">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACs-U7-43M">
-                                <rect key="frame" x="158" y="13" width="62" height="32"/>
-                                <buttonCell key="cell" type="push" title="join" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q3y-pm-lAx">
+                                <rect key="frame" x="71" y="13" width="165" height="32"/>
+                                <buttonCell key="cell" type="push" title="Join an Organization" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="q3y-pm-lAx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -876,19 +884,12 @@
                                     <action selector="joinPressed:" target="u71-7B-IGB" id="JX8-mz-Bfe"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ST-8i-MRV">
-                                <rect key="frame" x="44" y="13" width="82" height="32"/>
-                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="RvJ-wM-ARt">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
                         </subviews>
                     </view>
                 </viewController>
                 <customObject id="PDE-0A-K1J" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="860" y="560"/>
+            <point key="canvasLocation" x="860" y="543.5"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="vGP-Jw-EM2">
@@ -899,7 +900,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="350"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-ud-pBK">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rJh-ud-pBK">
                                 <rect key="frame" x="147" y="300" width="323" height="34"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="319" id="EPu-k9-0wv"/>
@@ -932,11 +933,11 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="aaz-5u-mQ4">
-                                    <rect key="frame" x="543" y="1" width="16" height="267"/>
+                                    <rect key="frame" x="544" y="1" width="15" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="VRm-is-7CP">
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VRm-is-7CP">
                                 <rect key="frame" x="486" y="302" width="100" height="32"/>
                                 <buttonCell key="cell" type="push" title="Join Orgs" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CcH-G1-lWJ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -1244,18 +1245,22 @@
                                         <constraint firstItem="UWE-Kb-oPe" firstAttribute="leading" secondItem="R8Y-bF-El4" secondAttribute="leading" id="ui9-Xn-lcU"/>
                                         <constraint firstAttribute="bottom" secondItem="UWE-Kb-oPe" secondAttribute="bottom" id="y4E-KU-LfS"/>
                                     </constraints>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" verticalHuggingPriority="750" horizontal="YES" id="2R7-9U-2AT">
                                     <rect key="frame" x="0.0" y="224" width="508" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="19G-fJ-bD7">
-                                    <rect key="frame" x="492" y="0.0" width="16" height="240"/>
+                                    <rect key="frame" x="493" y="0.0" width="15" height="240"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
                             <button translatesAutoresizingMaskIntoConstraints="NO" id="gfh-k0-Hyc">
                                 <rect key="frame" x="559" y="310" width="35" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="31" id="WD6-f2-gDP"/>
+                                </constraints>
                                 <buttonCell key="cell" type="bevel" title="+" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="CFr-rf-RdQ">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="systemBold" size="18"/>
@@ -1264,6 +1269,17 @@
                                     <action selector="newMessagePressed:" target="6uu-kM-5g7" id="trE-dq-ZAV"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="npu-5f-jaI">
+                                <rect key="frame" x="212" y="302" width="173" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="169" id="NuG-UL-7NZ"/>
+                                </constraints>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Messages" id="Pwf-1f-7fH">
+                                    <font key="font" metaFont="systemBold" size="30"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstItem="nck-oL-Dt3" firstAttribute="leading" secondItem="KkU-Sb-5cl" secondAttribute="leading" constant="44" id="2B1-hv-FNr"/>
@@ -1273,12 +1289,15 @@
                             <constraint firstItem="fcQ-jW-cca" firstAttribute="leading" secondItem="KkU-Sb-5cl" secondAttribute="leading" constant="8" id="UYq-4a-04l"/>
                             <constraint firstAttribute="bottom" secondItem="nck-oL-Dt3" secondAttribute="bottom" constant="54" id="UyM-Dr-gQI"/>
                             <constraint firstAttribute="trailing" secondItem="gfh-k0-Hyc" secondAttribute="trailing" constant="8" id="eeN-jP-8kk"/>
+                            <constraint firstItem="nck-oL-Dt3" firstAttribute="top" secondItem="npu-5f-jaI" secondAttribute="bottom" constant="8" symbolic="YES" id="lez-5l-3ti"/>
                             <constraint firstAttribute="trailing" secondItem="nck-oL-Dt3" secondAttribute="trailing" constant="48" id="lyH-X6-r9R"/>
                             <constraint firstItem="gfh-k0-Hyc" firstAttribute="baseline" secondItem="fcQ-jW-cca" secondAttribute="baseline" id="nfy-gx-8aF"/>
+                            <constraint firstItem="npu-5f-jaI" firstAttribute="centerX" secondItem="nck-oL-Dt3" secondAttribute="centerX" id="qAL-7o-lFO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="messagesScrollView" destination="R8Y-bF-El4" id="t3q-3Q-ksq"/>
+                        <outlet property="newMessageButton" destination="gfh-k0-Hyc" id="icK-DU-BAi"/>
                     </connections>
                 </viewController>
                 <customObject id="YEw-zc-RWy" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1323,7 +1342,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="fVc-yb-d7K">
-                                    <rect key="frame" x="478" y="0.0" width="16" height="267"/>
+                                    <rect key="frame" x="479" y="0.0" width="15" height="267"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                             </scrollView>
@@ -1406,7 +1425,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button translatesAutoresizingMaskIntoConstraints="NO" id="EmU-gu-zYB">
+                            <button misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EmU-gu-zYB">
                                 <rect key="frame" x="-2" y="-3" width="67" height="36"/>
                                 <buttonCell key="cell" type="bevel" title="post" bezelStyle="regularSquare" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="IOj-oM-SPx">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
