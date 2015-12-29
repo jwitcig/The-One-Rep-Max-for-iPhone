@@ -9,18 +9,19 @@
 import UIKit
 import ORMKitiOS
 
-class ORViewController: UIViewController {
+public class ORViewController: UIViewController {
 
     var session: ORSession!
     var localData: ORLocalData!
-    var cloudData: ORCloudData!
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.session = ORSession.currentSession
-        self.localData = self.session.localData
-        self.cloudData = self.session.cloudData
+        self.session.currentViewController = self
+
+        self.localData = session.localData
     }
     
 }

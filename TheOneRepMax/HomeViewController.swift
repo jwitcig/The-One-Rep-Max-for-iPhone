@@ -12,7 +12,6 @@ import ORMKit
 
 class HomeViewController: ORViewController {
     
-    @IBOutlet weak var repsField: NSTextField!
     @IBOutlet weak var weightField: NSTextField!
     @IBOutlet weak var organizationsScrollView: NSScrollView!
 
@@ -31,6 +30,10 @@ class HomeViewController: ORViewController {
                 self.displayOrganizations(memberships)
             }
         }
+        
+    }
+    
+    @IBAction func repsChanged(stepper: UIStepper) {
         
     }
     

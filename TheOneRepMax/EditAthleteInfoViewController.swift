@@ -35,27 +35,11 @@ class EditAthleteInfoViewController: ORViewController {
         self.lastName = self.athlete.lastName
     }
     
-    func writeDataToModel() {
-        guard let userRecordName = NSUserDefaults.standardUserDefaults()["currentUserRecordName"] as? String else {
-            return
-        }
-
-        self.athlete.userRecordName = userRecordName
-        self.athlete.firstName = self.firstName
-        self.athlete.lastName = self.lastName
-    }
-    
     @IBAction func continuePressed(button: NSButton) {
         self.writeDataToModel()
         
         self.localData.save()
-        self.cloudData.syncronizeDataToCloudStore {
-            guard $0.success else { return }
-            
-            runOnMainThread {
-                self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.homeVC, options: .SlideLeft, completionHandler: nil)
-            }
-        }
+        self.parentVC.transitionFromViewController(self, toViewController: self.parentVC.homeVC, options: .SlideLeft, completionHandler: nil)
     }
     
 }

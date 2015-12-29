@@ -10,88 +10,221 @@ import UIKit
 import ORMKitiOS
 import CoreData
 
-class HomeViewController: UIViewController, UITextFieldDelegate {
-    
-    @IBOutlet weak var weightField: UITextField!
-    @IBOutlet weak var repsField: UITextField!
+class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var ormLabel: UILabel!
     
+    @IBOutlet weak var controlScrollView: UIScrollView!
+    var controlScrollViewContentView: UIView!
+    
+    var ormControlsViewController: ORMControlsViewController!
+    var percentagesViewController: PercentagesViewController!
+
     @IBOutlet weak var saveMaxButton: UIButton!
+    var saveMaxButtonHiddenConstraint: NSLayoutConstraint!
+    var saveMaxButtonVisibleConstraint: NSLayoutConstraint!
     
-    private var organization: OROrganization!
-    var organizationID: NSManagedObjectID!
+    @IBOutlet var toPercentagesButton: UIButton!
+    @IBOutlet var toOneRepMaxButton: UIButton!
     
-    var weightLifted: Int {
-        guard let value = self.weightField.text else { return 0 }
-        guard let integer = Int(value) else { return 0 }
-        return integer
-    }
-    
-    var reps: Int {
-        guard let value = self.repsField.text else { return 0 }
-        guard let integer = Int(value) else { return 0 }
-        return integer
-    }
+    var viewControllerSwitcherButtonsConstraintsCollection = [UIButton: NSLayoutConstraint]()
     
     var oneRepMax: Int {
-        return ORStats.oneRepMax(weightLifted: self.weightLifted, reps: self.reps)
+        return ormControlsViewController.oneRepMax
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        let constraintMetrics = ["spacing": -self.view.frame.width]
+        let constraintViewsDictionary = ["mainView": self.view, "toPercentagesButton": toPercentagesButton, "toOneRepMaxButton": toOneRepMaxButton]
+        
+        
+        viewControllerSwitcherButtonsConstraintsCollection[toPercentagesButton] = NSLayoutConstraint.constraintsWithVisualFormat("H:[toPercentagesButton]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: constraintMetrics, views: constraintViewsDictionary)[0]
+        viewControllerSwitcherButtonsConstraintsCollection[toOneRepMaxButton] = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[toOneRepMaxButton]", options: NSLayoutFormatOptions(rawValue: 0), metrics: constraintMetrics, views: constraintViewsDictionary)[0]
 
-//        guard let organization = NSManagedObjectContext.contextForCurrentThread().objectRegisteredForID(self.organizationID) as? OROrganization else {
-//            return
-//        }
-//        self.organization = organization
+
+
+        toPercentagesButton.superview?.addConstraint(viewControllerSwitcherButtonsConstraintsCollection[toPercentagesButton]!)
+        toOneRepMaxButton.superview?.addConstraint(viewControllerSwitcherButtonsConstraintsCollection[toOneRepMaxButton]!)
         
-//        self.displayOrganizationInfo()
         
-        self.weightField.addTarget(self, action: Selector("textFieldTextChanged:"), forControlEvents: UIControlEvents.EditingChanged)
-        self.repsField.addTarget(self, action: Selector("textFieldTextChanged:"), forControlEvents: UIControlEvents.EditingChanged)
         
-//        ORSession.currentSession.cloudData.syncronizeDataToLocalStore {
-//            guard $0.success else { return }
-//                ORSession.currentSession.cloudData.fetchMessages(organization: organization) { (messages, response) in
-//                  guard response.success else { print(response.error); return }
-//                ORSession.currentSession.localData.save(context: response.currentThreadContext)
-//            }
-//        }
-    }
-    
-    func displayOrganizationInfo() {
-        self.navigationItem.title = self.organization.orgName
+        saveMaxButtonVisibleConstraint = NSLayoutConstraint(item: self.view, attribute: .CenterX, relatedBy: .Equal, toItem: saveMaxButton, attribute: .CenterX, multiplier: 1, constant: 0)
+        
+        saveMaxButtonHiddenConstraint = NSLayoutConstraint(item: self.view, attribute: .Trailing, relatedBy: .Equal, toItem: saveMaxButton, attribute: .Trailing, multiplier: 1, constant: -80)
+        
+        self.view.addConstraint(saveMaxButtonHiddenConstraint)
+        
+        
+        
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        ormControlsViewController = storyboard.instantiateViewControllerWithIdentifier("ORMControlsViewController") as! ORMControlsViewController
+        
+        
+        percentagesViewController = storyboard.instantiateViewControllerWithIdentifier("PercentagesViewController") as! PercentagesViewController
+        
+        self.addChildViewController(ormControlsViewController)
+        self.addChildViewController(percentagesViewController)
+        
+        let view = ormControlsViewController.view
+        view.translatesAutoresizingMaskIntoConstraints = false
+        
+        percentagesViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        controlScrollViewContentView = UIView()
+
+        controlScrollViewContentView.backgroundColor = UIColor.lightGrayColor()
+        controlScrollViewContentView.translatesAutoresizingMaskIntoConstraints = false
+        controlScrollView.addSubview(controlScrollViewContentView)
+
+        
+        
+        
+        controlScrollView.translatesAutoresizingMaskIntoConstraints = false
+        controlScrollViewContentView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let viewsDictionary = ["controlScrollView": controlScrollView, "contentView": controlScrollViewContentView, "view": view, "duplicate": percentagesViewController.view]
+        
+        
+        controlScrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView]|", options: .DirectionLeadingToTrailing, metrics: nil, views:viewsDictionary))
+        controlScrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[contentView]|", options: .DirectionLeadingToTrailing, metrics: nil, views: viewsDictionary))
+
+        self.addChildViewController(ormControlsViewController)
+        controlScrollViewContentView.addSubview(view)
+        
+        controlScrollView.addConstraint(NSLayoutConstraint(item: controlScrollViewContentView, attribute: .Width, relatedBy: .GreaterThanOrEqual, toItem: controlScrollView, attribute: .Width, multiplier: 1, constant: 0))
+        controlScrollView.addConstraint(NSLayoutConstraint(item: controlScrollViewContentView, attribute: .Height, relatedBy: .Equal, toItem: controlScrollView, attribute: .Height, multiplier: 1, constant: 0))
+
+        
+        
+        controlScrollViewContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
+
+        
+        self.addChildViewController(percentagesViewController)
+        controlScrollViewContentView.addSubview(percentagesViewController.view)
+        
+        let metrics = ["controlPanelWidth": self.view.frame.width]
+        controlScrollViewContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view(controlPanelWidth)]-0-[duplicate(controlPanelWidth)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: viewsDictionary))
+        
+        
+        controlScrollViewContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[duplicate]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
+        
+        ormControlsViewController.addDelegate(self)
     }
     
     func updateSaveButtonStatus(oneRepMax: Int) {
-        if oneRepMax == 0 {
-            self.saveMaxButton.enabled = false
-        } else {
+        let valid = oneRepMax != 0
+        
+        saveMaxButton.translatesAutoresizingMaskIntoConstraints = false
+
+        
+        if valid {
             self.saveMaxButton.enabled = true
+            
+            self.view.removeConstraint(saveMaxButtonHiddenConstraint)
+            self.view.addConstraint(saveMaxButtonVisibleConstraint)
+
+        } else {
+            self.saveMaxButton.enabled = false
+
+            self.view.removeConstraint(saveMaxButtonVisibleConstraint)
+            self.view.addConstraint(saveMaxButtonHiddenConstraint)
+    
+        }
+        
+        self.saveMaxButton.needsUpdateConstraints()
+
+        UIView.animateWithDuration(1.0) {
+            self.saveMaxButton.layoutIfNeeded()
         }
     }
     
     @IBAction func saveMaxPressed(sender: UIButton) {
         
-        
     }
     
-    func textFieldTextChanged(notification: NSNotification) {
-        let oneRepMax = self.oneRepMax
+    @IBAction func switchSubviewController(button: UIButton) {
+        var relativeFrame: CGRect!
+        let animationTime = 0.6
         
+        switch button {
+            case toPercentagesButton:
+                
+            relativeFrame = percentagesViewController.view.frame
+            
+            self.viewControllerSwitcherButtonsConstraintsCollection[self.toPercentagesButton]!.constant = self.view.frame.width
+            self.viewControllerSwitcherButtonsConstraintsCollection[self.toOneRepMaxButton]!.constant = 0
+            
+            UIView.animateWithDuration(animationTime) {
+                self.toPercentagesButton.layoutIfNeeded()
+                self.toOneRepMaxButton.layoutIfNeeded()
+            }
+            
+            
+            case toOneRepMaxButton:
+            
+            relativeFrame = ormControlsViewController.view.frame
+            
+            viewControllerSwitcherButtonsConstraintsCollection[toPercentagesButton]!.constant = 0
+            viewControllerSwitcherButtonsConstraintsCollection[toOneRepMaxButton]!.constant = self.view.frame.width
+
+            UIView.animateWithDuration(animationTime) {
+                self.toPercentagesButton.layoutIfNeeded()
+                self.toOneRepMaxButton.layoutIfNeeded()
+            }
+            
+        default:
+            fatalError("Fatal Error: Unimplemented")
+        }
+        
+        let destinationFrame = controlScrollViewContentView.convertRect(relativeFrame, toView: controlScrollView)
+        UIView.animateWithDuration(animationTime) {
+            self.controlScrollView.scrollRectToVisible(destinationFrame, animated: false)
+        }
+
+    }
+    
+    func updateORMDisplay(oneRepMax oneRepMax: Int) {
         self.updateSaveButtonStatus(oneRepMax)
-        self.ormLabel.text = "[ \(oneRepMax) lbs. ]"
+        self.ormLabel.text = "\(oneRepMax)"
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "SaveMaxSegue" {
             let saveMaxViewController = segue.destinationViewController as! SaveMaxViewController
             
-            saveMaxViewController.organization = ORSession.currentSession.currentOrganization
-            saveMaxViewController.weightLifted = self.weightLifted
-            saveMaxViewController.reps = self.reps
+            saveMaxViewController.weightLifted = ormControlsViewController.weightLifted
+            saveMaxViewController.reps = ormControlsViewController.reps
         }
     }
-
+    
+    func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
+        return 3
+    }
+    
+    func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 10
+    }
+    
+    func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return "\(row)"
+    }
+    
+    func oneRepMaxDidChange(oneRepMax: Int, weightLifted: Int, reps: Int) {
+        updateORMDisplay(oneRepMax: oneRepMax)
+        
+        updateSaveButtonStatus(oneRepMax)
+    }
+    
+    func enableControlScrollView() {
+        controlScrollView.scrollEnabled = true
+    }
+    
+    func disableControlScrollView() {
+        controlScrollView.scrollEnabled = false
+    }
+    
 }
