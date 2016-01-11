@@ -22,6 +22,11 @@ public class ORViewController: UIViewController {
         self.session.currentViewController = self
 
         self.localData = session.localData
+        
+    }
+    
+    public override func viewWillAppear(animated: Bool) {
+        self.view.backgroundColor = UIColor(red: 147/255, green: 174/255, blue: 255/255, alpha: 1)
     }
     
 }

@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="1" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8NA-SJ-6AY" id="hXL-L6-RFn">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -95,7 +95,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eBD-VR-FOl" id="XDP-U2-QE8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -138,7 +138,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZb-lf-CYv">
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZb-lf-CYv">
                                 <rect key="frame" x="279" y="520" width="42" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="save"/>
@@ -175,57 +175,102 @@
                                     <barButtonItem title="percentages" id="nTP-Dt-l7P"/>
                                 </items>
                             </toolbar>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-b1-zHL">
-                                <rect key="frame" x="20" y="388" width="98" height="30"/>
-                                <accessibility key="accessibilityConfiguration" identifier="toOneRepMax"/>
-                                <state key="normal" title="&lt; one rep max">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchSubviewController:" destination="fQK-pv-YIv" eventType="touchUpInside" id="FsK-sy-DTl"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syn-Q4-MTU">
-                                <rect key="frame" x="480" y="388" width="100" height="30"/>
-                                <accessibility key="accessibilityConfiguration" identifier="toPercentages"/>
-                                <state key="normal" title="percentages &gt;">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="switchSubviewController:" destination="fQK-pv-YIv" eventType="touchUpInside" id="hxU-ah-uQ5"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-0N-elj">
                                 <rect key="frame" x="0.0" y="80" width="600" height="300"/>
-                                <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </scrollView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrW-mb-56J">
+                                <rect key="frame" x="0.0" y="380" width="600" height="44"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0e-ve-xec">
+                                        <rect key="frame" x="0.0" y="0.0" width="1200" height="44"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syn-Q4-MTU">
+                                                <rect key="frame" x="202" y="2" width="100" height="44"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="toPercentages"/>
+                                                <state key="normal" title="percentages &gt;">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="switchSubviewController:" destination="fQK-pv-YIv" eventType="touchUpInside" id="hxU-ah-uQ5"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-b1-zHL">
+                                                <rect key="frame" x="389" y="1" width="98" height="44"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="toOneRepMax"/>
+                                                <state key="normal" title="&lt; one rep max">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="switchSubviewController:" destination="fQK-pv-YIv" eventType="touchUpInside" id="FsK-sy-DTl"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="EZ2-b1-zHL" firstAttribute="leading" secondItem="Syn-Q4-MTU" secondAttribute="trailing" constant="40" id="4dn-sP-QbN"/>
+                                            <constraint firstAttribute="bottom" secondItem="EZ2-b1-zHL" secondAttribute="bottom" id="7fo-gz-GuP"/>
+                                            <constraint firstItem="EZ2-b1-zHL" firstAttribute="height" secondItem="Syn-Q4-MTU" secondAttribute="height" id="E1A-W5-rnU"/>
+                                            <constraint firstItem="Syn-Q4-MTU" firstAttribute="top" secondItem="u0e-ve-xec" secondAttribute="top" id="L6v-2d-0Iz"/>
+                                            <constraint firstAttribute="height" constant="44" id="P8a-YS-5Rm"/>
+                                            <constraint firstItem="EZ2-b1-zHL" firstAttribute="top" secondItem="u0e-ve-xec" secondAttribute="top" id="Rt5-mI-rgv"/>
+                                            <constraint firstAttribute="trailing" secondItem="Syn-Q4-MTU" secondAttribute="trailing" multiplier="0.5" constant="20" symbolic="YES" id="WRy-aE-pRA"/>
+                                            <constraint firstItem="Syn-Q4-MTU" firstAttribute="height" secondItem="u0e-ve-xec" secondAttribute="height" id="bDL-L3-lTr"/>
+                                            <constraint firstItem="Syn-Q4-MTU" firstAttribute="trailing" secondItem="u0e-ve-xec" secondAttribute="trailing" multiplier="0.5" constant="-20" id="fPa-fV-kIK"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="WRy-aE-pRA"/>
+                                            </mask>
+                                        </variation>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="u0e-ve-xec" secondAttribute="bottom" id="1d8-sj-Hem"/>
+                                    <constraint firstItem="u0e-ve-xec" firstAttribute="leading" secondItem="QrW-mb-56J" secondAttribute="leading" id="7VO-zl-zi2"/>
+                                    <constraint firstAttribute="trailing" secondItem="u0e-ve-xec" secondAttribute="trailing" id="Gmz-q3-YFD"/>
+                                    <constraint firstItem="u0e-ve-xec" firstAttribute="top" secondItem="QrW-mb-56J" secondAttribute="top" id="ORA-DW-iw8"/>
+                                    <constraint firstAttribute="height" constant="44" id="sjx-fL-rIK"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="fQK-pv-YIv" id="Zmu-Tr-f75"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="GmM-Pf-BEb" firstAttribute="top" secondItem="dZb-lf-CYv" secondAttribute="bottom" id="2OL-li-ouP"/>
-                            <constraint firstItem="UPF-0N-elj" firstAttribute="centerX" secondItem="dZb-lf-CYv" secondAttribute="centerX" id="6bB-2M-KqP"/>
                             <constraint firstAttribute="trailing" secondItem="GmM-Pf-BEb" secondAttribute="trailing" id="9bk-Hx-xtz"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="trailing" secondItem="GmM-Pf-BEb" secondAttribute="trailing" id="BUw-XM-P0d"/>
+                            <constraint firstItem="QrW-mb-56J" firstAttribute="leading" secondItem="GmM-Pf-BEb" secondAttribute="leading" id="DcL-mC-zeQ"/>
+                            <constraint firstItem="QrW-mb-56J" firstAttribute="centerX" secondItem="dZb-lf-CYv" secondAttribute="centerX" id="J1o-X0-9jc"/>
+                            <constraint firstItem="u0e-ve-xec" firstAttribute="width" secondItem="UPF-0N-elj" secondAttribute="width" multiplier="2" id="LgL-mf-82u"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="height" secondItem="uPH-Nt-XFH" secondAttribute="height" multiplier="0.5" id="Nsd-Yv-N7w"/>
                             <constraint firstItem="0TG-rS-V66" firstAttribute="leading" secondItem="x6r-Zq-ulx" secondAttribute="trailing" constant="8" symbolic="YES" id="Py5-O7-uey"/>
-                            <constraint firstItem="Syn-Q4-MTU" firstAttribute="top" secondItem="UPF-0N-elj" secondAttribute="bottom" constant="8" id="QXf-EN-MXv"/>
                             <constraint firstItem="0TG-rS-V66" firstAttribute="centerY" secondItem="x6r-Zq-ulx" secondAttribute="centerY" id="S8J-YJ-HKQ"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="top" secondItem="x6r-Zq-ulx" secondAttribute="bottom" id="T0W-Ke-QsP"/>
+                            <constraint firstItem="QrW-mb-56J" firstAttribute="top" secondItem="UPF-0N-elj" secondAttribute="bottom" id="cxj-tp-2Sl"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="centerX" secondItem="x6r-Zq-ulx" secondAttribute="centerX" id="dEp-sc-1P4"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="leading" secondItem="GmM-Pf-BEb" secondAttribute="leading" id="eH3-53-CQ4"/>
+                            <constraint firstItem="QrW-mb-56J" firstAttribute="trailing" secondItem="GmM-Pf-BEb" secondAttribute="trailing" id="ebW-PK-nzz"/>
                             <constraint firstItem="GmM-Pf-BEb" firstAttribute="leading" secondItem="uPH-Nt-XFH" secondAttribute="leading" id="k8Q-Qu-BsA"/>
-                            <constraint firstItem="EZ2-b1-zHL" firstAttribute="baseline" secondItem="Syn-Q4-MTU" secondAttribute="baseline" id="puu-11-7Er"/>
-                            <constraint firstItem="EZ2-b1-zHL" firstAttribute="top" secondItem="UPF-0N-elj" secondAttribute="bottom" constant="8" id="uWL-LH-SMR"/>
                             <constraint firstItem="GmM-Pf-BEb" firstAttribute="bottom" secondItem="ibn-ep-A38" secondAttribute="top" id="v64-jm-9Pe"/>
                             <constraint firstItem="0TG-rS-V66" firstAttribute="top" secondItem="ugE-ax-8Wr" secondAttribute="bottom" constant="23" id="yJp-2K-sja"/>
                             <constraint firstItem="x6r-Zq-ulx" firstAttribute="top" secondItem="ugE-ax-8Wr" secondAttribute="bottom" constant="8" id="zq4-fH-hxM"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="J1o-X0-9jc"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="YZ7-Ae-MWD"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
                         <outlet property="controlScrollView" destination="UPF-0N-elj" id="ru7-8W-kiV"/>
+                        <outlet property="controlSwitcherScrollView" destination="QrW-mb-56J" id="pse-uv-1fB"/>
+                        <outlet property="controlSwitcherScrollViewContentView" destination="u0e-ve-xec" id="Xua-W6-9w3"/>
                         <outlet property="ormLabel" destination="x6r-Zq-ulx" id="xBR-k1-FNL"/>
                         <outlet property="saveMaxButton" destination="dZb-lf-CYv" id="2Sa-qk-oIo"/>
                         <outlet property="toOneRepMaxButton" destination="EZ2-b1-zHL" id="gZv-me-87a"/>
@@ -289,7 +334,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.75406849107326002" blue="0.503349435882957" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="Mi4-jh-8gd" firstAttribute="centerX" secondItem="0JL-IL-OO7" secondAttribute="centerX" id="5Tg-ai-Wiy"/>
                             <constraint firstItem="bUS-Rh-QjM" firstAttribute="centerY" secondItem="0JL-IL-OO7" secondAttribute="centerY" id="763-1D-jzd"/>
@@ -404,7 +449,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vgV-YJ-V8H" id="WgR-nR-9eH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -600,36 +645,38 @@
                         <viewControllerLayoutGuide type="top" id="lYo-l9-mb4"/>
                         <viewControllerLayoutGuide type="bottom" id="tfy-iu-wyz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="LLc-ym-CMY">
+                    <view key="view" alpha="0.94999999999999996" contentMode="scaleToFill" id="LLc-ym-CMY">
                         <rect key="frame" x="0.0" y="0.0" width="220" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t6X-5V-Nb0">
-                                <rect key="frame" x="0.0" y="20" width="220" height="55"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKT-Qz-OLc">
+                                <rect key="frame" x="20" y="20" width="180" height="360"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Chd-rZ-aOG">
+                                        <rect key="frame" x="0.0" y="20" width="188" height="0.0"/>
+                                    </stackView>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="byf-Re-9as"/>
+                                    <constraint firstItem="Chd-rZ-aOG" firstAttribute="top" secondItem="ZKT-Qz-OLc" secondAttribute="top" constant="20" symbolic="YES" id="CyT-X4-99A"/>
+                                    <constraint firstAttribute="trailing" secondItem="Chd-rZ-aOG" secondAttribute="trailing" id="ejn-hw-EeQ"/>
+                                    <constraint firstItem="Chd-rZ-aOG" firstAttribute="width" secondItem="ZKT-Qz-OLc" secondAttribute="width" id="fGf-gi-nBh"/>
+                                    <constraint firstItem="Chd-rZ-aOG" firstAttribute="leading" secondItem="ZKT-Qz-OLc" secondAttribute="leading" id="gWW-hu-myh"/>
+                                    <constraint firstAttribute="bottom" secondItem="Chd-rZ-aOG" secondAttribute="bottom" id="hCh-lL-Q9R"/>
                                 </constraints>
                             </scrollView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="5le-W1-j19">
-                                <rect key="frame" x="0.0" y="83" width="88" height="317"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="0.75406849109999996" blue="0.50334943590000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="tfy-iu-wyz" firstAttribute="top" secondItem="5le-W1-j19" secondAttribute="bottom" id="Nwv-mq-amq"/>
-                            <constraint firstItem="5le-W1-j19" firstAttribute="leading" secondItem="LLc-ym-CMY" secondAttribute="leading" id="Qyx-RT-uv8"/>
-                            <constraint firstItem="5le-W1-j19" firstAttribute="top" secondItem="t6X-5V-Nb0" secondAttribute="bottom" constant="8" id="Uot-jm-Klc"/>
-                            <constraint firstItem="5le-W1-j19" firstAttribute="width" secondItem="LLc-ym-CMY" secondAttribute="width" multiplier="0.4" id="cDj-gR-BkW"/>
-                            <constraint firstItem="t6X-5V-Nb0" firstAttribute="leading" secondItem="LLc-ym-CMY" secondAttribute="leading" id="k3J-y7-cYc"/>
-                            <constraint firstItem="t6X-5V-Nb0" firstAttribute="top" secondItem="lYo-l9-mb4" secondAttribute="bottom" id="ssZ-Pp-D2g"/>
-                            <constraint firstAttribute="trailing" secondItem="t6X-5V-Nb0" secondAttribute="trailing" id="znS-Fz-ATy"/>
+                            <constraint firstItem="ZKT-Qz-OLc" firstAttribute="trailing" secondItem="LLc-ym-CMY" secondAttribute="trailingMargin" id="I7c-Bw-1K2"/>
+                            <constraint firstItem="ZKT-Qz-OLc" firstAttribute="top" secondItem="lYo-l9-mb4" secondAttribute="bottom" id="U7I-J9-ya7"/>
+                            <constraint firstItem="tfy-iu-wyz" firstAttribute="top" secondItem="ZKT-Qz-OLc" secondAttribute="bottom" id="ahG-ml-F1Q"/>
+                            <constraint firstItem="ZKT-Qz-OLc" firstAttribute="leading" secondItem="LLc-ym-CMY" secondAttribute="leadingMargin" id="n03-xG-771"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="220" height="400"/>
                     <connections>
-                        <outlet property="scrollView" destination="t6X-5V-Nb0" id="afS-wC-bNJ"/>
+                        <outlet property="mainStackView" destination="Chd-rZ-aOG" id="WcL-y9-1Su"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNS-37-U2W" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -31,6 +31,12 @@ func runOnBackgroundThread(block: (()->())) {
     dispatch_async(backgroundThread, block)
 }
 
+enum OneRepMaxNotificationType {
+    enum OneRepMax: String {
+        case OneRepMaxDidChange
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 

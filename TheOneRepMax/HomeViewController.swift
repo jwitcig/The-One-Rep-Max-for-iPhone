@@ -27,6 +27,7 @@ class HomeViewController: ORViewController {
             self.localData.save(context: response.currentThreadContext)
             
             runOnMainThread {
+                @IBOutlet weak var controlSwitcherScrollView: UIScrollView!
                 self.displayOrganizations(memberships)
             }
         }

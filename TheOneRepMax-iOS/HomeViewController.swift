@@ -10,7 +10,7 @@ import UIKit
 import ORMKitiOS
 import CoreData
 
-class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelegate {
+class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelegate, UIScrollViewDelegate {
     
     @IBOutlet weak var ormLabel: UILabel!
     
@@ -24,6 +24,9 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     var saveMaxButtonHiddenConstraint: NSLayoutConstraint!
     var saveMaxButtonVisibleConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var controlSwitcherScrollView: UIScrollView!
+    @IBOutlet weak var controlSwitcherScrollViewContentView: UIView!
+    
     @IBOutlet var toPercentagesButton: UIButton!
     @IBOutlet var toOneRepMaxButton: UIButton!
     
@@ -35,20 +38,6 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        let constraintMetrics = ["spacing": -self.view.frame.width]
-        let constraintViewsDictionary = ["mainView": self.view, "toPercentagesButton": toPercentagesButton, "toOneRepMaxButton": toOneRepMaxButton]
-        
-        
-        viewControllerSwitcherButtonsConstraintsCollection[toPercentagesButton] = NSLayoutConstraint.constraintsWithVisualFormat("H:[toPercentagesButton]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: constraintMetrics, views: constraintViewsDictionary)[0]
-        viewControllerSwitcherButtonsConstraintsCollection[toOneRepMaxButton] = NSLayoutConstraint.constraintsWithVisualFormat("H:|-[toOneRepMaxButton]", options: NSLayoutFormatOptions(rawValue: 0), metrics: constraintMetrics, views: constraintViewsDictionary)[0]
-
-
-
-        toPercentagesButton.superview?.addConstraint(viewControllerSwitcherButtonsConstraintsCollection[toPercentagesButton]!)
-        toOneRepMaxButton.superview?.addConstraint(viewControllerSwitcherButtonsConstraintsCollection[toOneRepMaxButton]!)
-        
         
         
         saveMaxButtonVisibleConstraint = NSLayoutConstraint(item: self.view, attribute: .CenterX, relatedBy: .Equal, toItem: saveMaxButton, attribute: .CenterX, multiplier: 1, constant: 0)
@@ -75,8 +64,8 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         
         percentagesViewController.view.translatesAutoresizingMaskIntoConstraints = false
         controlScrollViewContentView = UIView()
+        
 
-        controlScrollViewContentView.backgroundColor = UIColor.lightGrayColor()
         controlScrollViewContentView.translatesAutoresizingMaskIntoConstraints = false
         controlScrollView.addSubview(controlScrollViewContentView)
 
@@ -113,6 +102,27 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         controlScrollViewContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[duplicate]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
         
         ormControlsViewController.addDelegate(self)
+        
+    
+        
+        
+        
+        
+        
+        let frameSize = controlSwitcherScrollView.bounds.size
+        let thinBorderWidth = 1 as CGFloat
+        let regularBorderWidth = 2 as CGFloat
+        let borderColor = UIColor.blackColor()
+        let bottomBorderView = UIView(frame: CGRect(x: 0 as CGFloat, y: frameSize.height - borderWidth, width: frameSize.width*2, height: regularBorderWidth))
+        let topBorderView = UIView(frame: CGRect(x: 0, y: 0, width: frameSize.width*2, height: thinBorderWidth))
+
+        topBorderView.backgroundColor = borderColor
+        bottomBorderView.backgroundColor = borderColor
+        
+        
+        controlSwitcherScrollView.addSubview(topBorderView)
+        controlSwitcherScrollView.addSubview(bottomBorderView)
+
     }
     
     func updateSaveButtonStatus(oneRepMax: Int) {
@@ -147,44 +157,27 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     }
     
     @IBAction func switchSubviewController(button: UIButton) {
-        var relativeFrame: CGRect!
-        let animationTime = 0.6
+        
+        var contentOffset: CGPoint!
         
         switch button {
             case toPercentagesButton:
                 
-            relativeFrame = percentagesViewController.view.frame
-            
-            self.viewControllerSwitcherButtonsConstraintsCollection[self.toPercentagesButton]!.constant = self.view.frame.width
-            self.viewControllerSwitcherButtonsConstraintsCollection[self.toOneRepMaxButton]!.constant = 0
-            
-            UIView.animateWithDuration(animationTime) {
-                self.toPercentagesButton.layoutIfNeeded()
-                self.toOneRepMaxButton.layoutIfNeeded()
-            }
-            
+            contentOffset = CGPoint(x: controlScrollView.frame.width, y: 0)
             
             case toOneRepMaxButton:
             
-            relativeFrame = ormControlsViewController.view.frame
+            contentOffset = CGPoint(x: 0, y: 0)
             
-            viewControllerSwitcherButtonsConstraintsCollection[toPercentagesButton]!.constant = 0
-            viewControllerSwitcherButtonsConstraintsCollection[toOneRepMaxButton]!.constant = self.view.frame.width
-
-            UIView.animateWithDuration(animationTime) {
-                self.toPercentagesButton.layoutIfNeeded()
-                self.toOneRepMaxButton.layoutIfNeeded()
-            }
             
         default:
             fatalError("Fatal Error: Unimplemented")
         }
         
-        let destinationFrame = controlScrollViewContentView.convertRect(relativeFrame, toView: controlScrollView)
-        UIView.animateWithDuration(animationTime) {
-            self.controlScrollView.scrollRectToVisible(destinationFrame, animated: false)
+        UIView.animateWithDuration(0.4) {
+            self.controlScrollView.contentOffset = contentOffset
+            self.controlSwitcherScrollView.contentOffset = contentOffset
         }
-
     }
     
     func updateORMDisplay(oneRepMax oneRepMax: Int) {
@@ -225,6 +218,11 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     func disableControlScrollView() {
         controlScrollView.scrollEnabled = false
+    }
+    
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+        controlScrollView.contentOffset = controlSwitcherScrollView.contentOffset
     }
     
 }

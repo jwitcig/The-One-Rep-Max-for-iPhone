@@ -12,61 +12,64 @@ protocol NumberScrollerDelegate {
     func numberSelected(percentageView percentageView: PercentageView)
 }
 
-class PercentagesViewController: UIViewController, NumberScrollerDelegate {
+class PercentagesViewController: UIViewController {
     
     var homeViewController: HomeViewController {
         return self.parentViewController! as! HomeViewController
     }
     
-    @IBOutlet weak var scrollView: UIScrollView!
-    
-    var percentagesChooserView: PercentageScrollerView!
+    @IBOutlet weak var mainStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        percentagesChooserView = PercentageScrollerView(max: homeViewController.oneRepMax)
+        populateMainStackView()
         
-        
-        let contentView = UIView()
-        contentView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.addSubview(contentView)
-        
-        
-        percentagesChooserView.spacing = 10
-        percentagesChooserView.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addSubview(percentagesChooserView)
-        
-        percentagesChooserView.addDelegate(self)
-        
-        contentView.addSubview(percentagesChooserView)
-        
-            
-        let viewsDictionary = ["contentView": contentView, "percentagesChooserView": percentagesChooserView]
-        
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-[percentagesChooserView]-|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[percentagesChooserView(55)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
-        
-        
-        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
-        scrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[contentView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
+        mainStackView.spacing = 10
 
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "oneRepMaxDidChange:", name: OneRepMaxNotificationType.OneRepMax.OneRepMaxDidChange.rawValue, object: nil)
+        
     }
     
-    func numberSelected(percentageView percentageView: PercentageView) {
-        let newPercentageView = PercentageView(percentage: percentageView.percentage, max: percentageView.max, displayResult: true)
-        newPercentageView.translatesAutoresizingMaskIntoConstraints = false
-        newPercentageView.frame = percentageView.frame
+    func populateMainStackView() {
+        let percentages = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
         
-        newPercentageView.hidden = true
-
-
-      
-        UIView.animateWithDuration(1.0) {
-            newPercentageView.hidden = false
+        
+        for percentage in percentages {
+            mainStackView.addArrangedSubview(createPercentageStackView(percentage: percentage))
         }
+    }
+    
+    func createPercentageStackView(percentage percentage: Int) -> UIStackView {
+        let percentageFraction = CGFloat(percentage) / 100
+        let max = CGFloat(homeViewController.oneRepMax)
         
         
+        let percent = Int(percentageFraction * max)
+        
+        let percentageLabel = UILabel()
+        percentageLabel.textAlignment = .Right
+        percentageLabel.text = "\(percentage)%:"
+        
+        let percentLabel = UILabel()
+        percentLabel.textAlignment = .Left
+        percentLabel.text = "\(percent)"
+        
+        let stackView = UIStackView(arrangedSubviews: [percentageLabel, percentLabel])
+        stackView.axis = .Horizontal
+        stackView.alignment = .Center
+        stackView.distribution = .FillEqually
+        stackView.spacing = 30
+        
+        return stackView
+    }
+    
+    func oneRepMaxDidChange(notification: NSNotification) {
+        for view in mainStackView.arrangedSubviews {
+            view.removeFromSuperview()
+        }
+        populateMainStackView()
     }
     
 }

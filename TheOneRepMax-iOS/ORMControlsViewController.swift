@@ -72,6 +72,9 @@ class ORMControlsViewController: UIViewController, UITextFieldDelegate {
         for delegate in oneRepMaxDelegates {
             delegate.oneRepMaxDidChange(self.oneRepMax, weightLifted: weightLifted, reps: reps)
         }
+        
+        let userInfo: [NSObject: AnyObject] = [OneRepMaxNotificationDataKey.OneRepMax.rawValue: oneRepMax]
+        NSNotificationCenter.defaultCenter().postNotificationName(OneRepMaxNotificationType.OneRepMax.OneRepMaxDidChange.rawValue, object: nil, userInfo: userInfo)
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
