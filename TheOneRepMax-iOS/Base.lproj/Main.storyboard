@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dFq-Nd-qMc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dFq-Nd-qMc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -42,7 +42,7 @@
                                         <rect key="frame" x="0.0" y="1" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8NA-SJ-6AY" id="hXL-L6-RFn">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -95,7 +95,7 @@
                                 <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="eBD-VR-FOl" id="XDP-U2-QE8">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -138,7 +138,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZb-lf-CYv">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZb-lf-CYv">
                                 <rect key="frame" x="279" y="520" width="42" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="save"/>
@@ -176,28 +176,19 @@
                                 </items>
                             </toolbar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-0N-elj">
-                                <rect key="frame" x="0.0" y="80" width="600" height="300"/>
+                                <rect key="frame" x="0.0" y="100" width="600" height="300"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QrW-mb-56J">
-                                <rect key="frame" x="0.0" y="380" width="600" height="44"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrW-mb-56J">
+                                <rect key="frame" x="0.0" y="405" width="600" height="44"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0e-ve-xec">
                                         <rect key="frame" x="0.0" y="0.0" width="1200" height="44"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syn-Q4-MTU">
-                                                <rect key="frame" x="202" y="2" width="100" height="44"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="toPercentages"/>
-                                                <state key="normal" title="percentages &gt;">
-                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="switchSubviewController:" destination="fQK-pv-YIv" eventType="touchUpInside" id="hxU-ah-uQ5"/>
-                                                </connections>
-                                            </button>
-                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-b1-zHL">
-                                                <rect key="frame" x="389" y="1" width="98" height="44"/>
+                                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EZ2-b1-zHL">
+                                                <rect key="frame" x="620" y="1" width="169" height="44"/>
                                                 <accessibility key="accessibilityConfiguration" identifier="toOneRepMax"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                                 <state key="normal" title="&lt; one rep max">
                                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 </state>
@@ -205,15 +196,26 @@
                                                     <action selector="switchSubviewController:" destination="fQK-pv-YIv" eventType="touchUpInside" id="FsK-sy-DTl"/>
                                                 </connections>
                                             </button>
+                                            <button opaque="NO" alpha="0.40000000000000002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syn-Q4-MTU">
+                                                <rect key="frame" x="407" y="2" width="173" height="44"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="toPercentages"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                                <state key="normal" title="percentages &gt;">
+                                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="switchSubviewController:" destination="fQK-pv-YIv" eventType="touchUpInside" id="hxU-ah-uQ5"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="EZ2-b1-zHL" firstAttribute="leading" secondItem="Syn-Q4-MTU" secondAttribute="trailing" constant="40" id="4dn-sP-QbN"/>
-                                            <constraint firstAttribute="bottom" secondItem="EZ2-b1-zHL" secondAttribute="bottom" id="7fo-gz-GuP"/>
+                                            <constraint firstAttribute="bottom" secondItem="EZ2-b1-zHL" secondAttribute="bottom" constant="-1" id="7fo-gz-GuP"/>
                                             <constraint firstItem="EZ2-b1-zHL" firstAttribute="height" secondItem="Syn-Q4-MTU" secondAttribute="height" id="E1A-W5-rnU"/>
-                                            <constraint firstItem="Syn-Q4-MTU" firstAttribute="top" secondItem="u0e-ve-xec" secondAttribute="top" id="L6v-2d-0Iz"/>
+                                            <constraint firstItem="Syn-Q4-MTU" firstAttribute="top" secondItem="u0e-ve-xec" secondAttribute="top" constant="2" id="L6v-2d-0Iz"/>
                                             <constraint firstAttribute="height" constant="44" id="P8a-YS-5Rm"/>
-                                            <constraint firstItem="EZ2-b1-zHL" firstAttribute="top" secondItem="u0e-ve-xec" secondAttribute="top" id="Rt5-mI-rgv"/>
+                                            <constraint firstItem="EZ2-b1-zHL" firstAttribute="top" secondItem="u0e-ve-xec" secondAttribute="top" constant="1" id="Rt5-mI-rgv"/>
                                             <constraint firstAttribute="trailing" secondItem="Syn-Q4-MTU" secondAttribute="trailing" multiplier="0.5" constant="20" symbolic="YES" id="WRy-aE-pRA"/>
                                             <constraint firstItem="Syn-Q4-MTU" firstAttribute="height" secondItem="u0e-ve-xec" secondAttribute="height" id="bDL-L3-lTr"/>
                                             <constraint firstItem="Syn-Q4-MTU" firstAttribute="trailing" secondItem="u0e-ve-xec" secondAttribute="trailing" multiplier="0.5" constant="-20" id="fPa-fV-kIK"/>
@@ -228,7 +230,7 @@
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="u0e-ve-xec" secondAttribute="bottom" id="1d8-sj-Hem"/>
                                     <constraint firstItem="u0e-ve-xec" firstAttribute="leading" secondItem="QrW-mb-56J" secondAttribute="leading" id="7VO-zl-zi2"/>
-                                    <constraint firstAttribute="trailing" secondItem="u0e-ve-xec" secondAttribute="trailing" id="Gmz-q3-YFD"/>
+                                    <constraint firstAttribute="trailing" secondItem="u0e-ve-xec" secondAttribute="trailing" constant="-600" id="Gmz-q3-YFD"/>
                                     <constraint firstItem="u0e-ve-xec" firstAttribute="top" secondItem="QrW-mb-56J" secondAttribute="top" id="ORA-DW-iw8"/>
                                     <constraint firstAttribute="height" constant="44" id="sjx-fL-rIK"/>
                                 </constraints>
@@ -248,8 +250,9 @@
                             <constraint firstItem="UPF-0N-elj" firstAttribute="height" secondItem="uPH-Nt-XFH" secondAttribute="height" multiplier="0.5" id="Nsd-Yv-N7w"/>
                             <constraint firstItem="0TG-rS-V66" firstAttribute="leading" secondItem="x6r-Zq-ulx" secondAttribute="trailing" constant="8" symbolic="YES" id="Py5-O7-uey"/>
                             <constraint firstItem="0TG-rS-V66" firstAttribute="centerY" secondItem="x6r-Zq-ulx" secondAttribute="centerY" id="S8J-YJ-HKQ"/>
-                            <constraint firstItem="UPF-0N-elj" firstAttribute="top" secondItem="x6r-Zq-ulx" secondAttribute="bottom" id="T0W-Ke-QsP"/>
-                            <constraint firstItem="QrW-mb-56J" firstAttribute="top" secondItem="UPF-0N-elj" secondAttribute="bottom" id="cxj-tp-2Sl"/>
+                            <constraint firstItem="UPF-0N-elj" firstAttribute="top" secondItem="x6r-Zq-ulx" secondAttribute="bottom" constant="20" id="T0W-Ke-QsP"/>
+                            <constraint firstItem="dZb-lf-CYv" firstAttribute="centerX" secondItem="GmM-Pf-BEb" secondAttribute="centerX" id="aev-bH-SaJ"/>
+                            <constraint firstItem="QrW-mb-56J" firstAttribute="top" secondItem="UPF-0N-elj" secondAttribute="bottom" constant="5" id="cxj-tp-2Sl"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="centerX" secondItem="x6r-Zq-ulx" secondAttribute="centerX" id="dEp-sc-1P4"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="leading" secondItem="GmM-Pf-BEb" secondAttribute="leading" id="eH3-53-CQ4"/>
                             <constraint firstItem="QrW-mb-56J" firstAttribute="trailing" secondItem="GmM-Pf-BEb" secondAttribute="trailing" id="ebW-PK-nzz"/>
@@ -449,7 +452,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vgV-YJ-V8H" id="WgR-nR-9eH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>

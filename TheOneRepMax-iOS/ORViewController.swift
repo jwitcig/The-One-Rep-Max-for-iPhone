@@ -23,6 +23,14 @@ public class ORViewController: UIViewController {
 
         self.localData = session.localData
         
+        let image = UIImage(named: "BackgroundBlur")
+        if let backgroundImage = image {
+            let imageView = UIImageView(image: backgroundImage)
+            imageView.frame = self.view.bounds
+            
+            self.view.insertSubview(imageView, atIndex: 0)
+        }
+        
     }
     
     public override func viewWillAppear(animated: Bool) {

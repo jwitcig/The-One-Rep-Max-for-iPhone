@@ -103,26 +103,12 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         
         ormControlsViewController.addDelegate(self)
         
+    }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         
-        
-        
-        
-        
-        let frameSize = controlSwitcherScrollView.bounds.size
-        let thinBorderWidth = 1 as CGFloat
-        let regularBorderWidth = 2 as CGFloat
-        let borderColor = UIColor.blackColor()
-        let bottomBorderView = UIView(frame: CGRect(x: 0 as CGFloat, y: frameSize.height - borderWidth, width: frameSize.width*2, height: regularBorderWidth))
-        let topBorderView = UIView(frame: CGRect(x: 0, y: 0, width: frameSize.width*2, height: thinBorderWidth))
-
-        topBorderView.backgroundColor = borderColor
-        bottomBorderView.backgroundColor = borderColor
-        
-        
-        controlSwitcherScrollView.addSubview(topBorderView)
-        controlSwitcherScrollView.addSubview(bottomBorderView)
-
+        updateORMDisplay(oneRepMax: oneRepMax)
     }
     
     func updateSaveButtonStatus(oneRepMax: Int) {
