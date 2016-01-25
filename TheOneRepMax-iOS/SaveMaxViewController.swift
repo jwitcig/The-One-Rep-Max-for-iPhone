@@ -26,6 +26,8 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         self.updateLabels()
         
         let context = NSManagedObjectContext.contextForCurrentThread()

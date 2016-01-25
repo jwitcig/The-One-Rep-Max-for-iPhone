@@ -14,8 +14,7 @@ class HomeViewController: ORViewController {
     
     @IBOutlet weak var weightField: NSTextField!
     @IBOutlet weak var organizationsScrollView: NSScrollView!
-
-//    var organizations = [OROrganization]()
+    
     @IBOutlet weak var saveButton: NSButton!
         
     override func viewDidAppear() {

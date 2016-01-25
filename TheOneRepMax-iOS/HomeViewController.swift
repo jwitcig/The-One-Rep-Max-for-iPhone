@@ -29,7 +29,7 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     @IBOutlet var toPercentagesButton: UIButton!
     @IBOutlet var toOneRepMaxButton: UIButton!
-    
+        
     var viewControllerSwitcherButtonsConstraintsCollection = [UIButton: NSLayoutConstraint]()
     
     var oneRepMax: Int {
