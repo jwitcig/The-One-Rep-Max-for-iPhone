@@ -28,10 +28,16 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        let (templates, _) = localData.fetchAll(model: ORLiftTemplate.self)
+        var (templates, _) = localData.fetchAll(model: ORLiftTemplate.self)
+        templates.sortInPlace {
+            $0.liftName.isBefore(string: $1.liftName)
+        }
         
         liftTemplates = templates
         liftTemplatesTableView.reloadData()
+        
+        liftTemplatesTableView.backgroundColor = UIColor.clearColor()
+        liftTemplatesTableView.separatorColor = UIColor.blackColor()
     }
     
     @IBAction func applyPressed(button: UIBarButtonItem) {
@@ -65,6 +71,9 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
         let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
         
         cell.textLabel?.text = template.liftName
+        
+        cell.backgroundColor = UIColor.grayColor()
+        cell.textLabel?.textColor = UIColor.whiteColor()
         
         return cell
     }

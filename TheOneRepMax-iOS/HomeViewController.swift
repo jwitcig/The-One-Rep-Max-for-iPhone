@@ -29,6 +29,9 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     @IBOutlet var toPercentagesButton: UIButton!
     @IBOutlet var toOneRepMaxButton: UIButton!
+    
+    @IBOutlet weak var toolbar: UIToolbar!
+    var saveToolbar: PullableToolbar!
         
     var viewControllerSwitcherButtonsConstraintsCollection = [UIButton: NSLayoutConstraint]()
     
@@ -39,15 +42,30 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "The One Rep Max"
         
-        saveMaxButtonVisibleConstraint = NSLayoutConstraint(item: self.view, attribute: .CenterX, relatedBy: .Equal, toItem: saveMaxButton, attribute: .CenterX, multiplier: 1, constant: 0)
+        saveToolbar = PullableToolbar()
+        saveToolbar.translatesAutoresizingMaskIntoConstraints = false
+        saveToolbar.activationBlock = {
+            self.performSegueWithIdentifier("SaveMaxSegue", sender: self)
+        }
         
-        saveMaxButtonHiddenConstraint = NSLayoutConstraint(item: self.view, attribute: .Trailing, relatedBy: .Equal, toItem: saveMaxButton, attribute: .Trailing, multiplier: 1, constant: -80)
+        let instructionLabel = UILabel()
+        instructionLabel.text = "pull to save"
+        instructionLabel.sizeToFit()
+        instructionLabel.textColor = UIColor.grayColor()
+
+        let barItem = UIBarButtonItem(customView: instructionLabel)
         
-        self.view.addConstraint(saveMaxButtonHiddenConstraint)
+        let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+
+        saveToolbar.setItems([space, barItem], animated: false)
         
+        self.view.addSubview(saveToolbar)
+
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[saveToolbar]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["saveToolbar": saveToolbar]))
         
-        
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[saveToolbar(toolbarHeight)][toolbar(toolbarHeight)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["toolbarHeight": toolbar.frame.height], views: ["saveToolbar": saveToolbar, "toolbar": toolbar]))
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
@@ -114,32 +132,14 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     func updateSaveButtonStatus(oneRepMax: Int) {
         let valid = oneRepMax != 0
         
-        saveMaxButton.translatesAutoresizingMaskIntoConstraints = false
-
         
         if valid {
-            self.saveMaxButton.enabled = true
-            
-            self.view.removeConstraint(saveMaxButtonHiddenConstraint)
-            self.view.addConstraint(saveMaxButtonVisibleConstraint)
 
         } else {
-            self.saveMaxButton.enabled = false
-
-            self.view.removeConstraint(saveMaxButtonVisibleConstraint)
-            self.view.addConstraint(saveMaxButtonHiddenConstraint)
-    
+            
         }
         
-        self.saveMaxButton.needsUpdateConstraints()
 
-        UIView.animateWithDuration(1.0) {
-            self.saveMaxButton.layoutIfNeeded()
-        }
-    }
-    
-    @IBAction func saveMaxPressed(sender: UIButton) {
-        
     }
     
     @IBAction func switchSubviewController(button: UIButton) {

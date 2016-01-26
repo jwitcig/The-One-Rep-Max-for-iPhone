@@ -26,9 +26,11 @@ public class ORViewController: UIViewController {
         let image = UIImage(named: "BackgroundBlur")
         if let backgroundImage = image {
             let imageView = UIImageView(image: backgroundImage)
-            imageView.frame = self.view.bounds
-            
+            imageView.translatesAutoresizingMaskIntoConstraints = false
             self.view.insertSubview(imageView, atIndex: 0)
+            
+            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[backgroundImageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["backgroundImageView": imageView]))
+            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[backgroundImageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["backgroundImageView": imageView]))
         }
         
     }

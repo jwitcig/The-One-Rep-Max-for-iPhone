@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; };
+		8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */; };
 		8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12C1771C2521840053841E /* PercentagesViewController.swift */; };
 		8B1C5C621B35F57A00B47E5E /* OrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1C5C611B35F57A00B47E5E /* OrganizationListItem.swift */; };
 		8B202A5D1B445C090088A63B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; };
@@ -157,6 +158,7 @@
 /* Begin PBXFileReference section */
 		8B095BB11B29A68900818DE0 /* TheOneRepMax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheOneRepMax.entitlements; sourceTree = "<group>"; };
 		8B095BB21B29A68F00818DE0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullableToolbar.swift; sourceTree = "<group>"; };
 		8B12C1771C2521840053841E /* PercentagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesViewController.swift; sourceTree = "<group>"; };
 		8B1C5C611B35F57A00B47E5E /* OrganizationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationListItem.swift; sourceTree = "<group>"; };
 		8B202A5C1B445C090088A63B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -336,6 +338,7 @@
 				8B4607201BAF0D4600E953D7 /* MainViewController.swift */,
 				8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */,
 				8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */,
+				8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */,
 				8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */,
 				8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */,
 				8BE55C581C2A5967005948D9 /* PercentageView.swift */,
@@ -846,6 +849,7 @@
 				8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */,
 				8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */,
 				8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */,
+				8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */,
 				8BE55C551C2A05AE005948D9 /* FocusResizingLabel.swift in Sources */,
 				8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */,
 				8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */,

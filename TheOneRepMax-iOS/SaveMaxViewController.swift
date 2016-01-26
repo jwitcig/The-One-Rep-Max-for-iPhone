@@ -32,7 +32,10 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         
         let context = NSManagedObjectContext.contextForCurrentThread()
         
-        let (templates, _) = session.localData.fetchAll(model: ORLiftTemplate.self, context: context)
+        var (templates, _) = session.localData.fetchAll(model: ORLiftTemplate.self, context: context)
+        templates.sortInPlace {
+            $0.liftName.isBefore(string: $1.liftName)
+        }
         
         self.liftTemplates = templates
         self.templatePicker.reloadAllComponents()

@@ -38,6 +38,10 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         updateFilterBar()
         
         refreshLiftEntriesList()
+        
+        
+        entriesTableView.backgroundColor = UIColor.clearColor()
+        entriesTableView.separatorColor = UIColor.blackColor()
     }
     
     func updateFilterBar() {
@@ -135,6 +139,9 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         let entry = self.liftEntries[indexPath.row]
 
         let cell = LiftEntryTableViewCell(style: .Value1, reuseIdentifier: "LiftEntryCell", entry: entry)
+        
+        cell.backgroundColor = UIColor.grayColor()
+        cell.contentView.backgroundColor = UIColor.clearColor()
 
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("didLongPressMaxEntryCell:"))
         cell.addGestureRecognizer(longPressGesture)
@@ -144,6 +151,9 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         case self.entriesTableView:
             cell.textLabel?.text = "\(cell.entry.max.intValue) lbs."
             cell.detailTextLabel?.text = "[\(cell.entry.weightLifted.integerValue) x \(cell.entry.reps.intValue)]"
+            
+            cell.textLabel?.textColor = UIColor.whiteColor()
+            cell.detailTextLabel?.textColor = UIColor.whiteColor()
             
         default:
             break
