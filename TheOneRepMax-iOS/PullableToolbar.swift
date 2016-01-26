@@ -82,7 +82,7 @@ class PullableToolbar: UIToolbar {
                 } else {
                     self.frame = CGRect(origin: newPosition, size: self.frame.size)
                 }
-                                
+                
             } else {
                 let deltaX = (currentTouchLocation.x - firstTouchLocation.x) * 0.5
                 
@@ -103,7 +103,6 @@ class PullableToolbar: UIToolbar {
                 crossedActivationThreshold = false
             }
             
-
         }
         
     }
