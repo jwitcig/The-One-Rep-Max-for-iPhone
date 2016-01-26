@@ -111,13 +111,13 @@
                                 <rect key="frame" x="0.0" y="64" width="600" height="81"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="325" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x6r-Zq-ulx">
-                                        <rect key="frame" x="254" y="3" width="92" height="75.5"/>
+                                        <rect key="frame" x="254" y="3" width="92" height="76"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="55"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="lbs." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0TG-rS-V66">
-                                        <rect key="frame" x="354" y="29" width="26.5" height="23.5"/>
+                                        <rect key="frame" x="354" y="29" width="27" height="24"/>
                                         <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -143,7 +143,6 @@
                             <constraint firstItem="u0e-ve-xec" firstAttribute="width" secondItem="UPF-0N-elj" secondAttribute="width" multiplier="2" id="LgL-mf-82u"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="height" secondItem="uPH-Nt-XFH" secondAttribute="height" multiplier="0.4" constant="58" id="Nsd-Yv-N7w"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="top" secondItem="GaA-13-R3b" secondAttribute="bottom" constant="-1" id="Q8n-Ee-20k"/>
-                            <constraint firstItem="GmM-Pf-BEb" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QrW-mb-56J" secondAttribute="bottom" priority="999" constant="60" id="TWA-fs-q6C"/>
                             <constraint firstItem="QrW-mb-56J" firstAttribute="top" relation="greaterThanOrEqual" secondItem="UPF-0N-elj" secondAttribute="bottom" priority="990" constant="10" id="cxj-tp-2Sl"/>
                             <constraint firstItem="UPF-0N-elj" firstAttribute="leading" secondItem="GmM-Pf-BEb" secondAttribute="leading" id="eH3-53-CQ4"/>
                             <constraint firstItem="QrW-mb-56J" firstAttribute="trailing" secondItem="GmM-Pf-BEb" secondAttribute="trailing" id="ebW-PK-nzz"/>
@@ -356,7 +355,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vgV-YJ-V8H" id="WgR-nR-9eH">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
