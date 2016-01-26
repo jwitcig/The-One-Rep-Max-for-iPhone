@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum Direction {
+    case Left
+    case Right
+}
+
 class PullableToolbar: UIToolbar {
 
     let resetTime = 0.3
@@ -23,10 +28,20 @@ class PullableToolbar: UIToolbar {
     var interactionEnabled = true
     var activationThreshhold: CGFloat = 0.3
     var activated: Bool {
-        return frame.origin.x < -frame.width * activationThreshhold
+        switch activationDirection {
+        
+        case .Left:
+            return frame.origin.x < -frame.width * activationThreshhold
+        
+        case .Right:
+            return frame.origin.x > frame.width * activationThreshhold
+            
+        }
     }
     var crossedActivationThreshold = false
     var activationBlock: (()->())?
+    
+    var activationDirection: Direction = .Left
     
     var touchOriginOffset: CGPoint = CGPoint.zero
     
@@ -71,8 +86,17 @@ class PullableToolbar: UIToolbar {
             } else {
                 let deltaX = (currentTouchLocation.x - firstTouchLocation.x) * 0.5
                 
+                switch activationDirection {
+                    
+                case .Left:
+                    guard deltaX < 0 else { return }
 
-                guard deltaX < 0 else { return }
+                case .Right:
+                    guard deltaX > 0 else { return }
+
+                    
+                }
+
                 
                 let previousPosition = self.frame.origin
                 let newPosition = CGPoint(x: firstTouchLocation.x + deltaX + touchOriginOffset.x, y: previousPosition.y)
@@ -101,7 +125,17 @@ class PullableToolbar: UIToolbar {
     func runActivationAnimation() {
         UIView.animateWithDuration(resetTime, animations: {
             
-            let newPosition = CGPoint(x: -self.frame.width, y: self.frame.origin.y)
+            let currentPosition = self.frame.origin
+            var newPosition: CGPoint!
+            
+            switch self.activationDirection {
+                
+            case .Left:
+                newPosition = CGPoint(x: -self.frame.width, y: currentPosition.y)
+ 
+            case .Right:
+                newPosition = CGPoint(x: self.frame.width, y: currentPosition.y)
+            }
             
             self.frame = CGRect(origin: newPosition, size: self.frame.size)
             

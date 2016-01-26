@@ -72,7 +72,7 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
         
         cell.textLabel?.text = template.liftName
         
-        cell.backgroundColor = UIColor.grayColor()
+        cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor.whiteColor()
         
         return cell

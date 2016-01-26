@@ -63,7 +63,7 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="3iA-Yj-r8J"/>
                                 </items>
                             </toolbar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-0N-elj">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UPF-0N-elj">
                                 <rect key="frame" x="0.0" y="144" width="600" height="298"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </scrollView>
@@ -144,6 +144,7 @@
                             <constraint firstItem="UPF-0N-elj" firstAttribute="leading" secondItem="GmM-Pf-BEb" secondAttribute="leading" id="eH3-53-CQ4"/>
                             <constraint firstItem="QrW-mb-56J" firstAttribute="trailing" secondItem="GmM-Pf-BEb" secondAttribute="trailing" id="ebW-PK-nzz"/>
                             <constraint firstItem="x6r-Zq-ulx" firstAttribute="top" secondItem="ugE-ax-8Wr" secondAttribute="bottom" constant="20" id="gGh-HF-9tb"/>
+                            <constraint firstItem="QrW-mb-56J" firstAttribute="top" secondItem="UPF-0N-elj" secondAttribute="bottom" constant="10" id="gJ5-ze-CEI"/>
                             <constraint firstItem="GmM-Pf-BEb" firstAttribute="leading" secondItem="uPH-Nt-XFH" secondAttribute="leading" id="k8Q-Qu-BsA"/>
                             <constraint firstItem="GmM-Pf-BEb" firstAttribute="bottom" secondItem="ibn-ep-A38" secondAttribute="top" id="v64-jm-9Pe"/>
                         </constraints>
@@ -262,7 +263,7 @@
                                     <outlet property="delegate" destination="xqh-9o-P30" id="lq8-Cf-NTJ"/>
                                 </connections>
                             </pickerView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="352 lbs." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXq-tg-8oO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="352 lbs." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gXq-tg-8oO">
                                 <rect key="frame" x="134" y="129" width="333" height="72"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="72" id="4cf-06-X6U"/>
@@ -272,7 +273,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="[320 lbs. x 3 reps]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqx-Ye-sV4">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[320 lbs. x 3 reps]" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nqx-Ye-sV4">
                                 <rect key="frame" x="134" y="203" width="333" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Sfm-Ce-MPG"/>
@@ -330,6 +331,18 @@
                         <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYh-LA-X0V">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <items>
+                                    <navigationItem title="All Lifts" id="bMB-Ca-ZaK">
+                                        <barButtonItem key="rightBarButtonItem" title="filter" id="10P-VA-qcq">
+                                            <connections>
+                                                <action selector="filterPressed:" destination="02N-Nz-D8r" id="pIg-UF-uI5"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LqZ-cT-QCR">
                                 <rect key="frame" x="0.0" y="44" width="600" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -348,18 +361,6 @@
                                     <outlet property="delegate" destination="02N-Nz-D8r" id="ymM-G3-Sb9"/>
                                 </connections>
                             </tableView>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZYh-LA-X0V">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
-                                <items>
-                                    <navigationItem title="All Lifts" id="bMB-Ca-ZaK">
-                                        <barButtonItem key="rightBarButtonItem" title="filter" id="10P-VA-qcq">
-                                            <connections>
-                                                <action selector="filterPressed:" destination="02N-Nz-D8r" id="pIg-UF-uI5"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
