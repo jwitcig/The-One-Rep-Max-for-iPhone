@@ -68,7 +68,6 @@ class PullableToolbar: UIToolbar {
                 
                 let newPosition = CGPoint(x: (currentTouchLocation.x + touchOriginOffset.x) , y: frame.origin.y)
                 
-                
                 if interactionEnabled && !crossedActivationThreshold {
                     interactionEnabled = false
 
@@ -77,12 +76,13 @@ class PullableToolbar: UIToolbar {
                         }) { (animated) in
                             self.interactionEnabled = true
                     }
-                    crossedActivationThreshold = true
+                    self.crossedActivationThreshold = true
+
 
                 } else {
                     self.frame = CGRect(origin: newPosition, size: self.frame.size)
                 }
-                
+                                
             } else {
                 let deltaX = (currentTouchLocation.x - firstTouchLocation.x) * 0.5
                 
@@ -93,18 +93,16 @@ class PullableToolbar: UIToolbar {
 
                 case .Right:
                     guard deltaX > 0 else { return }
-
-                    
                 }
 
-                
                 let previousPosition = self.frame.origin
                 let newPosition = CGPoint(x: firstTouchLocation.x + deltaX + touchOriginOffset.x, y: previousPosition.y)
                 
                 self.frame = CGRect(origin: newPosition, size: self.frame.size)
+            
+                crossedActivationThreshold = false
             }
             
-            crossedActivationThreshold = false
 
         }
         

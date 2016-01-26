@@ -147,6 +147,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
             entry = liftEntries[indexPath.row]
         }
 
+        // Case: No Entries
         guard let liftEntry = entry else {
             let cell = UITableViewCell()
             cell.textLabel?.text = "No Entries"
@@ -162,17 +163,35 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.backgroundColor = UIColor.clearColor()
         
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("didLongPressMaxEntryCell:"))
-        cell.addGestureRecognizer(longPressGesture)
+//        let longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("didLongPressMaxEntryCell:"))
+//        cell.addGestureRecognizer(longPressGesture)
         
         switch tableView {
      
         case self.entriesTableView:
-            cell.textLabel?.text = "\(cell.entry.max.intValue) lbs."
-            cell.detailTextLabel?.text = "[\(cell.entry.weightLifted.integerValue) x \(cell.entry.reps.intValue)]"
             
-            cell.textLabel?.textColor = UIColor.whiteColor()
-            cell.detailTextLabel?.textColor = UIColor.whiteColor()
+            let centerLabel = UILabel()
+            cell.contentView.addSubview(centerLabel)
+            centerLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activateConstraints([
+                centerLabel.centerXAnchor.constraintEqualToAnchor(cell.contentView.centerXAnchor),
+                centerLabel.centerYAnchor.constraintEqualToAnchor(cell.contentView.centerYAnchor)
+            ])
+            
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "M/d"
+            
+            let entryDateString = dateFormatter.stringFromDate(cell.entry.date)
+
+            cell.textLabel?.text = entryDateString
+            
+            centerLabel.text = "\(cell.entry.max.intValue) lbs."
+            centerLabel.sizeToFit()
+            
+            cell.detailTextLabel?.text = "[\(cell.entry.weightLifted.integerValue) x \(cell.entry.reps.intValue)]"
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+
             
         default:
             break

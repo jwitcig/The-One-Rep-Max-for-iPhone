@@ -25,6 +25,8 @@
 		8B62DC5C1B3F3C2B00FE0539 /* ORMViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B62DC5B1B3F3C2B00FE0539 /* ORMViewController.swift */; };
 		8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */; };
 		8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */; };
+		8B70B7B31C57EACD0090EFAF /* ORMKitiOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B90FD4F1C323CB80054E66F /* ORMKitiOS.framework */; };
+		8B70B7B41C57EACD0090EFAF /* ORMKitiOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B90FD4F1C323CB80054E66F /* ORMKitiOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D01BA764DE0083980E /* AppDelegate.swift */; };
 		8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123D91BA764DE0083980E /* Main.storyboard */; };
 		8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DC1BA764DE0083980E /* Assets.xcassets */; };
@@ -74,6 +76,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		8B70B7B51C57EACD0090EFAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B90FD431C323CB70054E66F /* ORMKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8B72B3AE1C15E4B30079EE34;
+			remoteInfo = ORMKitiOS;
+		};
 		8B7123E71BA764DE0083980E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 8BF3434F1B27FA08007CBF44 /* Project object */;
@@ -149,6 +158,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8B70B7B41C57EACD0090EFAF /* ORMKitiOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -250,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B30392F1BAF2A34003F823C /* CloudKit.framework in Frameworks */,
+				8B70B7B31C57EACD0090EFAF /* ORMKitiOS.framework in Frameworks */,
 				8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +598,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8B70B7B61C57EACD0090EFAF /* PBXTargetDependency */,
 			);
 			name = "TheOneRepMax-iOS";
 			productName = "TheOneRepMax-iOS";
@@ -938,6 +950,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		8B70B7B61C57EACD0090EFAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ORMKitiOS;
+			targetProxy = 8B70B7B51C57EACD0090EFAF /* PBXContainerItemProxy */;
+		};
 		8B7123E81BA764DE0083980E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */;
