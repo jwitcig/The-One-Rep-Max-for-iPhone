@@ -31,6 +31,12 @@ func runOnBackgroundThread(block: (()->())) {
     dispatch_async(backgroundThread, block)
 }
 
+enum OneRepMaxNotificationType {
+    enum OneRepMax: String {
+        case OneRepMaxDidChange
+    }
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
@@ -52,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: publicDatabase)
         
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
-        ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
     }
 
     func applicationWillResignActive(application: UIApplication) {

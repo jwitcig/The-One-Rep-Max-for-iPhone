@@ -10,61 +10,101 @@ import UIKit
 import ORMKitiOS
 import CoreData
 
-class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
     
-    @IBOutlet weak var templatesTableview: UITableView!
+    @IBOutlet weak var filterBar: UINavigationBar!
     
     @IBOutlet weak var entriesTableView: UITableView!
+    
+    var filterViewController: FilterPopoverViewController?
         
-    var liftTemplates = [ORLiftTemplate]()
-    var liftEntries = [ORLiftEntry]()
+    var liftEntries = [ORLiftEntry]() {
+        didSet {
+            entriesTableView.reloadData()
+        }
+    }
     
     var selectedLiftTemplate: ORLiftTemplate? {
-        if let selectedRow = self.templatesTableview.indexPathForSelectedRow?.row {
-            return self.liftTemplates[selectedRow]
-        }
-        return nil
+        return filterViewController?.selectedLiftTemplate
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let context = NSManagedObjectContext.contextForCurrentThread()
+        refreshLiftEntriesList()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        updateFilterBar()
         
-        if let organization = ORSession.currentSession.currentOrganization {
-            
-            let (templates ,_) = ORSession.currentSession.localData.fetchObjects(model: ORLiftTemplate.self, predicates: [NSPredicate(key: ORLiftTemplate.Fields.organization.rawValue, comparator: .Equals, value: organization)], context: context)
-            
-            let (defaultTemplates, _) = ORSession.currentSession.localData.fetchObjects(model: ORLiftTemplate.self, predicates: [NSPredicate(key: ORLiftTemplate.Fields.defaultLift.rawValue, comparator: .Equals, value: true)], context: context)
-
-            liftTemplates.appendContentsOf(templates)
-            liftTemplates.appendContentsOf(defaultTemplates)
-            
-            self.templatesTableview.reloadData()
-
-            guard liftTemplates.count > 0 else { return }
-            
-            
-            let firstTemplateIndex = NSIndexPath(forRow: 0, inSection: 0)
-            self.templatesTableview.selectRowAtIndexPath(firstTemplateIndex, animated: true, scrollPosition: .Top)
-            self.tableView(self.templatesTableview, didSelectRowAtIndexPath: firstTemplateIndex)
+        refreshLiftEntriesList()
+        
+        
+        entriesTableView.backgroundColor = UIColor.clearColor()
+        entriesTableView.separatorColor = UIColor.blackColor()
+    }
+    
+    func updateFilterBar() {
+        guard let filterNavigationItem = filterBar.items?[0] else {
+            return
         }
         
+        guard let selectedTemplate = self.selectedLiftTemplate else {
+            filterNavigationItem.title = "All Entries"
+            return
+        }
+        
+        filterNavigationItem.title = selectedTemplate.liftName
+    }
+    
+    func setupFilterViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        filterViewController = storyboard.instantiateViewControllerWithIdentifier("FilterPopover") as? FilterPopoverViewController
+                
+        filterViewController?.modalPresentationStyle = .Popover
+    }
+    
+    func presentFilterViewController() {
+        setupFilterViewController()
+        
+        self.presentViewController(filterViewController!, animated: true, completion: nil)
     }
     
     func refreshLiftEntriesList() {
-        let organization = ORSession.currentSession.currentOrganization!
-        let liftTemplate = self.selectedLiftTemplate!
+        let currentAthlete = session.currentAthlete!
         
-        let (entries, _) = ORSession.currentSession.localData.fetchLiftEntries(athlete: ORSession.currentSession.currentAthlete!, organization: organization, template: liftTemplate)
+        defer {
+            self.liftEntries.sortInPlace { !$0.date.isBefore(date: $1.date) }
+        }
+        
+        guard let liftTemplate = selectedLiftTemplate else {
+            let (entries, _) = localData.fetchLiftEntries(athlete: currentAthlete)
+            
+            self.liftEntries = entries
+            return
+        }
+        
+        
+        let (entries, _) = localData.fetchLiftEntries(athlete: currentAthlete, template: liftTemplate)
         self.liftEntries = entries
+    }
+    
+    @IBAction func filterPressed(button: UIBarButtonItem) {
+        presentFilterViewController()
+        
+        // configure the Popover presentation controller
+        let popController = filterViewController!.popoverPresentationController!
+        
+        popController.permittedArrowDirections = .Any
+        popController.delegate = self
+        
+        popController.barButtonItem = self.navigationItem.rightBarButtonItem
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         switch tableView {
             
-        case self.templatesTableview:
-            return 1
         case self.entriesTableView:
             return 1
             
@@ -76,8 +116,6 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         switch tableView {
             
-        case self.templatesTableview:
-            return "Lifts"
         case self.entriesTableView:
             return "\(self.liftEntries.count) entries"
         default:
@@ -88,9 +126,12 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
             
-        case self.templatesTableview:
-            return self.liftTemplates.count
         case self.entriesTableView:
+            
+            guard self.liftEntries.count > 0 else {
+                return 1
+            }
+            
             return self.liftEntries.count
             
         default:
@@ -99,21 +140,58 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .Value1, reuseIdentifier: "Cell")
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("didLongPressMaxEntryCell:"))
-        cell.addGestureRecognizer(longPressGesture)
+    
+        var entry: ORLiftEntry?
+        
+        if liftEntries.count > 0 {
+            entry = liftEntries[indexPath.row]
+        }
+
+        // Case: No Entries
+        guard let liftEntry = entry else {
+            let cell = UITableViewCell()
+            cell.textLabel?.text = "No Entries"
+            
+            cell.backgroundColor = UIColor.clearColor()
+            cell.contentView.backgroundColor = UIColor.clearColor()
+            
+            return cell
+        }
+        
+        let cell = LiftEntryTableViewCell(style: .Value1, reuseIdentifier: "LiftEntryCell", entry: liftEntry)
+        
+        cell.backgroundColor = UIColor.clearColor()
+        cell.contentView.backgroundColor = UIColor.clearColor()
+        
+//        let longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("didLongPressMaxEntryCell:"))
+//        cell.addGestureRecognizer(longPressGesture)
         
         switch tableView {
-            
-        case self.templatesTableview:
-            let template = self.liftTemplates[indexPath.row]
-            cell.textLabel?.text = template.liftName
-            
+     
         case self.entriesTableView:
             
-            let entry = self.liftEntries[indexPath.row]
-            cell.textLabel?.text = "\(entry.max.intValue) lbs."
-            cell.detailTextLabel?.text = "[\(entry.weightLifted.integerValue) x \(entry.reps.intValue)]"
+            let centerLabel = UILabel()
+            cell.contentView.addSubview(centerLabel)
+            centerLabel.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activateConstraints([
+                centerLabel.centerXAnchor.constraintEqualToAnchor(cell.contentView.centerXAnchor),
+                centerLabel.centerYAnchor.constraintEqualToAnchor(cell.contentView.centerYAnchor)
+            ])
+            
+            
+            let dateFormatter = NSDateFormatter()
+            dateFormatter.dateFormat = "M/d"
+            
+            let entryDateString = dateFormatter.stringFromDate(cell.entry.date)
+
+            cell.textLabel?.text = entryDateString
+            
+            centerLabel.text = "\(cell.entry.max.intValue) lbs."
+            centerLabel.sizeToFit()
+            
+            cell.detailTextLabel?.text = "[\(cell.entry.weightLifted.integerValue) x \(cell.entry.reps.intValue)]"
+            cell.detailTextLabel?.textColor = UIColor.blackColor()
+
             
         default:
             break
@@ -122,46 +200,39 @@ class HistoryViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        switch tableView {
-        case self.templatesTableview:
-            
-            self.refreshLiftEntriesList()
-            self.entriesTableView.reloadData()
-
-        case self.entriesTableView:
-            break
-        default:
-            break
-        }
-        
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return .Delete
     }
     
-    func didLongPressMaxEntryCell(gestureRecognizer: UILongPressGestureRecognizer) {
-        let cell = gestureRecognizer.view! as! UITableViewCell
-        let indexPath = self.entriesTableView.indexPathForCell(cell)!
-        let entry = self.liftEntries[indexPath.row]
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
+        guard let cell = tableView.cellForRowAtIndexPath(indexPath) as? LiftEntryTableViewCell else {
+            return
+        }
+        
+        presentDeletionDialog(cell.entry)
+    }
+
+    func presentDeletionDialog(entry: ORLiftEntry) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "M/d"
         let dateString = dateFormatter.stringFromDate(entry.date)
-
+        
         let deleteEntryViewController = UIAlertController(title: "Delete Entry?", message: "Are you sure you want to delete this entry: \(dateString) - [\(entry.weightLifted.intValue) x \(entry.reps.integerValue)]", preferredStyle: .Alert)
         
         deleteEntryViewController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive) { (action) in
             
-            ORSession.currentSession.localData.delete(object: entry)
-            ORSession.currentSession.localData.save(context: entry.managedObjectContext)
+            self.localData.delete(object: entry)
+            self.localData.save(context: entry.managedObjectContext)
             
-            ORSession.currentSession.cloudData.syncronizeDataToCloudStore { response in
-                guard response.success else { return }
-                print("Sync complete after record deletion")
-                runOnMainThread {
-                    self.refreshLiftEntriesList()
-                    self.entriesTableView.reloadData()
-                }
-            }
-        })
+            
+            self.refreshLiftEntriesList()
+            self.entriesTableView.reloadData()
+            })
         deleteEntryViewController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil))
         
         self.presentViewController(deleteEntryViewController, animated: true, completion: nil)

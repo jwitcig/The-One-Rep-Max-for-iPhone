@@ -12,11 +12,9 @@ import ORMKit
 
 class HomeViewController: ORViewController {
     
-    @IBOutlet weak var repsField: NSTextField!
     @IBOutlet weak var weightField: NSTextField!
     @IBOutlet weak var organizationsScrollView: NSScrollView!
-
-//    var organizations = [OROrganization]()
+    
     @IBOutlet weak var saveButton: NSButton!
         
     override func viewDidAppear() {
@@ -28,9 +26,14 @@ class HomeViewController: ORViewController {
             self.localData.save(context: response.currentThreadContext)
             
             runOnMainThread {
+                @IBOutlet weak var controlSwitcherScrollView: UIScrollView!
                 self.displayOrganizations(memberships)
             }
         }
+        
+    }
+    
+    @IBAction func repsChanged(stepper: UIStepper) {
         
     }
     

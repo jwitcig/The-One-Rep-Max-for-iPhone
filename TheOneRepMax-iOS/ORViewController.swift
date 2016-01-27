@@ -9,18 +9,34 @@
 import UIKit
 import ORMKitiOS
 
-class ORViewController: UIViewController {
+public class ORViewController: UIViewController {
 
     var session: ORSession!
     var localData: ORLocalData!
-    var cloudData: ORCloudData!
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
+        
         self.session = ORSession.currentSession
-        self.localData = self.session.localData
-        self.cloudData = self.session.cloudData
+        self.session.currentViewController = self
+
+        self.localData = session.localData
+        
+        let image = UIImage(named: "BackgroundBlur")
+        if let backgroundImage = image {
+            let imageView = UIImageView(image: backgroundImage)
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.insertSubview(imageView, atIndex: 0)
+            
+            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[backgroundImageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["backgroundImageView": imageView]))
+            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[backgroundImageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["backgroundImageView": imageView]))
+        }
+        
+    }
+    
+    public override func viewWillAppear(animated: Bool) {
+        self.view.backgroundColor = UIColor(red: 147/255, green: 174/255, blue: 255/255, alpha: 1)
     }
     
 }
