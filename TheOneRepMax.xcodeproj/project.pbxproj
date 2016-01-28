@@ -14,7 +14,6 @@
 		8B202A5D1B445C090088A63B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; };
 		8B2418301B49C63F00E4CEE7 /* OptionTextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */; };
 		8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30392C1BAF2A2E003F823C /* QuartzCore.framework */; };
-		8B30392F1BAF2A34003F823C /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30392E1BAF2A34003F823C /* CloudKit.framework */; };
 		8B3B27821BED1814002CCD74 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3B27811BED1814002CCD74 /* CorePlot.framework */; };
 		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; };
 		8B5639261B48F164002E9A49 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5639251B48F164002E9A49 /* SetupViewController.swift */; };
@@ -174,7 +173,6 @@
 		8B202A5C1B445C090088A63B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionTextInputViewController.swift; sourceTree = "<group>"; };
 		8B30392C1BAF2A2E003F823C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
-		8B30392E1BAF2A34003F823C /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		8B3B27811BED1814002CCD74 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug/CorePlot.framework"; sourceTree = "<absolute>"; };
 		8B4607201BAF0D4600E953D7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B5639251B48F164002E9A49 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
@@ -259,7 +257,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B30392F1BAF2A34003F823C /* CloudKit.framework in Frameworks */,
 				8B70B7B31C57EACD0090EFAF /* ORMKitiOS.framework in Frameworks */,
 				8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */,
 			);
@@ -1037,8 +1034,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Wendy Witcig (7R899BEBGC)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Wendy Witcig (7R899BEBGC)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = YES;
@@ -1158,7 +1155,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1205,7 +1202,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Developer ID Application";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;

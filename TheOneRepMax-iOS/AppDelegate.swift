@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import CloudKit
 import CoreData
 import ORMKitiOS
 
@@ -53,9 +52,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
         let context = appDelegate.managedObjectContext
         let session = ORSession.currentSession
-        let container = CKContainer(identifier: "iCloud.com.jwitapps.TheOneRepMax")
-        let publicDatabase = container.publicCloudDatabase
-        let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: publicDatabase)
+
+        let dataManager = ORDataManager(localDataContext: context)
+        
         
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
     }
