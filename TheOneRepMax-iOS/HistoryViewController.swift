@@ -192,7 +192,6 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
             cell.detailTextLabel?.text = "[\(cell.entry.weightLifted.integerValue) x \(cell.entry.reps.intValue)]"
             cell.detailTextLabel?.textColor = UIColor.blackColor()
 
-            
         default:
             break
         }

@@ -17,7 +17,6 @@ public class ORViewController: UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.session = ORSession.currentSession
         self.session.currentViewController = self
 
@@ -29,8 +28,12 @@ public class ORViewController: UIViewController {
             imageView.translatesAutoresizingMaskIntoConstraints = false
             self.view.insertSubview(imageView, atIndex: 0)
             
-            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[backgroundImageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["backgroundImageView": imageView]))
-            self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[backgroundImageView]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["backgroundImageView": imageView]))
+            NSLayoutConstraint.activateConstraints([
+                self.view.leadingAnchor.constraintEqualToAnchor(imageView.leadingAnchor),
+                self.view.trailingAnchor.constraintEqualToAnchor(imageView.trailingAnchor),
+                self.view.topAnchor.constraintEqualToAnchor(imageView.topAnchor),
+                self.view.bottomAnchor.constraintEqualToAnchor(imageView.bottomAnchor)
+            ])
         }
         
     }

@@ -32,7 +32,10 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         
         let context = NSManagedObjectContext.contextForCurrentThread()
         
-        var (templates, _) = session.localData.fetchAll(model: ORLiftTemplate.self, context: context)
+        var (templates, response) = session.localData.fetchAll(model: ORLiftTemplate.self, context: context)
+        
+        guard response.success else { print("An error occured in fetching LiftTemplates: \(response.error)"); return }
+        
         templates.sortInPlace {
             $0.liftName.isBefore(string: $1.liftName)
         }

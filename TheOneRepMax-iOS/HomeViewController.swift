@@ -32,8 +32,14 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     @IBOutlet weak var toolbar: UIToolbar!
     var saveToolbar: PullableToolbar!
-        
+    
+    @IBOutlet weak var mainStackView: UIStackView!
+    @IBOutlet weak var recentMaxStackView: UIStackView!
+    @IBOutlet weak var contentStackView: UIStackView!
+    
     var viewControllerSwitcherButtonsConstraintsCollection = [UIButton: NSLayoutConstraint]()
+    
+    let saveToolbarAnimationTime = 0.5
     
     var oneRepMax: Int {
         return ormControlsViewController.oneRepMax
@@ -45,6 +51,7 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         navigationItem.title = "The One Rep Max"
         
         saveToolbar = PullableToolbar()
+        saveToolbar.activationDirection = .Right
         saveToolbar.translatesAutoresizingMaskIntoConstraints = false
         saveToolbar.activationBlock = {
             self.performSegueWithIdentifier("SaveMaxSegue", sender: self)
@@ -54,73 +61,68 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         instructionLabel.text = "pull to save"
         instructionLabel.sizeToFit()
         instructionLabel.textColor = UIColor.grayColor()
-
-        let barItem = UIBarButtonItem(customView: instructionLabel)
         
-        let space = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
-
-        saveToolbar.setItems([space, barItem], animated: false)
+        saveToolbar.setItems([
+            UIBarButtonItem(customView: instructionLabel),
+            UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        ], animated: false)
         
-        self.view.addSubview(saveToolbar)
-
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[saveToolbar]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: ["saveToolbar": saveToolbar]))
+        NSLayoutConstraint.activateConstraints([
+            saveToolbar.heightAnchor.constraintLessThanOrEqualToConstant(44)
+        ])
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:[saveToolbar(toolbarHeight)][toolbar(toolbarHeight)]", options: NSLayoutFormatOptions(rawValue: 0), metrics: ["toolbarHeight": toolbar.frame.height], views: ["saveToolbar": saveToolbar, "toolbar": toolbar]))
+        if let index = mainStackView.arrangedSubviews.indexOf(toolbar) {
+            mainStackView.insertArrangedSubview(saveToolbar, atIndex: index)
+        }
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
         ormControlsViewController = storyboard.instantiateViewControllerWithIdentifier("ORMControlsViewController") as! ORMControlsViewController
-        
         
         percentagesViewController = storyboard.instantiateViewControllerWithIdentifier("PercentagesViewController") as! PercentagesViewController
         
         self.addChildViewController(ormControlsViewController)
         self.addChildViewController(percentagesViewController)
         
-        let view = ormControlsViewController.view
-        view.translatesAutoresizingMaskIntoConstraints = false
-        
+        ormControlsViewController.view.translatesAutoresizingMaskIntoConstraints = false
         percentagesViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        
         controlScrollViewContentView = UIView()
-        
-
         controlScrollViewContentView.translatesAutoresizingMaskIntoConstraints = false
-        controlScrollView.addSubview(controlScrollViewContentView)
 
-        
-        
-        
         controlScrollView.translatesAutoresizingMaskIntoConstraints = false
-        controlScrollViewContentView.translatesAutoresizingMaskIntoConstraints = false
+        controlScrollView.addSubview(controlScrollViewContentView)
         
-        let viewsDictionary = ["controlScrollView": controlScrollView, "contentView": controlScrollViewContentView, "view": view, "duplicate": percentagesViewController.view]
-        
-        
-        controlScrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[contentView]|", options: .DirectionLeadingToTrailing, metrics: nil, views:viewsDictionary))
-        controlScrollView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[contentView]|", options: .DirectionLeadingToTrailing, metrics: nil, views: viewsDictionary))
-
         self.addChildViewController(ormControlsViewController)
-        controlScrollViewContentView.addSubview(view)
-        
-        controlScrollView.addConstraint(NSLayoutConstraint(item: controlScrollViewContentView, attribute: .Width, relatedBy: .GreaterThanOrEqual, toItem: controlScrollView, attribute: .Width, multiplier: 1, constant: 0))
-        controlScrollView.addConstraint(NSLayoutConstraint(item: controlScrollViewContentView, attribute: .Height, relatedBy: .Equal, toItem: controlScrollView, attribute: .Height, multiplier: 1, constant: 0))
-
-        
-        
-        controlScrollViewContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[view]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
-
-        
         self.addChildViewController(percentagesViewController)
+
+        controlScrollViewContentView.addSubview(ormControlsViewController.view)
         controlScrollViewContentView.addSubview(percentagesViewController.view)
         
-        let metrics = ["controlPanelWidth": self.view.frame.width]
-        controlScrollViewContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view(controlPanelWidth)]-0-[duplicate(controlPanelWidth)]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: metrics, views: viewsDictionary))
+        NSLayoutConstraint.activateConstraints([
+            controlScrollView.topAnchor.constraintEqualToAnchor(controlScrollViewContentView.topAnchor),
+            controlScrollView.bottomAnchor.constraintEqualToAnchor(controlScrollViewContentView.bottomAnchor),
+            controlScrollView.leadingAnchor.constraintEqualToAnchor(controlScrollViewContentView.leadingAnchor),
+            controlScrollView.trailingAnchor.constraintEqualToAnchor(controlScrollViewContentView.trailingAnchor),
+            
+            controlScrollViewContentView.heightAnchor.constraintEqualToAnchor(controlScrollView.heightAnchor),
+            
+            controlScrollViewContentView.topAnchor.constraintEqualToAnchor(ormControlsViewController.view.topAnchor),
+            controlScrollViewContentView.bottomAnchor.constraintEqualToAnchor(ormControlsViewController.view.bottomAnchor),
+
+            controlScrollViewContentView.topAnchor.constraintEqualToAnchor(percentagesViewController.view.topAnchor),
+            controlScrollViewContentView.bottomAnchor.constraintEqualToAnchor(percentagesViewController.view.bottomAnchor),
         
-        
-        controlScrollViewContentView.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[duplicate]|", options: NSLayoutFormatOptions(rawValue: 0), metrics: nil, views: viewsDictionary))
+            ormControlsViewController.view.leadingAnchor.constraintEqualToAnchor(controlScrollViewContentView.leadingAnchor),
+            ormControlsViewController.view.trailingAnchor.constraintEqualToAnchor(percentagesViewController.view.leadingAnchor),
+            percentagesViewController.view.trailingAnchor.constraintEqualToAnchor(controlScrollViewContentView.trailingAnchor),
+            
+            ormControlsViewController.view.widthAnchor.constraintEqualToAnchor(controlScrollView.widthAnchor),
+            percentagesViewController.view.widthAnchor.constraintEqualToAnchor(ormControlsViewController.view.widthAnchor)
+        ])
         
         ormControlsViewController.addDelegate(self)
         
+        populateRecentMaxStackView()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -129,32 +131,63 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         updateORMDisplay(oneRepMax: oneRepMax)
     }
     
+    func populateRecentMaxStackView() {
+        let (templates, response) = session.localData.fetchAll(model: ORLiftTemplate.self)
+        
+        guard response.success else { print("Error fetching LiftTemplates: \(response.error)"); return }
+        
+        var latestEntries = [ORLiftEntry]()
+        for template in templates {
+            let predicate = NSPredicate(key: ORLiftEntry.Fields.liftTemplate.rawValue, comparator: .Equals, value: template)
+            let options = ORDataOperationOptions()
+            options.fetchLimit = 1
+            
+            let (entries, response) = session.localData.fetchObjects(model: ORLiftEntry.self, predicates: [predicate], options: options)
+            
+            guard response.success else { print("Error fetching LiftEntry: \(response.error)"); return }
+            
+            guard let latestEntry = entries.last else { continue }
+            latestEntries.append(latestEntry)
+        }
+        
+        for entry in latestEntries {
+            let label = UILabel()
+            label.text = entry.max.stringValue
+            label.sizeToFit()
+            
+            recentMaxStackView.addArrangedSubview(label)
+        }
+        
+    }
+    
     func updateSaveButtonStatus(oneRepMax: Int) {
         let valid = oneRepMax != 0
         
-        
         if valid {
-
+            UIView.animateWithDuration(saveToolbarAnimationTime) {
+                self.saveToolbar.hidden = false
+                self.saveToolbar.alpha  = 1
+            }
         } else {
-            
+            UIView.animateWithDuration(saveToolbarAnimationTime) {
+                self.saveToolbar.hidden = true
+                self.saveToolbar.alpha  = 0
+            }
         }
-        
 
     }
     
     @IBAction func switchSubviewController(button: UIButton) {
-        
         var contentOffset: CGPoint!
         
         switch button {
-            case toPercentagesButton:
+        case toPercentagesButton:
                 
             contentOffset = CGPoint(x: controlScrollView.frame.width, y: 0)
             
-            case toOneRepMaxButton:
+        case toOneRepMaxButton:
             
             contentOffset = CGPoint(x: 0, y: 0)
-            
             
         default:
             fatalError("Fatal Error: Unimplemented")
@@ -207,7 +240,6 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        
         controlScrollView.contentOffset = controlSwitcherScrollView.contentOffset
     }
     

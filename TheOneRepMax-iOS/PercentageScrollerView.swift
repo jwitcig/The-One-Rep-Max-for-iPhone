@@ -19,13 +19,11 @@ class PercentageScrollerView: UIStackView {
     init(max: Int) {
         self.max = max
         
-        var percentageValueLabels = [PercentageView]()
+        let percentages = [5, 10, 15, 20, 25, 30, 35, 40, 45,
+                            50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
         
-        let percentages = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95]
-        
-        for percentage in percentages {
-            let label = PercentageView(percentage: percentage, max: max, displayResult: false)
-            percentageValueLabels.append(label)
+        let percentageValueLabels = percentages.map {
+            return PercentageView(percentage: $0, max: max, displayResult: false)
         }
         
         let dividerLabel = UILabel()
@@ -33,6 +31,7 @@ class PercentageScrollerView: UIStackView {
         dividerLabel.font = UIFont(name: dividerLabel.font!.fontName, size: 15)
         
         var allSubviews: [UIView] = [dividerLabel]
+        
         for valueLabel in percentageValueLabels {
             allSubviews.append(valueLabel)
             
@@ -66,13 +65,10 @@ class PercentageScrollerView: UIStackView {
             
             let location = touch.locationInView(self)
 
-            for view in valueLabels {
-                if view.frame.contains(location) {
-                    callbackNumberSelected(percentageView: view)
-                    
-                    view.toggleMagnification()
-                }
+            for view in valueLabels where view.frame.contains(location) {
+                callbackNumberSelected(percentageView: view)
                 
+                view.toggleMagnification()
             }
             
         }

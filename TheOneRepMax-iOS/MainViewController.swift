@@ -27,15 +27,12 @@ class MainViewController: UIViewController {
             athlete.username = "jwitcig"
             
             ORSession.currentSession.localData.save()
-
             ORAthlete.setCurrentAthlete(athlete)
-            
         }
     
         ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
         
         runOnMainThread {
-            print("logged in")
             self.performSegueWithIdentifier("LoginSegue", sender: self)
         }
         

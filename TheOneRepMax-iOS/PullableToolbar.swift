@@ -55,14 +55,12 @@ class PullableToolbar: UIToolbar {
     override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
         
         for touch in touches where touch == self.touch {
-            
             guard interactionEnabled else { return }
             
             guard let superview = self.superview else { return }
             let firstTouchLocation = superview.convertPoint(initialTouchLocation, toView: superview)
             
             let currentTouchLocation = touch.locationInView(superview)
-
             
             if activated {
                 
@@ -77,7 +75,6 @@ class PullableToolbar: UIToolbar {
                             self.interactionEnabled = true
                     }
                     self.crossedActivationThreshold = true
-
 
                 } else {
                     self.frame = CGRect(origin: newPosition, size: self.frame.size)
@@ -137,17 +134,15 @@ class PullableToolbar: UIToolbar {
             self.frame = CGRect(origin: newPosition, size: self.frame.size)
             
         }) { (animated) -> Void in
-            
             self.activationBlock?()
-            
+            self.resetPosition()
         }
     }
     
     func resetPosition() {
         UIView.animateWithDuration(resetTime) {
-            
+
             let currentPosition = self.frame.origin
-            
             let newPosition = CGPoint(x: 0, y: currentPosition.y)
             
             self.frame = CGRect(origin: newPosition, size: self.frame.size)
