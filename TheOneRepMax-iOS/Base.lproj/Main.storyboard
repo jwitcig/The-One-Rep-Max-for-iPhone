@@ -384,6 +384,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="600" height="600"/>
                     <connections>
+                        <outlet property="contentStackView" destination="xP9-gk-AFI" id="6VI-fZ-Ds3"/>
                         <outlet property="controlScrollView" destination="UPF-0N-elj" id="ru7-8W-kiV"/>
                         <outlet property="controlSwitcherScrollView" destination="QrW-mb-56J" id="pse-uv-1fB"/>
                         <outlet property="controlSwitcherScrollViewContentView" destination="u0e-ve-xec" id="Xua-W6-9w3"/>

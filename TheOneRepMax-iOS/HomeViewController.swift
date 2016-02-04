@@ -75,9 +75,8 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
             heightConstraint
         ])
         
-        if let index = mainStackView.arrangedSubviews.indexOf(toolbar) {
-            mainStackView.insertArrangedSubview(saveToolbar, atIndex: index)
-        }
+        
+        contentStackView.addArrangedSubview(saveToolbar)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         ormControlsViewController = storyboard.instantiateViewControllerWithIdentifier("ORMControlsViewController") as! ORMControlsViewController
@@ -136,27 +135,6 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     }
     
     func populateRecentMaxStackView() {
-        let borderView = UIView()
-        borderView.translatesAutoresizingMaskIntoConstraints = false
-        borderView.backgroundColor = UIColor.blackColor()
-        recentMaxStackView.addSubview(borderView)
-
-//        NSLayoutConstraint.activateConstraints([
-//            borderView.leadingAnchor.constraintEqualToAnchor(recentMaxStackView.leadingAnchor, constant: -120),
-//            borderView.trailingAnchor.constraintEqualToAnchor(recentMaxStackView.trailingAnchor, constant: 120),
-//            borderView.bottomAnchor.constraintEqualToAnchor(recentMaxStackView.bottomAnchor),
-//            borderView.heightAnchor.constraintEqualToConstant(2)
-//        ])
-        
-        if let stackViewSuperview = recentMaxStackView.superview {
-//            NSLayoutConstraint.activateConstraints([
-//                borderView.trailingAnchor.constraintEqualToAnchor(stackViewSuperview.trailingAnchor),
-//                borderView.topAnchor.constraintEqualToAnchor(stackViewSuperview.topAnchor, constant: -100),
-//                borderView.bottomAnchor.constraintEqualToAnchor(stackViewSuperview.bottomAnchor, constant: 100),
-//                borderView.widthAnchor.constraintEqualToConstant(2)
-//            ])
-        }
-        
         let (templates, response) = session.localData.fetchAll(model: ORLiftTemplate.self)
         
         guard response.success else { print("Error fetching LiftTemplates: \(response.error)"); return }
