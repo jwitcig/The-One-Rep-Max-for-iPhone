@@ -32,6 +32,7 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     @IBOutlet weak var toolbar: UIToolbar!
     var saveToolbar: PullableToolbar!
+    var saveToolbarHeightConstraint: NSLayoutConstraint!
     
     @IBOutlet weak var mainStackView: UIStackView!
     @IBOutlet weak var recentMaxStackView: UIStackView!
@@ -67,8 +68,11 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
             UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         ], animated: false)
         
+        
+        let heightConstraint = saveToolbar.heightAnchor.constraintEqualToConstant(44)
+        heightConstraint.priority = 999
         NSLayoutConstraint.activateConstraints([
-            saveToolbar.heightAnchor.constraintLessThanOrEqualToConstant(44)
+            heightConstraint
         ])
         
         if let index = mainStackView.arrangedSubviews.indexOf(toolbar) {
@@ -132,6 +136,27 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     }
     
     func populateRecentMaxStackView() {
+        let borderView = UIView()
+        borderView.translatesAutoresizingMaskIntoConstraints = false
+        borderView.backgroundColor = UIColor.blackColor()
+        recentMaxStackView.addSubview(borderView)
+
+//        NSLayoutConstraint.activateConstraints([
+//            borderView.leadingAnchor.constraintEqualToAnchor(recentMaxStackView.leadingAnchor, constant: -120),
+//            borderView.trailingAnchor.constraintEqualToAnchor(recentMaxStackView.trailingAnchor, constant: 120),
+//            borderView.bottomAnchor.constraintEqualToAnchor(recentMaxStackView.bottomAnchor),
+//            borderView.heightAnchor.constraintEqualToConstant(2)
+//        ])
+        
+        if let stackViewSuperview = recentMaxStackView.superview {
+//            NSLayoutConstraint.activateConstraints([
+//                borderView.trailingAnchor.constraintEqualToAnchor(stackViewSuperview.trailingAnchor),
+//                borderView.topAnchor.constraintEqualToAnchor(stackViewSuperview.topAnchor, constant: -100),
+//                borderView.bottomAnchor.constraintEqualToAnchor(stackViewSuperview.bottomAnchor, constant: 100),
+//                borderView.widthAnchor.constraintEqualToConstant(2)
+//            ])
+        }
+        
         let (templates, response) = session.localData.fetchAll(model: ORLiftTemplate.self)
         
         guard response.success else { print("Error fetching LiftTemplates: \(response.error)"); return }
@@ -151,11 +176,22 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         }
         
         for entry in latestEntries {
-            let label = UILabel()
-            label.text = entry.max.stringValue
-            label.sizeToFit()
+
+            let liftLabel = UILabel()
+            liftLabel.text = entry.liftTemplate.liftName
+            liftLabel.textAlignment = .Center
             
-            recentMaxStackView.addArrangedSubview(label)
+            let fontDescriptor = liftLabel.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
+            liftLabel.font = UIFont(descriptor: fontDescriptor, size: 0)
+            
+            let maxLabel = UILabel()
+            maxLabel.text = entry.max.stringValue
+            maxLabel.textAlignment = .Center
+            
+            let itemStackView = UIStackView(arrangedSubviews: [liftLabel, maxLabel])
+            itemStackView.axis = .Vertical
+            
+            recentMaxStackView.addArrangedSubview(itemStackView)
         }
         
     }
@@ -168,6 +204,7 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
                 self.saveToolbar.hidden = false
                 self.saveToolbar.alpha  = 1
             }
+            
         } else {
             UIView.animateWithDuration(saveToolbarAnimationTime) {
                 self.saveToolbar.hidden = true
