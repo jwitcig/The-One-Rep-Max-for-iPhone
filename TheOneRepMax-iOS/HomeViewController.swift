@@ -42,6 +42,8 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     let saveToolbarAnimationTime = 0.5
     
+    var recentEntryData = [UIStackView: RecentLiftEntry]()
+    
     var oneRepMax: Int {
         return ormControlsViewController.oneRepMax
     }
@@ -155,23 +157,22 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         
         for entry in latestEntries {
 
-            let liftLabel = UILabel()
-            liftLabel.text = entry.liftTemplate.liftName
-            liftLabel.textAlignment = .Center
+            let recentEntry = RecentLiftEntry(entry: entry, target: self, selector: Selector("recentMaxPressed:"))
             
-            let fontDescriptor = liftLabel.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
-            liftLabel.font = UIFont(descriptor: fontDescriptor, size: 0)
+            recentEntryData[recentEntry.stackView] = recentEntry
             
-            let maxLabel = UILabel()
-            maxLabel.text = entry.max.stringValue
-            maxLabel.textAlignment = .Center
-            
-            let itemStackView = UIStackView(arrangedSubviews: [liftLabel, maxLabel])
-            itemStackView.axis = .Vertical
-            
-            recentMaxStackView.addArrangedSubview(itemStackView)
+            recentMaxStackView.addArrangedSubview(recentEntry.stackView)
         }
         
+    }
+    
+    func recentMaxPressed(tapRecognizer: UITapGestureRecognizer) {
+        guard let pressedStackView = tapRecognizer.view as? UIStackView else { return }
+        
+        guard let recentEntryStackView = recentEntryData[pressedStackView] else { return }
+        
+        ormControlsViewController.weightLifted = recentEntryStackView.entry.weightLifted.integerValue
+        ormControlsViewController.reps = recentEntryStackView.entry.reps.integerValue
     }
     
     func updateSaveButtonStatus(oneRepMax: Int) {

@@ -71,6 +71,7 @@
 		8BF343671B27FA08007CBF44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BF343651B27FA08007CBF44 /* Main.storyboard */; };
 		8BF343731B27FA08007CBF44 /* TheOneRepMaxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF343721B27FA08007CBF44 /* TheOneRepMaxTests.swift */; };
 		8BFC3C981B4EE51400B8F54E /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFC3C971B4EE51400B8F54E /* StatsViewController.swift */; };
+		8BFED0591C658FAF0002FE17 /* RecentLiftEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */; };
 		8BFF59801B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFF597F1B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -249,6 +250,7 @@
 		8BF343721B27FA08007CBF44 /* TheOneRepMaxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheOneRepMaxTests.swift; sourceTree = "<group>"; };
 		8BF3438F1B295A6F007CBF44 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		8BFC3C971B4EE51400B8F54E /* StatsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentLiftEntry.swift; sourceTree = "<group>"; };
 		8BFF597F1B90B4890099A1F8 /* JoinOrgsPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JoinOrgsPopoverViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -346,6 +348,7 @@
 				8B4607201BAF0D4600E953D7 /* MainViewController.swift */,
 				8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */,
 				8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */,
+				8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */,
 				8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */,
 				8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */,
 				8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */,
@@ -865,6 +868,7 @@
 				8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */,
 				8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */,
 				8BE55C551C2A05AE005948D9 /* FocusResizingLabel.swift in Sources */,
+				8BFED0591C658FAF0002FE17 /* RecentLiftEntry.swift in Sources */,
 				8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */,
 				8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */,
 				8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */,

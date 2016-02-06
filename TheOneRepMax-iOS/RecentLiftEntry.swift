@@ -1,0 +1,49 @@
+//
+//  LiftEntryStackView.swift
+//  TheOneRepMax
+//
+//  Created by Developer on 2/5/16.
+//  Copyright © 2016 JwitApps. All rights reserved.
+//
+
+import UIKit
+
+import ORMKitiOS
+
+class RecentLiftEntry {
+    
+    var entry: ORLiftEntry!
+    var stackView: UIStackView!
+    
+    var target: AnyObject?
+    var selector: Selector
+
+    init(entry: ORLiftEntry, target: AnyObject?, selector: Selector) {
+        
+        self.entry = entry
+        
+        self.target = target
+        self.selector = selector
+        
+
+        let liftLabel = UILabel()
+        liftLabel.text = entry.liftTemplate.liftName
+        liftLabel.textAlignment = .Center
+        
+        let fontDescriptor = liftLabel.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
+        liftLabel.font = UIFont(descriptor: fontDescriptor, size: 0)
+        
+        let maxLabel = UILabel()
+        maxLabel.text = entry.max.stringValue
+        maxLabel.textAlignment = .Center
+        
+        stackView = UIStackView(arrangedSubviews: [liftLabel, maxLabel])
+        stackView.axis = .Vertical
+        stackView.addGestureRecognizer(UITapGestureRecognizer(target: target, action: selector))
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+}

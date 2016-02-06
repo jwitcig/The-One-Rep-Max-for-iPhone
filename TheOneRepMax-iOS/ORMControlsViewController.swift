@@ -28,13 +28,28 @@ class ORMControlsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var repsDisplay: UILabel!
     
     var weightLifted: Int {
-        guard let value = self.weightField.text else { return 0 }
-        guard let integer = Int(value) else { return 0 }
-        return integer
+        get {
+            guard let value = self.weightField.text else { return 0 }
+            guard let integer = Int(value) else { return 0 }
+            return integer
+        }
+        
+        set {
+            weightField.text = String(newValue)
+            callbackDelegatesOneRepMaxDidChange()
+        }
     }
     
     var reps: Int {
-        return Int(repsStepper.value)
+        get {
+            return Int(repsStepper.value)
+        }
+        
+        set {
+            repsStepper.value = Double(newValue)
+            updateRepsDisplay()
+            callbackDelegatesOneRepMaxDidChange()
+        }
     }
     
     var oneRepMax: Int {

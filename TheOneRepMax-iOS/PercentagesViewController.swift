@@ -45,7 +45,6 @@ class PercentagesViewController: UIViewController {
         let percentageFraction = CGFloat(percentage) / 100
         let max = CGFloat(homeViewController.oneRepMax)
         
-        
         let percent = Int(percentageFraction * max)
         
         let percentageLabel = UILabel()
