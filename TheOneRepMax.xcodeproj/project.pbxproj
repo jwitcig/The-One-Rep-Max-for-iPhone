@@ -13,6 +13,7 @@
 		8B1C5C621B35F57A00B47E5E /* OrganizationListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1C5C611B35F57A00B47E5E /* OrganizationListItem.swift */; };
 		8B202A5D1B445C090088A63B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B202A5C1B445C090088A63B /* QuartzCore.framework */; };
 		8B2418301B49C63F00E4CEE7 /* OptionTextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */; };
+		8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */; };
 		8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30392C1BAF2A2E003F823C /* QuartzCore.framework */; };
 		8B3B27821BED1814002CCD74 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3B27811BED1814002CCD74 /* CorePlot.framework */; };
 		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; };
@@ -38,7 +39,14 @@
 		8B7405991B59CE44007F3258 /* OptionCustomInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */; };
 		8B787F1C1B7ADF27006BA4A9 /* ManagedAthleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B787F1B1B7ADF27006BA4A9 /* ManagedAthleteView.swift */; };
 		8B81E9E01C1B5F1A00291443 /* FilterPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */; };
+		8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */; };
+		8B8D440D1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */; };
+		8B8D44381C68FF7400BADB4C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D44371C68FF7400BADB4C /* Accelerate.framework */; };
+		8B8D44391C68FFD500BADB4C /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D442E1C68FEDD00BADB4C /* libCorePlot-CocoaTouch.a */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
+		8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */; };
+		8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */; };
+		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift */; };
 		8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */; };
 		8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */; };
 		8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520971B44CA27005E0FF0 /* MenuItem.swift */; };
@@ -54,7 +62,10 @@
 		8BCF1F141B2B5F3600D05EEE /* LiftTemplateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */; };
 		8BCF1F151B2B5F3600D05EEE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */; };
 		8BD38DC51B45C4C500A1E830 /* ViewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */; };
+		8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */; };
+		8BD936A81C6A7F0B00615A12 /* CurrentMaxStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */; };
 		8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */; };
+		8BDC400E1C698A1F003F177D /* DataViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */; };
 		8BDD08A31BD149A800AD2D44 /* ORMKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */; };
 		8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */; };
 		8BE1E19F1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE1E19E1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift */; };
@@ -96,6 +107,69 @@
 			proxyType = 1;
 			remoteGlobalIDString = 8B7123CD1BA764DE0083980E;
 			remoteInfo = "TheOneRepMax-iOS";
+		};
+		8B8D44251C68FEDD00BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = "CorePlot Mac";
+		};
+		8B8D44271C68FEDD00BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 0730F600109492D800E95162;
+			remoteInfo = "UnitTests Mac";
+		};
+		8B8D44291C68FEDD00BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38A09781A46185200D45436;
+			remoteInfo = "CorePlot iOS";
+		};
+		8B8D442B1C68FEDD00BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38A09821A46185300D45436;
+			remoteInfo = "UnitTests iOS";
+		};
+		8B8D442D1C68FEDD00BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38A09BA1A4619A900D45436;
+			remoteInfo = "CorePlot-CocoaTouch";
+		};
+		8B8D442F1C68FEDD00BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C38A09C41A4619A900D45436;
+			remoteInfo = "CorePlot-CocoaTouchTests";
+		};
+		8B8D44311C68FEDD00BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C37EA6921BC83F2A0091C8F7;
+			remoteInfo = "CorePlot tvOS";
+		};
+		8B8D44331C68FEDD00BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C37EA6B71BC83F2D0091C8F7;
+			remoteInfo = "UnitTests tvOS";
+		};
+		8B8D44351C68FEF500BADB4C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = C38A09B91A4619A900D45436;
+			remoteInfo = "CorePlot-CocoaTouch";
 		};
 		8B90FD4A1C323CB80054E66F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -173,6 +247,7 @@
 		8B1C5C611B35F57A00B47E5E /* OrganizationListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationListItem.swift; sourceTree = "<group>"; };
 		8B202A5C1B445C090088A63B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		8B24182F1B49C63F00E4CEE7 /* OptionTextInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionTextInputViewController.swift; sourceTree = "<group>"; };
+		8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		8B30392C1BAF2A2E003F823C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		8B3B27811BED1814002CCD74 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug/CorePlot.framework"; sourceTree = "<absolute>"; };
 		8B4607201BAF0D4600E953D7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -206,8 +281,18 @@
 		8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCustomInputViewController.swift; sourceTree = "<group>"; };
 		8B787F1B1B7ADF27006BA4A9 /* ManagedAthleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedAthleteView.swift; sourceTree = "<group>"; };
 		8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPopoverViewController.swift; sourceTree = "<group>"; };
+		8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHistoryGraphViewController.swift; sourceTree = "<group>"; };
+		8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B8D440E1C68F94B00BADB4C /* CorePlot_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot_iOS.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug-iphoneos/CorePlot_iOS.framework"; sourceTree = "<absolute>"; };
+		8B8D44111C68FC6600BADB4C /* CorePlot_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot_iOS.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug-iphoneos/CorePlot_iOS.framework"; sourceTree = "<absolute>"; };
+		8B8D44131C68FE9400BADB4C /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug-iphoneos/CorePlot.framework"; sourceTree = "<absolute>"; };
+		8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CorePlot.xcodeproj; path = "../core-plot/framework/CorePlot.xcodeproj"; sourceTree = "<group>"; };
+		8B8D44371C68FF7400BADB4C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		8B90FD431C323CB70054E66F /* ORMKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORMKit.xcodeproj; path = ../ormkit/ORMKit.xcodeproj; sourceTree = "<group>"; };
+		8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbackProgressStatView.swift; sourceTree = "<group>"; };
+		8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRow.swift; sourceTree = "<group>"; };
+		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatPanel.swift; sourceTree = "<group>"; };
 		8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRepMaxContainer.swift; sourceTree = "<group>"; };
 		8BA520971B44CA27005E0FF0 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -223,7 +308,10 @@
 		8BCF1F101B2B5F3600D05EEE /* LiftTemplateButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTemplateButton.swift; sourceTree = "<group>"; };
 		8BCF1F111B2B5F3600D05EEE /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BD38DC41B45C4C500A1E830 /* ViewMessageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMessageViewController.swift; sourceTree = "<group>"; };
+		8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStatStackView.swift; sourceTree = "<group>"; };
+		8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMaxStatView.swift; sourceTree = "<group>"; };
 		8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObjects.swift; sourceTree = "<group>"; };
+		8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewerViewController.swift; sourceTree = "<group>"; };
 		8BDD08941BD149A800AD2D44 /* ORMKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORMKit.h; sourceTree = "<group>"; };
 		8BDD08961BD149A800AD2D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BDD089B1BD149A800AD2D44 /* ORMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -259,8 +347,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B8D44381C68FF7400BADB4C /* Accelerate.framework in Frameworks */,
 				8B70B7B31C57EACD0090EFAF /* ORMKitiOS.framework in Frameworks */,
 				8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */,
+				8B8D44391C68FFD500BADB4C /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +398,10 @@
 		0A18E43CBDE524072F87162C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B8D44371C68FF7400BADB4C /* Accelerate.framework */,
+				8B8D44131C68FE9400BADB4C /* CorePlot.framework */,
+				8B8D44111C68FC6600BADB4C /* CorePlot_iOS.framework */,
+				8B8D440E1C68F94B00BADB4C /* CorePlot_iOS.framework */,
 				8B569BAD1C2312030052BAEC /* CorePlot_iOS.framework */,
 				8B569BAB1C2311BA0052BAEC /* CorePlot.framework */,
 				8B569BA71C2311440052BAEC /* CorePlot_iOS.framework */,
@@ -354,16 +448,21 @@
 				8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */,
 				8BE55C581C2A5967005948D9 /* PercentageView.swift */,
 				8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */,
+				8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */,
+				8BD936951C6A7D2F00615A12 /* Stat Panels */,
 				8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */,
 				8B12C1771C2521840053841E /* PercentagesViewController.swift */,
 				8B5815611C265C6900F3A151 /* ORMControlsViewController.swift */,
 				8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */,
 				8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */,
+				8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */,
+				8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */,
 				8B569BAF1C2322810052BAEC /* LiftEntryTableViewCell.swift */,
 				8B7123D91BA764DE0083980E /* Main.storyboard */,
 				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
 				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
 				8B7123E11BA764DE0083980E /* Info.plist */,
+				8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */,
 			);
 			path = "TheOneRepMax-iOS";
 			sourceTree = "<group>";
@@ -384,6 +483,21 @@
 				8B7123F71BA764DE0083980E /* Info.plist */,
 			);
 			path = "TheOneRepMax-iOSUITests";
+			sourceTree = "<group>";
+		};
+		8B8D44161C68FEDD00BADB4C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8B8D44261C68FEDD00BADB4C /* CorePlot.framework */,
+				8B8D44281C68FEDD00BADB4C /* UnitTests.xctest */,
+				8B8D442A1C68FEDD00BADB4C /* CorePlot.framework */,
+				8B8D442C1C68FEDD00BADB4C /* UnitTests iOS.xctest */,
+				8B8D442E1C68FEDD00BADB4C /* libCorePlot-CocoaTouch.a */,
+				8B8D44301C68FEDD00BADB4C /* CorePlot-CocoaTouchTests.xctest */,
+				8B8D44321C68FEDD00BADB4C /* CorePlot.framework */,
+				8B8D44341C68FEDD00BADB4C /* UnitTests tvOS.xctest */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		8B90FD441C323CB70054E66F /* Products */ = {
@@ -479,6 +593,18 @@
 			name = History;
 			sourceTree = "<group>";
 		};
+		8BD936951C6A7D2F00615A12 /* Stat Panels */ = {
+			isa = PBXGroup;
+			children = (
+				8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */,
+				8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */,
+				8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */,
+				8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */,
+				8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift */,
+			);
+			name = "Stat Panels";
+			sourceTree = "<group>";
+		};
 		8BDD08931BD149A800AD2D44 /* ORMKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -501,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				8B90FD431C323CB70054E66F /* ORMKit.xcodeproj */,
+				8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */,
 				8BF343591B27FA08007CBF44 /* TheOneRepMax */,
 				8BF3436F1B27FA08007CBF44 /* TheOneRepMaxTests */,
 				8B7123CF1BA764DE0083980E /* TheOneRepMax-iOS */,
@@ -598,6 +725,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8B8D44361C68FEF500BADB4C /* PBXTargetDependency */,
 				8B70B7B61C57EACD0090EFAF /* PBXTargetDependency */,
 			);
 			name = "TheOneRepMax-iOS";
@@ -702,7 +830,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftMigration = 0700;
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0720;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = JwitApps;
 				TargetAttributes = {
@@ -758,6 +886,10 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
+					ProductGroup = 8B8D44161C68FEDD00BADB4C /* Products */;
+					ProjectRef = 8B8D44151C68FEDD00BADB4C /* CorePlot.xcodeproj */;
+				},
+				{
 					ProductGroup = 8B90FD441C323CB70054E66F /* Products */;
 					ProjectRef = 8B90FD431C323CB70054E66F /* ORMKit.xcodeproj */;
 				},
@@ -775,6 +907,62 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		8B8D44261C68FEDD00BADB4C /* CorePlot.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CorePlot.framework;
+			remoteRef = 8B8D44251C68FEDD00BADB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B8D44281C68FEDD00BADB4C /* UnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = UnitTests.xctest;
+			remoteRef = 8B8D44271C68FEDD00BADB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B8D442A1C68FEDD00BADB4C /* CorePlot.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CorePlot.framework;
+			remoteRef = 8B8D44291C68FEDD00BADB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B8D442C1C68FEDD00BADB4C /* UnitTests iOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "UnitTests iOS.xctest";
+			remoteRef = 8B8D442B1C68FEDD00BADB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B8D442E1C68FEDD00BADB4C /* libCorePlot-CocoaTouch.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libCorePlot-CocoaTouch.a";
+			remoteRef = 8B8D442D1C68FEDD00BADB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B8D44301C68FEDD00BADB4C /* CorePlot-CocoaTouchTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CorePlot-CocoaTouchTests.xctest";
+			remoteRef = 8B8D442F1C68FEDD00BADB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B8D44321C68FEDD00BADB4C /* CorePlot.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CorePlot.framework;
+			remoteRef = 8B8D44311C68FEDD00BADB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8B8D44341C68FEDD00BADB4C /* UnitTests tvOS.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "UnitTests tvOS.xctest";
+			remoteRef = 8B8D44331C68FEDD00BADB4C /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		8B90FD4B1C323CB80054E66F /* ORMKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -867,15 +1055,24 @@
 				8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */,
 				8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */,
 				8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */,
+				8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */,
 				8BE55C551C2A05AE005948D9 /* FocusResizingLabel.swift in Sources */,
 				8BFED0591C658FAF0002FE17 /* RecentLiftEntry.swift in Sources */,
 				8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */,
 				8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */,
 				8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */,
 				8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */,
+				8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */,
+				8BD936A81C6A7F0B00615A12 /* CurrentMaxStatView.swift in Sources */,
 				8B5815621C265C6900F3A151 /* ORMControlsViewController.swift in Sources */,
+				8BDC400E1C698A1F003F177D /* DataViewerViewController.swift in Sources */,
 				8B569BB01C2322810052BAEC /* LiftEntryTableViewCell.swift in Sources */,
+				8B8D440D1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h in Sources */,
+				8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */,
 				8B81E9E01C1B5F1A00291443 /* FilterPopoverViewController.swift in Sources */,
+				8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */,
+				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift in Sources */,
+				8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */,
 				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
 				8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */,
 				8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */,
@@ -971,6 +1168,11 @@
 			target = 8B7123CD1BA764DE0083980E /* TheOneRepMax-iOS */;
 			targetProxy = 8B7123F21BA764DE0083980E /* PBXContainerItemProxy */;
 		};
+		8B8D44361C68FEF500BADB4C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "CorePlot-CocoaTouch";
+			targetProxy = 8B8D44351C68FEF500BADB4C /* PBXContainerItemProxy */;
+		};
 		8BDD08A01BD149A800AD2D44 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8BF343561B27FA08007CBF44 /* TheOneRepMax */;
@@ -1015,20 +1217,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../core-plot/framework/**";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax-iOS/TheOneRepMax-iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "i386 x86_64 arm64 armv7s armv7";
 			};
@@ -1038,20 +1244,23 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = YES;
-				HEADER_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/../core-plot/framework/**";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax-iOS/TheOneRepMax-iOS-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VALID_ARCHS = "i386 x86_64 arm64 armv7s armv7";

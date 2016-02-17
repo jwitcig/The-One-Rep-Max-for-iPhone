@@ -10,96 +10,38 @@ import UIKit
 import ORMKitiOS
 import CoreData
 
-class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewDataSource, UIPopoverPresentationControllerDelegate {
+class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewDataSource, DataViewerDelegate {
     
     @IBOutlet weak var filterBar: UINavigationBar!
     
     @IBOutlet weak var entriesTableView: UITableView!
     
-    var filterViewController: FilterPopoverViewController?
-        
+    var dataViewerViewController: DataViewerViewController!
+    
+    var simpleHistoryGraphViewController: SimpleHistoryGraphViewController!
+    
     var liftEntries = [ORLiftEntry]() {
         didSet {
             entriesTableView.reloadData()
         }
     }
     
-    var selectedLiftTemplate: ORLiftTemplate? {
-        return filterViewController?.selectedLiftTemplate
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        refreshLiftEntriesList()
+        dataViewerViewController.addDelegate(self)
     }
     
     override func viewWillAppear(animated: Bool) {
-        updateFilterBar()
-        
-        refreshLiftEntriesList()
-        
+//        simpleHistoryGraphViewController.requestGraphUpdate(entries: self.liftEntries)
         
         entriesTableView.backgroundColor = UIColor.clearColor()
         entriesTableView.separatorColor = UIColor.blackColor()
     }
     
-    func updateFilterBar() {
-        guard let filterNavigationItem = filterBar.items?[0] else {
-            return
-        }
+    func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
         
-        guard let selectedTemplate = self.selectedLiftTemplate else {
-            filterNavigationItem.title = "All Entries"
-            return
-        }
-        
-        filterNavigationItem.title = selectedTemplate.liftName
-    }
-    
-    func setupFilterViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        filterViewController = storyboard.instantiateViewControllerWithIdentifier("FilterPopover") as? FilterPopoverViewController
-                
-        filterViewController?.modalPresentationStyle = .Popover
-    }
-    
-    func presentFilterViewController() {
-        setupFilterViewController()
-        
-        self.presentViewController(filterViewController!, animated: true, completion: nil)
-    }
-    
-    func refreshLiftEntriesList() {
-        let currentAthlete = session.currentAthlete!
-        
-        defer {
-            self.liftEntries.sortInPlace { !$0.date.isBefore(date: $1.date) }
-        }
-        
-        guard let liftTemplate = selectedLiftTemplate else {
-            let (entries, _) = localData.fetchLiftEntries(athlete: currentAthlete)
-            
-            self.liftEntries = entries
-            return
-        }
-        
-        
-        let (entries, _) = localData.fetchLiftEntries(athlete: currentAthlete, template: liftTemplate)
-        self.liftEntries = entries
-    }
-    
-    @IBAction func filterPressed(button: UIBarButtonItem) {
-        presentFilterViewController()
-        
-        // configure the Popover presentation controller
-        let popController = filterViewController!.popoverPresentationController!
-        
-        popController.permittedArrowDirections = .Any
-        popController.delegate = self
-        
-        popController.barButtonItem = self.navigationItem.rightBarButtonItem
+        self.liftEntries = liftEntries.sort { !$0.date.isBefore(date: $1.date) }
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -228,14 +170,24 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
             self.localData.delete(object: entry)
             self.localData.save(context: entry.managedObjectContext)
             
-            
-            self.refreshLiftEntriesList()
             self.entriesTableView.reloadData()
-            })
+        })
         deleteEntryViewController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil))
         
         self.presentViewController(deleteEntryViewController, animated: true, completion: nil)
         
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "SimpleGraphSegue" {
+            guard let graphViewController = segue.destinationViewController as? SimpleHistoryGraphViewController else {
+                print("'SimpleGraphSegue' identifier used on ViewController class other than SimpleHistoryGraphViewController!")
+                return
+            }
+            
+            simpleHistoryGraphViewController = graphViewController
+            graphViewController.historyViewController = self
+        }
     }
     
 }
