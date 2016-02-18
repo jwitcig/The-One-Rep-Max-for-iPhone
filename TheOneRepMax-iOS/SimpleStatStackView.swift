@@ -30,7 +30,6 @@ class SimpleStatStackView: UIStackView {
         let fontDescriptor = titleLabel.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
         titleLabel.font = UIFont(descriptor: fontDescriptor, size: 0)
 
-
         titleLabel.textAlignment = .Center
         detailLabel.textAlignment = .Center
 

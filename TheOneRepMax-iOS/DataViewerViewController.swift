@@ -26,7 +26,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     var liftEntries = [ORLiftEntry]()
     
     var delegates = [DataViewerDelegate]()
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +35,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     }
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         updateDelegates(liftTemplate: filterViewController?.selectedLiftTemplate)
     }
     
@@ -42,6 +43,8 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
         filterViewController = storyboard.instantiateViewControllerWithIdentifier("FilterPopover") as? FilterPopoverViewController
+        
+        filterViewController?.dataViewerViewController = self
         
         filterViewController?.modalPresentationStyle = .Popover
     }
@@ -102,6 +105,8 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if var destinationViewController = segue.destinationViewController as? DataViewerDelegate {
             destinationViewController.dataViewerViewController = self
+            
+            addDelegate(destinationViewController)
         }
     }
     

@@ -14,6 +14,8 @@ public class ORViewController: UIViewController {
     var session: ORSession!
     var localData: ORLocalData!
     
+    let backgroundImageView = UIImageView()
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,15 +26,15 @@ public class ORViewController: UIViewController {
         
         let image = UIImage(named: "BackgroundBlur")
         if let backgroundImage = image {
-            let imageView = UIImageView(image: backgroundImage)
-            imageView.translatesAutoresizingMaskIntoConstraints = false
-            self.view.insertSubview(imageView, atIndex: 0)
+            backgroundImageView.image = backgroundImage
+            backgroundImageView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.insertSubview(backgroundImageView, atIndex: 0)
             
             NSLayoutConstraint.activateConstraints([
-                self.view.leadingAnchor.constraintEqualToAnchor(imageView.leadingAnchor),
-                self.view.trailingAnchor.constraintEqualToAnchor(imageView.trailingAnchor),
-                self.view.topAnchor.constraintEqualToAnchor(imageView.topAnchor),
-                self.view.bottomAnchor.constraintEqualToAnchor(imageView.bottomAnchor)
+                self.view.leadingAnchor.constraintEqualToAnchor(backgroundImageView.leadingAnchor),
+                self.view.trailingAnchor.constraintEqualToAnchor(backgroundImageView.trailingAnchor),
+                self.view.topAnchor.constraintEqualToAnchor(backgroundImageView.topAnchor),
+                self.view.bottomAnchor.constraintEqualToAnchor(backgroundImageView.bottomAnchor)
             ])
         }
         

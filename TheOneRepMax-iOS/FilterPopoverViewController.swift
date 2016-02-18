@@ -18,6 +18,8 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     
     var selectedLiftPath: NSIndexPath?
     
+    var dataViewerViewController: DataViewerViewController!
+    
     var selectedLiftTemplate: ORLiftTemplate? {
         guard let row = liftTemplatesTableView.indexPathForSelectedRow?.row else {
             return nil

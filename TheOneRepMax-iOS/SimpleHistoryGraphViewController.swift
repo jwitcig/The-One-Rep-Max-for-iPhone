@@ -9,9 +9,9 @@ import UIKit
 
 import ORMKitiOS
 
-class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource {
+class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, DataViewerDelegate {
     
-    var historyViewController: HistoryViewController!
+    var dataViewerViewController: DataViewerViewController!
     
     @IBOutlet weak var graphHostingView: CPTGraphHostingView!
 
@@ -22,9 +22,18 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+                
+        backgroundImageView.removeFromSuperview()
     }
     
     func updateGraph(entries entries: [ORLiftEntry]) {
+        if entries.count > 0 {
+            showGraph()
+        } else {
+            hideGraph()
+            return
+        }
+        
         graphHostingView.userInteractionEnabled = false
         
         // Create graph from theme
@@ -32,7 +41,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource {
         newGraph.applyTheme(CPTTheme(named: kCPTPlainBlackTheme))
         
         kCPTPlainBlackTheme
-        newGraph.title = "Last 14 Days"
+        newGraph.title = "Last 90 Days"
         let titleStyle = CPTMutableTextStyle()
         titleStyle.color = CPTColor.whiteColor()
         titleStyle.fontSize = 25
@@ -55,20 +64,21 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource {
         
         let min = entries.map { $0.max.integerValue }.minElement { $0 < $1 }
         let max = entries.map { $0.max.integerValue }.maxElement { $0 < $1 }
+        
         guard let lowestMax = min, let highestMax = max else  { return }
         
         let maxRange = highestMax - lowestMax
         let rangePadding = 20
         
-        plotSpace.xRange = CPTPlotRange(location: 0, length: 16)
+        plotSpace.xRange = CPTPlotRange(location: 0, length: 92)
         plotSpace.yRange = CPTPlotRange(location: lowestMax - rangePadding, length: maxRange + rangePadding*2)
         
         // Axes
         let axisSet = newGraph.axisSet as! CPTXYAxisSet
         
         if let x = axisSet.xAxis {
-            x.majorIntervalLength   = 1
-            x.minorTicksPerInterval = 0
+            x.majorIntervalLength   = 30
+            x.minorTicksPerInterval = 3
             x.orthogonalPosition    = 0
             x.axisConstraints = CPTConstraints(lowerOffset: 0)
         }
@@ -129,7 +139,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource {
         
         // Add some initial data
         let contentArray: [plotDataType] = entries.map {
-            let x = 14 - NSDate.daysBetween(startDate: $0.date, endDate: NSDate())
+            let x = 90 - NSDate.daysBetween(startDate: $0.date, endDate: NSDate())
             let y = $0.max
             let dataPoint: plotDataType = [.X: Double(x+1), .Y: Double(y)]
             return dataPoint
@@ -152,7 +162,27 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource {
     }
     
     func requestGraphUpdate(entries entries: [ORLiftEntry]) {
-        updateGraph(entries: historyViewController.liftEntries)
+        updateGraph(entries: entries)
+    }
+    
+    func showGraph() {
+        graphHostingView.hidden = false
+    }
+    
+    func hideGraph() {
+        graphHostingView.hidden = true
+    }
+    
+    func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
+        
+        guard liftTemplate != nil else {
+            hideGraph()
+            return
+        }
+        
+        let sortedEntries = liftEntries.sortedByReverseDate
+        
+        requestGraphUpdate(entries: sortedEntries)
     }
     
 }

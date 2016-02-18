@@ -17,9 +17,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var entriesTableView: UITableView!
     
     var dataViewerViewController: DataViewerViewController!
-    
-    var simpleHistoryGraphViewController: SimpleHistoryGraphViewController!
-    
+        
     var liftEntries = [ORLiftEntry]() {
         didSet {
             entriesTableView.reloadData()
@@ -28,8 +26,6 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        dataViewerViewController.addDelegate(self)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -176,18 +172,6 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         
         self.presentViewController(deleteEntryViewController, animated: true, completion: nil)
         
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SimpleGraphSegue" {
-            guard let graphViewController = segue.destinationViewController as? SimpleHistoryGraphViewController else {
-                print("'SimpleGraphSegue' identifier used on ViewController class other than SimpleHistoryGraphViewController!")
-                return
-            }
-            
-            simpleHistoryGraphViewController = graphViewController
-            graphViewController.historyViewController = self
-        }
     }
     
 }

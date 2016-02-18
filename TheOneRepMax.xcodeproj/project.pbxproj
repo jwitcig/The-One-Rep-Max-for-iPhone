@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B02E4721C75334900A949E6 /* NoLiftSelectedStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */; };
 		8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B095BB21B29A68F00818DE0 /* CloudKit.framework */; };
 		8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */; };
 		8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12C1771C2521840053841E /* PercentagesViewController.swift */; };
@@ -240,6 +241,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLiftSelectedStatView.swift; sourceTree = "<group>"; };
 		8B095BB11B29A68900818DE0 /* TheOneRepMax.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TheOneRepMax.entitlements; sourceTree = "<group>"; };
 		8B095BB21B29A68F00818DE0 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullableToolbar.swift; sourceTree = "<group>"; };
@@ -598,6 +600,7 @@
 			children = (
 				8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */,
 				8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */,
+				8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */,
 				8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */,
 				8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */,
 				8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift */,
@@ -1074,6 +1077,7 @@
 				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift in Sources */,
 				8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */,
 				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
+				8B02E4721C75334900A949E6 /* NoLiftSelectedStatView.swift in Sources */,
 				8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */,
 				8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */,
 			);
