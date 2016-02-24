@@ -26,15 +26,12 @@ class PercentagesViewController: UIViewController {
         populateMainStackView()
         
         mainStackView.spacing = 10
-
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "oneRepMaxDidChange:", name: OneRepMaxNotificationType.OneRepMax.OneRepMaxDidChange.rawValue, object: nil)
-        
     }
     
     func populateMainStackView() {
         let percentages = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
-        
         
         for percentage in percentages {
             mainStackView.addArrangedSubview(createPercentageStackView(percentage: percentage))

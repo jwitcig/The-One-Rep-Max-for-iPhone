@@ -45,9 +45,10 @@
 		8B8D44381C68FF7400BADB4C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D44371C68FF7400BADB4C /* Accelerate.framework */; };
 		8B8D44391C68FFD500BADB4C /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D442E1C68FEDD00BADB4C /* libCorePlot-CocoaTouch.a */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
+		8B9A5E391C77B958008CB0CF /* ProgressRowSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A5E381C77B958008CB0CF /* ProgressRowSeparator.swift */; };
 		8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */; };
 		8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */; };
-		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift */; };
+		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */; };
 		8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */; };
 		8BA520961B44A9B1005E0FF0 /* OneRepMaxContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */; };
 		8BA520981B44CA27005E0FF0 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520971B44CA27005E0FF0 /* MenuItem.swift */; };
@@ -68,6 +69,8 @@
 		8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */; };
 		8BDC400E1C698A1F003F177D /* DataViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */; };
 		8BDD08A31BD149A800AD2D44 /* ORMKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */; };
+		8BDF96EA1C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */; };
+		8BDF96FB1C76D0DB00088B85 /* StatPanelRowSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF96FA1C76D0DB00088B85 /* StatPanelRowSeparator.swift */; };
 		8BE077301B2D5B090070D128 /* EntityMigrationPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */; };
 		8BE1E19F1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE1E19E1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift */; };
 		8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */; };
@@ -292,9 +295,10 @@
 		8B8D44371C68FF7400BADB4C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		8B90FD431C323CB70054E66F /* ORMKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORMKit.xcodeproj; path = ../ormkit/ORMKit.xcodeproj; sourceTree = "<group>"; };
+		8B9A5E381C77B958008CB0CF /* ProgressRowSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressRowSeparator.swift; sourceTree = "<group>"; };
 		8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbackProgressStatView.swift; sourceTree = "<group>"; };
 		8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRow.swift; sourceTree = "<group>"; };
-		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatPanel.swift; sourceTree = "<group>"; };
+		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatView.swift; sourceTree = "<group>"; };
 		8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BA520951B44A9B1005E0FF0 /* OneRepMaxContainer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OneRepMaxContainer.swift; sourceTree = "<group>"; };
 		8BA520971B44CA27005E0FF0 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
@@ -319,6 +323,8 @@
 		8BDD089B1BD149A800AD2D44 /* ORMKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ORMKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMKitTests.swift; sourceTree = "<group>"; };
 		8BDD08A41BD149A800AD2D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageIntervalRangeProgressStatView.swift; sourceTree = "<group>"; };
+		8BDF96FA1C76D0DB00088B85 /* StatPanelRowSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRowSeparator.swift; sourceTree = "<group>"; };
 		8BE077211B2D3D230070D128 /* TheOneRepMax-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-Bridging-Header.h"; sourceTree = "<group>"; };
 		8BE0772F1B2D5B090070D128 /* EntityMigrationPolicy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntityMigrationPolicy.swift; sourceTree = "<group>"; };
 		8BE1E19E1B9B4C9B0005AEFD /* EditAthleteInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAthleteInfoViewController.swift; sourceTree = "<group>"; };
@@ -599,11 +605,14 @@
 			isa = PBXGroup;
 			children = (
 				8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */,
+				8BDF96FA1C76D0DB00088B85 /* StatPanelRowSeparator.swift */,
 				8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */,
 				8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */,
 				8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */,
 				8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */,
-				8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift */,
+				8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */,
+				8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */,
+				8B9A5E381C77B958008CB0CF /* ProgressRowSeparator.swift */,
 			);
 			name = "Stat Panels";
 			sourceTree = "<group>";
@@ -1055,8 +1064,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */,
+				8B9A5E391C77B958008CB0CF /* ProgressRowSeparator.swift in Sources */,
 				8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */,
 				8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */,
+				8BDF96FB1C76D0DB00088B85 /* StatPanelRowSeparator.swift in Sources */,
 				8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */,
 				8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */,
 				8BE55C551C2A05AE005948D9 /* FocusResizingLabel.swift in Sources */,
@@ -1074,9 +1085,10 @@
 				8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */,
 				8B81E9E01C1B5F1A00291443 /* FilterPopoverViewController.swift in Sources */,
 				8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */,
-				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatPanel.swift in Sources */,
+				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */,
 				8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */,
 				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
+				8BDF96EA1C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift in Sources */,
 				8B02E4721C75334900A949E6 /* NoLiftSelectedStatView.swift in Sources */,
 				8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */,
 				8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */,

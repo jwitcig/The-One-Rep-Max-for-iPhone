@@ -8,7 +8,9 @@
 
 import UIKit
 
-class StatPanelRow: UIStackView {
+class StatPanelRow: UIStackView, StatPanelItem {
+    
+    var progressItemType: ProgressItemType = .SpecificLift
     
     var statPanels = [SimpleStatStackView]()
     

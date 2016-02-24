@@ -10,7 +10,19 @@ import UIKit
 
 import ORMKitiOS
 
-class SimpleStatStackView: UIStackView {
+enum ProgressItemType {
+    case AllLifts, SpecificLift
+}
+
+protocol StatPanelItem {
+    var progressItemType: ProgressItemType { get set }
+}
+
+protocol StatPanel {
+    func update()
+}
+
+class SimpleStatStackView: UIStackView, StatPanel {
 
     var stats: ORSoloStats!
     

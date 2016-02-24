@@ -40,8 +40,16 @@ public class ORViewController: UIViewController {
         
     }
     
-    public override func viewWillAppear(animated: Bool) {
-        self.view.backgroundColor = UIColor(red: 147/255, green: 174/255, blue: 255/255, alpha: 1)
+    func enableTransparentBackground() {
+        if backgroundImageView.superview != nil {
+            backgroundImageView.removeFromSuperview()
+        }
+    }
+    
+    func disableTransparentBackground() {
+        if backgroundImageView.superview == nil {
+            self.view.insertSubview(backgroundImageView, atIndex: 0)
+        }
     }
     
 }

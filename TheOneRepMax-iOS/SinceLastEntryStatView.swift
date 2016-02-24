@@ -10,7 +10,7 @@ import UIKit
 
 import ORMKitiOS
 
-class SinceLastEntryStatPanel: SimpleStatStackView {
+class SinceLastEntryStatView: SimpleStatStackView {
 
     convenience init(stats: ORSoloStats) {
         self.init(frame: CGRect.zero)

@@ -20,10 +20,14 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
     
     var graph: CPTXYGraph?
     
+    var noGraphDataLabel = UILabel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
-        backgroundImageView.removeFromSuperview()
+        enableTransparentBackground()
+        
+        setupNoDataLabel()
     }
     
     func updateGraph(entries entries: [ORLiftEntry]) {
@@ -149,6 +153,21 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         self.graph = newGraph
     }
     
+    func setupNoDataLabel() {
+        noGraphDataLabel.translatesAutoresizingMaskIntoConstraints = false
+        noGraphDataLabel.text = "No Data To Chart"
+        noGraphDataLabel.hidden = true
+        noGraphDataLabel.textAlignment = .Center
+        self.view.addSubview(noGraphDataLabel)
+        
+        NSLayoutConstraint.activateConstraints([
+            noGraphDataLabel.topAnchor.constraintEqualToAnchor(self.view.topAnchor),
+            noGraphDataLabel.bottomAnchor.constraintEqualToAnchor(self.view.bottomAnchor),
+            noGraphDataLabel.leadingAnchor.constraintEqualToAnchor(self.view.leadingAnchor),
+            noGraphDataLabel.trailingAnchor.constraintEqualToAnchor(self.view.trailingAnchor),
+        ])
+    }
+    
     func numberOfRecordsForPlot(plot: CPTPlot) -> UInt {
         return UInt(self.plotData.count)
     }
@@ -167,10 +186,12 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
     
     func showGraph() {
         graphHostingView.hidden = false
+        noGraphDataLabel.hidden = true
     }
     
     func hideGraph() {
         graphHostingView.hidden = true
+        noGraphDataLabel.hidden = false
     }
     
     func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {

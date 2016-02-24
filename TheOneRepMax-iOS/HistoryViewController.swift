@@ -26,6 +26,8 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        enableTransparentBackground()
     }
     
     override func viewWillAppear(animated: Bool) {
