@@ -8,6 +8,7 @@
 
 import UIKit
 
+// THIS CLASS IS NOT IN USE
 class FocusResizingLabel: UILabel {
     
     var isMagnified = false

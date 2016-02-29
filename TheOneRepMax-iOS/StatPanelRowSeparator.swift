@@ -8,9 +8,11 @@
 
 import UIKit
 
-class StatPanelRowSeparator: UIView, StatPanelItem {
+class StatPanelRowSeparator: UIView, StatListItem {
 
     var progressItemType: ProgressItemType = .SpecificLift
+    
+    var isPrimaryLevelSeparator = false
     
     init(orientation: Orientation) {
         super.init(frame: CGRect.zero)
@@ -29,6 +31,8 @@ class StatPanelRowSeparator: UIView, StatPanelItem {
         case .Vertical:
             constraint = widthAnchor.constraintEqualToConstant(verticalSeparatorWidth)
         }
+        
+        constraint.priority = 990
         
         NSLayoutConstraint.activateConstraints([constraint])
 

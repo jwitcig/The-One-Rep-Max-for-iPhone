@@ -15,19 +15,14 @@ class AverageIntervalRangeProgressStatView: SimpleStatStackView {
     var interval = 0
     var dateRange: (NSDate, NSDate)?
     
-    convenience init(stats: ORSoloStats, interval: Int, dateRange specifiedDateRange: (NSDate, NSDate)? = nil) {
-        self.init(frame: CGRect.zero)
+    init(stats: ORSoloStats, interval: Int, dateRange specifiedDateRange: (NSDate, NSDate)? = nil) {
+        super.init(stats: stats)
         
-        self.stats = stats
         self.interval = interval
         
         dateRange = specifiedDateRange ?? stats.dateRangeOfEntries()
         
         update()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {

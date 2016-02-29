@@ -8,11 +8,18 @@
 
 import UIKit
 
-class StatPanelRow: UIStackView, StatPanelItem {
+class StatPanelRow: UIStackView, StatListItem {
     
     var progressItemType: ProgressItemType = .SpecificLift
     
-    var statPanels = [SimpleStatStackView]()
+    var statPanels: [StatPanel] {
+        var panels = [StatPanel]()
+        arrangedSubviews.forEach {
+            guard let statPanel = $0 as? StatPanel else { return }
+            panels.append(statPanel)
+        }
+        return panels
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,14 +35,6 @@ class StatPanelRow: UIStackView, StatPanelItem {
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func addArrangedSubview(view: UIView) {
-        super.addArrangedSubview(view)
-        
-        if let statPanel = view as? SimpleStatStackView {
-            statPanels.append(statPanel)
-        }
     }
 
 }

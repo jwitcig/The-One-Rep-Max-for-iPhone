@@ -50,6 +50,8 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     }
     
     func updateDelegates(liftTemplate liftTemplate: ORLiftTemplate?) {
+        updateFilterBar()
+        
         guard let athlete = session.currentAthlete else {
             print("No current athlete!")
             return

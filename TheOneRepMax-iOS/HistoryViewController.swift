@@ -31,7 +31,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     }
     
     override func viewWillAppear(animated: Bool) {
-//        simpleHistoryGraphViewController.requestGraphUpdate(entries: self.liftEntries)
+        super.viewWillAppear(animated)
         
         entriesTableView.backgroundColor = UIColor.clearColor()
         entriesTableView.separatorColor = UIColor.blackColor()
@@ -103,12 +103,15 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.backgroundColor = UIColor.clearColor()
         
-//        let longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("didLongPressMaxEntryCell:"))
-//        cell.addGestureRecognizer(longPressGesture)
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("maxEntryCellLongPressStateChanged:"))
+        cell.addGestureRecognizer(longPressGesture)
         
         switch tableView {
      
         case self.entriesTableView:
+//            let labelFontSize = cell.textLabel?.font.pointSize ?? 12
+            let labelFontSize = 18 as CGFloat
+
             
             let centerLabel = UILabel()
             cell.contentView.addSubview(centerLabel)
@@ -117,7 +120,6 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
                 centerLabel.centerXAnchor.constraintEqualToAnchor(cell.contentView.centerXAnchor),
                 centerLabel.centerYAnchor.constraintEqualToAnchor(cell.contentView.centerYAnchor)
             ])
-            
             
             let dateFormatter = NSDateFormatter()
             dateFormatter.dateFormat = "M/d"
@@ -131,7 +133,12 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
             
             cell.detailTextLabel?.text = "[\(cell.entry.weightLifted.integerValue) x \(cell.entry.reps.intValue)]"
             cell.detailTextLabel?.textColor = UIColor.blackColor()
+            
+            cell.textLabel?.font = UIFont(name: "Avenir", size: labelFontSize)
+            centerLabel.font = UIFont(name: "Avenir", size: labelFontSize)
+            cell.detailTextLabel?.font = UIFont(name: "Avenir", size: labelFontSize)
 
+            
         default:
             break
         }
@@ -155,7 +162,21 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         
         presentDeletionDialog(cell.entry)
     }
-
+    
+    func maxEntryCellLongPressStateChanged(longPressRecognizer: UILongPressGestureRecognizer) {
+        guard let cell = longPressRecognizer.view as? LiftEntryTableViewCell else { return }
+        
+        switch longPressRecognizer.state {
+        case .Began:
+            
+            presentDeletionDialog(cell.entry)
+            
+        default:
+            break
+            
+        }
+    }
+    
     func presentDeletionDialog(entry: ORLiftEntry) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "M/d"
@@ -170,7 +191,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
             
             self.entriesTableView.reloadData()
         })
-        deleteEntryViewController.addAction(UIAlertAction(title: "No", style: UIAlertActionStyle.Cancel, handler: nil))
+        deleteEntryViewController.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
         
         self.presentViewController(deleteEntryViewController, animated: true, completion: nil)
         

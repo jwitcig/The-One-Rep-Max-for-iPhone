@@ -14,18 +14,12 @@ class LookbackProgressStatView: SimpleStatStackView {
     
     var dayLookback: Int = 0
 
-    convenience init(stats: ORSoloStats, dayLookback: Int) {
-        self.init(frame: CGRect.zero)
-        
-        self.stats = stats
-        
+    init(stats: ORSoloStats, dayLookback: Int) {
         self.dayLookback = dayLookback
         
+        super.init(stats: stats)
+        
         update()
-    }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
     }
     
     required init?(coder aDecoder: NSCoder) {

@@ -12,18 +12,12 @@ import ORMKitiOS
 
 class SinceLastEntryStatView: SimpleStatStackView {
 
-    convenience init(stats: ORSoloStats) {
-        self.init(frame: CGRect.zero)
-        
-        self.stats = stats
+    override init(stats: ORSoloStats) {
+        super.init(stats: stats)
         
         update()
     }
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

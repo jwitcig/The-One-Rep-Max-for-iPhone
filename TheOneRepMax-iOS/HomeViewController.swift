@@ -134,14 +134,27 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         super.viewWillAppear(animated)
         
         updateORMDisplay(oneRepMax: oneRepMax)
+        
+        populateRecentMaxStackView()
     }
     
     func populateRecentMaxStackView() {
+        recentMaxStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
         let (templates, response) = session.localData.fetchAll(model: ORLiftTemplate.self)
         
         guard response.success else { print("Error fetching LiftTemplates: \(response.error)"); return }
         
         var latestEntries = [ORLiftEntry]()
+        
+        defer {
+            if latestEntries.count == 0 {
+                recentMaxStackView.superview?.hidden = true
+            } else {
+                recentMaxStackView.superview?.hidden = false
+            }
+        }
+        
         for template in templates {
             let predicate = NSPredicate(key: ORLiftEntry.Fields.liftTemplate.rawValue, comparator: .Equals, value: template)
             let options = ORDataOperationOptions()

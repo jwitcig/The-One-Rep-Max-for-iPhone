@@ -16,6 +16,9 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     @IBOutlet weak var factorsLabel: UILabel!
     
     @IBOutlet weak var templatePicker: UIPickerView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
+    @IBOutlet weak var optionsScrollView: UIScrollView!
     
     var weightLifted: Int!
     var reps: Int!
@@ -55,7 +58,15 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         }
     }
     
-    @IBAction func saveMaxPressed(sender: UIBarButtonItem) {
+    @IBAction func changeDatePressed(button: UIBarButtonItem) {
+        scrollToOptionPage(1)
+    }
+
+    @IBAction func changeLiftPressed(button: UIBarButtonItem) {
+        scrollToOptionPage(0)
+    }
+
+    @IBAction func saveMaxPressed(button: UIBarButtonItem) {
         let context = NSManagedObjectContext.contextForCurrentThread()
         
         let entry = ORLiftEntry.entry(context: context)
@@ -64,7 +75,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         entry.athlete = session.currentAthlete!
         entry.liftTemplate = self.selectedTemplate
         entry.maxOut = true
-        entry.date = NSDate()
+        entry.date = datePicker.date
         let saveResponse = localData.save(context: context)
         
         guard saveResponse.success else { return }
@@ -82,6 +93,12 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return self.liftTemplates[row].liftName
+    }
+    
+    func scrollToOptionPage(optionPage: Int) {
+        UIView.animateWithDuration(0.4) {
+            self.optionsScrollView.contentOffset = CGPoint(x: self.optionsScrollView.frame.width*CGFloat(optionPage), y: 0)
+        }
     }
     
 }

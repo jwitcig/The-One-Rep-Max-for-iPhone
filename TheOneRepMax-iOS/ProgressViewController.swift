@@ -21,38 +21,22 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
     
     @IBOutlet weak var mainStackView: UIStackView!
     
-//    var statPanels: [SimpleStatStackView] {
-//        var allStatPanelRows = [StatPanelRow]()
-//        
-//        if let allLiftsRows = progressRowsCollection[.AllLifts] {
-//            allStatPanelRows.appendContentsOf(allLiftsRows)
-//        }
-//        if let specificLiftRows = progressRowsCollection[.SpecificLift] {
-//            allStatPanelRows.appendContentsOf(specificLiftRows)
-//        }
-//        
-//        var allStatPanels = [SimpleStatStackView]()
-//        for row in allStatPanelRows {
-//            allStatPanels.appendContentsOf(row.statPanels)
-//        }
-//        return allStatPanels
-//    }
-    
-    var statPanelItemsCollection: [StatPanelItem] = []
-    var statPanelItemsAllLifts: [StatPanelItem] {
-        return statPanelItemsCollection.filter { $0.progressItemType == ProgressItemType.AllLifts }
+    var statListItemsCollection: [StatListItem] = []
+    var statListItemsAllLifts: [StatListItem] {
+        return statListItemsCollection.filter { $0.progressItemType == ProgressItemType.AllLifts }
     }
-    var statPanelItemsSpecificLift: [StatPanelItem] {
-        return statPanelItemsCollection.filter { $0.progressItemType == ProgressItemType.SpecificLift }
+    var statListItemsSpecificLift: [StatListItem] {
+        return statListItemsCollection.filter { $0.progressItemType == ProgressItemType.SpecificLift }
     }
     var statPanels: [StatPanel] {
         get {
-            var statPanelList = [StatPanel]()
-            for statPanelItem in statPanelItemsCollection
-                where statPanelItem is StatPanel {
-                statPanelList.append(statPanelItem as! StatPanel)
+            var panels = [StatPanel]()
+            
+            statListItemsCollection.forEach {
+                guard let row = $0 as? StatPanelRow else { return }
+                panels.appendContentsOf(row.statPanels)
             }
-            return statPanelList
+            return panels
         }
     }
     
@@ -99,34 +83,29 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         
         let specificLiftRows = [specificLiftFirstRow, specificLiftSecondRow, specificLiftThirdRow]
         
-        
         let allLiftsRows = [allLiftsFirstRow]
             
-        (specificLiftRows + allLiftsRows).forEach { registerStatPanelRow(panelItem: $0) }
-        
+        (specificLiftRows + allLiftsRows).forEach { registerStatPanelRow(panelRow: $0) }
     }
     
-    func registerStatPanelRow(panelItem panelItem: StatPanelItem) {
+    func registerStatPanelRow(panelRow panelRow: StatPanelRow) {
         var separator = createSeparator(orientation: .Horizontal)
-        
-        separator.progressItemType = panelItem.progressItemType
+        separator.progressItemType = panelRow.progressItemType
 
-        statPanelItemsCollection.append(separator)
+        statListItemsCollection.append(separator)
         mainStackView.addArrangedSubview(separator as! UIView)
         
-        statPanelItemsCollection.append(panelItem)
+        statListItemsCollection.append(panelRow)
 
-        if panelItem is UIView {
-            mainStackView.addArrangedSubview(panelItem as! UIView)
-        }
+        mainStackView.addArrangedSubview(panelRow)
     }
     
     func updateRowsCollectionVisibility() {
         let specificLiftPanelRowsHidden = session.soloStats.defaultTemplate == nil
         let statPanelItemsAllLiftsHidden = !specificLiftPanelRowsHidden
         
-        statPanelItemsAllLifts.forEach { ($0 as! UIView).hidden = statPanelItemsAllLiftsHidden }
-        statPanelItemsSpecificLift.forEach { ($0 as! UIView).hidden = specificLiftPanelRowsHidden }
+        statListItemsAllLifts.forEach { ($0 as! UIView).hidden = statPanelItemsAllLiftsHidden }
+        statListItemsSpecificLift.forEach { ($0 as! UIView).hidden = specificLiftPanelRowsHidden }
     }
     
     func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
@@ -145,8 +124,8 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         statPanels.forEach { $0.update() }
     }
     
-    func createSeparator(orientation orientation: Orientation) -> StatPanelItem {
-        let separator = ProgressRowSeparator()
+    func createSeparator(orientation orientation: Orientation) -> StatListItem {
+        let separator = StatPanelRowSeparator(orientation: orientation)
         separator.backgroundColor = UIColor.blackColor()
         
         let horizontalSeparatorHeight = CGFloat(1)
@@ -164,7 +143,7 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         
         constraint.priority = 990
         NSLayoutConstraint.activateConstraints([constraint])
-        return separator as StatPanelItem
+        return separator as StatListItem
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -176,10 +155,7 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
             simpleHistoryGraphViewController = graphViewController
 
             dataViewerViewController.addDelegate(graphViewController)
-
         }
-        
-        
     }
 
 }

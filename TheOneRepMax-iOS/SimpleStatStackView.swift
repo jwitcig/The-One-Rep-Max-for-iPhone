@@ -14,39 +14,65 @@ enum ProgressItemType {
     case AllLifts, SpecificLift
 }
 
-protocol StatPanelItem {
+protocol StatListItem {
     var progressItemType: ProgressItemType { get set }
 }
 
 protocol StatPanel {
+
+    var stats: ORSoloStats { get set }
+    
     func update()
 }
 
 class SimpleStatStackView: UIStackView, StatPanel {
 
-    var stats: ORSoloStats!
+    var stats: ORSoloStats
     
     var titleLabel = UILabel()
     var detailLabel = UILabel()
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+//    override init(frame: CGRect) {
+//        super.init(frame: frame)
+//        
+//        translatesAutoresizingMaskIntoConstraints = false
+//
+//        axis = .Vertical
+//
+//        alignment = .Fill
+//        distribution = .FillEqually
+//
+//        let fontDescriptor = titleLabel.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
+//        titleLabel.font = UIFont(descriptor: fontDescriptor, size: 0)
+//
+//        titleLabel.textAlignment = .Center
+//        detailLabel.textAlignment = .Center
+//
+//        addArrangedSubview(titleLabel)
+//        addArrangedSubview(detailLabel)
+//    }
+    
+    init(stats: ORSoloStats) {
+        self.stats = stats
+        
+        super.init(frame: CGRect.zero)
         
         translatesAutoresizingMaskIntoConstraints = false
-
+        
         axis = .Vertical
-
+        
         alignment = .Fill
         distribution = .FillEqually
-
+        
         let fontDescriptor = titleLabel.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)
         titleLabel.font = UIFont(descriptor: fontDescriptor, size: 0)
-
+        
         titleLabel.textAlignment = .Center
         detailLabel.textAlignment = .Center
-
+        
         addArrangedSubview(titleLabel)
         addArrangedSubview(detailLabel)
+        
     }
 
     required init?(coder aDecoder: NSCoder) {

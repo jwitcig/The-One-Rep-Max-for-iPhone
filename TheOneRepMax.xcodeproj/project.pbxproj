@@ -45,7 +45,6 @@
 		8B8D44381C68FF7400BADB4C /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D44371C68FF7400BADB4C /* Accelerate.framework */; };
 		8B8D44391C68FFD500BADB4C /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B8D442E1C68FEDD00BADB4C /* libCorePlot-CocoaTouch.a */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
-		8B9A5E391C77B958008CB0CF /* ProgressRowSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9A5E381C77B958008CB0CF /* ProgressRowSeparator.swift */; };
 		8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */; };
 		8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */; };
 		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */; };
@@ -295,7 +294,6 @@
 		8B8D44371C68FF7400BADB4C /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		8B90FD431C323CB70054E66F /* ORMKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ORMKit.xcodeproj; path = ../ormkit/ORMKit.xcodeproj; sourceTree = "<group>"; };
-		8B9A5E381C77B958008CB0CF /* ProgressRowSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressRowSeparator.swift; sourceTree = "<group>"; };
 		8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbackProgressStatView.swift; sourceTree = "<group>"; };
 		8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRow.swift; sourceTree = "<group>"; };
 		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatView.swift; sourceTree = "<group>"; };
@@ -449,23 +447,11 @@
 				8B7123D01BA764DE0083980E /* AppDelegate.swift */,
 				8B4607201BAF0D4600E953D7 /* MainViewController.swift */,
 				8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */,
-				8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */,
-				8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */,
-				8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */,
-				8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */,
-				8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */,
-				8BE55C581C2A5967005948D9 /* PercentageView.swift */,
-				8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */,
-				8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */,
-				8BD936951C6A7D2F00615A12 /* Stat Panels */,
-				8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */,
-				8B12C1771C2521840053841E /* PercentagesViewController.swift */,
-				8B5815611C265C6900F3A151 /* ORMControlsViewController.swift */,
-				8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */,
+				8BE649C71C84062700CD6B54 /* Home View */,
+				8BE649C41C8405B300CD6B54 /* Data Viewer */,
 				8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */,
-				8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */,
-				8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */,
 				8B569BAF1C2322810052BAEC /* LiftEntryTableViewCell.swift */,
+				8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */,
 				8B7123D91BA764DE0083980E /* Main.storyboard */,
 				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
 				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
@@ -612,7 +598,6 @@
 				8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */,
 				8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */,
 				8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */,
-				8B9A5E381C77B958008CB0CF /* ProgressRowSeparator.swift */,
 			);
 			name = "Stat Panels";
 			sourceTree = "<group>";
@@ -633,6 +618,74 @@
 				8BDD08A41BD149A800AD2D44 /* Info.plist */,
 			);
 			path = ORMKitTests;
+			sourceTree = "<group>";
+		};
+		8BE649C41C8405B300CD6B54 /* Data Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */,
+				8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */,
+				8BE649C51C8405C100CD6B54 /* History */,
+				8BE649C61C8405CA00CD6B54 /* Progress/Stats */,
+			);
+			name = "Data Viewer";
+			sourceTree = "<group>";
+		};
+		8BE649C51C8405C100CD6B54 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */,
+			);
+			name = History;
+			sourceTree = "<group>";
+		};
+		8BE649C61C8405CA00CD6B54 /* Progress/Stats */ = {
+			isa = PBXGroup;
+			children = (
+				8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */,
+				8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */,
+				8BD936951C6A7D2F00615A12 /* Stat Panels */,
+			);
+			name = Progress/Stats;
+			sourceTree = "<group>";
+		};
+		8BE649C71C84062700CD6B54 /* Home View */ = {
+			isa = PBXGroup;
+			children = (
+				8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */,
+				8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */,
+				8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */,
+				8BE649C81C84063800CD6B54 /* ORM Controls */,
+				8BE649C91C84063E00CD6B54 /* Percentages */,
+				8BE649CA1C8406B500CD6B54 /* Save Max */,
+			);
+			name = "Home View";
+			sourceTree = "<group>";
+		};
+		8BE649C81C84063800CD6B54 /* ORM Controls */ = {
+			isa = PBXGroup;
+			children = (
+				8B5815611C265C6900F3A151 /* ORMControlsViewController.swift */,
+			);
+			name = "ORM Controls";
+			sourceTree = "<group>";
+		};
+		8BE649C91C84063E00CD6B54 /* Percentages */ = {
+			isa = PBXGroup;
+			children = (
+				8B12C1771C2521840053841E /* PercentagesViewController.swift */,
+				8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */,
+				8BE55C581C2A5967005948D9 /* PercentageView.swift */,
+			);
+			name = Percentages;
+			sourceTree = "<group>";
+		};
+		8BE649CA1C8406B500CD6B54 /* Save Max */ = {
+			isa = PBXGroup;
+			children = (
+				8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */,
+			);
+			name = "Save Max";
 			sourceTree = "<group>";
 		};
 		8BF3434E1B27FA08007CBF44 = {
@@ -1064,7 +1117,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */,
-				8B9A5E391C77B958008CB0CF /* ProgressRowSeparator.swift in Sources */,
 				8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */,
 				8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */,
 				8BDF96FB1C76D0DB00088B85 /* StatPanelRowSeparator.swift in Sources */,
