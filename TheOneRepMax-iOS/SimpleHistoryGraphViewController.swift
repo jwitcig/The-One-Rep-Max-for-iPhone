@@ -22,12 +22,18 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
     
     var noGraphDataLabel = UILabel()
     
+    var heightConstraint: NSLayoutConstraint!
+    let validDataHeight = 150 as CGFloat
+    let invalidDataHeight = 15 as CGFloat
+    
     override func viewDidLoad() {
         super.viewDidLoad()
                 
         enableTransparentBackground()
         
         setupNoDataLabel()
+        
+        heightConstraint = self.view.heightAnchor.constraintEqualToConstant(validDataHeight)
     }
     
     func updateGraph(entries entries: [ORLiftEntry]) {
@@ -42,9 +48,9 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         
         // Create graph from theme
         let newGraph = CPTXYGraph(frame: CGRectZero)
-        newGraph.applyTheme(CPTTheme(named: kCPTPlainBlackTheme))
-        
-        kCPTPlainBlackTheme
+
+        newGraph.backgroundColor = UIColor.clearColor().CGColor
+
         newGraph.title = "Last 90 Days"
         let titleStyle = CPTMutableTextStyle()
         titleStyle.color = CPTColor.whiteColor()
@@ -80,11 +86,23 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         // Axes
         let axisSet = newGraph.axisSet as! CPTXYAxisSet
         
+        
+        let lineStyle = CPTMutableLineStyle()
+        lineStyle.lineWidth = 3
+        lineStyle.lineColor = CPTColor.blackColor()
+        
+        let clearLineStyle = CPTMutableLineStyle()
+        clearLineStyle.lineWidth = 2
+        clearLineStyle.lineColor = CPTColor.clearColor()
+        
         if let x = axisSet.xAxis {
             x.majorIntervalLength   = 30
             x.minorTicksPerInterval = 3
             x.orthogonalPosition    = 0
             x.axisConstraints = CPTConstraints(lowerOffset: 0)
+            x.axisLineStyle = lineStyle
+            x.majorTickLineStyle = lineStyle
+            x.minorTickLineStyle = lineStyle
         }
         
         if let y = axisSet.yAxis {
@@ -92,6 +110,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
             y.minorTicksPerInterval = 5
             y.orthogonalPosition    = 0
             y.delegate = self
+            y.axisLineStyle = clearLineStyle
         }
         
         // Create a blue plot area
@@ -187,11 +206,17 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
     func showGraph() {
         graphHostingView.hidden = false
         noGraphDataLabel.hidden = true
+        
+        heightConstraint.constant = validDataHeight
+        NSLayoutConstraint.activateConstraints([heightConstraint])
     }
     
     func hideGraph() {
         graphHostingView.hidden = true
         noGraphDataLabel.hidden = false
+        
+        heightConstraint.constant = invalidDataHeight
+        NSLayoutConstraint.activateConstraints([heightConstraint])
     }
     
     func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {

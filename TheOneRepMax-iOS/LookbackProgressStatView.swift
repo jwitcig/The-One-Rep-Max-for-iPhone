@@ -32,8 +32,17 @@ class LookbackProgressStatView: SimpleStatStackView {
         titleLabel.text = "Last \(dayLookback) Days"
         detailLabel.text = "--- lbs."
         
-        
         if let lookbackProgress = stats.dayLookback(numberOfDays: dayLookback) {
+            
+            let lookbackDate = NSDate().dateByAddingTimeInterval(Double(-dayLookback*24*60*60))
+            
+            
+            if let estimatedMax = stats.estimatedMax(targetDate: lookbackDate),
+                let currentEntry = stats.currentEntry {
+                
+                print(stats.percentageIncrease(firstValue: estimatedMax, secondValue: currentEntry.max.integerValue))
+                
+            }
             
             detailLabel.text = "\(Int(lookbackProgress)) lbs."
         }

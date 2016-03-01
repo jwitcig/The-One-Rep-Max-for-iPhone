@@ -18,6 +18,7 @@
 		8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B30392C1BAF2A2E003F823C /* QuartzCore.framework */; };
 		8B3B27821BED1814002CCD74 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B3B27811BED1814002CCD74 /* CorePlot.framework */; };
 		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; };
+		8B495E901C854B3000221F62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B495E8F1C854B3000221F62 /* ChartsViewController.swift */; };
 		8B5639261B48F164002E9A49 /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5639251B48F164002E9A49 /* SetupViewController.swift */; };
 		8B56392B1B48FB2D002E9A49 /* SetupOptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */; };
 		8B569BB01C2322810052BAEC /* LiftEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B569BAF1C2322810052BAEC /* LiftEntryTableViewCell.swift */; };
@@ -66,6 +67,7 @@
 		8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */; };
 		8BD936A81C6A7F0B00615A12 /* CurrentMaxStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */; };
 		8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */; };
+		8BDB81031C856357007B0598 /* IncreaseIndicatorStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB81021C856357007B0598 /* IncreaseIndicatorStatView.swift */; };
 		8BDC400E1C698A1F003F177D /* DataViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */; };
 		8BDD08A31BD149A800AD2D44 /* ORMKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */; };
 		8BDF96EA1C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */; };
@@ -255,6 +257,7 @@
 		8B30392C1BAF2A2E003F823C /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		8B3B27811BED1814002CCD74 /* CorePlot.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug/CorePlot.framework"; sourceTree = "<absolute>"; };
 		8B4607201BAF0D4600E953D7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8B495E8F1C854B3000221F62 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		8B5639251B48F164002E9A49 /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		8B56392A1B48FB2D002E9A49 /* SetupOptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupOptionView.swift; sourceTree = "<group>"; };
 		8B569BA71C2311440052BAEC /* CorePlot_iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CorePlot_iOS.framework; path = "/Users/developer/Documents/Projects/core-plot/framework/../build/Debug-iphoneos/CorePlot_iOS.framework"; sourceTree = "<absolute>"; };
@@ -315,6 +318,7 @@
 		8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStatStackView.swift; sourceTree = "<group>"; };
 		8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMaxStatView.swift; sourceTree = "<group>"; };
 		8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObjects.swift; sourceTree = "<group>"; };
+		8BDB81021C856357007B0598 /* IncreaseIndicatorStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncreaseIndicatorStatView.swift; sourceTree = "<group>"; };
 		8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewerViewController.swift; sourceTree = "<group>"; };
 		8BDD08941BD149A800AD2D44 /* ORMKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ORMKit.h; sourceTree = "<group>"; };
 		8BDD08961BD149A800AD2D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -598,6 +602,7 @@
 				8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */,
 				8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */,
 				8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */,
+				8BDB81021C856357007B0598 /* IncreaseIndicatorStatView.swift */,
 			);
 			name = "Stat Panels";
 			sourceTree = "<group>";
@@ -643,6 +648,7 @@
 			isa = PBXGroup;
 			children = (
 				8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */,
+				8B495E8F1C854B3000221F62 /* ChartsViewController.swift */,
 				8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */,
 				8BD936951C6A7D2F00615A12 /* Stat Panels */,
 			);
@@ -1128,7 +1134,9 @@
 				8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */,
 				8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */,
 				8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */,
+				8BDB81031C856357007B0598 /* IncreaseIndicatorStatView.swift in Sources */,
 				8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */,
+				8B495E901C854B3000221F62 /* ChartsViewController.swift in Sources */,
 				8BD936A81C6A7F0B00615A12 /* CurrentMaxStatView.swift in Sources */,
 				8B5815621C265C6900F3A151 /* ORMControlsViewController.swift in Sources */,
 				8BDC400E1C698A1F003F177D /* DataViewerViewController.swift in Sources */,

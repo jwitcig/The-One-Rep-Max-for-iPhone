@@ -14,11 +14,6 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
     
     var dataViewerViewController: DataViewerViewController!
     
-    @IBOutlet weak var simpleHistoryGraphViewControllerContainer: UIView!
-    @IBOutlet weak var simpleHistoryGraphViewControllerContainerHeightConstraint: NSLayoutConstraint!
-    
-    var simpleHistoryGraphViewController: SimpleHistoryGraphViewController!
-    
     @IBOutlet weak var mainStackView: UIStackView!
     
     var statListItemsCollection: [StatListItem] = []
@@ -44,13 +39,27 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         super.viewDidLoad()
 
         enableTransparentBackground()
+
+        // Add spacer view to top and bottom of the stackview
+        mainStackView.addArrangedSubview(UIView())
+        mainStackView.addArrangedSubview(UIView())
+        
         
         let specificLiftFirstRow = StatPanelRow()
         let specificLiftSecondRow = StatPanelRow()
         let specificLiftThirdRow = StatPanelRow()
+        let specificLiftFourthRow = StatPanelRow()
         specificLiftFirstRow.progressItemType = .SpecificLift
         specificLiftSecondRow.progressItemType = .SpecificLift
         specificLiftThirdRow.progressItemType = .SpecificLift
+        specificLiftFourthRow.progressItemType = .SpecificLift
+        
+        var specificLiftRows = [StatPanelRow]()
+        for _ in 0..<4 {
+            let row = StatPanelRow()
+            row.progressItemType = .SpecificLift
+            specificLiftRows.append(row)
+        }
         
         
         let currentMaxStatPanel = CurrentMaxStatView(stats: session.soloStats)
@@ -60,16 +69,20 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         
         let averageWeeklyProgress = AverageIntervalRangeProgressStatView(stats: session.soloStats, interval: 7)
         
-        specificLiftFirstRow.addArrangedSubview(currentMaxStatPanel)
-        specificLiftFirstRow.addArrangedSubview(createSeparator(orientation: .Vertical) as! UIView)
-        specificLiftFirstRow.addArrangedSubview(sinceLastEntryStatPanel)
+        let increaseIndicatorStatPanel = IncreaseIndicatorStatView(stats: session.soloStats)
         
-        specificLiftSecondRow.addArrangedSubview(recentLookbackStatPanel)
-        specificLiftSecondRow.addArrangedSubview(createSeparator(orientation: .Vertical) as! UIView)
-        specificLiftSecondRow.addArrangedSubview(threeMonthLookbackStatPanel)
+        specificLiftRows[0].addArrangedSubview(sinceLastEntryStatPanel)
+
         
-        specificLiftThirdRow.addArrangedSubview(averageWeeklyProgress)
+        specificLiftRows[1].addArrangedSubview(currentMaxStatPanel)
+        specificLiftRows[1].addArrangedSubview(createSeparator(orientation: .Vertical) as! UIView)
+        specificLiftRows[1].addArrangedSubview(increaseIndicatorStatPanel)
         
+        specificLiftRows[2].addArrangedSubview(recentLookbackStatPanel)
+        specificLiftRows[2].addArrangedSubview(createSeparator(orientation: .Vertical) as! UIView)
+        specificLiftRows[2].addArrangedSubview(threeMonthLookbackStatPanel)
+        
+        specificLiftRows[3].addArrangedSubview(averageWeeklyProgress)
         
         
         let allLiftsFirstRow = StatPanelRow()
@@ -77,27 +90,39 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         let noLiftSelectedPanel = NoLiftSelectedStatView(stats: session.soloStats)
         
         allLiftsFirstRow.addArrangedSubview(noLiftSelectedPanel)
-        mainStackView.addArrangedSubview(allLiftsFirstRow)
 
-        updateRowsCollectionVisibility()
-        
-        let specificLiftRows = [specificLiftFirstRow, specificLiftSecondRow, specificLiftThirdRow]
-        
+
         let allLiftsRows = [allLiftsFirstRow]
             
         (specificLiftRows + allLiftsRows).forEach { registerStatPanelRow(panelRow: $0) }
+    
+        updateRowsCollectionVisibility()
     }
     
     func registerStatPanelRow(panelRow panelRow: StatPanelRow) {
-        var separator = createSeparator(orientation: .Horizontal)
-        separator.progressItemType = panelRow.progressItemType
-
-        statListItemsCollection.append(separator)
-        mainStackView.addArrangedSubview(separator as! UIView)
+        var needsSeparator = true
+        
+        switch panelRow.progressItemType {
+            
+        case .SpecificLift:
+            needsSeparator = statListItemsSpecificLift.count == 0 ? false : true
+            
+        case .AllLifts:
+            needsSeparator = statListItemsAllLifts.count == 0 ? false : true
+        }
+        
+        if needsSeparator {
+            var separator = createSeparator(orientation: .Horizontal)
+            separator.progressItemType = panelRow.progressItemType
+            
+            statListItemsCollection.append(separator)
+            
+            mainStackView.insertArrangedSubview(separator as! UIView, atIndex: mainStackView.arrangedSubviews.count-1)
+        }
         
         statListItemsCollection.append(panelRow)
 
-        mainStackView.addArrangedSubview(panelRow)
+        mainStackView.insertArrangedSubview(panelRow, atIndex: mainStackView.arrangedSubviews.count-1)
     }
     
     func updateRowsCollectionVisibility() {
@@ -114,10 +139,6 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         
         updateStatPanels()
         updateRowsCollectionVisibility()
-        
-        if liftEntries.count == 0 {
-            simpleHistoryGraphViewControllerContainerHeightConstraint.constant = 44
-        }
     }
     
     func updateStatPanels() {
@@ -144,18 +165,6 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         constraint.priority = 990
         NSLayoutConstraint.activateConstraints([constraint])
         return separator as StatListItem
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SimpleGraphSegue" {
-            guard let graphViewController = segue.destinationViewController as? SimpleHistoryGraphViewController else {
-                print("'SimpleGraphSegue' identifier used on ViewController class other than SimpleHistoryGraphViewController!")
-                return
-            }
-            simpleHistoryGraphViewController = graphViewController
-
-            dataViewerViewController.addDelegate(graphViewController)
-        }
     }
 
 }

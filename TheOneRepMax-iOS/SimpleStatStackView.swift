@@ -72,7 +72,6 @@ class SimpleStatStackView: UIStackView, StatPanel {
         
         addArrangedSubview(titleLabel)
         addArrangedSubview(detailLabel)
-        
     }
 
     required init?(coder aDecoder: NSCoder) {
