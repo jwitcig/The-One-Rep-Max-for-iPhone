@@ -32,6 +32,13 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         
         // Corrects offset for container views' content
         self.edgesForExtendedLayout = .None
+        
+        let (templates, response) = localData.fetchAll(model: ORLiftTemplate.self)
+        guard response.success else { return }
+        
+        filterViewController?.selectedLiftTemplate = templates[safe: 0]
+        
+        presentFilterViewController()
     }
     
     override func viewWillAppear(animated: Bool) {

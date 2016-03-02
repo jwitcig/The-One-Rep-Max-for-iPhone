@@ -52,6 +52,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         newGraph.backgroundColor = UIColor.clearColor().CGColor
 
         newGraph.title = "Last 90 Days"
+        newGraph.titleDisplacement = CGPoint(x: 0, y: 25)
         let titleStyle = CPTMutableTextStyle()
         titleStyle.color = CPTColor.whiteColor()
         titleStyle.fontSize = 25
@@ -64,7 +65,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         // Paddings
         newGraph.paddingLeft   = 0
         newGraph.paddingRight  = 0
-        newGraph.paddingTop    = 0
+        newGraph.paddingTop    = newGraph.titleDisplacement.y
         newGraph.paddingBottom = 0
         
         // Plot space

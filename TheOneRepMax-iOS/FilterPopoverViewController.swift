@@ -21,10 +21,19 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     var dataViewerViewController: DataViewerViewController!
     
     var selectedLiftTemplate: ORLiftTemplate? {
-        guard let row = liftTemplatesTableView.indexPathForSelectedRow?.row else {
-            return nil
+        get {
+            guard let row = liftTemplatesTableView?.indexPathForSelectedRow?.row else {
+                return nil
+            }
+            return liftTemplates[row]
         }
-        return liftTemplates[row]
+        
+        set {
+            guard let template = newValue,
+                  let index = liftTemplates.indexOf(template) else { return }
+            
+            liftTemplatesTableView.selectRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0), animated: false, scrollPosition: .Middle)
+        }
     }
     
     override func viewDidLoad() {
