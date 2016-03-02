@@ -55,6 +55,7 @@
 		8BA5209F1B45125C005E0FF0 /* MessagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA5209E1B45125C005E0FF0 /* MessagesViewController.swift */; };
 		8BA520A11B4517F2005E0FF0 /* MessagesListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA520A01B4517F2005E0FF0 /* MessagesListItem.swift */; };
 		8BBE04621BBC3EB300EE7D70 /* App Icons in Resources */ = {isa = PBXBuildFile; fileRef = 8BBE04611BBC3EB300EE7D70 /* App Icons */; };
+		8BC15EE11C87B1B100EB6041 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BC15EE01C87B1B100EB6041 /* CloudKit.framework */; };
 		8BC4AB2D1B40F9C20010510E /* HistoryTemplateOptionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */; };
 		8BC9DC971B41235B00BDA199 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9DC961B41235B00BDA199 /* BackgroundView.swift */; };
 		8BC9DC991B4123F300BDA199 /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */; };
@@ -306,6 +307,7 @@
 		8BA5209E1B45125C005E0FF0 /* MessagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesViewController.swift; sourceTree = "<group>"; };
 		8BA520A01B4517F2005E0FF0 /* MessagesListItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesListItem.swift; sourceTree = "<group>"; };
 		8BBE04611BBC3EB300EE7D70 /* App Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "App Icons"; sourceTree = "<group>"; };
+		8BC15EE01C87B1B100EB6041 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.2.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		8BC4AB2C1B40F9C20010510E /* HistoryTemplateOptionButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTemplateOptionButton.swift; sourceTree = "<group>"; };
 		8BC9DC961B41235B00BDA199 /* BackgroundView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
 		8BC9DC981B4123F300BDA199 /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BC15EE11C87B1B100EB6041 /* CloudKit.framework in Frameworks */,
 				8B8D44381C68FF7400BADB4C /* Accelerate.framework in Frameworks */,
 				8B70B7B31C57EACD0090EFAF /* ORMKitiOS.framework in Frameworks */,
 				8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */,
@@ -408,6 +411,7 @@
 		0A18E43CBDE524072F87162C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8BC15EE01C87B1B100EB6041 /* CloudKit.framework */,
 				8B8D44371C68FF7400BADB4C /* Accelerate.framework */,
 				8B8D44131C68FE9400BADB4C /* CorePlot.framework */,
 				8B8D44111C68FC6600BADB4C /* CorePlot_iOS.framework */,
@@ -918,7 +922,7 @@
 						DevelopmentTeam = 349WFX4WJR;
 						SystemCapabilities = {
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};
@@ -1302,6 +1306,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "TheOneRepMax-iOS/TheOneRepMax-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
@@ -1329,8 +1334,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "TheOneRepMax-iOS/TheOneRepMax-iOS.entitlements";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_BITCODE = YES;

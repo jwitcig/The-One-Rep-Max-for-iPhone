@@ -7,7 +7,9 @@
 //
 
 import UIKit
+import CloudKit
 import CoreData
+
 import ORMKitiOS
 
 let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
@@ -51,9 +53,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func setupDataKit() {
         let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
         let context = appDelegate.managedObjectContext
+        let container = CKContainer.defaultContainer()
         let session = ORSession.currentSession
 
-        let dataManager = ORDataManager(localDataContext: context)
+        let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: container.publicCloudDatabase)
         
         
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
@@ -104,7 +107,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
-            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)
+            let options = [NSMigratePersistentStoresAutomaticallyOption: true,
+            NSInferMappingModelAutomaticallyOption: true]
+            
+            try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()
