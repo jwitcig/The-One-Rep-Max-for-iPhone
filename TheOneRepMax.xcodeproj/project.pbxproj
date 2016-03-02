@@ -591,6 +591,14 @@
 			name = History;
 			sourceTree = "<group>";
 		};
+		8BCBBB9A1C869D9E00B8F08C /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */,
+			);
+			name = Charts;
+			sourceTree = "<group>";
+		};
 		8BD936951C6A7D2F00615A12 /* Stat Panels */ = {
 			isa = PBXGroup;
 			children = (
@@ -649,8 +657,8 @@
 			children = (
 				8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */,
 				8B495E8F1C854B3000221F62 /* ChartsViewController.swift */,
-				8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */,
 				8BD936951C6A7D2F00615A12 /* Stat Panels */,
+				8BCBBB9A1C869D9E00B8F08C /* Charts */,
 			);
 			name = Progress/Stats;
 			sourceTree = "<group>";
