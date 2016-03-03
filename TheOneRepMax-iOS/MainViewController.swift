@@ -22,9 +22,9 @@ class MainViewController: UIViewController {
             print("no user")
             
             let athlete = ORAthlete.athlete()
-            athlete.firstName = "Jonah"
-            athlete.lastName = "Witcig"
-            athlete.username = "jwitcig"
+            athlete.firstName = "suh dude"
+            athlete.lastName = "nuttin"
+            athlete.username = athlete.fullName
             
             ORSession.currentSession.localData.save()
             ORAthlete.setCurrentAthlete(athlete)
@@ -35,7 +35,6 @@ class MainViewController: UIViewController {
         runOnMainThread {
             self.performSegueWithIdentifier("LoginSegue", sender: self)
         }
-        
         
     }
     

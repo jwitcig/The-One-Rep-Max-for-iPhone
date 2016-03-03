@@ -53,13 +53,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func setupDataKit() {
         let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
         let context = appDelegate.managedObjectContext
-        let container = CKContainer.defaultContainer()
+        let container = CKContainer(identifier: "iCloud.com.jwitapps.TORM")
         let session = ORSession.currentSession
+        
+        
+        print(container.containerIdentifier)
 
         let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: container.publicCloudDatabase)
         
         
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
+        ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
     }
 
     func applicationWillResignActive(application: UIApplication) {
