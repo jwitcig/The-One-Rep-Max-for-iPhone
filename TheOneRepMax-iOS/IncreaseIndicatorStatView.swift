@@ -39,7 +39,7 @@ class IncreaseIndicatorStatView: SimpleStatStackView {
             let olderEntry = recentEntries[1]
             
             if latestEntry.max.integerValue > olderEntry.max.integerValue {
-                indicatorView.symbol = .X
+                indicatorView.symbol = .Check
             } else if latestEntry.max.integerValue < olderEntry.max.integerValue {
                 indicatorView.symbol = .X
             }

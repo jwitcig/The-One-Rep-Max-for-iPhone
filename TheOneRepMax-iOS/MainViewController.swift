@@ -14,10 +14,11 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ORSession.currentSession.initDefaultData()
+        let session = ORSession.currentSession
         
-        let (success, _) = ORSession.currentSession.signInLocally()
-
+        
+        let (success, _) = session.signInLocally()
+        
         if !success {
             print("no user")
             
@@ -26,11 +27,12 @@ class MainViewController: UIViewController {
             athlete.lastName = "nuttin"
             athlete.username = athlete.fullName
             
-            ORSession.currentSession.localData.save()
+            session.localData.save()
             ORAthlete.setCurrentAthlete(athlete)
         }
-    
-        ORSession.currentSession.soloStats = ORSoloStats(athlete: ORSession.currentSession.currentAthlete!)
+        
+        session.soloStats = ORSoloStats(athlete: session.currentAthlete!)
+        
         
         runOnMainThread {
             self.performSegueWithIdentifier("LoginSegue", sender: self)

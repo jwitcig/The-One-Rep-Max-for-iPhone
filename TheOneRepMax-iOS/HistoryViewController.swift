@@ -39,7 +39,23 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     
     func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
         
-        self.liftEntries = liftEntries.sort { !$0.date.isBefore(date: $1.date) }
+        self.liftEntries = liftEntries.sortedByReverseDate
+        
+        updateLiftEntriesList()
+    }
+    
+    func updateLiftEntriesList() {
+        entriesTableView.reloadData()
+    }
+    
+    override func dataWasChanged() {
+        super.dataWasChanged()
+        
+        let (entries, response) = localData.fetchLiftEntries(athlete: session.currentAthlete!)
+        
+        guard response.success else { return }
+        
+        liftEntries = entries
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -111,7 +127,6 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         case self.entriesTableView:
 //            let labelFontSize = cell.textLabel?.font.pointSize ?? 12
             let labelFontSize = 18 as CGFloat
-
             
             let centerLabel = UILabel()
             cell.contentView.addSubview(centerLabel)

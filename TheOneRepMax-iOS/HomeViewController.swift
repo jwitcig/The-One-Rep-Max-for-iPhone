@@ -136,6 +136,12 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         updateORMDisplay(oneRepMax: oneRepMax)
         
         populateRecentMaxStackView()
+        
+        session.cloudData.syncronizeDataToLocalStore {
+            
+            print($0.success)
+            
+        }
     }
     
     func populateRecentMaxStackView() {
@@ -169,7 +175,6 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         }
         
         for entry in latestEntries {
-
             let recentEntry = RecentLiftEntry(entry: entry, target: self, selector: Selector("recentMaxPressed:"))
             
             recentEntryData[recentEntry.stackView] = recentEntry
@@ -270,6 +275,14 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
         controlScrollView.contentOffset = controlSwitcherScrollView.contentOffset
+    }
+    
+    override func dataWasChanged() {
+        super.dataWasChanged()
+        
+        print("data changed")
+        
+        populateRecentMaxStackView()
     }
     
 }

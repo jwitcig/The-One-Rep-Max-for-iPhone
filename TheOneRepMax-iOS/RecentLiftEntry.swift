@@ -25,7 +25,6 @@ class RecentLiftEntry {
         self.target = target
         self.selector = selector
         
-
         let liftLabel = UILabel()
         liftLabel.text = entry.liftTemplate.liftName
         liftLabel.textAlignment = .Center

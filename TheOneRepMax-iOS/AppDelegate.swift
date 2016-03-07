@@ -56,7 +56,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let container = CKContainer(identifier: "iCloud.com.jwitapps.TORM")
         let session = ORSession.currentSession
         
-        
         print(container.containerIdentifier)
 
         let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: container.publicCloudDatabase)
@@ -64,6 +63,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
         ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
+        
+
     }
 
     func applicationWillResignActive(application: UIApplication) {

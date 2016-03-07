@@ -9,7 +9,7 @@
 import UIKit
 import ORMKitiOS
 
-public class ORViewController: UIViewController {
+public class ORViewController: UIViewController, ORUserDataChangeDelegate {
 
     var session: ORSession!
     var localData: ORLocalData!
@@ -23,6 +23,8 @@ public class ORViewController: UIViewController {
         self.session.currentViewController = self
 
         self.localData = session.localData
+        
+        session.addUserDataChangeDelegate(self)
         
         let image = UIImage(named: "BackgroundBlur")
         if let backgroundImage = image {
@@ -51,5 +53,7 @@ public class ORViewController: UIViewController {
             self.view.insertSubview(backgroundImageView, atIndex: 0)
         }
     }
+    
+    public func dataWasChanged() { }
     
 }
