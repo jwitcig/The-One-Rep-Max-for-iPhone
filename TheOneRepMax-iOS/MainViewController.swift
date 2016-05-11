@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ORMKitiOS
+
 
 class MainViewController: UIViewController {
 
@@ -16,18 +16,18 @@ class MainViewController: UIViewController {
         
         let session = ORSession.currentSession
         
-        
         let (success, _) = session.signInLocally()
         
         if !success {
             print("no user")
             
-            let athlete = ORAthlete.athlete()
+            let athlete = ORAthlete()
             athlete.firstName = "suh dude"
             athlete.lastName = "nuttin"
             athlete.username = athlete.fullName
             
-            session.localData.save()
+            athlete.save()
+            
             ORAthlete.setCurrentAthlete(athlete)
         }
         

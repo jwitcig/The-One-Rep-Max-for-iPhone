@@ -8,8 +8,6 @@
 
 import UIKit
 
-import ORMKitiOS
-
 class LookbackProgressStatView: SimpleStatStackView {
     
     var dayLookback: Int = 0

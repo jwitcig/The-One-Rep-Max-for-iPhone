@@ -8,7 +8,8 @@
 
 import UIKit
 
-import ORMKitiOS
+
+import SwiftTools
 
 class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -39,7 +40,8 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        var (templates, _) = localData.fetchAll(model: ORLiftTemplate.self)
+        var templates = ORModel.all(entityType: ORLiftTemplate.self)
+
         templates.sortInPlace {
             $0.liftName.isBefore(string: $1.liftName)
         }

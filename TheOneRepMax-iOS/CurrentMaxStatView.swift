@@ -8,7 +8,7 @@
 
 import UIKit
 
-import ORMKitiOS
+
 
 class CurrentMaxStatView: SimpleStatStackView {
 
@@ -28,8 +28,10 @@ class CurrentMaxStatView: SimpleStatStackView {
         titleLabel.text = "Current Max"
         detailLabel.text = "--- lbs."
         
-        if let latestEntry = stats.entries().sortedByReverseDate.first {
-            detailLabel.text = "\(latestEntry.max.integerValue) lbs."
+        let sortedEntries = stats.entries(chronologicalOrder: true)
+        
+        if let latestEntry = sortedEntries.first {
+            detailLabel.text = "\(latestEntry.max) lbs."
         }
     }
     

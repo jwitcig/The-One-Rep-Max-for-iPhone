@@ -8,7 +8,7 @@
 
 import UIKit
 
-import ORMKitiOS
+
 
 protocol OneRepMaxDelegate {
     func oneRepMaxDidChange(oneRepMax: Int, weightLifted: Int, reps: Int)
@@ -53,7 +53,7 @@ class ORMControlsViewController: UIViewController, UITextFieldDelegate {
     }
     
     var oneRepMax: Int {
-        return ORLiftEntry.oneRepMax(weightLifted: Float(weightLifted), reps: Float(reps)).integerValue
+        return ORLiftEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
     }
     
     override func viewDidLoad() {

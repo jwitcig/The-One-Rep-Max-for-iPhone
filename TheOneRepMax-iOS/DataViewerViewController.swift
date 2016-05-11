@@ -6,9 +6,9 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
-import UIKit
+import CoreData
 
-import ORMKitiOS
+import SwiftTools
 
 protocol DataViewerDelegate {
     
@@ -33,8 +33,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         // Corrects offset for container views' content
         self.edgesForExtendedLayout = .None
         
-        let (templates, response) = localData.fetchAll(model: ORLiftTemplate.self)
-        guard response.success else { return }
+        let templates = ORModel.all(entityType: ORLiftTemplate.self)
         
         filterViewController?.selectedLiftTemplate = templates[safe: 0]
         
@@ -64,10 +63,29 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
             return
         }
         
-        let (entries, response) = localData.fetchLiftEntries(athlete: athlete, template: liftTemplate, options: nil)
+        let context = NSManagedObjectContext.contextForCurrentThread()
         
-        guard response.success else {
-            print("Error in fetching ORLiftEntrys")
+        let fetchRequest = NSFetchRequest(entityName: ORLiftEntry.entityName)
+        
+        let athletePredicate = NSPredicate(key: "athlete", comparator: .Equals, value: athlete.localRecord)
+        
+        var compoundPredicate: NSCompoundPredicate?
+        if let template = liftTemplate {
+            let liftTemplatePredicate = NSPredicate(key: "liftTemplate", comparator: .Equals, value: template.localRecord)
+            
+            compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [athletePredicate, liftTemplatePredicate])
+        }
+        
+        fetchRequest.predicate = compoundPredicate ?? athletePredicate
+        
+        var liftEntries: [ORLiftEntry]?
+        do {
+            liftEntries = try context.executeFetchRequest(fetchRequest) as? [ORLiftEntry]
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        guard let entries = liftEntries else {
             return
         }
         

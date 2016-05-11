@@ -7,10 +7,7 @@
 //
 
 import UIKit
-import CloudKit
 import CoreData
-
-import ORMKitiOS
 
 let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
 let userInitiatedThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
@@ -37,12 +34,12 @@ enum OneRepMaxNotificationType {
         case OneRepMaxDidChange
     }
 }
-
+ 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         self.setupDataKit()
@@ -52,21 +49,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func setupDataKit() {
         let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
-        let context = appDelegate.managedObjectContext
-        let container = CKContainer(identifier: "iCloud.com.jwitapps.TORM")
-        let session = ORSession.currentSession
-        
-        print(container.containerIdentifier)
-
-        let dataManager = ORDataManager(localDataContext: context, cloudContainer: container, cloudDatabase: container.publicCloudDatabase)
-        
-        
-        ORSession.currentSession.localData = ORLocalData(session: session, dataManager: dataManager)
-        ORSession.currentSession.cloudData = ORCloudData(session: session, dataManager: dataManager)
-        
-
+        NSManagedObjectContext.setMainThreadContext(appDelegate.managedObjectContext)
     }
-
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        print("received remote notification")
+    }
+    
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
@@ -116,6 +105,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             NSInferMappingModelAutomaticallyOption: true]
             
             try coordinator.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: options)
+
         } catch {
             // Report any error we got.
             var dict = [String: AnyObject]()

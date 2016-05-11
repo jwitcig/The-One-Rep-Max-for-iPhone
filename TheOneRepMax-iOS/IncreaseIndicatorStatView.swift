@@ -8,7 +8,7 @@
 
 import UIKit
 
-import ORMKitiOS
+
 
 class IncreaseIndicatorStatView: SimpleStatStackView {
     
@@ -33,14 +33,15 @@ class IncreaseIndicatorStatView: SimpleStatStackView {
         
         titleLabel.text = "Progressing?"
         
-        if let recentEntries = stats.entries().sortedByReverseDate[safe: 0...1] {
+        let sortedEntries = stats.entries(chronologicalOrder: false)
+        if let recentEntries = sortedEntries[safe: 0...1] {
             
             let latestEntry = recentEntries[0]
             let olderEntry = recentEntries[1]
             
-            if latestEntry.max.integerValue > olderEntry.max.integerValue {
+            if latestEntry.max > olderEntry.max {
                 indicatorView.symbol = .Check
-            } else if latestEntry.max.integerValue < olderEntry.max.integerValue {
+            } else if latestEntry.max < olderEntry.max {
                 indicatorView.symbol = .X
             }
             

@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ORMKitiOS
+@testable 
 
 class ORMKitTests: XCTestCase {
     

@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ORMKitiOS
+
 import CoreData
 
 class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelegate, UIScrollViewDelegate {
@@ -77,7 +77,6 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
             heightConstraint
         ])
         
-        
         contentStackView.addArrangedSubview(saveToolbar)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -137,19 +136,26 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         
         populateRecentMaxStackView()
         
-        session.cloudData.syncronizeDataToLocalStore {
-            
-            print($0.success)
-            
-        }
+//        session.cloudData.syncronizeDataToLocalStore {
+//            print($0.success)
+//        }
     }
     
     func populateRecentMaxStackView() {
         recentMaxStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
-        let (templates, response) = session.localData.fetchAll(model: ORLiftTemplate.self)
+        let context = NSManagedObjectContext.contextForCurrentThread()
         
-        guard response.success else { print("Error fetching LiftTemplates: \(response.error)"); return }
+        let fetchRequest = NSFetchRequest(entityName: ORLiftTemplate.entityName)
+        
+        var liftTemplates = [ORLiftTemplate]()
+        do {
+            var managedObjects = try context.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+            
+            liftTemplates = managedObjects.map { ORLiftTemplate(managedObject: $0) }
+        } catch let error as NSError {
+            print(error)
+        }
         
         var latestEntries = [ORLiftEntry]()
         
@@ -161,21 +167,26 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
             }
         }
         
-        for template in templates {
-            let predicate = NSPredicate(key: ORLiftEntry.Fields.liftTemplate.rawValue, comparator: .Equals, value: template)
-            let options = ORDataOperationOptions()
-            options.fetchLimit = 1
+        for liftTemplate in liftTemplates {
+            let fetchRequest = NSFetchRequest(entityName: ORLiftEntry.entityName)
+            fetchRequest.predicate = NSPredicate(key: ORLiftEntry.Fields.liftTemplate.rawValue, comparator: .Equals, value: liftTemplate)
+            fetchRequest.fetchLimit = 1
             
-            let (entries, response) = session.localData.fetchObjects(model: ORLiftEntry.self, predicates: [predicate], options: options)
+            var liftEntries = [ORLiftEntry]()
+            do {
+                let managedObjects = try context.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+                
+                liftEntries = managedObjects.map { ORLiftEntry(managedObject: $0) }
+            } catch let error as NSError {
+                print(error)
+            }
             
-            guard response.success else { print("Error fetching LiftEntry: \(response.error)"); return }
-            
-            guard let latestEntry = entries.last else { continue }
+            guard let latestEntry = liftEntries.last else { continue }
             latestEntries.append(latestEntry)
         }
         
         for entry in latestEntries {
-            let recentEntry = RecentLiftEntry(entry: entry, target: self, selector: Selector("recentMaxPressed:"))
+            let recentEntry = RecentLiftEntry(entry: entry, target: self, selector: #selector(HomeViewController.recentMaxPressed(_:)))
             
             recentEntryData[recentEntry.stackView] = recentEntry
             
@@ -189,8 +200,8 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         
         guard let recentEntryStackView = recentEntryData[pressedStackView] else { return }
         
-        ormControlsViewController.weightLifted = recentEntryStackView.entry.weightLifted.integerValue
-        ormControlsViewController.reps = recentEntryStackView.entry.reps.integerValue
+        ormControlsViewController.weightLifted = recentEntryStackView.entry.weightLifted
+        ormControlsViewController.reps = recentEntryStackView.entry.reps
     }
     
     func updateSaveButtonStatus(oneRepMax: Int) {

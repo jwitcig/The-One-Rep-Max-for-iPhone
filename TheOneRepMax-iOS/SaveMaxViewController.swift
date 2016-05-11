@@ -6,9 +6,9 @@
 //  Copyright © 2015 JwitApps. All rights reserved.
 //
 
-import UIKit
-import ORMKitiOS
 import CoreData
+
+import SwiftTools
 
 class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     
@@ -33,11 +33,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         
         self.updateLabels()
         
-        let context = NSManagedObjectContext.contextForCurrentThread()
-        
-        var (templates, response) = session.localData.fetchAll(model: ORLiftTemplate.self, context: context)
-        
-        guard response.success else { print("An error occured in fetching LiftTemplates: \(response.error)"); return }
+        var templates = ORModel.all(entityType: ORLiftTemplate.self)
         
         templates.sortInPlace {
             $0.liftName.isBefore(string: $1.liftName)
@@ -48,7 +44,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func updateLabels() {
-        let max = ORLiftEntry.oneRepMax(weightLifted: Float(weightLifted), reps: Float(reps))
+        let max = ORLiftEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
         self.maxLabel.text = "\(max) lbs."
         
         if reps == 1 {
@@ -66,19 +62,16 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         scrollToOptionPage(0)
     }
 
-    @IBAction func saveMaxPressed(button: UIBarButtonItem) {
-        let context = NSManagedObjectContext.contextForCurrentThread()
-        
-        let entry = ORLiftEntry.entry(context: context)
+    @IBAction func saveMaxPressed(button: UIBarButtonItem) {        
+        let entry = ORLiftEntry()
         entry.weightLifted = self.weightLifted
         entry.reps = self.reps
         entry.athlete = session.currentAthlete!
         entry.liftTemplate = self.selectedTemplate
         entry.maxOut = true
         entry.date = datePicker.date
-        let saveResponse = localData.save(context: context)
         
-        guard saveResponse.success else { return }
+        guard entry.save() else { return }
         
         navigationController?.popViewControllerAnimated(true)
     }

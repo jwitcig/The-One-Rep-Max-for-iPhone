@@ -7,7 +7,7 @@
 
 import UIKit
 
-import ORMKitiOS
+
 
 class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, DataViewerDelegate {
     
@@ -73,8 +73,8 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         
         plotSpace.allowsUserInteraction = true
         
-        let min = entries.map { $0.max.integerValue }.minElement { $0 < $1 }
-        let max = entries.map { $0.max.integerValue }.maxElement { $0 < $1 }
+        let min = entries.map { $0.max }.minElement { $0 < $1 }
+        let max = entries.map { $0.max }.maxElement { $0 < $1 }
         
         guard let lowestMax = min, let highestMax = max else  { return }
         
@@ -227,7 +227,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
             return
         }
         
-        let sortedEntries = liftEntries.sortedByReverseDate
+        let sortedEntries = liftEntries.sort { !$0.0.date.isBefore(date: $0.1.date) }
         
         requestGraphUpdate(entries: sortedEntries)
     }

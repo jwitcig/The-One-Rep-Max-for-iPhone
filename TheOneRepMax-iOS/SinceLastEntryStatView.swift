@@ -8,7 +8,7 @@
 
 import UIKit
 
-import ORMKitiOS
+
 
 class SinceLastEntryStatView: SimpleStatStackView {
 

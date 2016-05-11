@@ -8,8 +8,6 @@
 
 import UIKit
 
-import ORMKitiOS
-
 class ProgressViewController: ORViewController, DataViewerDelegate {
     
     var dataViewerViewController: DataViewerViewController!
@@ -60,7 +58,6 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
             row.progressItemType = .SpecificLift
             specificLiftRows.append(row)
         }
-        
         
         let currentMaxStatPanel = CurrentMaxStatView(stats: session.soloStats)
         let sinceLastEntryStatPanel = SinceLastEntryStatView(stats: session.soloStats)

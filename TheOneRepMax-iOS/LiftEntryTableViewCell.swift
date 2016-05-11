@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ORMKitiOS
+
 
 class LiftEntryTableViewCell: UITableViewCell {
     

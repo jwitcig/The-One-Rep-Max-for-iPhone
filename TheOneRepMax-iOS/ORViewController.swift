@@ -7,12 +7,10 @@
 //
 
 import UIKit
-import ORMKitiOS
 
 public class ORViewController: UIViewController, ORUserDataChangeDelegate {
 
     var session: ORSession!
-    var localData: ORLocalData!
     
     let backgroundImageView = UIImageView()
     
@@ -21,8 +19,6 @@ public class ORViewController: UIViewController, ORUserDataChangeDelegate {
         
         self.session = ORSession.currentSession
         self.session.currentViewController = self
-
-        self.localData = session.localData
         
         session.addUserDataChangeDelegate(self)
         

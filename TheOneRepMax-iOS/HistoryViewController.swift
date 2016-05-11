@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import ORMKitiOS
+
 import CoreData
 
 class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewDataSource, DataViewerDelegate {
@@ -39,7 +39,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     
     func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
         
-        self.liftEntries = liftEntries.sortedByReverseDate
+        self.liftEntries = liftEntries.sort { !$0.0.date.isBefore(date: $0.1.date) }
         
         updateLiftEntriesList()
     }
@@ -51,11 +51,22 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     override func dataWasChanged() {
         super.dataWasChanged()
         
-        let (entries, response) = localData.fetchLiftEntries(athlete: session.currentAthlete!)
+        let context = NSManagedObjectContext.contextForCurrentThread()
         
-        guard response.success else { return }
+        let fetchRequest = NSFetchRequest(entityName: ORLiftEntry.entityName)
         
-        liftEntries = entries
+        fetchRequest.predicate = NSPredicate(key: "athlete", comparator: .Equals, value: session.currentAthlete!.localRecord)
+        
+        var managedObjects: [NSManagedObject]?
+        do {
+            managedObjects = try context.executeFetchRequest(fetchRequest) as? [NSManagedObject]
+        } catch let error as NSError {
+            print(error)
+        }
+        
+        let entries = managedObjects?.map { ORLiftEntry(id: $0.valueForKey("id") as! String) }
+        
+        liftEntries = entries ?? []
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -143,16 +154,15 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
 
             cell.textLabel?.text = entryDateString
             
-            centerLabel.text = "\(cell.entry.max.intValue) lbs."
+            centerLabel.text = "\(cell.entry.max) lbs."
             centerLabel.sizeToFit()
             
-            cell.detailTextLabel?.text = "[\(cell.entry.weightLifted.integerValue) x \(cell.entry.reps.intValue)]"
+            cell.detailTextLabel?.text = "[\(cell.entry.weightLifted) x \(cell.entry.reps)]"
             cell.detailTextLabel?.textColor = UIColor.blackColor()
             
             cell.textLabel?.font = UIFont(name: "Avenir", size: labelFontSize)
             centerLabel.font = UIFont(name: "Avenir", size: labelFontSize)
             cell.detailTextLabel?.font = UIFont(name: "Avenir", size: labelFontSize)
-
             
         default:
             break
@@ -197,12 +207,12 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         dateFormatter.dateFormat = "M/d"
         let dateString = dateFormatter.stringFromDate(entry.date)
         
-        let deleteEntryViewController = UIAlertController(title: "Delete Entry?", message: "Are you sure you want to delete this entry: \(dateString) - [\(entry.weightLifted.intValue) x \(entry.reps.integerValue)]", preferredStyle: .Alert)
+        let deleteEntryViewController = UIAlertController(title: "Delete Entry?", message: "Are you sure you want to delete this entry: \(dateString) - [\(entry.weightLifted) x \(entry.reps)]", preferredStyle: .Alert)
         
         deleteEntryViewController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive) { (action) in
             
-            self.localData.delete(object: entry)
-            self.localData.save(context: entry.managedObjectContext)
+            entry.delete()
+            entry.save()
             
             self.entriesTableView.reloadData()
         })

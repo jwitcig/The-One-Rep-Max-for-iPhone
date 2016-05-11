@@ -8,7 +8,7 @@
 
 import UIKit
 
-import ORMKitiOS
+
 
 enum ProgressItemType {
     case AllLifts, SpecificLift

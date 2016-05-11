@@ -8,8 +8,6 @@
 
 import UIKit
 
-import ORMKitiOS
-
 class RecentLiftEntry {
     
     var entry: ORLiftEntry!
@@ -33,7 +31,7 @@ class RecentLiftEntry {
         liftLabel.font = UIFont(descriptor: fontDescriptor, size: 0)
         
         let maxLabel = UILabel()
-        maxLabel.text = entry.max.stringValue
+        maxLabel.text = "\(entry.max)"
         maxLabel.textAlignment = .Center
         
         stackView = UIStackView(arrangedSubviews: [liftLabel, maxLabel])
