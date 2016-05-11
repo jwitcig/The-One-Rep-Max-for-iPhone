@@ -80,6 +80,8 @@
 		8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */; };
 		8B8D440D1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
+		8B9CAB201CE2CB620023C10E /* ModelMapping.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CAB1F1CE2CB620023C10E /* ModelMapping.xcmappingmodel */; };
+		8B9CAB231CE2DB020023C10E /* TORM_1.2-1.3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CAB211CE2CE3F0023C10E /* TORM_1.2-1.3.swift */; };
 		8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */; };
 		8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */; };
 		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */; };
@@ -256,9 +258,12 @@
 		8B7405981B59CE44007F3258 /* OptionCustomInputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OptionCustomInputViewController.swift; sourceTree = "<group>"; };
 		8B787F1B1B7ADF27006BA4A9 /* ManagedAthleteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManagedAthleteView.swift; sourceTree = "<group>"; };
 		8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPopoverViewController.swift; sourceTree = "<group>"; };
+		8B836BCB1CE2C47900A06DFE /* TheOneRepMax_v1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v1.2.xcdatamodel; sourceTree = "<group>"; };
 		8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHistoryGraphViewController.swift; sourceTree = "<group>"; };
 		8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
+		8B9CAB1F1CE2CB620023C10E /* ModelMapping.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = ModelMapping.xcmappingmodel; sourceTree = "<group>"; };
+		8B9CAB211CE2CE3F0023C10E /* TORM_1.2-1.3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TORM_1.2-1.3.swift"; sourceTree = "<group>"; };
 		8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbackProgressStatView.swift; sourceTree = "<group>"; };
 		8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRow.swift; sourceTree = "<group>"; };
 		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatView.swift; sourceTree = "<group>"; };
@@ -378,6 +383,8 @@
 		8B1B12A11CE167CD00CDBE22 /* ORMKit */ = {
 			isa = PBXGroup;
 			children = (
+				8B9CAB1F1CE2CB620023C10E /* ModelMapping.xcmappingmodel */,
+				8B9CAB211CE2CE3F0023C10E /* TORM_1.2-1.3.swift */,
 				8B1B12EC1CE179BE00CDBE22 /* TheOneRepMax.xcdatamodeld */,
 				8B1B12E41CE1684700CDBE22 /* ORSession.swift */,
 				8B1B12E31CE1683800CDBE22 /* Data Stack */,
@@ -1057,6 +1064,7 @@
 				8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */,
 				8B1B12C71CE1681100CDBE22 /* ORAthlete.swift in Sources */,
 				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */,
+				8B9CAB231CE2DB020023C10E /* TORM_1.2-1.3.swift in Sources */,
 				8B1B12B51CE167FF00CDBE22 /* ORSoloStats.swift in Sources */,
 				8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */,
 				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
@@ -1135,6 +1143,7 @@
 				8B1B12D51CE1683100CDBE22 /* ORDataOperationOptions.swift in Sources */,
 				8B1B12D71CE1683100CDBE22 /* ORDataResponse.swift in Sources */,
 				8B73D6491B426E5200C21F7F /* NSLabel.swift in Sources */,
+				8B9CAB201CE2CB620023C10E /* ModelMapping.xcmappingmodel in Sources */,
 				8B62DC5A1B3E5A2500FE0539 /* AssociatedOrganizationListItem.swift in Sources */,
 				8BA5209F1B45125C005E0FF0 /* MessagesViewController.swift in Sources */,
 				8B7405991B59CE44007F3258 /* OptionCustomInputViewController.swift in Sources */,
@@ -1614,6 +1623,7 @@
 		8B1B12EC1CE179BE00CDBE22 /* TheOneRepMax.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				8B836BCB1CE2C47900A06DFE /* TheOneRepMax_v1.2.xcdatamodel */,
 				8B1B12FD1CE179DE00CDBE22 /* TheOneRepMax_v11.xcdatamodel */,
 				8B1B12ED1CE179BE00CDBE22 /* TheOneRepMax.xcdatamodel */,
 				8B1B12EE1CE179BE00CDBE22 /* TheOneRepMax_v10.xcdatamodel */,
@@ -1630,7 +1640,7 @@
 				8B1B12F91CE179BE00CDBE22 /* TheOneRepMax_v8.xcdatamodel */,
 				8B1B12FA1CE179BE00CDBE22 /* TheOneRepMax_v9.xcdatamodel */,
 			);
-			currentVersion = 8B1B12FD1CE179DE00CDBE22 /* TheOneRepMax_v11.xcdatamodel */;
+			currentVersion = 8B836BCB1CE2C47900A06DFE /* TheOneRepMax_v1.2.xcdatamodel */;
 			path = TheOneRepMax.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
