@@ -1,9 +1,0 @@
-[submodule "Carthage/Checkouts/Seam"]
-	path = Carthage/Checkouts/Seam
-	url = https://github.com/jwitcig/Seam.git
-[submodule "Carthage/Checkouts/SwiftTools"]
-	path = Carthage/Checkouts/SwiftTools
-	url = https://github.com/jwitcig/SwiftTools.git
-[submodule "Carthage/Checkouts/SkyData"]
-	path = Carthage/Checkouts/SkyData
-	url = https://github.com/jwitcig/SkyData.git

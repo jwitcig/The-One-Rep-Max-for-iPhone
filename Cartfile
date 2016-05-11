@@ -1,2 +1,4 @@
+github "realm/realm-cocoa"
 github "core-plot/core-plot"
+
 github "jwitcig/SwiftTools"

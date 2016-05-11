@@ -80,8 +80,6 @@
 		8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */; };
 		8B8D440D1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
-		8B9CAB231CE2DB020023C10E /* TORM1213.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CAB211CE2CE3F0023C10E /* TORM1213.swift */; };
-		8B9CAB2B1CE2FD210023C10E /* ModelMapping.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CAB2A1CE2FD210023C10E /* ModelMapping.xcmappingmodel */; };
 		8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */; };
 		8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */; };
 		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */; };
@@ -262,8 +260,6 @@
 		8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHistoryGraphViewController.swift; sourceTree = "<group>"; };
 		8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
-		8B9CAB211CE2CE3F0023C10E /* TORM1213.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TORM1213.swift; sourceTree = "<group>"; };
-		8B9CAB2A1CE2FD210023C10E /* ModelMapping.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = ModelMapping.xcmappingmodel; sourceTree = "<group>"; };
 		8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbackProgressStatView.swift; sourceTree = "<group>"; };
 		8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRow.swift; sourceTree = "<group>"; };
 		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatView.swift; sourceTree = "<group>"; };
@@ -383,8 +379,6 @@
 		8B1B12A11CE167CD00CDBE22 /* ORMKit */ = {
 			isa = PBXGroup;
 			children = (
-				8B9CAB211CE2CE3F0023C10E /* TORM1213.swift */,
-				8B9CAB2A1CE2FD210023C10E /* ModelMapping.xcmappingmodel */,
 				8B1B12EC1CE179BE00CDBE22 /* TheOneRepMax.xcdatamodeld */,
 				8B1B12E41CE1684700CDBE22 /* ORSession.swift */,
 				8B1B12E31CE1683800CDBE22 /* Data Stack */,
@@ -1048,7 +1042,6 @@
 				8B1B12DC1CE1683100CDBE22 /* ORLocalDataResponse.swift in Sources */,
 				8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */,
 				8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */,
-				8B9CAB2B1CE2FD210023C10E /* ModelMapping.xcmappingmodel in Sources */,
 				8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */,
 				8BDB81031C856357007B0598 /* IncreaseIndicatorStatView.swift in Sources */,
 				8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */,
@@ -1065,7 +1058,6 @@
 				8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */,
 				8B1B12C71CE1681100CDBE22 /* ORAthlete.swift in Sources */,
 				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */,
-				8B9CAB231CE2DB020023C10E /* TORM1213.swift in Sources */,
 				8B1B12B51CE167FF00CDBE22 /* ORSoloStats.swift in Sources */,
 				8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */,
 				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
@@ -1640,7 +1632,7 @@
 				8B1B12F91CE179BE00CDBE22 /* TheOneRepMax_v8.xcdatamodel */,
 				8B1B12FA1CE179BE00CDBE22 /* TheOneRepMax_v9.xcdatamodel */,
 			);
-			currentVersion = 8B1B12FD1CE179DE00CDBE22 /* TheOneRepMax_v11.xcdatamodel */;
+			currentVersion = 8B836BCB1CE2C47900A06DFE /* TheOneRepMax_v1.2.xcdatamodel */;
 			path = TheOneRepMax.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

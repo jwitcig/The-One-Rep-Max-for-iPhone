@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="10174" systemVersion="15E65" minimumToolsVersion="Automatic">
-    <entity name="CloudRecord" syncable="YES">
-        <attribute name="recordData" optional="YES" attributeType="Binary" syncable="YES"/>
-        <attribute name="recordName" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="model" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ORModel" inverseName="cloudRecord" inverseEntity="ORModel" syncable="YES"/>
-    </entity>
     <entity name="ORAthlete" representedClassName="." parentEntity="ORModel" syncable="YES">
         <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
@@ -25,17 +20,11 @@
         <attribute name="solo" attributeType="Boolean" defaultValueString="YES" syncable="YES"/>
         <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ORAthlete" syncable="YES"/>
     </entity>
-    <entity name="ORModel" representedClassName=".ORModel" isAbstract="YES" syncable="YES">
-        <attribute name="createdDate" attributeType="Date" defaultDateTimeInterval="478650300" syncable="YES"/>
-        <attribute name="lastCloudSaveDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="lastLocalSaveDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <relationship name="cloudRecord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CloudRecord" inverseName="model" inverseEntity="CloudRecord" syncable="YES"/>
-    </entity>
+    <entity name="ORModel" representedClassName=".ORModel" isAbstract="YES" syncable="YES"/>
     <elements>
-        <element name="CloudRecord" positionX="180" positionY="216" width="128" height="90"/>
         <element name="ORAthlete" positionX="189" positionY="198" width="128" height="90"/>
         <element name="ORLiftEntry" positionX="414" positionY="129" width="128" height="135"/>
         <element name="ORLiftTemplate" positionX="-27" positionY="144" width="128" height="120"/>
-        <element name="ORModel" positionX="216" positionY="234" width="128" height="105"/>
+        <element name="ORModel" positionX="216" positionY="234" width="128" height="45"/>
     </elements>
 </model>
