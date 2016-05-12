@@ -785,7 +785,7 @@
 				8B7123CC1BA764DE0083980E /* Resources */,
 				8BDD09361BD4922C00AD2D44 /* Embed Frameworks */,
 				8B0D92E71C8FACD5003DFE45 /* ShellScript */,
-				8B4E5A621CE4318100986DA0 /* ShellScript */,
+				8B4E5A621CE4318100986DA0 /* Run Script */,
 			);
 			buildRules = (
 			);
@@ -1032,13 +1032,14 @@
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
 		};
-		8B4E5A621CE4318100986DA0 /* ShellScript */ = {
+		8B4E5A621CE4318100986DA0 /* Run Script */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = "Run Script";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

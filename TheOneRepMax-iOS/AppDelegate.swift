@@ -68,7 +68,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func setupDataKit() {
         let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
         
-//        ORSession.currentSession.initDefaultData()
+        ORSession.currentSession.initDefaultData()
     }
     
     func setupCoreData() {
