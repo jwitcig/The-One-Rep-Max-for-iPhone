@@ -12,7 +12,9 @@
     import Cocoa
 #endif
 
-public class ORLiftTemplate: ORModel {
+import RealmSwift
+
+class ORLiftTemplate: Object {
     
     public enum Fields: String {
         case defaultLift
@@ -35,13 +37,20 @@ public class ORLiftTemplate: ORModel {
         }
     }
     
-    override public class var entityName: String { return RecordType.ORLiftTemplate.rawValue }
-    override var entityName: String { return RecordType.ORLiftTemplate.rawValue }
-        
-    public var defaultLift: Bool = false
-    public var liftDescription: String = ""
-    public var liftName: String!
+    class var entityName: String { return RecordType.ORLiftTemplate.rawValue }
+    var entityName: String { return RecordType.ORLiftTemplate.rawValue }
     
-    public var creator: ORAthlete!
-
+    dynamic var model: ORModel? = ORModel()
+    
+    var id: String? { return model?.id }
+    
+    dynamic var defaultLift = false
+    dynamic var liftDescription = ""
+    dynamic var liftName: String!
+    
+    dynamic var creator: ORAthlete?
+    
+    override class var deletedKeys: [String] {
+        return ["solo"]
+    }
 }

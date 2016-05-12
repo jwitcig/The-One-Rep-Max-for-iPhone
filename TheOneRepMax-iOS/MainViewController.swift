@@ -8,6 +8,7 @@
 
 import UIKit
 
+import RealmSwift
 
 class MainViewController: UIViewController {
 
@@ -22,17 +23,19 @@ class MainViewController: UIViewController {
             print("no user")
             
             let athlete = ORAthlete()
-            athlete.firstName = "suh dude"
+            athlete.firstName = "sah dude"
             athlete.lastName = "nuttin"
             athlete.username = athlete.fullName
             
-            athlete.save()
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(athlete)
+            }
             
             ORAthlete.setCurrentAthlete(athlete)
         }
         
         session.soloStats = ORSoloStats(athlete: session.currentAthlete!)
-        
         
         runOnMainThread {
             self.performSegueWithIdentifier("LoginSegue", sender: self)

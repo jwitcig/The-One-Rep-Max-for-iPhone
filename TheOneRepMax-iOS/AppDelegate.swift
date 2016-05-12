@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+import RealmSwift
+
 let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
 let userInitiatedThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INITIATED.rawValue), 0)
 let backgroundThread = dispatch_get_global_queue(Int(QOS_CLASS_UNSPECIFIED.rawValue), 0)
@@ -34,7 +36,9 @@ enum OneRepMaxNotificationType {
         case OneRepMaxDidChange
     }
 }
- 
+
+let coreDataStoreName = "SingleViewCoreData.sqlite"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
@@ -42,14 +46,170 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        self.setupDataKit()
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(coreDataStoreName)
+        
+        let coreDataStoreExists = NSFileManager.defaultManager().fileExistsAtPath(url.path!)
+        
+        if coreDataStoreExists {
+            copyCoreDataToRealm()
+            
+            do {
+                try NSFileManager.defaultManager().removeItemAtURL(url)
+            } catch {
+                print(error)
+            }
+        }
+        
+        setupDataKit()
         
         return true
     }
     
     func setupDataKit() {
         let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
-        NSManagedObjectContext.setMainThreadContext(appDelegate.managedObjectContext)
+        
+//        ORSession.currentSession.initDefaultData()
+    }
+    
+    func setupCoreData() {
+        
+        let athlete = NSEntityDescription.insertNewObjectForEntityForName("ORAthlete", inManagedObjectContext: managedObjectContext)
+        athlete["firstName"] = "jimmy"
+        athlete["lastName"] = "johnguys"
+        athlete["username"] = "shibbie"
+        
+        let liftTemplates: [NSManagedObject] = ["Hang Clean", "Squat", "Bench Press", "Dead Lift"].map {
+            let liftTemplate = NSEntityDescription.insertNewObjectForEntityForName("ORLiftTemplate", inManagedObjectContext: managedObjectContext)
+            
+            liftTemplate["liftName"] = $0
+            liftTemplate["defaultLift"] = false
+            liftTemplate["liftDescription"] = "some guyie"
+            liftTemplate["creator"] = athlete
+            return liftTemplate
+        }
+        
+        let entry = NSEntityDescription.insertNewObjectForEntityForName("ORLiftEntry", inManagedObjectContext: managedObjectContext)
+        entry["date"] = NSDate()
+        entry["maxOut"] = true
+        entry["reps"] = 1
+        entry["weightLifted"] = 100
+        entry["liftTemplate"] = liftTemplates[0]
+        entry["athlete"] = athlete
+        
+        let entry1 = NSEntityDescription.insertNewObjectForEntityForName("ORLiftEntry", inManagedObjectContext: managedObjectContext)
+        entry1["date"] = NSDate()
+        entry1["maxOut"] = false
+        entry1["reps"] = 2
+        entry1["weightLifted"] = 120
+        entry1["liftTemplate"] = liftTemplates[1]
+        entry1["athlete"] = athlete
+        
+        do {
+            try managedObjectContext.save()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func copyCoreDataToRealm() {
+        let types: [String: Object.Type] = [
+            "ORAthlete": ORAthlete.self,
+            "ORLiftTemplate": ORLiftTemplate.self,
+            "ORLiftEntry": ORLiftEntry.self
+        ]
+        
+        var managedObjects = [NSManagedObject]()
+        
+        var realmObjects = [Object]()
+        types.forEach {
+            
+            let fetchRequest = NSFetchRequest(entityName: $0.0)
+            
+            do {
+                managedObjects += try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+            } catch {
+                print(error)
+            }
+        }
+        
+        var untranslatedObjectsIDs = Set<NSManagedObjectID>()
+        managedObjects.forEach {
+            untranslatedObjectsIDs.insert($0.objectID)
+        }
+        
+        let realm = try! Realm()
+        
+        var translatedObjects = [NSManagedObjectID: Object]()
+       
+        func createRealmObject<T: Object>(type type: T.Type, managedObject: NSManagedObject) -> T {
+            let object = type.init()
+            
+            translatedObjects[managedObject.objectID] = object
+            
+            let attributeKeys = Array(managedObject.entity.attributesByName.keys)
+            let relationshipKeys = Array(managedObject.entity.relationshipsByName.keys)
+            
+            var dictionaryRepresentation = managedObject.dictionaryWithValuesForKeys(attributeKeys)
+
+            relationshipKeys.forEach {
+                guard let relatedManagedObject = managedObject[$0] as? NSManagedObject else { return }
+                
+                let relatedObjectType = types[relatedManagedObject.entity.name!]!
+                
+                if let existingRealmObject = translatedObjects[relatedManagedObject.objectID] {
+                    dictionaryRepresentation[$0] = existingRealmObject
+                } else {
+                    let relatedRealmObject = createRealmObject(type: relatedObjectType, managedObject: relatedManagedObject)
+                    
+                    dictionaryRepresentation[$0] = relatedRealmObject
+                    
+                    translatedObjects[relatedManagedObject.objectID] = relatedRealmObject
+                }
+            }
+            
+            type.deletedKeys.forEach {
+                dictionaryRepresentation.removeValueForKey($0)
+            }
+            
+            object.setValuesForKeysWithDictionary(dictionaryRepresentation)
+            return object
+        }
+        
+        managedObjects.forEach {
+            guard let entityName = $0.entity.name else { return }
+            
+            guard let type = types[entityName] else { return }
+            
+            guard translatedObjects[$0.objectID] == nil else { return }
+            
+            let object = createRealmObject(type: type, managedObject: $0)
+            realmObjects.append(object)
+            
+            untranslatedObjectsIDs.remove($0.objectID)
+        }
+        
+        try! realm.write {
+            realm.add(realmObjects)
+        }
+    }
+    
+    func clearRealm() {
+        let realmURL = Realm.Configuration.defaultConfiguration.fileURL!
+        let realmURLs = [
+            realmURL,
+            realmURL.URLByAppendingPathExtension("lock"),
+            realmURL.URLByAppendingPathExtension("log_a"),
+            realmURL.URLByAppendingPathExtension("log_b"),
+            realmURL.URLByAppendingPathExtension("note")
+        ]
+        let manager = NSFileManager.defaultManager()
+        for URL in realmURLs {
+            do {
+                try manager.removeItemAtURL(URL)
+            } catch {
+                // handle error
+            }
+        }
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
@@ -93,12 +253,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let modelURL = NSBundle(forClass: ORModel.self).URLForResource("TheOneRepMax", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
-
+    
     lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
         // The persistent store coordinator for the application. This implementation creates and returns a coordinator, having added the store for the application to it. This property is optional since there are legitimate error conditions that could cause the creation of the store to fail.
         // Create the coordinator and store
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(coreDataStoreName)
+        
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
             let options = [NSMigratePersistentStoresAutomaticallyOption: true,

@@ -6,7 +6,7 @@
 //  Copyright © 2015 JwitApps. All rights reserved.
 //
 
-import CoreData
+import RealmSwift
 
 import SwiftTools
 
@@ -33,13 +33,12 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         
         self.updateLabels()
         
-        var templates = ORModel.all(entityType: ORLiftTemplate.self)
+        let realm = try! Realm()
         
-        templates.sortInPlace {
-            $0.liftName.isBefore(string: $1.liftName)
-        }
+        let templates = realm.objects(ORLiftTemplate).sorted("liftName")
         
-        self.liftTemplates = templates
+        self.liftTemplates = Array(templates)
+        
         self.templatePicker.reloadAllComponents()
     }
     
@@ -71,7 +70,11 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         entry.maxOut = true
         entry.date = datePicker.date
         
-        guard entry.save() else { return }
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.add(entry)
+        }
         
         navigationController?.popViewControllerAnimated(true)
     }

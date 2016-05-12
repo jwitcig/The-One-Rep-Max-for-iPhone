@@ -8,7 +8,7 @@
 
 import UIKit
 
-import CoreData
+import RealmSwift
 
 class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewDataSource, DataViewerDelegate {
     
@@ -51,22 +51,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     override func dataWasChanged() {
         super.dataWasChanged()
         
-        let context = NSManagedObjectContext.contextForCurrentThread()
-        
-        let fetchRequest = NSFetchRequest(entityName: ORLiftEntry.entityName)
-        
-        fetchRequest.predicate = NSPredicate(key: "athlete", comparator: .Equals, value: session.currentAthlete!.localRecord)
-        
-        var managedObjects: [NSManagedObject]?
-        do {
-            managedObjects = try context.executeFetchRequest(fetchRequest) as? [NSManagedObject]
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        let entries = managedObjects?.map { ORLiftEntry(id: $0.valueForKey("id") as! String) }
-        
-        liftEntries = entries ?? []
+        liftEntries = Array(try! Realm().objects(ORLiftEntry).filter("athlete == %@", session.currentAthlete!))
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -211,8 +196,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         
         deleteEntryViewController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive) { (action) in
             
-            entry.delete()
-            entry.save()
+            try! Realm().delete(entry)
             
             self.entriesTableView.reloadData()
         })

@@ -6,7 +6,7 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
-import CoreData
+import RealmSwift
 
 import SwiftTools
 
@@ -33,9 +33,9 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         // Corrects offset for container views' content
         self.edgesForExtendedLayout = .None
         
-        let templates = ORModel.all(entityType: ORLiftTemplate.self)
+        let templates = try! Realm().objects(ORLiftTemplate)
         
-        filterViewController?.selectedLiftTemplate = templates[safe: 0]
+        filterViewController?.selectedLiftTemplate = templates.first
         
         presentFilterViewController()
     }
@@ -58,39 +58,28 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     func updateDelegates(liftTemplate liftTemplate: ORLiftTemplate?) {
         updateFilterBar()
         
+        let realm = try! Realm()
+        
         guard let athlete = session.currentAthlete else {
             print("No current athlete!")
             return
         }
         
-        let context = NSManagedObjectContext.contextForCurrentThread()
-        
-        let fetchRequest = NSFetchRequest(entityName: ORLiftEntry.entityName)
-        
-        let athletePredicate = NSPredicate(key: "athlete", comparator: .Equals, value: athlete.localRecord)
+        let athletePredicate = NSPredicate(key: "athlete", comparator: .Equals, value: athlete)
         
         var compoundPredicate: NSCompoundPredicate?
         if let template = liftTemplate {
-            let liftTemplatePredicate = NSPredicate(key: "liftTemplate", comparator: .Equals, value: template.localRecord)
+            let liftTemplatePredicate = NSPredicate(key: "liftTemplate", comparator: .Equals, value: template)
             
             compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [athletePredicate, liftTemplatePredicate])
         }
         
-        fetchRequest.predicate = compoundPredicate ?? athletePredicate
+        let finalPredicate = compoundPredicate ?? athletePredicate
         
-        var liftEntries: [ORLiftEntry]?
-        do {
-            liftEntries = try context.executeFetchRequest(fetchRequest) as? [ORLiftEntry]
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        guard let entries = liftEntries else {
-            return
-        }
+        let liftEntries = Array(realm.objects(ORLiftEntry).filter(finalPredicate))
         
         for delegate in delegates {
-            delegate.selectedLiftDidChange(liftTemplate: liftTemplate, liftEntries: entries)
+            delegate.selectedLiftDidChange(liftTemplate: liftTemplate, liftEntries: liftEntries)
         }
     }
     

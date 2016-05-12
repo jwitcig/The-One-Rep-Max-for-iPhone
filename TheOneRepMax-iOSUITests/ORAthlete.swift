@@ -12,11 +12,12 @@
     import Cocoa
 #endif
 
-import CoreData
+import Realm
+import RealmSwift
 
 import SwiftTools
 
-public class ORAthlete: ORModel {
+public class ORAthlete: Object {
   
     enum Fields: String {
         case firstName
@@ -36,38 +37,32 @@ public class ORAthlete: ORModel {
         }
     }
     
-    override public class var entityName: String { return RecordType.ORAthlete.rawValue }
-    override var entityName: String { return RecordType.ORAthlete.rawValue }
+    class var entityName: String { return RecordType.ORAthlete.rawValue }
+    var entityName: String { return RecordType.ORAthlete.rawValue }
     
-    public var firstName: String!
-    public var lastName: String!
-    public var username: String!
+    dynamic var model: ORModel? = ORModel()
+
+    var id: String? { return model?.id }
+ 
+    dynamic var firstName: String!
+    dynamic var lastName: String!
+    dynamic var username: String!
     
-    public var identityID: String { return id }
+    let liftEntries = LinkingObjects(fromType: ORLiftEntry.self, property: "athlete")
     
-    public var fullName: String {
+    var identityID: String? { return model?.id }
+    
+    var fullName: String {
         return "\(firstName) \(lastName)"
     }
-
-    public static func getLastAthlete() -> ORAthlete? {
+    
+    static func getLastAthlete() -> ORAthlete? {
         
         guard let identityID = NSUserDefaults.standardUserDefaults().valueForKey("currentAthleteIdentityID") as? String else {
             return nil
         }
         
-        let context = NSManagedObjectContext.contextForCurrentThread()
-        
-        let fetchRequest = NSFetchRequest(entityName: ORAthlete.entityName)
-        fetchRequest.predicate = NSPredicate(key: "identityID", comparator: .Equals, value: identityID)
-      
-        var athletes: [ORAthlete]?
-        do {
-            athletes = try context.executeFetchRequest(fetchRequest) as? [ORAthlete]
-        } catch let error as NSError {
-            print(error)
-        }
-        
-        return athletes?.first
+        return try! Realm().objects(ORAthlete).filter("model.id == %@", identityID).first
     }
     
     public static func setCurrentAthlete(athlete: ORAthlete) {

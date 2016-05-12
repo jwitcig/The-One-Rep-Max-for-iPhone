@@ -80,6 +80,12 @@
 		8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */; };
 		8B8D440D1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */; };
 		8B8D6E521B50EF760046C1D2 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 8B8D6E511B50EF760046C1D2 /* trash.png */; };
+		8B9CAB331CE39E160023C10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9CAB311CE39E160023C10E /* RealmSwift.framework */; };
+		8B9CAB341CE39E160023C10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9CAB321CE39E160023C10E /* Realm.framework */; };
+		8B9CAB351CE3A6850023C10E /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9CAB311CE39E160023C10E /* RealmSwift.framework */; };
+		8B9CAB361CE3A6850023C10E /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9CAB311CE39E160023C10E /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B9CAB371CE3A6870023C10E /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9CAB321CE39E160023C10E /* Realm.framework */; };
+		8B9CAB381CE3A6870023C10E /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B9CAB321CE39E160023C10E /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */; };
 		8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */; };
 		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */; };
@@ -175,8 +181,10 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8B9CAB381CE3A6870023C10E /* Realm.framework in Embed Frameworks */,
 				8B53245D1CDEDEB300B938BB /* CorePlot.framework in Embed Frameworks */,
 				8BE9D0BD1C8FDA3800550054 /* SwiftTools.framework in Embed Frameworks */,
+				8B9CAB361CE3A6850023C10E /* RealmSwift.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +268,8 @@
 		8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHistoryGraphViewController.swift; sourceTree = "<group>"; };
 		8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		8B8D6E511B50EF760046C1D2 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
+		8B9CAB311CE39E160023C10E /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RealmSwift.framework; path = Carthage/Build/iOS/RealmSwift.framework; sourceTree = "<group>"; };
+		8B9CAB321CE39E160023C10E /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbackProgressStatView.swift; sourceTree = "<group>"; };
 		8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRow.swift; sourceTree = "<group>"; };
 		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatView.swift; sourceTree = "<group>"; };
@@ -321,7 +331,9 @@
 			files = (
 				8BE9D0BC1C8FDA3800550054 /* SwiftTools.framework in Frameworks */,
 				8B53245C1CDEDEB300B938BB /* CorePlot.framework in Frameworks */,
+				8B9CAB351CE3A6850023C10E /* RealmSwift.framework in Frameworks */,
 				8B30392D1BAF2A2E003F823C /* QuartzCore.framework in Frameworks */,
+				8B9CAB371CE3A6870023C10E /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -352,7 +364,9 @@
 			files = (
 				8B5324581CDEDEAD00B938BB /* CorePlot.framework in Frameworks */,
 				8B202A5D1B445C090088A63B /* QuartzCore.framework in Frameworks */,
+				8B9CAB331CE39E160023C10E /* RealmSwift.framework in Frameworks */,
 				8B095BB31B29A68F00818DE0 /* CloudKit.framework in Frameworks */,
+				8B9CAB341CE39E160023C10E /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +687,8 @@
 		8BF3434E1B27FA08007CBF44 = {
 			isa = PBXGroup;
 			children = (
+				8B9CAB311CE39E160023C10E /* RealmSwift.framework */,
+				8B9CAB321CE39E160023C10E /* Realm.framework */,
 				8B5324571CDEDEAD00B938BB /* CorePlot.framework */,
 				8BE9D0B61C8FD7EB00550054 /* SwiftTools.framework */,
 				8BF343591B27FA08007CBF44 /* TheOneRepMax */,
@@ -769,6 +785,7 @@
 				8B7123CC1BA764DE0083980E /* Resources */,
 				8BDD09361BD4922C00AD2D44 /* Embed Frameworks */,
 				8B0D92E71C8FACD5003DFE45 /* ShellScript */,
+				8B4E5A621CE4318100986DA0 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -1006,12 +1023,27 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftTools.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+		8B4E5A621CE4318100986DA0 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
 		};
 /* End PBXShellScriptBuildPhase section */
 

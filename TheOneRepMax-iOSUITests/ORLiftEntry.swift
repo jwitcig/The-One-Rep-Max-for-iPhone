@@ -11,9 +11,9 @@
 #elseif os(OSX)
     import Cocoa
 #endif
-import CoreData
+import RealmSwift
 
-public class ORLiftEntry: ORModel {
+public class ORLiftEntry: Object {
 
     public enum Fields: String {
         case date
@@ -37,25 +37,27 @@ public class ORLiftEntry: ORModel {
         }
     }
     
-    override public class var entityName: String { return RecordType.ORLiftEntry.rawValue }
-    override var entityName: String { return RecordType.ORLiftEntry.rawValue }
-
+    class var entityName: String { return RecordType.ORLiftEntry.rawValue }
+    var entityName: String { return RecordType.ORLiftEntry.rawValue }
     
-    public var date: NSDate = NSDate()
-    public var maxOut: Bool = true
-    public var reps: Int!
-    public var weightLifted: Int!
-    public var max: Int {
+    dynamic var model: ORModel? = ORModel()
+
+    var id: String? { return model?.id }
+    
+    dynamic var date = NSDate()
+    dynamic var maxOut = true
+    dynamic var reps = 0
+    dynamic var weightLifted = 0
+    var max: Int {
         return ORLiftEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
     }
     
-    public class func oneRepMax(weightLifted weightLifted: Int, reps: Int) -> Int {
+    class func oneRepMax(weightLifted weightLifted: Int, reps: Int) -> Int {
         guard reps != 1 else { return weightLifted }
         
         let rounded = round( Float(weightLifted) + (Float(weightLifted * reps) * 0.033 ) )
         return Int(rounded)
     }
-    public var liftTemplate: ORLiftTemplate!
-    public var athlete: ORAthlete!
-    
+    dynamic var liftTemplate: ORLiftTemplate?
+    dynamic var athlete: ORAthlete?
 }

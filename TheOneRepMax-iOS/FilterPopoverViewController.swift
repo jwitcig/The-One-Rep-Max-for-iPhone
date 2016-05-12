@@ -8,6 +8,7 @@
 
 import UIKit
 
+import RealmSwift
 
 import SwiftTools
 
@@ -39,14 +40,8 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        var templates = ORModel.all(entityType: ORLiftTemplate.self)
-
-        templates.sortInPlace {
-            $0.liftName.isBefore(string: $1.liftName)
-        }
         
-        liftTemplates = templates
+        liftTemplates = Array(try! Realm().objects(ORLiftTemplate).sorted("liftName"))
         liftTemplatesTableView.reloadData()
         
         liftTemplatesTableView.backgroundColor = UIColor.clearColor()

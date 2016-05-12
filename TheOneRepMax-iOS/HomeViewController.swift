@@ -8,7 +8,7 @@
 
 import UIKit
 
-import CoreData
+import RealmSwift
 
 class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelegate, UIScrollViewDelegate {
     
@@ -144,18 +144,9 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     func populateRecentMaxStackView() {
         recentMaxStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
         
-        let context = NSManagedObjectContext.contextForCurrentThread()
+        let realm = try! Realm()
         
-        let fetchRequest = NSFetchRequest(entityName: ORLiftTemplate.entityName)
-        
-        var liftTemplates = [ORLiftTemplate]()
-        do {
-            var managedObjects = try context.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-            
-            liftTemplates = managedObjects.map { ORLiftTemplate(managedObject: $0) }
-        } catch let error as NSError {
-            print(error)
-        }
+        let liftTemplates = realm.objects(ORLiftTemplate)
         
         var latestEntries = [ORLiftEntry]()
         
@@ -168,21 +159,9 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         }
         
         for liftTemplate in liftTemplates {
-            let fetchRequest = NSFetchRequest(entityName: ORLiftEntry.entityName)
-            fetchRequest.predicate = NSPredicate(key: ORLiftEntry.Fields.liftTemplate.rawValue, comparator: .Equals, value: liftTemplate)
-            fetchRequest.fetchLimit = 1
-            
-            var liftEntries = [ORLiftEntry]()
-            do {
-                let managedObjects = try context.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-                
-                liftEntries = managedObjects.map { ORLiftEntry(managedObject: $0) }
-            } catch let error as NSError {
-                print(error)
+            if let latestEntry = realm.objects(ORLiftEntry).filter("liftTemplate == %@", liftTemplate).first {
+                latestEntries.append(latestEntry)
             }
-            
-            guard let latestEntry = liftEntries.last else { continue }
-            latestEntries.append(latestEntry)
         }
         
         for entry in latestEntries {

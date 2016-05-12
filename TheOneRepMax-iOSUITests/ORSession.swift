@@ -12,7 +12,7 @@
     import Cocoa
 #endif
 
-import CoreData
+import RealmSwift
 
 import SwiftTools
 
@@ -33,13 +33,12 @@ public class ORSession {
     public var currentAthlete: ORAthlete? {
         get {
             guard let id = self.currentAthleteIdentityID else { return nil }
-            return ORAthlete(id: id)
+            
+            return try! Realm().objects(ORAthlete).filter("model.id == %@", id).first
         }
         set {
             if let athlete = newValue {
-                do {
-                    self.currentAthleteIdentityID = athlete.identityID
-                } catch { }
+                self.currentAthleteIdentityID = athlete.identityID
             }
         }
     }
@@ -73,9 +72,6 @@ public class ORSession {
         }
     }
     
-    public static let managedObjectModel = NSManagedObjectModel.mergedModelFromBundles(NSBundle.allBundles())
-    public static let persistentStoreCooridnator = NSPersistentStoreCoordinator(managedObjectModel: ORSession.managedObjectModel!)
-    
     public init() { }
         
     public func signInLocally() -> (Bool, ORAthlete?) {
@@ -89,35 +85,16 @@ public class ORSession {
     }
  
     public func initDefaultData() {
-        let context = NSManagedObjectContext.contextForCurrentThread()
+        let realm = try! Realm()
+        let liftTemplates = realm.objects(ORLiftTemplate).filter("defaultLift == true")
         
-        let fetchRequest = NSFetchRequest(entityName: ORLiftTemplate.entityName)
-        fetchRequest.predicate = NSPredicate(key: ORLiftTemplate.Fields.defaultLift.rawValue, comparator: .Equals, value: true)
-        
-        var managedObjects: [NSManagedObject]!
-        do {
-            managedObjects = try context.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-        } catch let error {
-            print(error)
-        }
-        
-        let liftTemplates = managedObjects?.map { ORLiftTemplate(id: $0.valueForKey("id") as! String) }
-        
-        guard let templates = liftTemplates else {
-            return
-        }
-        
-        guard templates.count == 0 else {
+        guard liftTemplates.count == 0 else {
             print("Default data in place")
             return
         }
         
-        let _ = generateDefaultLiftTemplates()
-        
-        do {
-            try context.save()
-        } catch let error {
-            print(error)
+        try! realm.write {
+            generateDefaultLiftTemplates().forEach { realm.add($0) }
         }
     }
     

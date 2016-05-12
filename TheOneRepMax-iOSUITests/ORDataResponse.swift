@@ -11,8 +11,6 @@
 #elseif os(OSX)
     import Cocoa
 #endif
-import CloudKit
-import CoreData
 
 import SwiftTools
 
@@ -34,18 +32,9 @@ public class ORDataResponse {
     
     public var timestamp = NSDate()
     
-    var context: NSManagedObjectContext?
-    public lazy var currentThreadContext = NSManagedObjectContext.contextForCurrentThread()
-    
-    init(
-           request: ORDataRequest,
-             error: NSError? = nil,
-           context: NSManagedObjectContext? = nil) {
-            
+    init(request: ORDataRequest, error: NSError? = nil) {
         self.request = request
-        self.error = error
-            
-        self.context = context
+        self.error = error            
     }
     
     public var elapsedTimeSinceResponse: NSTimeInterval {
