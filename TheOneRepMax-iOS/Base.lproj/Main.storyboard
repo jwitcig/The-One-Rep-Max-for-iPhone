@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dFq-Nd-qMc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dFq-Nd-qMc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -665,19 +665,19 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-tR-XCq">
                                         <rect key="frame" x="0.0" y="0.0" width="1800" height="448"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m0J-UD-DhJ">
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0J-UD-DhJ">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
                                                 <connections>
                                                     <segue destination="ec9-1H-WWt" kind="embed" id="Pgd-zH-u4K"/>
                                                 </connections>
                                             </containerView>
-                                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VWQ-wb-ecZ">
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWQ-wb-ecZ">
                                                 <rect key="frame" x="600" y="0.0" width="600" height="448"/>
                                                 <connections>
                                                     <segue destination="ZVk-or-m65" kind="embed" id="gVQ-vB-FVV"/>
                                                 </connections>
                                             </containerView>
-                                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYJ-Vh-WLH">
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYJ-Vh-WLH">
                                                 <rect key="frame" x="1200" y="0.0" width="600" height="448"/>
                                                 <connections>
                                                     <segue destination="02N-Nz-D8r" kind="embed" identifier="HistoryViewSegue" id="A3E-xa-aFm"/>

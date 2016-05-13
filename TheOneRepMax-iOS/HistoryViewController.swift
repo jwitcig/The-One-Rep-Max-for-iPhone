@@ -51,7 +51,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     override func dataWasChanged() {
         super.dataWasChanged()
         
-        liftEntries = Array(try! Realm().objects(ORLiftEntry).filter("athlete == %@", session.currentAthlete!))
+        liftEntries = Array(try! Realm().objects(ORLiftEntry))
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

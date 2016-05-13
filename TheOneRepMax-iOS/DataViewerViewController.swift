@@ -71,7 +71,8 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         if let template = liftTemplate {
             let liftTemplatePredicate = NSPredicate(format: "liftTemplate == %@", template)
             
-            compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [athletePredicate, liftTemplatePredicate])
+            // athletePredicate removed to all for beta testers to retrieve their data before resetting the app and its data store
+            compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [/*athletePredicate, */liftTemplatePredicate])
         }
         
         let finalPredicate = compoundPredicate ?? athletePredicate
