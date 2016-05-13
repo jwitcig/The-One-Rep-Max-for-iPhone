@@ -46,22 +46,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(coreDataStoreName)
-        
-        let coreDataStoreExists = NSFileManager.defaultManager().fileExistsAtPath(url.path!)
-        
-        if coreDataStoreExists {
-            copyCoreDataToRealm()
-            
-            do {
-                try NSFileManager.defaultManager().removeItemAtURL(url)
-            } catch {
-                print(error)
+        if coreDataStoreExists() {
+            if copyCoreDataToRealm() {
+                removeCoreDataStore()
             }
         }
         
+/*
+        A bug in build_21 created a secondary user to be logged in with. All data transitioned from Core Data; however, was related to a different, resulting in issues
+*/
+        enforceSingleUser()
+        
         setupDataKit()
         
+        return true
+    }
+    
+    func coreDataStoreExists() -> Bool {
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(coreDataStoreName)
+        return NSFileManager.defaultManager().fileExistsAtPath(url.path!)
+    }
+    
+    func removeCoreDataStore() -> Bool {
+        let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(coreDataStoreName)
+        do {
+            try NSFileManager.defaultManager().removeItemAtURL(url)
+        } catch {
+            print(error)
+            return false
+        }
         return true
     }
     
@@ -69,6 +82,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let appDelegate = UIApplication.sharedApplication().delegate! as! AppDelegate
         
         ORSession.currentSession.initDefaultData()
+    }
+    
+    func enforceSingleUser() -> Bool {
+        
+        let realm = try! Realm()
+        
+        guard let liftTemplate = realm.objects(ORLiftTemplate).first else {
+            return false
+        }
+        
+        guard let athleteToKeep = liftTemplate.creator else {
+            return false
+        }
+        
+        ORAthlete.setCurrentAthlete(athleteToKeep)
+        
+        guard let id = athleteToKeep.id else {
+            return false
+        }
+        
+        let athletesToDelete = realm.objects(ORAthlete).filter("model.id != %@", id)
+        
+        try! realm.write {
+            realm.delete(athletesToDelete)
+        }
+        
+        return true
     }
     
     func setupCoreData() {
@@ -82,7 +122,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             let liftTemplate = NSEntityDescription.insertNewObjectForEntityForName("ORLiftTemplate", inManagedObjectContext: managedObjectContext)
             
             liftTemplate["liftName"] = $0
-            liftTemplate["defaultLift"] = false
+            liftTemplate["defaultLift"] = true
             liftTemplate["liftDescription"] = "some guyie"
             liftTemplate["creator"] = athlete
             return liftTemplate
@@ -111,7 +151,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
     }
     
-    func copyCoreDataToRealm() {
+    func copyCoreDataToRealm() -> Bool {
         let types: [String: Object.Type] = [
             "ORAthlete": ORAthlete.self,
             "ORLiftTemplate": ORLiftTemplate.self,
@@ -121,14 +161,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         var managedObjects = [NSManagedObject]()
         
         var realmObjects = [Object]()
-        types.forEach {
+        for type in types {
             
-            let fetchRequest = NSFetchRequest(entityName: $0.0)
+            let fetchRequest = NSFetchRequest(entityName: type.0)
             
             do {
                 managedObjects += try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
             } catch {
                 print(error)
+                return false
             }
         }
         
@@ -191,6 +232,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         try! realm.write {
             realm.add(realmObjects)
         }
+        
+        return true
     }
     
     func clearRealm() {

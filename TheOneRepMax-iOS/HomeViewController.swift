@@ -159,7 +159,8 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         }
         
         for liftTemplate in liftTemplates {
-            if let latestEntry = realm.objects(ORLiftEntry).filter("liftTemplate == %@", liftTemplate).first {
+            if let latestEntry = realm.objects(ORLiftEntry).filter("liftTemplate == %@", liftTemplate).sorted("date").reverse().first {
+                
                 latestEntries.append(latestEntry)
             }
         }

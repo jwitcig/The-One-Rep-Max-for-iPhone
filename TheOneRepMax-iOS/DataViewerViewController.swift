@@ -65,18 +65,20 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
             return
         }
         
-        let athletePredicate = NSPredicate(key: "athlete", comparator: .Equals, value: athlete)
+        let athletePredicate = NSPredicate(format: "athlete == %@", athlete)
         
         var compoundPredicate: NSCompoundPredicate?
         if let template = liftTemplate {
-            let liftTemplatePredicate = NSPredicate(key: "liftTemplate", comparator: .Equals, value: template)
+            let liftTemplatePredicate = NSPredicate(format: "liftTemplate == %@", template)
             
             compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [athletePredicate, liftTemplatePredicate])
         }
         
         let finalPredicate = compoundPredicate ?? athletePredicate
         
-        let liftEntries = Array(realm.objects(ORLiftEntry).filter(finalPredicate))
+        let allLiftEntries = realm.objects(ORLiftEntry)
+        
+        let liftEntries = Array(allLiftEntries.filter(finalPredicate))
         
         for delegate in delegates {
             delegate.selectedLiftDidChange(liftTemplate: liftTemplate, liftEntries: liftEntries)

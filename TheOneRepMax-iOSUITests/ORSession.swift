@@ -77,6 +77,12 @@ public class ORSession {
     public func signInLocally() -> (Bool, ORAthlete?) {
         
         guard let athlete = ORAthlete.getLastAthlete() else {
+            
+            if let anyAthlete = try! Realm().objects(ORAthlete).first {
+                ORAthlete.setCurrentAthlete(anyAthlete)
+                return (true, anyAthlete)
+            }
+            
             return (false, nil)
         }
         
