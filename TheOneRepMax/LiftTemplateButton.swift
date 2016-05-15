@@ -11,7 +11,7 @@ import ORMKit
 
 class LiftTemplateButton: NSButton {
     
-    let template: ORLiftTemplate!
+    let template: LiftTemplate!
     let index: Int!
     
     static let width = 100
@@ -29,7 +29,7 @@ class LiftTemplateButton: NSButton {
         return self.cell! as! NSButtonCell
     }
     
-    init(frame frameRect: NSRect, template: ORLiftTemplate, index: Int) {
+    init(frame frameRect: NSRect, template: LiftTemplate, index: Int) {
         self.template = template
         self.index = index
         super.init(frame: CGRectZero)

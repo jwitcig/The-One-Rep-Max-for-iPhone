@@ -22,17 +22,16 @@ class MainViewController: UIViewController {
         if !success {
             print("no user")
             
-            let athlete = ORAthlete()
-            athlete.firstName = "sah dude"
-            athlete.lastName = "nuttin"
-            athlete.username = athlete.fullName
+            let athlete = Athlete()
+            athlete.firstName = ""
+            athlete.lastName = ""
             
             let realm = try! Realm()
             try! realm.write {
                 realm.add(athlete)
             }
             
-            ORAthlete.setCurrentAthlete(athlete)
+            Athlete.setCurrentAthlete(athlete)
         }
         
         session.soloStats = ORSoloStats(athlete: session.currentAthlete!)

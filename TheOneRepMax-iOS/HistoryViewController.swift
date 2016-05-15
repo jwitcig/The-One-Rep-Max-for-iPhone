@@ -18,7 +18,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     
     var dataViewerViewController: DataViewerViewController!
         
-    var liftEntries = [ORLiftEntry]() {
+    var liftEntries = [LiftEntry]() {
         didSet {
             entriesTableView.reloadData()
         }
@@ -37,7 +37,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         entriesTableView.separatorColor = UIColor.blackColor()
     }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
+    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry]) {
         
         self.liftEntries = liftEntries.sort { !$0.0.date.isBefore(date: $0.1.date) }
         
@@ -51,7 +51,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     override func dataWasChanged() {
         super.dataWasChanged()
         
-        liftEntries = Array(try! Realm().objects(ORLiftEntry))
+        liftEntries = Array(try! Realm().objects(LiftEntry))
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -93,7 +93,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-        var entry: ORLiftEntry?
+        var entry: LiftEntry?
         
         if liftEntries.count > 0 {
             entry = liftEntries[indexPath.row]
@@ -187,7 +187,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func presentDeletionDialog(entry: ORLiftEntry) {
+    func presentDeletionDialog(entry: LiftEntry) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "M/d"
         let dateString = dateFormatter.stringFromDate(entry.date)

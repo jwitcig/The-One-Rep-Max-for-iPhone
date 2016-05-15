@@ -12,10 +12,10 @@ import ORMKit
 
 class LiftEntryTableItem: NSView {
     
-    var liftEntry: ORLiftEntry!
+    var liftEntry: LiftEntry!
     var deleteEntryClosure: (()->())!
     
-    init(frame frameRect: NSRect, liftEntry: ORLiftEntry) {
+    init(frame frameRect: NSRect, liftEntry: LiftEntry) {
         self.liftEntry = liftEntry
         super.init(frame: frameRect)
     }

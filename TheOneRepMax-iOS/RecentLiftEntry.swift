@@ -10,13 +10,13 @@ import UIKit
 
 class RecentLiftEntry {
     
-    var entry: ORLiftEntry!
+    var entry: LiftEntry!
     var stackView: UIStackView!
     
     var target: AnyObject?
     var selector: Selector
 
-    init(entry: ORLiftEntry, target: AnyObject?, selector: Selector) {
+    init(entry: LiftEntry, target: AnyObject?, selector: Selector) {
         
         self.entry = entry
         

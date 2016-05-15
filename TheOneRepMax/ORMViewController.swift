@@ -26,7 +26,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     @IBOutlet weak var messagesMenuItem: MenuItem!
     @IBOutlet weak var setupMenuItem: MenuItem!
     
-    var liftTemplates = [ORLiftTemplate]()
+    var liftTemplates = [LiftTemplate]()
     
     var weightLifted: NSNumber {
         return NSNumber(integer: NSString(string: self.weightField.stringValue).integerValue)
@@ -59,7 +59,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
             $0.0.liftName.compare($0.1.liftName, options: .CaseInsensitiveSearch, range: nil, locale: nil) == .OrderedAscending
         }
         
-        let (defaultTemplates, _) = ORSession.currentSession.localData.fetchObjects(model: ORLiftTemplate.self, predicates: [NSPredicate(key: ORLiftTemplate.Fields.defaultLift.rawValue, comparator: .Equals, value: true)], context: context)
+        let (defaultTemplates, _) = ORSession.currentSession.localData.fetchObjects(model: LiftTemplate.self, predicates: [NSPredicate(key: LiftTemplate.Fields.defaultLift.rawValue, comparator: .Equals, value: true)], context: context)
         
         self.liftTemplates.appendContentsOf(defaultTemplates)
         
@@ -92,7 +92,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         }
     }
     
-    func updateHistoryList(templates: [ORLiftTemplate]) {
+    func updateHistoryList(templates: [LiftTemplate]) {
         let container = NSFlippedView(frame: self.liftTemplatesContainer.frame)
         for (i, template) in templates.enumerate() {
             
@@ -116,7 +116,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
         self.liftTemplatesContainer.documentView = container
     }
     
-    func updateLiftTemplatePopUp(templates: [ORLiftTemplate]) {
+    func updateLiftTemplatePopUp(templates: [LiftTemplate]) {
         self.liftTemplatesSelect.removeAllItems()
         self.liftTemplatesSelect.addItemsWithTitles(templates.map { $0.liftName })
     }
@@ -126,7 +126,7 @@ class ORMViewController: ORViewController, NSTextFieldDelegate {
     }
     
     @IBAction func saveEntryClicked(button: NSButton) {
-        let entry = ORLiftEntry.entry()
+        let entry = LiftEntry.entry()
         entry.weightLifted = self.weightLifted
         entry.reps = self.reps
         entry.maxOut = true

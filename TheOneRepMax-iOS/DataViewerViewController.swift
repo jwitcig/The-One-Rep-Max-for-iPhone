@@ -14,7 +14,7 @@ protocol DataViewerDelegate {
     
     var dataViewerViewController: DataViewerViewController! { get set }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry])
+    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry])
 }
 
 class DataViewerViewController: ORViewController, UIPopoverPresentationControllerDelegate {
@@ -23,7 +23,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     
     var filterViewController: FilterPopoverViewController?
     
-    var liftEntries = [ORLiftEntry]()
+    var liftEntries = [LiftEntry]()
     
     var delegates = [DataViewerDelegate]()
         
@@ -33,7 +33,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         // Corrects offset for container views' content
         self.edgesForExtendedLayout = .None
         
-        let templates = try! Realm().objects(ORLiftTemplate)
+        let templates = try! Realm().objects(LiftTemplate)
         
         filterViewController?.selectedLiftTemplate = templates.first
         
@@ -55,10 +55,8 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         filterViewController?.modalPresentationStyle = .Popover
     }
     
-    func updateDelegates(liftTemplate liftTemplate: ORLiftTemplate?) {
+    func updateDelegates(liftTemplate liftTemplate: LiftTemplate?) {
         updateFilterBar()
-        
-        let realm = try! Realm()
         
         guard let athlete = session.currentAthlete else {
             print("No current athlete!")
@@ -71,18 +69,15 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         if let template = liftTemplate {
             let liftTemplatePredicate = NSPredicate(format: "liftTemplate == %@", template)
             
-            // athletePredicate removed to all for beta testers to retrieve their data before resetting the app and its data store
-            compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [/*athletePredicate, */liftTemplatePredicate])
+            compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [athletePredicate, liftTemplatePredicate])
         }
         
         let finalPredicate = compoundPredicate ?? athletePredicate
         
-        let allLiftEntries = realm.objects(ORLiftEntry)
+        let liftEntries = Array(try! Realm().objects(LiftEntry).filter(finalPredicate))
         
-        let liftEntries = Array(allLiftEntries.filter(finalPredicate))
-        
-        for delegate in delegates {
-            delegate.selectedLiftDidChange(liftTemplate: liftTemplate, liftEntries: liftEntries)
+        delegates.forEach {
+            $0.selectedLiftDidChange(liftTemplate: liftTemplate, liftEntries: liftEntries)
         }
     }
     

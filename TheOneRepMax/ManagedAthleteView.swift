@@ -12,13 +12,13 @@ import ORMKit
 @IBDesignable
 class ManagedAthleteView: NSView {
     
-    var athlete: ORAthlete!
+    var athlete: Athlete!
     
     @IBInspectable var title: String!
     
     var removeAthleteButton: NSClosureButton!
     
-    init(frame: NSRect, athlete: ORAthlete) {
+    init(frame: NSRect, athlete: Athlete) {
         self.athlete = athlete
         
         super.init(frame: frame)

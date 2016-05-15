@@ -33,7 +33,7 @@ class LiftEntryTableItemOptionsViewController: NSViewController {
         return "LiftEntryTableItemOptionsViewController"
     }
     
-    var liftEntry: ORLiftEntry!
+    var liftEntry: LiftEntry!
     var deleteEntryClosure: (()->())!
     
     override func viewDidLoad() {

@@ -11,9 +11,9 @@ import UIKit
 
 class LiftEntryTableViewCell: UITableViewCell {
     
-    var entry: ORLiftEntry!
+    var entry: LiftEntry!
     
-    init(style: UITableViewCellStyle, reuseIdentifier: String?, entry: ORLiftEntry) {
+    init(style: UITableViewCellStyle, reuseIdentifier: String?, entry: LiftEntry) {
         self.entry = entry
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }

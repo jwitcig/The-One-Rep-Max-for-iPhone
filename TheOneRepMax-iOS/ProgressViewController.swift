@@ -130,7 +130,7 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         statListItemsSpecificLift.forEach { ($0 as! UIView).hidden = specificLiftPanelRowsHidden }
     }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
+    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry]) {
         
         session.soloStats.defaultTemplate = liftTemplate
         

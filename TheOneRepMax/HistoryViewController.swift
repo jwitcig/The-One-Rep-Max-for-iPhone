@@ -25,7 +25,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     typealias plotDataType = [CPTScatterPlotField: Double]
     var plotData = [plotDataType]()
     
-    var liftEntries = [ORLiftEntry]() {
+    var liftEntries = [LiftEntry]() {
         didSet {
             self.entryCountLabel.stringValue = "[\(self.liftEntries.count)]"
         }
@@ -33,8 +33,8 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
     
     private let oneDay: Double = 24 * 60 * 60
     
-    var liftTemplate: ORLiftTemplate {
-        get { return self.representedObject as! ORLiftTemplate }
+    var liftTemplate: LiftTemplate {
+        get { return self.representedObject as! LiftTemplate }
         set { self.representedObject = newValue }
     }
     
@@ -42,7 +42,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         super.viewDidLoad()
     }
     
-    func initGraph(entries entries: [ORLiftEntry]) {
+    func initGraph(entries entries: [LiftEntry]) {
         // Create graph from theme
         let newGraph = CPTXYGraph(frame: CGRectZero)
         newGraph.applyTheme(CPTTheme(named: kCPTDarkGradientTheme))
@@ -213,7 +213,7 @@ class HistoryViewController: ORViewController, CPTScatterPlotDelegate, CPTScatte
         self.graphHostingView.hidden = true
     }
     
-    func displayLiftEntries(entries: [ORLiftEntry]) {
+    func displayLiftEntries(entries: [LiftEntry]) {
         self.clearLiftEntriesDisplay()
         
         let container = NSFlippedView()

@@ -11,8 +11,8 @@ import ORMKit
 
 class EditAthleteInfoViewController: ORViewController {
     
-    var athlete: ORAthlete {
-        return self.session.currentAthlete != nil ? self.session.currentAthlete! : ORAthlete.athlete()
+    var athlete: Athlete {
+        return self.session.currentAthlete != nil ? self.session.currentAthlete! : Athlete.athlete()
     }
     
     @IBOutlet weak var firstNameField: NSTextField!

@@ -16,13 +16,13 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
 
     @IBOutlet weak var liftTemplatesTableView: UITableView!
     
-    var liftTemplates: [ORLiftTemplate] = []
+    var liftTemplates: [LiftTemplate] = []
     
     var selectedLiftPath: NSIndexPath?
     
     var dataViewerViewController: DataViewerViewController!
     
-    var selectedLiftTemplate: ORLiftTemplate? {
+    var selectedLiftTemplate: LiftTemplate? {
         get {
             guard let row = liftTemplatesTableView?.indexPathForSelectedRow?.row else {
                 return nil
@@ -41,7 +41,7 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        liftTemplates = Array(try! Realm().objects(ORLiftTemplate).sorted("liftName"))
+        liftTemplates = Array(try! Realm().objects(LiftTemplate).sorted("liftName"))
         liftTemplatesTableView.reloadData()
         
         liftTemplatesTableView.backgroundColor = UIColor.clearColor()

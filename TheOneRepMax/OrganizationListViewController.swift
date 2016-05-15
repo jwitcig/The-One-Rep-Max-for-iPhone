@@ -138,10 +138,10 @@ class OrganizationListViewController: ORViewController, NSCollectionViewDelegate
     
     @IBAction func clearLocalStoreClicked(sender: NSButton) {
         self.localData.deleteAll(model: OROrganization.self)
-        self.localData.deleteAll(model: ORLiftTemplate.self)
-        self.localData.deleteAll(model: ORLiftEntry.self)
+        self.localData.deleteAll(model: LiftTemplate.self)
+        self.localData.deleteAll(model: LiftEntry.self)
         self.localData.deleteAll(model: ORMessage.self)
-        self.localData.deleteAll(model: ORAthlete.self)
+        self.localData.deleteAll(model: Athlete.self)
         self.localData.deleteAll(model: ORMembership.self)
         
         let request = NSFetchRequest(entityName: "CloudRecord")

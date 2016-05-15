@@ -36,7 +36,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         heightConstraint = self.view.heightAnchor.constraintEqualToConstant(validDataHeight)
     }
     
-    func updateGraph(entries entries: [ORLiftEntry]) {
+    func updateGraph(entries entries: [LiftEntry]) {
         if entries.count > 0 {
             showGraph()
         } else {
@@ -200,7 +200,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         return self.plotData[i][field]
     }
     
-    func requestGraphUpdate(entries entries: [ORLiftEntry]) {
+    func requestGraphUpdate(entries entries: [LiftEntry]) {
         updateGraph(entries: entries)
     }
     
@@ -220,7 +220,7 @@ class SimpleHistoryGraphViewController: ORViewController, CPTPlotDataSource, Dat
         NSLayoutConstraint.activateConstraints([heightConstraint])
     }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
+    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry]) {
         
         guard liftTemplate != nil else {
             hideGraph()

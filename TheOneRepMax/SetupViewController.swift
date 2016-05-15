@@ -82,7 +82,7 @@ class SetupViewController: ORViewController {
         return optionView
     }
     
-    func buildAthletesOptionView(key key: String, athletes threadedAthletes: [ORAthlete], optionContainer: NSManagedObject, title optionTitle: String? = nil) -> SetupOptionView {
+    func buildAthletesOptionView(key key: String, athletes threadedAthletes: [Athlete], optionContainer: NSManagedObject, title optionTitle: String? = nil) -> SetupOptionView {
         
         let title = optionTitle != nil ? optionTitle! : key
         let optionView = self.buildOption(key: key, value: nil, type: .Custom, optionContainer: optionContainer, title: title)

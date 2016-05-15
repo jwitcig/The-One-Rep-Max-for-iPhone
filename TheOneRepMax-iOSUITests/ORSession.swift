@@ -30,11 +30,11 @@ public class ORSession {
     
     private var userDataChangeDelegates = [ORUserDataChangeDelegate]()
 
-    public var currentAthlete: ORAthlete? {
+    public var currentAthlete: Athlete? {
         get {
             guard let id = self.currentAthleteIdentityID else { return nil }
             
-            return try! Realm().objects(ORAthlete).filter("model.id == %@", id).first
+            return try! Realm().objects(Athlete).filter("model.id == %@", id).first
         }
         set {
             if let athlete = newValue {
@@ -74,25 +74,19 @@ public class ORSession {
     
     public init() { }
         
-    public func signInLocally() -> (Bool, ORAthlete?) {
+    public func signInLocally() -> (Bool, Athlete?) {
         
-        guard let athlete = ORAthlete.getLastAthlete() else {
-            
-            if let anyAthlete = try! Realm().objects(ORAthlete).first {
-                ORAthlete.setCurrentAthlete(anyAthlete)
-                return (true, anyAthlete)
-            }
-            
+        guard let athlete = Athlete.getLastAthlete() else {
             return (false, nil)
         }
         
-        ORAthlete.setCurrentAthlete(athlete)
+        Athlete.setCurrentAthlete(athlete)
         return (true, athlete)
     }
  
     public func initDefaultData() {
         let realm = try! Realm()
-        let liftTemplates = realm.objects(ORLiftTemplate).filter("defaultLift == true")
+        let liftTemplates = realm.objects(LiftTemplate).filter("defaultLift == true")
         
         guard liftTemplates.count == 0 else {
             print("Default data in place")
@@ -104,23 +98,23 @@ public class ORSession {
         }
     }
     
-    func generateDefaultLiftTemplates() -> [ORLiftTemplate] {
-        let hangCleanTemplate = ORLiftTemplate()
+    func generateDefaultLiftTemplates() -> [LiftTemplate] {
+        let hangCleanTemplate = LiftTemplate()
         hangCleanTemplate.liftName = "Hang Clean"
         hangCleanTemplate.defaultLift = true
         hangCleanTemplate.liftDescription = "Pull up"
         
-        let squatTemplate = ORLiftTemplate()
+        let squatTemplate = LiftTemplate()
         squatTemplate.liftName = "Squat"
         squatTemplate.defaultLift = true
         squatTemplate.liftDescription = "Squat down"
         
-        let benchPressTemplate = ORLiftTemplate()
+        let benchPressTemplate = LiftTemplate()
         benchPressTemplate.liftName = "Bench Press"
         benchPressTemplate.defaultLift = true
         benchPressTemplate.liftDescription = "Push up"
         
-        let deadLiftTemplate = ORLiftTemplate()
+        let deadLiftTemplate = LiftTemplate()
         deadLiftTemplate.liftName = "Dead Lift"
         deadLiftTemplate.defaultLift = true
         deadLiftTemplate.liftDescription = "Bend at the knees"

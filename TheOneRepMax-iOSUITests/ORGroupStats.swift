@@ -19,12 +19,12 @@ public class ORGroupStats: ORStats {
 //        return self.session.cloudData
 //    }
 //    
-//    init(session: ORSession, organization: OROrganization, currentAthlete athlete: ORAthlete) {
+//    init(session: ORSession, organization: OROrganization, currentAthlete athlete: Athlete) {
 //        self.organization = organization
 //        super.init(session: session, currentAthlete: athlete)
 //    }
 //    
-//    func averageMax(liftTemplate template: ORLiftTemplate) {
+//    func averageMax(liftTemplate template: LiftTemplate) {
 //        self.cloudData.fetchLiftEntries(template: template) { (response) -> () in
 //            
 //            

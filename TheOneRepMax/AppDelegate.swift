@@ -53,7 +53,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle(forClass: ORModel.self).URLForResource("TheOneRepMax", withExtension: "momd")!
+        let modelURL = NSBundle(forClass: Model.self).URLForResource("TheOneRepMax", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
 
@@ -138,7 +138,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     // MARK: - Core Data Saving and Undo support
 
     @IBAction func saveAction(sender: AnyObject!) {
-        // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the ORAthlete.
+        // Performs the save action for the application, which is to send the save: message to the application's managed object context. Any encountered errors are presented to the Athlete.
         if let moc = self.managedObjectContext {
             if !moc.commitEditing() {
                 NSLog("\(NSStringFromClass(self.dynamicType)) unable to commit editing before saving")

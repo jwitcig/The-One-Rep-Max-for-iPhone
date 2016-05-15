@@ -11,11 +11,11 @@ import ORMKit
 
 class HistoryTemplateOptionButton: NSView {
     
-    var liftTemplate: ORLiftTemplate!
+    var liftTemplate: LiftTemplate!
     
-    var clickHandler: ((template: ORLiftTemplate)->())?
+    var clickHandler: ((template: LiftTemplate)->())?
     
-    init(frame frameRect: NSRect, liftTemplate: ORLiftTemplate) {
+    init(frame frameRect: NSRect, liftTemplate: LiftTemplate) {
         self.liftTemplate = liftTemplate
         super.init(frame: frameRect)
     }

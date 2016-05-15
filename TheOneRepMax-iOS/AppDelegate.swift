@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+import AWSMobileHubHelper
+import FBSDKCoreKit
 import RealmSwift
 
 let userInteractiveThread = dispatch_get_global_queue(Int(QOS_CLASS_USER_INTERACTIVE.rawValue), 0)
@@ -50,16 +52,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             if copyCoreDataToRealm() {
                 removeCoreDataStore()
             }
-        }
-        
+            
 /*
-        A bug in build_21 created a secondary user to be logged in with. All data transitioned from Core Data; however, was related to a different, resulting in issues
+             A bug in build_21 created a secondary user to be logged in with. All data transitioned from Core Data; however, was related to a different user, resulting in issues
 */
-        enforceSingleUser()
+            enforceSingleUser()
+        }
         
         setupDataKit()
         
-        return true
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
+
+    }
+    
+    func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     
     func coreDataStoreExists() -> Bool {
@@ -88,7 +97,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         let realm = try! Realm()
         
-        guard let liftTemplate = realm.objects(ORLiftTemplate).first else {
+        guard let liftTemplate = realm.objects(LiftTemplate).first else {
             return false
         }
         
@@ -96,13 +105,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             return false
         }
         
-        ORAthlete.setCurrentAthlete(athleteToKeep)
+        Athlete.setCurrentAthlete(athleteToKeep)
         
         guard let id = athleteToKeep.id else {
             return false
         }
         
-        let athletesToDelete = realm.objects(ORAthlete).filter("model.id != %@", id)
+        let athletesToDelete = realm.objects(Athlete).filter("model.id != %@", id)
         
         try! realm.write {
             realm.delete(athletesToDelete)
@@ -153,9 +162,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func copyCoreDataToRealm() -> Bool {
         let types: [String: Object.Type] = [
-            "ORAthlete": ORAthlete.self,
-            "ORLiftTemplate": ORLiftTemplate.self,
-            "ORLiftEntry": ORLiftEntry.self
+            "ORAthlete": Athlete.self,
+            "ORLiftTemplate": LiftTemplate.self,
+            "ORLiftEntry": LiftEntry.self
         ]
         
         var managedObjects = [NSManagedObject]()
@@ -275,6 +284,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        FBSDKAppEvents.activateApp()
     }
 
     func applicationWillTerminate(application: UIApplication) {
@@ -293,7 +304,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle(forClass: ORModel.self).URLForResource("TheOneRepMax", withExtension: "momd")!
+        let modelURL = NSBundle(forClass: Model.self).URLForResource("TheOneRepMax", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     

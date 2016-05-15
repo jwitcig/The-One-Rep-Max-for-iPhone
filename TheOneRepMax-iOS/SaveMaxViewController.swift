@@ -22,9 +22,9 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     
     var weightLifted: Int!
     var reps: Int!
-    var liftTemplates = [ORLiftTemplate]()
+    var liftTemplates = [LiftTemplate]()
     
-    var selectedTemplate: ORLiftTemplate {
+    var selectedTemplate: LiftTemplate {
         return self.liftTemplates[self.templatePicker.selectedRowInComponent(0)]
     }
     
@@ -35,7 +35,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         
         let realm = try! Realm()
         
-        let templates = realm.objects(ORLiftTemplate).sorted("liftName")
+        let templates = realm.objects(LiftTemplate).sorted("liftName")
         
         self.liftTemplates = Array(templates)
         
@@ -43,7 +43,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func updateLabels() {
-        let max = ORLiftEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
+        let max = LiftEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
         self.maxLabel.text = "\(max) lbs."
         
         if reps == 1 {
@@ -62,7 +62,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
 
     @IBAction func saveMaxPressed(button: UIBarButtonItem) {        
-        let entry = ORLiftEntry()
+        let entry = LiftEntry()
         entry.weightLifted = self.weightLifted
         entry.reps = self.reps
         entry.athlete = session.currentAthlete!

@@ -33,7 +33,7 @@ class ChartsViewController: ORViewController, DataViewerDelegate {
         mainStackView.addArrangedSubview(simpleHistoryGraphViewController.view)
     }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: ORLiftTemplate?, liftEntries: [ORLiftEntry]) {
+    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry]) {
         
         
         
