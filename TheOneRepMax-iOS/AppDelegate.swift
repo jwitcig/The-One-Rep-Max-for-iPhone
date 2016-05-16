@@ -9,7 +9,6 @@
 import UIKit
 import CoreData
 
-import AWSMobileHubHelper
 import FBSDKCoreKit
 import RealmSwift
 
@@ -63,7 +62,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
+        return true
+//        return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
 
     }
     
