@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+import AWSMobileHubHelper
 import FBSDKCoreKit
 import RealmSwift
 
@@ -62,12 +63,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
-        return true
-//        return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
-
+        return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
+
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
     }
     

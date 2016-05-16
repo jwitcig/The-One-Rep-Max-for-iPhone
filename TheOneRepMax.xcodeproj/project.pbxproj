@@ -8,6 +8,50 @@
 
 /* Begin PBXBuildFile section */
 		8B02E4721C75334900A949E6 /* NoLiftSelectedStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */; };
+		8B08B7B41CE96C5D000DD508 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7AF1CE96C5D000DD508 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7B51CE96C5D000DD508 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B01CE96C5D000DD508 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7B61CE96C5D000DD508 /* AWSLambda.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B11CE96C5D000DD508 /* AWSLambda.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7B71CE96C5D000DD508 /* AWSMobileAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B21CE96C5D000DD508 /* AWSMobileAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7B81CE96C5D000DD508 /* AWSS3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B31CE96C5D000DD508 /* AWSS3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7C21CE96E1B000DD508 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F51CE82BC000C1F2C2 /* AddressBook.framework */; };
+		8B08B7C31CE96E1B000DD508 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F61CE82BC000C1F2C2 /* AssetsLibrary.framework */; };
+		8B08B7C41CE96E1B000DD508 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F71CE82BC000C1F2C2 /* CFNetwork.framework */; };
+		8B08B7C51CE96E1B000DD508 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F91CE82BC000C1F2C2 /* CoreMotion.framework */; };
+		8B08B7C61CE96E1B000DD508 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FC1CE82BC000C1F2C2 /* SafariServices.framework */; };
+		8B08B7C71CE96E1B000DD508 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FD1CE82BC000C1F2C2 /* Security.framework */; };
+		8B08B7C81CE96E1B000DD508 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FE1CE82BC000C1F2C2 /* StoreKit.framework */; };
+		8B08B7C91CE96E1B000DD508 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FF1CE82BC000C1F2C2 /* SystemConfiguration.framework */; };
+		8B08B7D61CE96F24000DD508 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7D01CE96ECC000DD508 /* FBSDKCoreKit.framework */; };
+		8B08B7D71CE96F24000DD508 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7D11CE96ECC000DD508 /* FBSDKLoginKit.framework */; };
+		8B08B7D81CE96F24000DD508 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7D21CE96ECC000DD508 /* FBSDKShareKit.framework */; };
+		8B08B7E11CE970CA000DD508 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7BF1CE96D08000DD508 /* AWSMobileHubHelper.framework */; };
+		8B08B7E21CE970CA000DD508 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7AF1CE96C5D000DD508 /* AWSCore.framework */; };
+		8B08B7E31CE970CA000DD508 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B01CE96C5D000DD508 /* AWSDynamoDB.framework */; };
+		8B08B7E41CE970CA000DD508 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B11CE96C5D000DD508 /* AWSLambda.framework */; };
+		8B08B7E51CE970CA000DD508 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B21CE96C5D000DD508 /* AWSMobileAnalytics.framework */; };
+		8B08B7E61CE970CA000DD508 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B31CE96C5D000DD508 /* AWSS3.framework */; };
+		8B08B7E81CE9715C000DD508 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B7E71CE9715C000DD508 /* Info.plist */; };
+		8B08B7EA1CE971C6000DD508 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; };
+		8B08B7EB1CE971CC000DD508 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; };
+		8B08B7EC1CE971CC000DD508 /* AWSCognito.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7ED1CE97299000DD508 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FB1CE82BC000C1F2C2 /* MediaPlayer.framework */; };
+		8B08B7EE1CE9741D000DD508 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B21CE8299C00C1F2C2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7EF1CE9741D000DD508 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B31CE8299C00C1F2C2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7F01CE9741D000DD508 /* SwiftTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B41CE8299C00C1F2C2 /* SwiftTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B08B7F41CE974A7000DD508 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B08B7F21CE974A7000DD508 /* AWSMobileClient.swift */; };
+		8B08B7F51CE974A7000DD508 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */; };
+		8B08B8061CE974B2000DD508 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F81CE974B2000DD508 /* AWSCore.framework */; };
+		8B08B8071CE974B2000DD508 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F91CE974B2000DD508 /* AWSDynamoDB.framework */; };
+		8B08B8081CE974B2000DD508 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7FA1CE974B2000DD508 /* AWSLambda.framework */; };
+		8B08B8091CE974B2000DD508 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7FB1CE974B2000DD508 /* AWSMobileAnalytics.framework */; };
+		8B08B80A1CE974B2000DD508 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7FC1CE974B2000DD508 /* AWSS3.framework */; };
+		8B08B80B1CE974B2000DD508 /* Amazon_Software_License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */; };
+		8B08B80C1CE974B2000DD508 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7FF1CE974B2000DD508 /* AWSCognito.framework */; };
+		8B08B80D1CE974B2000DD508 /* NOTICE in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B8001CE974B2000DD508 /* NOTICE */; };
+		8B08B80E1CE974B2000DD508 /* CheckXcodeVersion.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B8011CE974B2000DD508 /* CheckXcodeVersion.sh */; };
+		8B08B80F1CE974B2000DD508 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B8031CE974B2000DD508 /* FBSDKCoreKit.framework */; };
+		8B08B8101CE974B2000DD508 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B8041CE974B2000DD508 /* FBSDKLoginKit.framework */; };
+		8B08B8111CE974B2000DD508 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B8051CE974B2000DD508 /* FBSDKShareKit.framework */; };
 		8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */; };
 		8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12C1771C2521840053841E /* PercentagesViewController.swift */; };
 		8B1B12B31CE167FF00CDBE22 /* ORStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12AE1CE167FF00CDBE22 /* ORStats.swift */; };
@@ -45,15 +89,10 @@
 		8B76B5061CE82BC000C1F2C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FA1CE82BC000C1F2C2 /* Foundation.framework */; };
 		8B76B50E1CE82BE700C1F2C2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50D1CE82BE700C1F2C2 /* libsqlite3.tbd */; };
 		8B76B5101CE82BEE00C1F2C2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50F1CE82BEE00C1F2C2 /* libz.tbd */; };
-		8B76B5281CE8343A00C1F2C2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B76B5261CE8343A00C1F2C2 /* Info.plist */; };
 		8B76B54A1CE836B300C1F2C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B5001CE82BC000C1F2C2 /* UIKit.framework */; };
-		8B76B5681CE837B400C1F2C2 /* libz.tbd in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50F1CE82BEE00C1F2C2 /* libz.tbd */; };
-		8B76B5691CE837B400C1F2C2 /* libsqlite3.tbd in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50D1CE82BE700C1F2C2 /* libsqlite3.tbd */; };
-		8B76B56A1CE837B400C1F2C2 /* libc++.tbd in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4A31CE823DD00C1F2C2 /* libc++.tbd */; };
 		8B76B5811CE917F300C1F2C2 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B11CE8299C00C1F2C2 /* CorePlot.framework */; };
 		8B76B5821CE917F300C1F2C2 /* CorePlot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B11CE8299C00C1F2C2 /* CorePlot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B76B5A61CE9608800C1F2C2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B5A51CE9608800C1F2C2 /* QuartzCore.framework */; };
-		8B76B5A81CE961E200C1F2C2 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FC1CE82BC000C1F2C2 /* SafariServices.framework */; };
 		8B81E9E01C1B5F1A00291443 /* FilterPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */; };
 		8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */; };
 		8B8D440D1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */; };
@@ -99,10 +138,16 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8B76B5681CE837B400C1F2C2 /* libz.tbd in Embed Frameworks */,
-				8B76B5691CE837B400C1F2C2 /* libsqlite3.tbd in Embed Frameworks */,
+				8B08B7EE1CE9741D000DD508 /* Realm.framework in Embed Frameworks */,
+				8B08B7EF1CE9741D000DD508 /* RealmSwift.framework in Embed Frameworks */,
+				8B08B7F01CE9741D000DD508 /* SwiftTools.framework in Embed Frameworks */,
+				8B08B7B41CE96C5D000DD508 /* AWSCore.framework in Embed Frameworks */,
+				8B08B7B51CE96C5D000DD508 /* AWSDynamoDB.framework in Embed Frameworks */,
+				8B08B7B61CE96C5D000DD508 /* AWSLambda.framework in Embed Frameworks */,
+				8B08B7B71CE96C5D000DD508 /* AWSMobileAnalytics.framework in Embed Frameworks */,
+				8B08B7B81CE96C5D000DD508 /* AWSS3.framework in Embed Frameworks */,
 				8B76B5821CE917F300C1F2C2 /* CorePlot.framework in Embed Frameworks */,
-				8B76B56A1CE837B400C1F2C2 /* libc++.tbd in Embed Frameworks */,
+				8B08B7EC1CE971CC000DD508 /* AWSCognito.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -111,6 +156,31 @@
 
 /* Begin PBXFileReference section */
 		8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLiftSelectedStatView.swift; sourceTree = "<group>"; };
+		8B08B7AF1CE96C5D000DD508 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = "TheOneRepMax-iOS/Sdk/Aws/AWSCore.framework"; sourceTree = "<group>"; };
+		8B08B7B01CE96C5D000DD508 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = "TheOneRepMax-iOS/Sdk/Aws/AWSDynamoDB.framework"; sourceTree = "<group>"; };
+		8B08B7B11CE96C5D000DD508 /* AWSLambda.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSLambda.framework; path = "TheOneRepMax-iOS/Sdk/Aws/AWSLambda.framework"; sourceTree = "<group>"; };
+		8B08B7B21CE96C5D000DD508 /* AWSMobileAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSMobileAnalytics.framework; path = "TheOneRepMax-iOS/Sdk/Aws/AWSMobileAnalytics.framework"; sourceTree = "<group>"; };
+		8B08B7B31CE96C5D000DD508 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSS3.framework; path = "TheOneRepMax-iOS/Sdk/Aws/AWSS3.framework"; sourceTree = "<group>"; };
+		8B08B7BF1CE96D08000DD508 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSMobileHubHelper.framework; path = "TheOneRepMax-iOS/AmazonAws/AWSMobileHubHelper.framework"; sourceTree = "<group>"; };
+		8B08B7D01CE96ECC000DD508 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
+		8B08B7D11CE96ECC000DD508 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
+		8B08B7D21CE96ECC000DD508 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKShareKit.framework"; sourceTree = "<group>"; };
+		8B08B7E71CE9715C000DD508 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B08B7E91CE971C6000DD508 /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
+		8B08B7F21CE974A7000DD508 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
+		8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileHubHelper.framework; sourceTree = "<group>"; };
+		8B08B7F81CE974B2000DD508 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
+		8B08B7F91CE974B2000DD508 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSDynamoDB.framework; sourceTree = "<group>"; };
+		8B08B7FA1CE974B2000DD508 /* AWSLambda.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSLambda.framework; sourceTree = "<group>"; };
+		8B08B7FB1CE974B2000DD508 /* AWSMobileAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileAnalytics.framework; sourceTree = "<group>"; };
+		8B08B7FC1CE974B2000DD508 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSS3.framework; sourceTree = "<group>"; };
+		8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Amazon_Software_License.txt; sourceTree = "<group>"; };
+		8B08B7FF1CE974B2000DD508 /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
+		8B08B8001CE974B2000DD508 /* NOTICE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
+		8B08B8011CE974B2000DD508 /* CheckXcodeVersion.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CheckXcodeVersion.sh; sourceTree = "<group>"; };
+		8B08B8031CE974B2000DD508 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		8B08B8041CE974B2000DD508 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		8B08B8051CE974B2000DD508 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullableToolbar.swift; sourceTree = "<group>"; };
 		8B12C1771C2521840053841E /* PercentagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesViewController.swift; sourceTree = "<group>"; };
 		8B1B12AE1CE167FF00CDBE22 /* ORStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORStats.swift; sourceTree = "<group>"; };
@@ -183,7 +253,6 @@
 		8B76B5001CE82BC000C1F2C2 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		8B76B50D1CE82BE700C1F2C2 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/usr/lib/libsqlite3.tbd; sourceTree = DEVELOPER_DIR; };
 		8B76B50F1CE82BEE00C1F2C2 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/usr/lib/libz.tbd; sourceTree = DEVELOPER_DIR; };
-		8B76B5261CE8343A00C1F2C2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B76B5A51CE9608800C1F2C2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPopoverViewController.swift; sourceTree = "<group>"; };
 		8B836BCB1CE2C47900A06DFE /* TheOneRepMax_v1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v1.2.xcdatamodel; sourceTree = "<group>"; };
@@ -198,8 +267,6 @@
 		8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObjects.swift; sourceTree = "<group>"; };
 		8BDB81021C856357007B0598 /* IncreaseIndicatorStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncreaseIndicatorStatView.swift; sourceTree = "<group>"; };
 		8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewerViewController.swift; sourceTree = "<group>"; };
-		8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ORMKitTests.swift; sourceTree = "<group>"; };
-		8BDD08A41BD149A800AD2D44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageIntervalRangeProgressStatView.swift; sourceTree = "<group>"; };
 		8BDF96FA1C76D0DB00088B85 /* StatPanelRowSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRowSeparator.swift; sourceTree = "<group>"; };
 		8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageScrollerView.swift; sourceTree = "<group>"; };
@@ -214,13 +281,42 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B76B5A81CE961E200C1F2C2 /* SafariServices.framework in Frameworks */,
+				8B08B7ED1CE97299000DD508 /* MediaPlayer.framework in Frameworks */,
+				8B08B8111CE974B2000DD508 /* FBSDKShareKit.framework in Frameworks */,
+				8B08B7D61CE96F24000DD508 /* FBSDKCoreKit.framework in Frameworks */,
+				8B08B8101CE974B2000DD508 /* FBSDKLoginKit.framework in Frameworks */,
+				8B08B80C1CE974B2000DD508 /* AWSCognito.framework in Frameworks */,
+				8B08B7D71CE96F24000DD508 /* FBSDKLoginKit.framework in Frameworks */,
+				8B08B8091CE974B2000DD508 /* AWSMobileAnalytics.framework in Frameworks */,
+				8B08B7D81CE96F24000DD508 /* FBSDKShareKit.framework in Frameworks */,
+				8B08B8071CE974B2000DD508 /* AWSDynamoDB.framework in Frameworks */,
+				8B08B7EA1CE971C6000DD508 /* AWSCognito.framework in Frameworks */,
+				8B08B8061CE974B2000DD508 /* AWSCore.framework in Frameworks */,
+				8B08B7E21CE970CA000DD508 /* AWSCore.framework in Frameworks */,
+				8B08B7E31CE970CA000DD508 /* AWSDynamoDB.framework in Frameworks */,
+				8B08B7E41CE970CA000DD508 /* AWSLambda.framework in Frameworks */,
+				8B08B8081CE974B2000DD508 /* AWSLambda.framework in Frameworks */,
+				8B08B7E51CE970CA000DD508 /* AWSMobileAnalytics.framework in Frameworks */,
+				8B08B7E11CE970CA000DD508 /* AWSMobileHubHelper.framework in Frameworks */,
+				8B08B7E61CE970CA000DD508 /* AWSS3.framework in Frameworks */,
+				8B08B7C21CE96E1B000DD508 /* AddressBook.framework in Frameworks */,
+				8B08B7C31CE96E1B000DD508 /* AssetsLibrary.framework in Frameworks */,
+				8B08B80A1CE974B2000DD508 /* AWSS3.framework in Frameworks */,
+				8B08B7C41CE96E1B000DD508 /* CFNetwork.framework in Frameworks */,
+				8B08B7C51CE96E1B000DD508 /* CoreMotion.framework in Frameworks */,
+				8B76B5061CE82BC000C1F2C2 /* Foundation.framework in Frameworks */,
 				8B76B5A61CE9608800C1F2C2 /* QuartzCore.framework in Frameworks */,
-				8B76B5811CE917F300C1F2C2 /* CorePlot.framework in Frameworks */,
+				8B08B7C61CE96E1B000DD508 /* SafariServices.framework in Frameworks */,
+				8B08B7C71CE96E1B000DD508 /* Security.framework in Frameworks */,
+				8B08B80F1CE974B2000DD508 /* FBSDKCoreKit.framework in Frameworks */,
+				8B08B7C81CE96E1B000DD508 /* StoreKit.framework in Frameworks */,
+				8B08B7C91CE96E1B000DD508 /* SystemConfiguration.framework in Frameworks */,
 				8B76B54A1CE836B300C1F2C2 /* UIKit.framework in Frameworks */,
+				8B76B5811CE917F300C1F2C2 /* CorePlot.framework in Frameworks */,
 				8B76B5101CE82BEE00C1F2C2 /* libz.tbd in Frameworks */,
 				8B76B50E1CE82BE700C1F2C2 /* libsqlite3.tbd in Frameworks */,
-				8B76B5061CE82BC000C1F2C2 /* Foundation.framework in Frameworks */,
+				8B08B7EB1CE971CC000DD508 /* AWSCognito.framework in Frameworks */,
+				8B08B7F51CE974A7000DD508 /* AWSMobileHubHelper.framework in Frameworks */,
 				8B76B4A41CE823DD00C1F2C2 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -245,6 +341,16 @@
 		0A18E43CBDE524072F87162C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B08B7E91CE971C6000DD508 /* AWSCognito.framework */,
+				8B08B7D01CE96ECC000DD508 /* FBSDKCoreKit.framework */,
+				8B08B7D11CE96ECC000DD508 /* FBSDKLoginKit.framework */,
+				8B08B7D21CE96ECC000DD508 /* FBSDKShareKit.framework */,
+				8B08B7BF1CE96D08000DD508 /* AWSMobileHubHelper.framework */,
+				8B08B7AF1CE96C5D000DD508 /* AWSCore.framework */,
+				8B08B7B01CE96C5D000DD508 /* AWSDynamoDB.framework */,
+				8B08B7B11CE96C5D000DD508 /* AWSLambda.framework */,
+				8B08B7B21CE96C5D000DD508 /* AWSMobileAnalytics.framework */,
+				8B08B7B31CE96C5D000DD508 /* AWSS3.framework */,
 				8B76B5A51CE9608800C1F2C2 /* QuartzCore.framework */,
 				8B76B50F1CE82BEE00C1F2C2 /* libz.tbd */,
 				8B76B50D1CE82BE700C1F2C2 /* libsqlite3.tbd */,
@@ -267,6 +373,60 @@
 				8B76B4B41CE8299C00C1F2C2 /* SwiftTools.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B08B7F11CE974A7000DD508 /* AmazonAws */ = {
+			isa = PBXGroup;
+			children = (
+				8B08B7F21CE974A7000DD508 /* AWSMobileClient.swift */,
+				8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */,
+			);
+			name = AmazonAws;
+			path = "TheOneRepMax-iOS/AmazonAws";
+			sourceTree = "<group>";
+		};
+		8B08B7F61CE974B2000DD508 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				8B08B7F71CE974B2000DD508 /* Aws */,
+				8B08B8011CE974B2000DD508 /* CheckXcodeVersion.sh */,
+				8B08B8021CE974B2000DD508 /* Facebook */,
+			);
+			name = SDK;
+			path = "TheOneRepMax-iOS/Sdk";
+			sourceTree = "<group>";
+		};
+		8B08B7F71CE974B2000DD508 /* Aws */ = {
+			isa = PBXGroup;
+			children = (
+				8B08B7F81CE974B2000DD508 /* AWSCore.framework */,
+				8B08B7F91CE974B2000DD508 /* AWSDynamoDB.framework */,
+				8B08B7FA1CE974B2000DD508 /* AWSLambda.framework */,
+				8B08B7FB1CE974B2000DD508 /* AWSMobileAnalytics.framework */,
+				8B08B7FC1CE974B2000DD508 /* AWSS3.framework */,
+				8B08B7FD1CE974B2000DD508 /* extras */,
+			);
+			path = Aws;
+			sourceTree = "<group>";
+		};
+		8B08B7FD1CE974B2000DD508 /* extras */ = {
+			isa = PBXGroup;
+			children = (
+				8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */,
+				8B08B7FF1CE974B2000DD508 /* AWSCognito.framework */,
+				8B08B8001CE974B2000DD508 /* NOTICE */,
+			);
+			path = extras;
+			sourceTree = "<group>";
+		};
+		8B08B8021CE974B2000DD508 /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				8B08B8031CE974B2000DD508 /* FBSDKCoreKit.framework */,
+				8B08B8041CE974B2000DD508 /* FBSDKLoginKit.framework */,
+				8B08B8051CE974B2000DD508 /* FBSDKShareKit.framework */,
+			);
+			path = Facebook;
 			sourceTree = "<group>";
 		};
 		8B1B12A11CE167CD00CDBE22 /* ORMKit */ = {
@@ -335,7 +495,7 @@
 				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
 				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
 				8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */,
-				8B76B5261CE8343A00C1F2C2 /* Info.plist */,
+				8B08B7E71CE9715C000DD508 /* Info.plist */,
 			);
 			path = "TheOneRepMax-iOS";
 			sourceTree = "<group>";
@@ -380,15 +540,6 @@
 				8BDB81021C856357007B0598 /* IncreaseIndicatorStatView.swift */,
 			);
 			name = "Stat Panels";
-			sourceTree = "<group>";
-		};
-		8BDD08A11BD149A800AD2D44 /* ORMKitTests */ = {
-			isa = PBXGroup;
-			children = (
-				8BDD08A21BD149A800AD2D44 /* ORMKitTests.swift */,
-				8BDD08A41BD149A800AD2D44 /* Info.plist */,
-			);
-			path = ORMKitTests;
 			sourceTree = "<group>";
 		};
 		8BE649C41C8405B300CD6B54 /* Data Viewer */ = {
@@ -463,11 +614,12 @@
 		8BF3434E1B27FA08007CBF44 = {
 			isa = PBXGroup;
 			children = (
+				8B08B7F11CE974A7000DD508 /* AmazonAws */,
+				8B08B7F61CE974B2000DD508 /* SDK */,
 				8B7123CF1BA764DE0083980E /* TheOneRepMax-iOS */,
 				8B7123E91BA764DE0083980E /* TheOneRepMax-iOSTests */,
 				8B7123F41BA764DE0083980E /* TheOneRepMax-iOSUITests */,
 				8B1B12A11CE167CD00CDBE22 /* ORMKit */,
-				8BDD08A11BD149A800AD2D44 /* ORMKitTests */,
 				8BF343581B27FA08007CBF44 /* Products */,
 				0A18E43CBDE524072F87162C /* Frameworks */,
 			);
@@ -494,9 +646,8 @@
 				8B7123CB1BA764DE0083980E /* Frameworks */,
 				8B7123CC1BA764DE0083980E /* Resources */,
 				8B76B4C51CE829B400C1F2C2 /* Embed Frameworks */,
-				8B76B5191CE82E4000C1F2C2 /* ShellScript */,
 				8B0D92E71C8FACD5003DFE45 /* ShellScript */,
-				8B76B5491CE8364100C1F2C2 /* ShellScript */,
+				8B76B5191CE82E4000C1F2C2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -601,10 +752,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B08B80E1CE974B2000DD508 /* CheckXcodeVersion.sh in Resources */,
 				8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */,
+				8B08B7E81CE9715C000DD508 /* Info.plist in Resources */,
+				8B08B80D1CE974B2000DD508 /* NOTICE in Resources */,
 				8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */,
-				8B76B5281CE8343A00C1F2C2 /* Info.plist in Resources */,
 				8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */,
+				8B08B80B1CE974B2000DD508 /* Amazon_Software_License.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,19 +809,6 @@
 			shellPath = /bin/sh;
 			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh\"";
 		};
-		8B76B5491CE8364100C1F2C2 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -677,6 +818,7 @@
 			files = (
 				8B1B12D41CE1683100CDBE22 /* ORDataTools.swift in Sources */,
 				8B1B12B71CE167FF00CDBE22 /* ORGroupStats.swift in Sources */,
+				8B08B7F41CE974A7000DD508 /* AWSMobileClient.swift in Sources */,
 				8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */,
 				8B1B12D81CE1683100CDBE22 /* ORDataResponse.swift in Sources */,
 				8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */,
@@ -794,13 +936,14 @@
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Facebook",
+					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws/extras",
 				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../core-plot/framework/**";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -809,7 +952,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax-iOS/TheOneRepMax-iOS-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "i386 x86_64 arm64 armv7s armv7";
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
 		};
@@ -830,13 +973,14 @@
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Facebook",
+					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws/extras",
 				);
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/../core-plot/framework/**";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -845,7 +989,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax-iOS/TheOneRepMax-iOS-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "i386 x86_64 arm64 armv7s armv7";
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;
 		};
