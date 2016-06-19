@@ -101,6 +101,10 @@ public class Model: Object, ORLocalModel, ORCloudModel {
 
 extension Object {
     
+    class var fields: [String] { return [] }
+    
+    class var localFields: [String] { return [] }
+    
     class var deletedKeys: [String] { return [] }
     
 }

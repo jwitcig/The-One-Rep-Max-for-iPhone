@@ -15,26 +15,8 @@ import RealmSwift
 
 public class LiftEntry: Object {
 
-    public enum Fields: String {
-        case date
-        case maxOut
-        case reps
-        case weightLifted
-        case liftTemplate
-        case organization
-        case athlete
-        
-        enum LocalOnly: String {
-            case NoFields
-            
-            static var allCases: [LocalOnly] {
-                return []
-            }
-            
-            static var allValues: [String] {
-                return LocalOnly.allCases.map { $0.rawValue }
-            }
-        }
+    override class var fields: [String] {
+        return ["model", "id", "date", "maxOut", "reps", "weightLifted", "liftTemplate", "athlete"]
     }
     
     class var entityName: String { return RecordType.LiftEntry.rawValue }

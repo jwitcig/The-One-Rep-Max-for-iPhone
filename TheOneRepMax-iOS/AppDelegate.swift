@@ -125,7 +125,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let athlete = NSEntityDescription.insertNewObjectForEntityForName("ORAthlete", inManagedObjectContext: managedObjectContext)
         athlete["firstName"] = "jimmy"
         athlete["lastName"] = "johnguys"
-        athlete["username"] = "shibbie"
         
         let liftTemplates: [NSManagedObject] = ["Hang Clean", "Squat", "Bench Press", "Dead Lift"].map {
             let liftTemplate = NSEntityDescription.insertNewObjectForEntityForName("ORLiftTemplate", inManagedObjectContext: managedObjectContext)

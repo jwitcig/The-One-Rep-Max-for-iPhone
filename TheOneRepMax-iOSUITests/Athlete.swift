@@ -18,23 +18,13 @@ import RealmSwift
 import SwiftTools
 
 public class Athlete: Object {
-  
-    enum Fields: String {
-        case firstName
-        case lastName
-        case username
-        
-        enum LocalOnly: String {
-            case None
-            
-            static var allCases: [LocalOnly] {
-                return []
-            }
-            
-            static var allValues: [String] {
-                return LocalOnly.allCases.map { $0.rawValue }
-            }
-        }
+    
+    override class var fields: [String] {
+        return ["model", "id", "firstName", "lastName"]
+    }
+    
+    override class var deletedKeys: [String] {
+        return ["username"]
     }
     
     class var entityName: String { return RecordType.Athlete.rawValue }

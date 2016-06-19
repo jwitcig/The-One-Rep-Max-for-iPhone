@@ -16,25 +16,8 @@ import RealmSwift
 
 class LiftTemplate: Object {
     
-    public enum Fields: String {
-        case defaultLift
-        case liftDescription
-        case liftName
-        case solo
-        case creator
-        case organization
-        
-        enum LocalOnly: String {
-            case NoFields
-            
-            static var allCases: [LocalOnly] {
-                return []
-            }
-            
-            static var allValues: [String] {
-                return LocalOnly.allCases.map { $0.rawValue }
-            }
-        }
+    override class var fields: [String] {
+        return ["model", "id", "defaultLift", "liftDescription", "liftName", "solo", "creator"]
     }
     
     class var entityName: String { return RecordType.LiftTemplate.rawValue }
