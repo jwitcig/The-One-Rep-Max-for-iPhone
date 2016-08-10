@@ -662,32 +662,16 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOe-54-yFx">
                                 <rect key="frame" x="0.0" y="108" width="600" height="448"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-tR-XCq">
-                                        <rect key="frame" x="0.0" y="0.0" width="1800" height="448"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-tR-XCq">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m0J-UD-DhJ">
+                                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYJ-Vh-WLH">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
-                                                <connections>
-                                                    <segue destination="ec9-1H-WWt" kind="embed" id="Pgd-zH-u4K"/>
-                                                </connections>
-                                            </containerView>
-                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VWQ-wb-ecZ">
-                                                <rect key="frame" x="600" y="0.0" width="600" height="448"/>
-                                                <connections>
-                                                    <segue destination="ZVk-or-m65" kind="embed" id="gVQ-vB-FVV"/>
-                                                </connections>
-                                            </containerView>
-                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYJ-Vh-WLH">
-                                                <rect key="frame" x="1200" y="0.0" width="600" height="448"/>
                                                 <connections>
                                                     <segue destination="02N-Nz-D8r" kind="embed" identifier="HistoryViewSegue" id="A3E-xa-aFm"/>
                                                 </connections>
                                             </containerView>
                                         </subviews>
-                                        <constraints>
-                                            <constraint firstItem="VWQ-wb-ecZ" firstAttribute="width" secondItem="RYJ-Vh-WLH" secondAttribute="width" id="o7K-ax-Vyd"/>
-                                            <constraint firstItem="m0J-UD-DhJ" firstAttribute="width" secondItem="RYJ-Vh-WLH" secondAttribute="width" id="tgN-9B-ecG"/>
-                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <constraints>
@@ -934,10 +918,10 @@
                         <viewControllerLayoutGuide type="bottom" id="7LR-6u-CNT"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="61N-su-ZOo">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l9B-b5-Zob">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="l9B-b5-Zob">
                                 <rect key="frame" x="20" y="0.0" width="560" height="448"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" distribution="equalSpacing" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="F1S-9s-UvB">
@@ -977,11 +961,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Bt6-zo-pFd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="nWh-CM-L14">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qzI-gM-F7p">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="htI-VR-Nqg">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>

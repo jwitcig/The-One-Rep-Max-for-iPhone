@@ -8,6 +8,8 @@
 
 import UIKit
 
+import RealmSwift
+
 class RecentLiftEntry {
     
     var entry: Entry!
@@ -24,7 +26,7 @@ class RecentLiftEntry {
         self.selector = selector
         
         let liftLabel = UILabel()
-        liftLabel.text = entry.lift
+        liftLabel.text = try! Realm().objects(LocalLift).filter("_id == %@", entry.liftId).first?.name
         liftLabel.textAlignment = .Center
         
         let fontDescriptor = liftLabel.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)

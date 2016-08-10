@@ -23,14 +23,20 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     var weightLifted: Int!
     var reps: Int!
     
-    var lifts = [String]()
+    var lifts: Results<LocalLift>! {
+        didSet {
+            liftNames = lifts.map{$0.name}
+            templatePicker.reloadAllComponents()
+        }
+    }
+    var liftNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.updateLabels()
         
-        let realm = try! Realm()
+        lifts = try! Realm().objects(LocalLift).sorted("_name")
         
         self.templatePicker.reloadAllComponents()
     }
@@ -59,7 +65,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         entry.weightLifted = self.weightLifted
         entry.reps = self.reps
         entry.userId = ""
-        entry.lift = ""
+        entry.liftId = lifts[templatePicker.selectedRowInComponent(0)].id
         entry.maxOut = true
         entry.date = datePicker.date
         
@@ -81,7 +87,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.lifts[row]
+        return self.liftNames[row]
     }
     
     func scrollToOptionPage(optionPage: Int) {

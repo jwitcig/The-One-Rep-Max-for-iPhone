@@ -159,7 +159,7 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         }
         
         for lift in lifts {
-            if let latestEntry = realm.objects(LocalEntry).filter("_lift == %@", lift.name).sorted("_date").reverse().first {
+            if let latestEntry = realm.objects(LocalEntry).filter("_categoryId == %@", lift.id).sorted("_date").reverse().first {
                 
                 latestEntries.append(latestEntry)
             }

@@ -30,7 +30,6 @@
 		8B08B7E41CE970CA000DD508 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B11CE96C5D000DD508 /* AWSLambda.framework */; };
 		8B08B7E51CE970CA000DD508 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B21CE96C5D000DD508 /* AWSMobileAnalytics.framework */; };
 		8B08B7E61CE970CA000DD508 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B31CE96C5D000DD508 /* AWSS3.framework */; };
-		8B08B7E81CE9715C000DD508 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B7E71CE9715C000DD508 /* Info.plist */; };
 		8B08B7EA1CE971C6000DD508 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; };
 		8B08B7EB1CE971CC000DD508 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; };
 		8B08B7EC1CE971CC000DD508 /* AWSCognito.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -38,7 +37,6 @@
 		8B08B7EE1CE9741D000DD508 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B21CE8299C00C1F2C2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B08B7EF1CE9741D000DD508 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B31CE8299C00C1F2C2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B08B7F01CE9741D000DD508 /* SwiftTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B41CE8299C00C1F2C2 /* SwiftTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B08B7F41CE974A7000DD508 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B08B7F21CE974A7000DD508 /* AWSMobileClient.swift */; };
 		8B08B7F51CE974A7000DD508 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */; };
 		8B08B8061CE974B2000DD508 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F81CE974B2000DD508 /* AWSCore.framework */; };
 		8B08B8071CE974B2000DD508 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F91CE974B2000DD508 /* AWSDynamoDB.framework */; };
@@ -105,6 +103,8 @@
 		8BE55C551C2A05AE005948D9 /* FocusResizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */; };
 		8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C581C2A5967005948D9 /* PercentageView.swift */; };
 		8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */; };
+		8BF4B2AE1D5BCDA90072C364 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF4B2AD1D5BCDA90072C364 /* Info.plist */; };
+		8BF4B2B01D5BCE810072C364 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */; };
 		8BFED0591C658FAF0002FE17 /* RecentLiftEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */; };
 /* End PBXBuildFile section */
 
@@ -158,9 +158,7 @@
 		8B08B7D01CE96ECC000DD508 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKCoreKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKCoreKit.framework"; sourceTree = "<group>"; };
 		8B08B7D11CE96ECC000DD508 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		8B08B7D21CE96ECC000DD508 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKShareKit.framework"; sourceTree = "<group>"; };
-		8B08B7E71CE9715C000DD508 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8B08B7E91CE971C6000DD508 /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
-		8B08B7F21CE974A7000DD508 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileHubHelper.framework; sourceTree = "<group>"; };
 		8B08B7F81CE974B2000DD508 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
 		8B08B7F91CE974B2000DD508 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSDynamoDB.framework; sourceTree = "<group>"; };
@@ -262,6 +260,8 @@
 		8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusResizingLabel.swift; sourceTree = "<group>"; };
 		8BE55C581C2A5967005948D9 /* PercentageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageView.swift; sourceTree = "<group>"; };
 		8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORViewController.swift; sourceTree = "<group>"; };
+		8BF4B2AD1D5BCDA90072C364 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentLiftEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -366,7 +366,7 @@
 		8B08B7F11CE974A7000DD508 /* AmazonAws */ = {
 			isa = PBXGroup;
 			children = (
-				8B08B7F21CE974A7000DD508 /* AWSMobileClient.swift */,
+				8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */,
 				8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */,
 			);
 			name = AmazonAws;
@@ -480,7 +480,7 @@
 				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
 				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
 				8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */,
-				8B08B7E71CE9715C000DD508 /* Info.plist */,
+				8BF4B2AD1D5BCDA90072C364 /* Info.plist */,
 			);
 			path = "TheOneRepMax-iOS";
 			sourceTree = "<group>";
@@ -738,11 +738,11 @@
 			files = (
 				8B08B80E1CE974B2000DD508 /* CheckXcodeVersion.sh in Resources */,
 				8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */,
-				8B08B7E81CE9715C000DD508 /* Info.plist in Resources */,
 				8B08B80D1CE974B2000DD508 /* NOTICE in Resources */,
 				8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */,
 				8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */,
 				8B08B80B1CE974B2000DD508 /* Amazon_Software_License.txt in Resources */,
+				8BF4B2AE1D5BCDA90072C364 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,7 +800,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B1B12D41CE1683100CDBE22 /* ORDataTools.swift in Sources */,
-				8B08B7F41CE974A7000DD508 /* AWSMobileClient.swift in Sources */,
 				8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */,
 				8B1B12D81CE1683100CDBE22 /* ORDataResponse.swift in Sources */,
 				8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */,
@@ -835,6 +834,7 @@
 				8B1B12C51CE1681100CDBE22 /* LiftEntry.swift in Sources */,
 				8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */,
 				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */,
+				8BF4B2B01D5BCE810072C364 /* AWSMobileClient.swift in Sources */,
 				8B1B12B51CE167FF00CDBE22 /* ORSoloStats.swift in Sources */,
 				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
 				8BDF96EA1C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift in Sources */,

@@ -23,7 +23,7 @@ protocol Entry {
     
     var max: Int { get }
     
-    var lift: String { get set }
+    var liftId: String { get set }
     var userId: String { get set }
 }
 
@@ -35,8 +35,8 @@ protocol LocalEntryModel: Entry {
     var _maxOut: Bool { get set }
     var _reps: Int { get set }
     var _weightLifted: Int { get set }
-    
-    var _lift: String { get set }
+
+    var _categoryId: String { get set }
     var _userId: String { get set }
 }
 
@@ -49,7 +49,7 @@ protocol CloudEntryModel: Entry {
     var _reps: NSNumber? { get set }
     var _weightLifted: NSNumber? { get set }
     
-    var _lift: String? { get set }
+    var _categoryId: String? { get set }
     var _userId: String? { get set }
 }
 
@@ -84,9 +84,9 @@ extension LocalEntryModel {
         get { return _weightLifted }
         set { _weightLifted = newValue }
     }
-    var lift: String {
-        get { return _lift }
-        set { _lift = newValue }
+    var liftId: String {
+        get { return _categoryId }
+        set { _categoryId = newValue }
     }
     var userId: String {
         get { return _userId ?? "" }
@@ -96,7 +96,7 @@ extension LocalEntryModel {
 
 extension CloudEntryModel {
     var id: String {
-        get { return _id ?? NSUUID().UUIDString }
+        get { return _id ?? "Entry:"+NSUUID().UUIDString }
         set { _id = newValue }
     }
     var date: NSDate {
@@ -129,9 +129,9 @@ extension CloudEntryModel {
         get { return _weightLifted?.integerValue ?? 0 }
         set { _weightLifted = newValue }
     }
-    var lift: String {
-        get { return _lift ?? "" }
-        set { _lift = newValue }
+    var liftId: String {
+        get { return _categoryId ?? "Lift"+NSUUID().UUIDString }
+        set { _categoryId = newValue }
     }
     var userId: String {
         get { return _userId ?? "" }
@@ -140,7 +140,7 @@ extension CloudEntryModel {
 }
 
 class LocalEntry: Object, LocalEntryModel {
-    dynamic var _id: String = ""
+    dynamic var _id: String = "Entry:" + NSUUID().UUIDString
     
     dynamic var _date: Int = 0
     dynamic var _createdDate: Int = 0
@@ -148,7 +148,7 @@ class LocalEntry: Object, LocalEntryModel {
     dynamic var _reps: Int = 0
     dynamic var _weightLifted: Int = 0
     
-    dynamic var _lift: String = ""
+    dynamic var _categoryId: String = ""
     dynamic var _userId: String = ""
     
     static func oneRepMax(weightLifted weightLifted: Int, reps: Int) -> Int {
@@ -180,7 +180,7 @@ class CloudEntry: AWSDynamoDBObjectModel, AWSDynamoDBModeling, CloudEntryModel  
     var _reps: NSNumber? = 0
     var _weightLifted: NSNumber? = 0
     
-    var _lift: String? = ""
+    var _categoryId: String? = ""
     var _userId: String? = ""
   
     var max: Int {
@@ -210,7 +210,7 @@ class CloudEntry: AWSDynamoDBObjectModel, AWSDynamoDBModeling, CloudEntryModel  
             "_maxOut":          "maxOut",
             "_reps":            "reps",
             "_weightLifted":    "weightLifted",
-            "_lift":            "lift",
+            "_categoryId":      "cateogryId",
             "_userId":          "userId",
         ]
     }

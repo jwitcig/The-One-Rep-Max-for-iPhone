@@ -59,7 +59,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         var liftEntries = try! Realm().objects(LocalEntry)//.filter("_userId == %@", "")
         
         if let lift = filterViewController?.selectedLift {
-            liftEntries = liftEntries.filter("_lift == %@", lift.name)
+            liftEntries = liftEntries.filter("_categoryId == %@", lift.id)
         }
         
         delegates.forEach {

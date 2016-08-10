@@ -13,10 +13,12 @@ import AWSDynamoDB
 import RealmSwift
 
 protocol Lift {
+    var id: String { get set }
     var name: String { get set }
 }
 
 protocol LocalLiftModel: Lift {
+    var _id: String { get set }
     var _name: String { get set }
 }
 
@@ -28,6 +30,10 @@ extension Lift {
 }
 
 extension LocalLiftModel {
+    var id: String {
+        get { return _id }
+        set { _id = newValue }
+    }
     var name: String {
         get { return _name }
         set { _name = newValue }
@@ -35,9 +41,10 @@ extension LocalLiftModel {
 }
 
 class LocalLift: Object, LocalLiftModel {
+    dynamic var _id: String = "Lift:"+NSUUID().UUIDString
     dynamic var _name: String = ""
     
     override static func primaryKey() -> String? {
-        return "_name"
+        return "_id"
     }
 }

@@ -48,28 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-//        setupCoreData()
-        
         if coreDataStoreExists() {
             if copyCoreDataToRealm() {
                 removeCoreDataStore()
             }
-            
-/*
-             A bug in build_21 created a secondary user to be logged in with. All data transitioned from Core Data; however, was related to a different user, resulting in issues
-*/
         }
         
         setupDataKit()
-        
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
         
         return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
 
-        return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)
+        return AWSMobileClient.sharedInstance.withApplication(application, withURL: url, withSourceApplication: sourceApplication, withAnnotation: annotation)
     }
     
     func coreDataStoreExists() -> Bool {
@@ -162,6 +154,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             case "ORLiftTemplate":
                 
                 var lift = LocalLift()
+                lift.id = "Lift:\(managedObject.objectID.hashValue)"
                 lift.name = managedObject["liftName"] as? String ?? "error_lift_name"
                 
                 object = lift
@@ -176,8 +169,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
                 entry.maxOut = managedObject["maxOut"] as? Bool ?? false
                 entry.reps = managedObject["reps"] as? Int ?? 0
                 entry.weightLifted = managedObject["weightLifted"] as? Int ?? 0
-                
-                entry.lift = (managedObject["liftTemplate"] as? NSManagedObject)?["liftName"] as? String ?? "error_lift_name"
+                entry.liftId = "Lift:\((managedObject["liftTemplate"]as! NSManagedObject).objectID.hashValue)"
                 entry.userId = ""
 
                 object = entry
@@ -242,9 +234,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         
-        FBSDKAppEvents.activateApp()
+        AWSMobileClient.sharedInstance.applicationDidBecomeActive(application)
     }
-
+    
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
