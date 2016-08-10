@@ -16,23 +16,23 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
 
     @IBOutlet weak var liftTemplatesTableView: UITableView!
     
-    var liftTemplates: [LiftTemplate] = []
+    let lifts = try! Realm().objects(LocalLift)
     
     var selectedLiftPath: NSIndexPath?
     
     var dataViewerViewController: DataViewerViewController!
     
-    var selectedLiftTemplate: LiftTemplate? {
+    var selectedLift: LocalLift? {
         get {
-            guard let row = liftTemplatesTableView?.indexPathForSelectedRow?.row else {
+            guard let row = selectedLiftPath?.row else {
                 return nil
             }
-            return liftTemplates[row]
+            return lifts[row]
         }
         
         set {
             guard let template = newValue,
-                  let index = liftTemplates.indexOf(template) else { return }
+                  let index = lifts.indexOf(template) else { return }
             
             liftTemplatesTableView.selectRowAtIndexPath(NSIndexPath(forItem: index, inSection: 0), animated: false, scrollPosition: .Middle)
         }
@@ -41,7 +41,6 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        liftTemplates = Array(try! Realm().objects(LiftTemplate).sorted("liftName"))
         liftTemplatesTableView.reloadData()
         
         liftTemplatesTableView.backgroundColor = UIColor.clearColor()
@@ -61,7 +60,7 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return liftTemplates.count
+        return lifts.count
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -74,11 +73,11 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        let template = liftTemplates[indexPath.row]
+        let lift = lifts[indexPath.row]
         
         let cell = UITableViewCell(style: .Default, reuseIdentifier: nil)
         
-        cell.textLabel?.text = template.liftName
+        cell.textLabel?.text = lift.name
         
         cell.backgroundColor = UIColor.clearColor()
         cell.textLabel?.textColor = UIColor.whiteColor()

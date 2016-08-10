@@ -10,13 +10,13 @@ import UIKit
 
 class RecentLiftEntry {
     
-    var entry: LiftEntry!
+    var entry: Entry!
     var stackView: UIStackView!
     
     var target: AnyObject?
     var selector: Selector
 
-    init(entry: LiftEntry, target: AnyObject?, selector: Selector) {
+    init(entry: Entry, target: AnyObject?, selector: Selector) {
         
         self.entry = entry
         
@@ -24,7 +24,7 @@ class RecentLiftEntry {
         self.selector = selector
         
         let liftLabel = UILabel()
-        liftLabel.text = entry.liftTemplate?.liftName
+        liftLabel.text = entry.lift
         liftLabel.textAlignment = .Center
         
         let fontDescriptor = liftLabel.font.fontDescriptor().fontDescriptorWithSymbolicTraits(.TraitBold)

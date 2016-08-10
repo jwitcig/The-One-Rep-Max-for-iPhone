@@ -56,12 +56,8 @@
 		8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12C1771C2521840053841E /* PercentagesViewController.swift */; };
 		8B1B12B31CE167FF00CDBE22 /* ORStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12AE1CE167FF00CDBE22 /* ORStats.swift */; };
 		8B1B12B51CE167FF00CDBE22 /* ORSoloStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12AF1CE167FF00CDBE22 /* ORSoloStats.swift */; };
-		8B1B12B71CE167FF00CDBE22 /* ORGroupStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12B01CE167FF00CDBE22 /* ORGroupStats.swift */; };
 		8B1B12B91CE167FF00CDBE22 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12B11CE167FF00CDBE22 /* Extensions.swift */; };
-		8B1B12C11CE1681100CDBE22 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12BB1CE1681100CDBE22 /* Model.swift */; };
-		8B1B12C31CE1681100CDBE22 /* LiftTemplate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12BC1CE1681100CDBE22 /* LiftTemplate.swift */; };
 		8B1B12C51CE1681100CDBE22 /* LiftEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12BD1CE1681100CDBE22 /* LiftEntry.swift */; };
-		8B1B12C71CE1681100CDBE22 /* Athlete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12BE1CE1681100CDBE22 /* Athlete.swift */; };
 		8B1B12D41CE1683100CDBE22 /* ORDataTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12CB1CE1683100CDBE22 /* ORDataTools.swift */; };
 		8B1B12D61CE1683100CDBE22 /* ORDataOperationOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12CC1CE1683100CDBE22 /* ORDataOperationOptions.swift */; };
 		8B1B12D81CE1683100CDBE22 /* ORDataResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12CD1CE1683100CDBE22 /* ORDataResponse.swift */; };
@@ -90,16 +86,14 @@
 		8B76B50E1CE82BE700C1F2C2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50D1CE82BE700C1F2C2 /* libsqlite3.tbd */; };
 		8B76B5101CE82BEE00C1F2C2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50F1CE82BEE00C1F2C2 /* libz.tbd */; };
 		8B76B54A1CE836B300C1F2C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B5001CE82BC000C1F2C2 /* UIKit.framework */; };
-		8B76B5811CE917F300C1F2C2 /* CorePlot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B11CE8299C00C1F2C2 /* CorePlot.framework */; };
-		8B76B5821CE917F300C1F2C2 /* CorePlot.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B11CE8299C00C1F2C2 /* CorePlot.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B76B5A61CE9608800C1F2C2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B5A51CE9608800C1F2C2 /* QuartzCore.framework */; };
 		8B81E9E01C1B5F1A00291443 /* FilterPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */; };
-		8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */; };
 		8B8D440D1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */; };
 		8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */; };
 		8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */; };
 		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */; };
 		8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */; };
+		8BAB72CE1D5ADDBF00EFD128 /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB72CD1D5ADDBF00EFD128 /* Lift.swift */; };
 		8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */; };
 		8BD936A81C6A7F0B00615A12 /* CurrentMaxStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */; };
 		8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */; };
@@ -146,7 +140,6 @@
 				8B08B7B61CE96C5D000DD508 /* AWSLambda.framework in Embed Frameworks */,
 				8B08B7B71CE96C5D000DD508 /* AWSMobileAnalytics.framework in Embed Frameworks */,
 				8B08B7B81CE96C5D000DD508 /* AWSS3.framework in Embed Frameworks */,
-				8B76B5821CE917F300C1F2C2 /* CorePlot.framework in Embed Frameworks */,
 				8B08B7EC1CE971CC000DD508 /* AWSCognito.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -185,12 +178,8 @@
 		8B12C1771C2521840053841E /* PercentagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesViewController.swift; sourceTree = "<group>"; };
 		8B1B12AE1CE167FF00CDBE22 /* ORStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORStats.swift; sourceTree = "<group>"; };
 		8B1B12AF1CE167FF00CDBE22 /* ORSoloStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORSoloStats.swift; sourceTree = "<group>"; };
-		8B1B12B01CE167FF00CDBE22 /* ORGroupStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORGroupStats.swift; sourceTree = "<group>"; };
 		8B1B12B11CE167FF00CDBE22 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		8B1B12BB1CE1681100CDBE22 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		8B1B12BC1CE1681100CDBE22 /* LiftTemplate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTemplate.swift; sourceTree = "<group>"; };
 		8B1B12BD1CE1681100CDBE22 /* LiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntry.swift; sourceTree = "<group>"; };
-		8B1B12BE1CE1681100CDBE22 /* Athlete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Athlete.swift; sourceTree = "<group>"; };
 		8B1B12CB1CE1683100CDBE22 /* ORDataTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORDataTools.swift; sourceTree = "<group>"; };
 		8B1B12CC1CE1683100CDBE22 /* ORDataOperationOptions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORDataOperationOptions.swift; sourceTree = "<group>"; };
 		8B1B12CD1CE1683100CDBE22 /* ORDataResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORDataResponse.swift; sourceTree = "<group>"; };
@@ -256,12 +245,12 @@
 		8B76B5A51CE9608800C1F2C2 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPopoverViewController.swift; sourceTree = "<group>"; };
 		8B836BCB1CE2C47900A06DFE /* TheOneRepMax_v1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v1.2.xcdatamodel; sourceTree = "<group>"; };
-		8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleHistoryGraphViewController.swift; sourceTree = "<group>"; };
 		8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
 		8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbackProgressStatView.swift; sourceTree = "<group>"; };
 		8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRow.swift; sourceTree = "<group>"; };
 		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatView.swift; sourceTree = "<group>"; };
 		8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		8BAB72CD1D5ADDBF00EFD128 /* Lift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lift.swift; sourceTree = "<group>"; };
 		8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStatStackView.swift; sourceTree = "<group>"; };
 		8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMaxStatView.swift; sourceTree = "<group>"; };
 		8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObjects.swift; sourceTree = "<group>"; };
@@ -312,7 +301,6 @@
 				8B08B7C81CE96E1B000DD508 /* StoreKit.framework in Frameworks */,
 				8B08B7C91CE96E1B000DD508 /* SystemConfiguration.framework in Frameworks */,
 				8B76B54A1CE836B300C1F2C2 /* UIKit.framework in Frameworks */,
-				8B76B5811CE917F300C1F2C2 /* CorePlot.framework in Frameworks */,
 				8B76B5101CE82BEE00C1F2C2 /* libz.tbd in Frameworks */,
 				8B76B50E1CE82BE700C1F2C2 /* libsqlite3.tbd in Frameworks */,
 				8B08B7EB1CE971CC000DD508 /* AWSCognito.framework in Frameworks */,
@@ -447,7 +435,6 @@
 			children = (
 				8B1B12AE1CE167FF00CDBE22 /* ORStats.swift */,
 				8B1B12AF1CE167FF00CDBE22 /* ORSoloStats.swift */,
-				8B1B12B01CE167FF00CDBE22 /* ORGroupStats.swift */,
 				8B1B12B11CE167FF00CDBE22 /* Extensions.swift */,
 			);
 			name = Stats;
@@ -456,10 +443,8 @@
 		8B1B12CA1CE1681400CDBE22 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				8B1B12BB1CE1681100CDBE22 /* Model.swift */,
-				8B1B12BC1CE1681100CDBE22 /* LiftTemplate.swift */,
 				8B1B12BD1CE1681100CDBE22 /* LiftEntry.swift */,
-				8B1B12BE1CE1681100CDBE22 /* Athlete.swift */,
+				8BAB72CD1D5ADDBF00EFD128 /* Lift.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -521,7 +506,6 @@
 		8BCBBB9A1C869D9E00B8F08C /* Charts */ = {
 			isa = PBXGroup;
 			children = (
-				8B8D44061C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift */,
 			);
 			name = Charts;
 			sourceTree = "<group>";
@@ -788,7 +772,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftTools.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Realm.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RealmSwift.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/CorePlot.framework",
 			);
 			outputPaths = (
 			);
@@ -817,16 +800,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B1B12D41CE1683100CDBE22 /* ORDataTools.swift in Sources */,
-				8B1B12B71CE167FF00CDBE22 /* ORGroupStats.swift in Sources */,
 				8B08B7F41CE974A7000DD508 /* AWSMobileClient.swift in Sources */,
 				8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */,
 				8B1B12D81CE1683100CDBE22 /* ORDataResponse.swift in Sources */,
 				8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */,
 				8B1B12FC1CE179BE00CDBE22 /* TheOneRepMax.xcdatamodeld in Sources */,
-				8B1B12C31CE1681100CDBE22 /* LiftTemplate.swift in Sources */,
 				8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */,
 				8BDF96FB1C76D0DB00088B85 /* StatPanelRowSeparator.swift in Sources */,
-				8B1B12C11CE1681100CDBE22 /* Model.swift in Sources */,
 				8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */,
 				8B1B12E01CE1683100CDBE22 /* ORLocalDataRequest.swift in Sources */,
 				8B1B12DE1CE1683100CDBE22 /* ORDataRequest.swift in Sources */,
@@ -843,6 +823,7 @@
 				8BDB81031C856357007B0598 /* IncreaseIndicatorStatView.swift in Sources */,
 				8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */,
 				8B495E901C854B3000221F62 /* ChartsViewController.swift in Sources */,
+				8BAB72CE1D5ADDBF00EFD128 /* Lift.swift in Sources */,
 				8BD936A81C6A7F0B00615A12 /* CurrentMaxStatView.swift in Sources */,
 				8B1B12E21CE1683100CDBE22 /* ORCloudDataRequest.swift in Sources */,
 				8B5815621C265C6900F3A151 /* ORMControlsViewController.swift in Sources */,
@@ -853,10 +834,8 @@
 				8B81E9E01C1B5F1A00291443 /* FilterPopoverViewController.swift in Sources */,
 				8B1B12C51CE1681100CDBE22 /* LiftEntry.swift in Sources */,
 				8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */,
-				8B1B12C71CE1681100CDBE22 /* Athlete.swift in Sources */,
 				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */,
 				8B1B12B51CE167FF00CDBE22 /* ORSoloStats.swift in Sources */,
-				8B8D44071C68F77C00BADB4C /* SimpleHistoryGraphViewController.swift in Sources */,
 				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
 				8BDF96EA1C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift in Sources */,
 				8B1B12DA1CE1683100CDBE22 /* ORCloudDataResponse.swift in Sources */,
@@ -938,7 +917,7 @@
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Facebook",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws/extras",
 				);
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../core-plot/framework/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -975,7 +954,7 @@
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Facebook",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws/extras",
 				);
-				HEADER_SEARCH_PATHS = "$(SRCROOT)/../core-plot/framework/**";
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

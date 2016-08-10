@@ -146,9 +146,9 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         
         let realm = try! Realm()
         
-        let liftTemplates = realm.objects(LiftTemplate)
+        let lifts = realm.objects(LocalLift)
         
-        var latestEntries = [LiftEntry]()
+        var latestEntries = [Entry]()
         
         defer {
             if latestEntries.count == 0 {
@@ -158,8 +158,8 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
             }
         }
         
-        for liftTemplate in liftTemplates {
-            if let latestEntry = realm.objects(LiftEntry).filter("liftTemplate == %@", liftTemplate).sorted("date").reverse().first {
+        for lift in lifts {
+            if let latestEntry = realm.objects(LocalEntry).filter("_lift == %@", lift.name).sorted("_date").reverse().first {
                 
                 latestEntries.append(latestEntry)
             }

@@ -8,48 +8,26 @@
 
 import UIKit
 
-
+import RealmSwift
 
 class ChartsViewController: ORViewController, DataViewerDelegate {
 
     var dataViewerViewController: DataViewerViewController!
     
-    var simpleHistoryGraphViewController: SimpleHistoryGraphViewController!
-    
     @IBOutlet weak var mainStackView: UIStackView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        simpleHistoryGraphViewController = storyboard.instantiateViewControllerWithIdentifier("SimpleHistoryGraphViewController") as! SimpleHistoryGraphViewController
-        simpleHistoryGraphViewController.dataViewerViewController = self.dataViewerViewController
-        dataViewerViewController.addDelegate(simpleHistoryGraphViewController)
-        
-        addChildViewController(simpleHistoryGraphViewController)
-
-        mainStackView.addArrangedSubview(simpleHistoryGraphViewController.view)
     }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry]) {
+    func selectedLiftDidChange(liftEntries liftEntries: Results<LocalEntry>) {
         
         
         
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "SimpleGraphSegue" {
-            guard let graphViewController = segue.destinationViewController as? SimpleHistoryGraphViewController else {
-                print("'SimpleGraphSegue' identifier used on ViewController class other than SimpleHistoryGraphViewController!")
-                return
-            }
-            simpleHistoryGraphViewController = graphViewController
-            
-            dataViewerViewController.addDelegate(graphViewController)
-        }
-    
+     
     }
 
 }

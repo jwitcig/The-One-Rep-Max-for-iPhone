@@ -18,10 +18,8 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     
     var dataViewerViewController: DataViewerViewController!
         
-    var liftEntries = [LiftEntry]() {
-        didSet {
-            entriesTableView.reloadData()
-        }
+    var liftEntries = try! Realm().objects(LocalEntry) {
+        didSet { entriesTableView.reloadData() }
     }
     
     override func viewDidLoad() {
@@ -37,11 +35,10 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         entriesTableView.separatorColor = UIColor.blackColor()
     }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry]) {
+    func selectedLiftDidChange(liftEntries entries: Results<LocalEntry>) {
+        self.liftEntries = entries.sorted("_date", ascending: false)
         
-        self.liftEntries = liftEntries.sort { !$0.0.date.isBefore(date: $0.1.date) }
-        
-        updateLiftEntriesList()
+        entriesTableView.reloadData()
     }
     
     func updateLiftEntriesList() {
@@ -50,14 +47,12 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     
     override func dataWasChanged() {
         super.dataWasChanged()
-        
-        liftEntries = Array(try! Realm().objects(LiftEntry))
     }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         switch tableView {
             
-        case self.entriesTableView:
+        case entriesTableView:
             return 1
             
         default:
@@ -69,7 +64,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         switch tableView {
             
         case self.entriesTableView:
-            return "\(self.liftEntries.count) entries"
+            return "\(liftEntries.count) entries"
         default:
             return ""
         }
@@ -78,13 +73,13 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch tableView {
             
-        case self.entriesTableView:
+        case entriesTableView:
             
-            guard self.liftEntries.count > 0 else {
+            guard liftEntries.count > 0 else {
                 return 1
             }
             
-            return self.liftEntries.count
+            return liftEntries.count
             
         default:
             return 0
@@ -93,7 +88,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     
-        var entry: LiftEntry?
+        var entry: Entry?
         
         if liftEntries.count > 0 {
             entry = liftEntries[indexPath.row]
@@ -115,7 +110,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         cell.backgroundColor = UIColor.clearColor()
         cell.contentView.backgroundColor = UIColor.clearColor()
         
-        let longPressGesture = UILongPressGestureRecognizer(target: self, action: Selector("maxEntryCellLongPressStateChanged:"))
+        let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(HistoryViewController.maxEntryCellLongPressStateChanged(_:)))
         cell.addGestureRecognizer(longPressGesture)
         
         switch tableView {
@@ -170,7 +165,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
             return
         }
         
-        presentDeletionDialog(cell.entry)
+        presentDeletionDialog(cell.entry as! LocalEntry)
     }
     
     func maxEntryCellLongPressStateChanged(longPressRecognizer: UILongPressGestureRecognizer) {
@@ -179,7 +174,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         switch longPressRecognizer.state {
         case .Began:
             
-            presentDeletionDialog(cell.entry)
+            presentDeletionDialog(cell.entry as! LocalEntry)
             
         default:
             break
@@ -187,7 +182,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func presentDeletionDialog(entry: LiftEntry) {
+    func presentDeletionDialog(entry: LocalEntry) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "M/d"
         let dateString = dateFormatter.stringFromDate(entry.date)

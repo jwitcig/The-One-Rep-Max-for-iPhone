@@ -14,7 +14,7 @@ protocol DataViewerDelegate {
     
     var dataViewerViewController: DataViewerViewController! { get set }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry])
+    func selectedLiftDidChange(liftEntries liftEntries: Results<LocalEntry>)
 }
 
 class DataViewerViewController: ORViewController, UIPopoverPresentationControllerDelegate {
@@ -23,7 +23,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     
     var filterViewController: FilterPopoverViewController?
     
-    var liftEntries = [LiftEntry]()
+    var liftEntries = [Entry]()
     
     var delegates = [DataViewerDelegate]()
         
@@ -33,16 +33,14 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         // Corrects offset for container views' content
         self.edgesForExtendedLayout = .None
         
-        let templates = try! Realm().objects(LiftTemplate)
-        
-        filterViewController?.selectedLiftTemplate = templates.first
+//        filterViewController?.selectedLiftTemplate = templates.first
         
         presentFilterViewController()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        updateDelegates(liftTemplate: filterViewController?.selectedLiftTemplate)
+        updateDelegates()
     }
     
     func setupFilterViewController() {
@@ -55,29 +53,17 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         filterViewController?.modalPresentationStyle = .Popover
     }
     
-    func updateDelegates(liftTemplate liftTemplate: LiftTemplate?) {
+    func updateDelegates() {
         updateFilterBar()
         
-        guard let athlete = session.currentAthlete else {
-            print("No current athlete!")
-            return
+        var liftEntries = try! Realm().objects(LocalEntry)//.filter("_userId == %@", "")
+        
+        if let lift = filterViewController?.selectedLift {
+            liftEntries = liftEntries.filter("_lift == %@", lift.name)
         }
-        
-        let athletePredicate = NSPredicate(format: "athlete == %@", athlete)
-        
-        var compoundPredicate: NSCompoundPredicate?
-        if let template = liftTemplate {
-            let liftTemplatePredicate = NSPredicate(format: "liftTemplate == %@", template)
-            
-            compoundPredicate = NSCompoundPredicate(andPredicateWithSubpredicates: [athletePredicate, liftTemplatePredicate])
-        }
-        
-        let finalPredicate = compoundPredicate ?? athletePredicate
-        
-        let liftEntries = Array(try! Realm().objects(LiftEntry).filter(finalPredicate))
         
         delegates.forEach {
-            $0.selectedLiftDidChange(liftTemplate: liftTemplate, liftEntries: liftEntries)
+            $0.selectedLiftDidChange(liftEntries: liftEntries)
         }
     }
     
@@ -86,12 +72,12 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
             return
         }
         
-        guard let selectedTemplate = filterViewController?.selectedLiftTemplate else {
+        guard let selectedLift = filterViewController?.selectedLift else {
             filterNavigationItem.title = "All Entries"
             return
         }
         
-        filterNavigationItem.title = selectedTemplate.liftName
+        filterNavigationItem.title = selectedLift.name
     }
     
     func presentFilterViewController() {

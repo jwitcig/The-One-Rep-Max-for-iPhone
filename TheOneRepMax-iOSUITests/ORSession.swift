@@ -29,21 +29,6 @@ public class ORSession {
     public var currentViewController: UIViewController!
     
     private var userDataChangeDelegates = [ORUserDataChangeDelegate]()
-
-    public var currentAthlete: Athlete? {
-        get {
-            guard let id = self.currentAthleteIdentityID else { return nil }
-            
-            return try! Realm().objects(Athlete).filter("model.id == %@", id).first
-        }
-        set {
-            if let athlete = newValue {
-                self.currentAthleteIdentityID = athlete.identityID
-            }
-        }
-    }
-    
-    private var currentAthleteIdentityID: String?
     
 //    private var _localData: ORLocalData!
 //    public var localData: ORLocalData! {
@@ -73,22 +58,11 @@ public class ORSession {
     }
     
     public init() { }
-        
-    public func signInLocally() -> (Bool, Athlete?) {
-        
-        guard let athlete = Athlete.getLastAthlete() else {
-            return (false, nil)
-        }
-        
-        Athlete.setCurrentAthlete(athlete)
-        return (true, athlete)
-    }
- 
+    
     public func initDefaultData() {
         let realm = try! Realm()
-        let liftTemplates = realm.objects(LiftTemplate).filter("defaultLift == true")
         
-        guard liftTemplates.count == 0 else {
+        guard realm.objects(LocalLift).count == 0 else {
             print("Default data in place")
             return
         }
@@ -98,26 +72,18 @@ public class ORSession {
         }
     }
     
-    func generateDefaultLiftTemplates() -> [LiftTemplate] {
-        let hangCleanTemplate = LiftTemplate()
-        hangCleanTemplate.liftName = "Hang Clean"
-        hangCleanTemplate.defaultLift = true
-        hangCleanTemplate.liftDescription = "Pull up"
+    func generateDefaultLiftTemplates() -> [LocalLift] {
+        var hangCleanTemplate = LocalLift()
+        hangCleanTemplate.name = "Hang Clean"
         
-        let squatTemplate = LiftTemplate()
-        squatTemplate.liftName = "Squat"
-        squatTemplate.defaultLift = true
-        squatTemplate.liftDescription = "Squat down"
+        var squatTemplate = LocalLift()
+        squatTemplate.name = "Squat"
         
-        let benchPressTemplate = LiftTemplate()
-        benchPressTemplate.liftName = "Bench Press"
-        benchPressTemplate.defaultLift = true
-        benchPressTemplate.liftDescription = "Push up"
+        var benchPressTemplate = LocalLift()
+        benchPressTemplate.name = "Bench Press"
         
-        let deadLiftTemplate = LiftTemplate()
-        deadLiftTemplate.liftName = "Dead Lift"
-        deadLiftTemplate.defaultLift = true
-        deadLiftTemplate.liftDescription = "Bend at the knees"
+        var deadLiftTemplate = LocalLift()
+        deadLiftTemplate.name = "Dead Lift"
         
         return [hangCleanTemplate, squatTemplate, benchPressTemplate, deadLiftTemplate]
     }

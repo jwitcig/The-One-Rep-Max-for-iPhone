@@ -8,6 +8,8 @@
 
 import UIKit
 
+import RealmSwift
+
 class ProgressViewController: ORViewController, DataViewerDelegate {
     
     var dataViewerViewController: DataViewerViewController!
@@ -123,17 +125,14 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
     }
     
     func updateRowsCollectionVisibility() {
-        let specificLiftPanelRowsHidden = session.soloStats.defaultTemplate == nil
+        let specificLiftPanelRowsHidden = true
         let statPanelItemsAllLiftsHidden = !specificLiftPanelRowsHidden
         
         statListItemsAllLifts.forEach { ($0 as! UIView).hidden = statPanelItemsAllLiftsHidden }
         statListItemsSpecificLift.forEach { ($0 as! UIView).hidden = specificLiftPanelRowsHidden }
     }
     
-    func selectedLiftDidChange(liftTemplate liftTemplate: LiftTemplate?, liftEntries: [LiftEntry]) {
-        
-        session.soloStats.defaultTemplate = liftTemplate
-        
+    func selectedLiftDidChange(liftEntries liftEntries: Results<LocalEntry>) {
         updateStatPanels()
         updateRowsCollectionVisibility()
     }

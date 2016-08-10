@@ -7,5 +7,3 @@
 //
 
 #import <Foundation/Foundation.h>
-
-#import "CorePlot-CocoaTouch.h"

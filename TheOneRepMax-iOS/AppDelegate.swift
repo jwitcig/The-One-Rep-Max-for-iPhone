@@ -48,6 +48,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+//        setupCoreData()
+        
         if coreDataStoreExists() {
             if copyCoreDataToRealm() {
                 removeCoreDataStore()
@@ -56,7 +58,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 /*
              A bug in build_21 created a secondary user to be logged in with. All data transitioned from Core Data; however, was related to a different user, resulting in issues
 */
-            enforceSingleUser()
         }
         
         setupDataKit()
@@ -92,34 +93,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         
         ORSession.currentSession.initDefaultData()
     }
-    
-    func enforceSingleUser() -> Bool {
         
-        let realm = try! Realm()
-        
-        guard let liftTemplate = realm.objects(LiftTemplate).first else {
-            return false
-        }
-        
-        guard let athleteToKeep = liftTemplate.creator else {
-            return false
-        }
-        
-        Athlete.setCurrentAthlete(athleteToKeep)
-        
-        guard let id = athleteToKeep.id else {
-            return false
-        }
-        
-        let athletesToDelete = realm.objects(Athlete).filter("model.id != %@", id)
-        
-        try! realm.write {
-            realm.delete(athletesToDelete)
-        }
-        
-        return true
-    }
-    
     func setupCoreData() {
         
         let athlete = NSEntityDescription.insertNewObjectForEntityForName("ORAthlete", inManagedObjectContext: managedObjectContext)
@@ -161,14 +135,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
     
     func copyCoreDataToRealm() -> Bool {
         let types: [String: Object.Type] = [
-            "ORAthlete": Athlete.self,
-            "ORLiftTemplate": LiftTemplate.self,
-            "ORLiftEntry": LiftEntry.self
+            "ORLiftTemplate": LocalLift.self,
+            "ORLiftEntry": LocalEntry.self,
         ]
         
         var managedObjects = [NSManagedObject]()
         
-        var realmObjects = [Object]()
         for type in types {
             
             let fetchRequest = NSFetchRequest(entityName: type.0)
@@ -181,64 +153,50 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             }
         }
         
-        var untranslatedObjectsIDs = Set<NSManagedObjectID>()
-        managedObjects.forEach {
-            untranslatedObjectsIDs.insert($0.objectID)
-        }
-        
-        let realm = try! Realm()
-        
-        var translatedObjects = [NSManagedObjectID: Object]()
-       
-        func createRealmObject<T: Object>(type type: T.Type, managedObject: NSManagedObject) -> T {
-            let object = type.init()
+        func createRealmObject(managedObject managedObject: NSManagedObject) -> Object {
             
-            translatedObjects[managedObject.objectID] = object
-            
-            let attributeKeys = Array(managedObject.entity.attributesByName.keys)
-            let relationshipKeys = Array(managedObject.entity.relationshipsByName.keys)
-            
-            var dictionaryRepresentation = managedObject.dictionaryWithValuesForKeys(attributeKeys)
+            var object: Object!
 
-            relationshipKeys.forEach {
-                guard let relatedManagedObject = managedObject[$0] as? NSManagedObject else { return }
+            switch managedObject.entity.name! {
                 
-                let relatedObjectType = types[relatedManagedObject.entity.name!]!
+            case "ORLiftTemplate":
                 
-                if let existingRealmObject = translatedObjects[relatedManagedObject.objectID] {
-                    dictionaryRepresentation[$0] = existingRealmObject
-                } else {
-                    let relatedRealmObject = createRealmObject(type: relatedObjectType, managedObject: relatedManagedObject)
-                    
-                    dictionaryRepresentation[$0] = relatedRealmObject
-                    
-                    translatedObjects[relatedManagedObject.objectID] = relatedRealmObject
-                }
+                var lift = LocalLift()
+                lift.name = managedObject["liftName"] as? String ?? "error_lift_name"
+                
+                object = lift
+                
+            case "ORLiftEntry":
+                
+                var entry = LocalEntry()
+                entry.id = NSUUID().UUIDString
+                
+                entry.date = managedObject["date"] as? NSDate ?? NSDate()
+                entry.createdDate = entry.date
+                entry.maxOut = managedObject["maxOut"] as? Bool ?? false
+                entry.reps = managedObject["reps"] as? Int ?? 0
+                entry.weightLifted = managedObject["weightLifted"] as? Int ?? 0
+                
+                entry.lift = (managedObject["liftTemplate"] as? NSManagedObject)?["liftName"] as? String ?? "error_lift_name"
+                entry.userId = ""
+
+                object = entry
+                
+            default:
+                break
             }
             
-            type.deletedKeys.forEach {
-                dictionaryRepresentation.removeValueForKey($0)
-            }
             
-            object.setValuesForKeysWithDictionary(dictionaryRepresentation)
             return object
         }
         
-        managedObjects.forEach {
-            guard let entityName = $0.entity.name else { return }
-            
-            guard let type = types[entityName] else { return }
-            
-            guard translatedObjects[$0.objectID] == nil else { return }
-            
-            let object = createRealmObject(type: type, managedObject: $0)
-            realmObjects.append(object)
-            
-            untranslatedObjectsIDs.remove($0.objectID)
+        let realmObjects = managedObjects.map {
+            createRealmObject(managedObject: $0)
         }
         
+        let realm = try! Realm()
         try! realm.write {
-            realm.add(realmObjects)
+            realm.add(realmObjects, update: true)
         }
         
         return true
@@ -303,7 +261,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     lazy var managedObjectModel: NSManagedObjectModel = {
         // The managed object model for the application. This property is not optional. It is a fatal error for the application not to be able to find and load its model.
-        let modelURL = NSBundle(forClass: Model.self).URLForResource("TheOneRepMax", withExtension: "momd")!
+        let modelURL = NSBundle(forClass: LocalLift.self).URLForResource("TheOneRepMax", withExtension: "momd")!
         return NSManagedObjectModel(contentsOfURL: modelURL)!
     }()
     

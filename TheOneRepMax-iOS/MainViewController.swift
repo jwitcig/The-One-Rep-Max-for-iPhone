@@ -14,27 +14,8 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let session = ORSession.currentSession
-        
-        let (success, _) = session.signInLocally()
-        
-        if !success {
-            print("no user")
-            
-            let athlete = Athlete()
-            athlete.firstName = ""
-            athlete.lastName = ""
-            
-            let realm = try! Realm()
-            try! realm.write {
-                realm.add(athlete)
-            }
-            
-            Athlete.setCurrentAthlete(athlete)
-        }
-        
-        session.soloStats = ORSoloStats(athlete: session.currentAthlete!)
+                
+        ORSession.currentSession.soloStats = ORSoloStats(userId: "")
         
         runOnMainThread {
             self.performSegueWithIdentifier("LoginSegue", sender: self)

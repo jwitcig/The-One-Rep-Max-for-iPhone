@@ -22,11 +22,8 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     
     var weightLifted: Int!
     var reps: Int!
-    var liftTemplates = [LiftTemplate]()
     
-    var selectedTemplate: LiftTemplate {
-        return self.liftTemplates[self.templatePicker.selectedRowInComponent(0)]
-    }
+    var lifts = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,15 +32,11 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         
         let realm = try! Realm()
         
-        let templates = realm.objects(LiftTemplate).sorted("liftName")
-        
-        self.liftTemplates = Array(templates)
-        
         self.templatePicker.reloadAllComponents()
     }
     
     func updateLabels() {
-        let max = LiftEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
+        let max = LocalEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
         self.maxLabel.text = "\(max) lbs."
         
         if reps == 1 {
@@ -62,11 +55,11 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
 
     @IBAction func saveMaxPressed(button: UIBarButtonItem) {        
-        let entry = LiftEntry()
+        var entry = LocalEntry()
         entry.weightLifted = self.weightLifted
         entry.reps = self.reps
-        entry.athlete = session.currentAthlete!
-        entry.liftTemplate = self.selectedTemplate
+        entry.userId = ""
+        entry.lift = ""
         entry.maxOut = true
         entry.date = datePicker.date
         
@@ -84,11 +77,11 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.liftTemplates.count
+        return self.lifts.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.liftTemplates[row].liftName
+        return self.lifts[row]
     }
     
     func scrollToOptionPage(optionPage: Int) {

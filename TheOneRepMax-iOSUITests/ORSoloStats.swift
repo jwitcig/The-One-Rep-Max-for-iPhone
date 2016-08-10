@@ -15,23 +15,21 @@
 import RealmSwift
 
 public class ORSoloStats: ORStats {
-        
-    public init(athlete: Athlete) {
-        self.athlete = athlete
+    
+    var userId: String
+
+    public init(userId: String) {
+        self.userId = userId
         super.init()
     }
     
-    var athlete: Athlete
-    
-    private var _allEntries: [LiftEntry]?
-    var allEntries: [LiftEntry] {
-        self._allEntries = Array(try! Realm().objects(LiftEntry).filter("athlete == %@", session.currentAthlete!))
+    private var _allEntries: [LocalEntry]?
+    var allEntries: [LocalEntry] {
+        self._allEntries = Array(try! Realm().objects(LocalEntry).filter("_userId == %@", userId))
         return self._allEntries!
     }
     
-    var defaultTemplate: LiftTemplate?
-    
-    var currentEntry: LiftEntry? {
+    var currentEntry: Entry? {
         return entries(chronologicalOrder: true).first
     }
     
@@ -39,20 +37,17 @@ public class ORSoloStats: ORStats {
         return currentEntry?.date.daysBeforeToday()
     }
     
-    func entries(template liftTemplate: LiftTemplate? = nil, chronologicalOrder: Bool) -> [LiftEntry] {
+    func entries(chronologicalOrder chronologicalOrder: Bool) -> [LocalEntry] {
         var desiredEntries = self.allEntries
-        if let template = liftTemplate ?? defaultTemplate {
-            desiredEntries = desiredEntries.filter { $0.liftTemplate == template }
-        }
-        
+    
         let descriptor = NSSortDescriptor(key: "date", ascending: chronologicalOrder)
         
-        desiredEntries = NSArray(array: desiredEntries).sortedArrayUsingDescriptors([descriptor]) as! [LiftEntry]
+        desiredEntries = NSArray(array: desiredEntries).sortedArrayUsingDescriptors([descriptor]) as! [LocalEntry]
         return desiredEntries
     }
     
     // Gives increase as a percentage of the firstEntry's max
-    func percentageIncrease(firstEntry firstEntry: LiftEntry, secondEntry: LiftEntry) -> Float {
+    func percentageIncrease(firstEntry firstEntry: Entry, secondEntry: Entry) -> Float {
         return percentageIncrease(firstValue: firstEntry.max, secondValue: secondEntry.max)
     }
     
@@ -62,8 +57,8 @@ public class ORSoloStats: ORStats {
         return difference / Float(firstValue) * 100
     }
     
-    func dateRangeOfEntries(liftTemplate liftTemplate: LiftTemplate? = nil) -> (NSDate, NSDate)? {
-        let sortedEntries = entries(template: liftTemplate, chronologicalOrder: true)
+    func dateRangeOfEntries() -> (NSDate, NSDate)? {
+        let sortedEntries = entries(chronologicalOrder: true)
         if let firstEntryDate = sortedEntries.first?.date,
             let lastEntryDate = sortedEntries.last?.date {
                 
@@ -72,16 +67,15 @@ public class ORSoloStats: ORStats {
         return nil
     }
     
-    func averageProgress(dateRange customDateRange: (NSDate, NSDate)? = nil, dayInterval: Int? = nil, liftTemplate: LiftTemplate? = nil) -> (Float, (NSDate, NSDate))? {
-        guard let template = liftTemplate ?? defaultTemplate else { return nil }
+    func averageProgress(dateRange customDateRange: (NSDate, NSDate)? = nil, dayInterval: Int? = nil) -> (Float, (NSDate, NSDate))? {
         
         let sortedEntries = entries(chronologicalOrder: true)
         guard let dateRange = customDateRange ?? (sortedEntries.first?.date, sortedEntries.last?.date) as? (NSDate, NSDate) else {
             return nil
         }
         
-        let initial = self.estimatedMax(targetDate: dateRange.0, liftTemplate: template)
-        let final = self.estimatedMax(targetDate: dateRange.1, liftTemplate: template)
+        let initial = self.estimatedMax(targetDate: dateRange.0)
+        let final = self.estimatedMax(targetDate: dateRange.1)
         
         
         let dateRangeSpread = NSDate.daysBetween(startDate: dateRange.0, endDate: dateRange.1)
@@ -96,17 +90,16 @@ public class ORSoloStats: ORStats {
         return nil
     }
     
-    func dayLookback(numberOfDays numberOfDays: Int, liftTemplate: LiftTemplate? = nil) -> Float? {
+    func dayLookback(numberOfDays numberOfDays: Int) -> Float? {
         let today = NSDate()
         let initialDay = today.dateByAddingTimeInterval(Double(-numberOfDays*24*60*60))
         
-        return averageProgress(dateRange: (initialDay, today), liftTemplate: liftTemplate)?.0
+        return averageProgress(dateRange: (initialDay, today))?.0
     }
     
-    func estimatedMax(targetDate targetDate: NSDate, liftTemplate: LiftTemplate? = nil) -> Int? {
-        guard let template = liftTemplate ?? defaultTemplate else { return nil }
+    func estimatedMax(targetDate targetDate: NSDate) -> Int? {
         
-        let entries = self.entries(template: template, chronologicalOrder: true)
+        let entries = self.entries(chronologicalOrder: true)
         
         if let firstEntry = entries.first {
             if targetDate.isBefore(date: firstEntry.date) && abs(targetDate.daysBetween(endDate: firstEntry.date)) <= 3 {

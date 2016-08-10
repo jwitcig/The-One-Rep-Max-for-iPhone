@@ -53,13 +53,13 @@ class ORMControlsViewController: UIViewController, UITextFieldDelegate {
     }
     
     var oneRepMax: Int {
-        return LiftEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
+        return LocalEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("weightLiftedFieldTextDidChange:"), name: UITextFieldTextDidChangeNotification, object: weightField)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(ORMControlsViewController.weightLiftedFieldTextDidChange(_:)), name: UITextFieldTextDidChangeNotification, object: weightField)
     }
     
     @IBAction func repsChanged(stepper: UIStepper) {
