@@ -50,7 +50,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         
         filterViewController?.dataViewerViewController = self
         
-        filterViewController?.modalPresentationStyle = .Popover
+        filterViewController?.modalPresentationStyle = .FullScreen
     }
     
     func updateDelegates() {
@@ -83,7 +83,20 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     func presentFilterViewController() {
         setupFilterViewController()
         
+        
+        // configure the Popover presentation controller
+//        let popController = filterViewController!.popoverPresentationController!
+//
+//        popController.sourceView = filterViewController?.view
+//                
+//        popController.permittedArrowDirections = .Any
+//        popController.delegate = self
+//        
+//        popController.barButtonItem = self.navigationItem.rightBarButtonItem
+        
         self.presentViewController(filterViewController!, animated: true, completion: nil)
+
+
     }
     
     func addDelegate(delegate: DataViewerDelegate) {
@@ -92,14 +105,6 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     
     @IBAction func filterPressed(button: UIBarButtonItem) {
         presentFilterViewController()
-        
-        // configure the Popover presentation controller
-        let popController = filterViewController!.popoverPresentationController!
-        
-        popController.permittedArrowDirections = .Any
-        popController.delegate = self
-        
-        popController.barButtonItem = self.navigationItem.rightBarButtonItem
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
