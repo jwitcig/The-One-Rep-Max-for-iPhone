@@ -35,8 +35,10 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         entriesTableView.separatorColor = UIColor.blackColor()
     }
     
-    func selectedLiftDidChange(liftEntries entries: Results<LocalEntry>) {
+    func selectedLiftDidChange(lift lift: LocalLift?, liftEntries entries: Results<LocalEntry>) {
         self.liftEntries = entries.sorted("_date", ascending: false)
+        
+        filterBar?.topItem?.title = lift?.name ?? "All Entries"
         
         entriesTableView.reloadData()
     }

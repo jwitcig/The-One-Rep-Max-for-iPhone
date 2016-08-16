@@ -127,6 +127,10 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         ormControlsViewController.addDelegate(self)
         
         populateRecentMaxStackView()
+        
+        let wheel = PercentagesWheel(frame: CGRect(x: 100, y: 200, width: 200, height: 200))
+        wheel.backgroundColor = UIColor.clearColor()
+        self.view.addSubview(wheel)
     }
     
     override func viewWillAppear(animated: Bool) {

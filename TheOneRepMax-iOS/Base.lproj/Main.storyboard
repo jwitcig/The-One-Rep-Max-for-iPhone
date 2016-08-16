@@ -662,10 +662,10 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bOe-54-yFx">
                                 <rect key="frame" x="0.0" y="108" width="600" height="448"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-tR-XCq">
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="5JE-tR-XCq">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
                                         <subviews>
-                                            <containerView opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYJ-Vh-WLH">
+                                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYJ-Vh-WLH">
                                                 <rect key="frame" x="0.0" y="0.0" width="600" height="448"/>
                                                 <connections>
                                                     <segue destination="02N-Nz-D8r" kind="embed" identifier="HistoryViewSegue" id="A3E-xa-aFm"/>

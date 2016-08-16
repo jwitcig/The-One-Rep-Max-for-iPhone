@@ -14,14 +14,14 @@ protocol DataViewerDelegate {
     
     var dataViewerViewController: DataViewerViewController! { get set }
     
-    func selectedLiftDidChange(liftEntries liftEntries: Results<LocalEntry>)
+    func selectedLiftDidChange(lift lift: LocalLift?, liftEntries: Results<LocalEntry>)
 }
 
 class DataViewerViewController: ORViewController, UIPopoverPresentationControllerDelegate {
 
     @IBOutlet weak var filterBar: UINavigationBar!
     
-    var filterViewController: FilterPopoverViewController?
+    var filterView: LiftTableView?
     
     var liftEntries = [Entry]()
     
@@ -44,13 +44,13 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     }
     
     func setupFilterViewController() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         
-        filterViewController = storyboard.instantiateViewControllerWithIdentifier("FilterPopover") as? FilterPopoverViewController
-        
-        filterViewController?.dataViewerViewController = self
-        
-        filterViewController?.modalPresentationStyle = .FullScreen
+//        filterViewController = storyboard.instantiateViewControllerWithIdentifier("FilterPopover") as? FilterPopoverViewController
+//        
+//        filterViewController?.dataViewerViewController = self
+//        
+//        filterViewController?.modalPresentationStyle = .FullScreen
     }
     
     func updateDelegates() {
@@ -58,12 +58,12 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         
         var liftEntries = try! Realm().objects(LocalEntry)//.filter("_userId == %@", "")
         
-        if let lift = filterViewController?.selectedLift {
+        if let lift = filterView?.selectedLift {
             liftEntries = liftEntries.filter("_categoryId == %@", lift.id)
         }
         
         delegates.forEach {
-            $0.selectedLiftDidChange(liftEntries: liftEntries)
+            $0.selectedLiftDidChange(lift: filterView?.selectedLift, liftEntries: liftEntries)
         }
     }
     
@@ -72,7 +72,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
             return
         }
         
-        guard let selectedLift = filterViewController?.selectedLift else {
+        guard let selectedLift = filterView?.selectedLift else {
             filterNavigationItem.title = "All Entries"
             return
         }
@@ -80,23 +80,38 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         filterNavigationItem.title = selectedLift.name
     }
     
+    var blurView: UIVisualEffectView?
+    
     func presentFilterViewController() {
-        setupFilterViewController()
         
+        let blur = UIBlurEffect(style: .Light)
+        blurView = UIVisualEffectView(effect: blur)
+        blurView?.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addSubview(blurView!)
         
-        // configure the Popover presentation controller
-//        let popController = filterViewController!.popoverPresentationController!
-//
-//        popController.sourceView = filterViewController?.view
-//                
-//        popController.permittedArrowDirections = .Any
-//        popController.delegate = self
-//        
-//        popController.barButtonItem = self.navigationItem.rightBarButtonItem
+        filterView = LiftTableView.create()
+        filterView?.translatesAutoresizingMaskIntoConstraints = false
+        filterView?.didSelectLiftBlock = { lift in
+            self.updateDelegates()
+            
+            self.blurView?.removeFromSuperview()
+            self.blurView = nil
+        }
+        self.view.addSubview(filterView!)
         
-        self.presentViewController(filterViewController!, animated: true, completion: nil)
-
-
+        NSLayoutConstraint.activateConstraints([
+            filterView!.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.8),
+            filterView!.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.6),
+            
+            filterView!.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor),
+            filterView!.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor),
+            
+            blurView!.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor),
+            blurView!.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor),
+            
+            blurView!.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor),
+            blurView!.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor),
+        ])
     }
     
     func addDelegate(delegate: DataViewerDelegate) {
