@@ -8,13 +8,14 @@
 
 import UIKit
 
+import AWSMobileHubHelper
 import RealmSwift
 
 class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-                
+        
         ORSession.currentSession.soloStats = ORSoloStats(userId: "")
         
         runOnMainThread {

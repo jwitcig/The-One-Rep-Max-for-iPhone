@@ -45,15 +45,22 @@ let coreDataStoreName = "SingleViewCoreData.sqlite"
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate {
 
     var window: UIWindow?
-    
+
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
+        let serviceInfo = AWSInfo.defaultAWSInfo().defaultServiceInfo("DynamoDBObjectMapper")
+        
+        if let credentialsProvider = serviceInfo?.cognitoCredentialsProvider {
+            // takes credentials provider info from mobile hub configuration to setup the low level clients' auth
+            AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialsProvider)
+        }
         
         if coreDataStoreExists() {
             if copyCoreDataToRealm() {
                 removeCoreDataStore()
             }
         }
-        
+
         setupDataKit()
         
         return AWSMobileClient.sharedInstance.didFinishLaunching(application, withOptions: launchOptions)

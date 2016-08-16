@@ -18,54 +18,44 @@ class PercentagesViewController: UIViewController {
         return self.parentViewController! as! HomeViewController
     }
     
-    @IBOutlet weak var mainStackView: UIStackView!
+    var max: Int { return homeViewController.oneRepMax }
+    
+    @IBOutlet weak var percentageLabel: UILabel!
+    @IBOutlet weak var percentLabel: UILabel!
+    @IBOutlet weak var wheelContainer: UIView!
+    
+    var percentageWheel = PercentagesWheel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        populateMainStackView()
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(PercentagesViewController.oneRepMaxDidChange(_:)), name: OneRepMaxNotificationType.OneRepMax.OneRepMaxDidChange.rawValue, object: nil)
         
-        mainStackView.spacing = 10
+        homeViewController.controlSwitcherScrollView.userInteractionEnabled = true
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "oneRepMaxDidChange:", name: OneRepMaxNotificationType.OneRepMax.OneRepMaxDidChange.rawValue, object: nil)
-    }
-    
-    func populateMainStackView() {
-        let percentages = [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100]
+        percentageWheel.translatesAutoresizingMaskIntoConstraints = false
+        percentageWheel.backgroundColor = UIColor.clearColor()
+        wheelContainer.addSubview(percentageWheel)
+        NSLayoutConstraint.activateConstraints([
+            percentageWheel.topAnchor.constraintEqualToAnchor(wheelContainer.topAnchor),
+            percentageWheel.bottomAnchor.constraintEqualToAnchor(wheelContainer.bottomAnchor),
+            percentageWheel.leadingAnchor.constraintEqualToAnchor(wheelContainer.leadingAnchor),
+            percentageWheel.trailingAnchor.constraintEqualToAnchor(wheelContainer.trailingAnchor),
+        ])
         
-        for percentage in percentages {
-            mainStackView.addArrangedSubview(createPercentageStackView(percentage: percentage))
+        percentageWheel.percentChangedBlock = { percent in
+            self.updatePercentageInfo(percent: percent)
         }
     }
-    
-    func createPercentageStackView(percentage percentage: Int) -> UIStackView {
-        let percentageFraction = CGFloat(percentage) / 100
-        let max = CGFloat(homeViewController.oneRepMax)
-        
-        let percent = Int(percentageFraction * max)
-        
-        let percentageLabel = UILabel()
-        percentageLabel.textAlignment = .Right
-        percentageLabel.text = "\(percentage)%:"
-        
-        let percentLabel = UILabel()
-        percentLabel.textAlignment = .Left
-        percentLabel.text = "\(percent)"
-        
-        let stackView = UIStackView(arrangedSubviews: [percentageLabel, percentLabel])
-        stackView.axis = .Horizontal
-        stackView.alignment = .Center
-        stackView.distribution = .FillEqually
-        stackView.spacing = 30
-        
-        return stackView
-    }
-    
+
     func oneRepMaxDidChange(notification: NSNotification) {
-        for view in mainStackView.arrangedSubviews {
-            view.removeFromSuperview()
-        }
-        populateMainStackView()
+        updatePercentageInfo(percent: percentageWheel.percent)
+    }
+    
+    func updatePercentageInfo(percent percent: CGFloat) {
+        print(percent)
+        percentLabel.text = "\(Int(percent*100))%"
+        percentageLabel.text = "\(Int(percent * CGFloat(self.max))) lbs."
     }
     
 }

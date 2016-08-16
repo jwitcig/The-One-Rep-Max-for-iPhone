@@ -39,8 +39,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 /**
  The login handler method for the Sign-In Provider.
+ The completionHandler will bubble back errors to the developers.
  */
-- (void)login;
+- (void)login:(void (^)(id result, NSError *error))completionHandler;
 
 /**
  The logout handler method for the Sign-In Provider.

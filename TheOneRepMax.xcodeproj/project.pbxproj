@@ -8,11 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8B02E4721C75334900A949E6 /* NoLiftSelectedStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */; };
-		8B08B7B41CE96C5D000DD508 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7AF1CE96C5D000DD508 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B08B7B51CE96C5D000DD508 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B01CE96C5D000DD508 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B08B7B61CE96C5D000DD508 /* AWSLambda.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B11CE96C5D000DD508 /* AWSLambda.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B08B7B71CE96C5D000DD508 /* AWSMobileAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B21CE96C5D000DD508 /* AWSMobileAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B08B7B81CE96C5D000DD508 /* AWSS3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B31CE96C5D000DD508 /* AWSS3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B08B7C21CE96E1B000DD508 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F51CE82BC000C1F2C2 /* AddressBook.framework */; };
 		8B08B7C31CE96E1B000DD508 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F61CE82BC000C1F2C2 /* AssetsLibrary.framework */; };
 		8B08B7C41CE96E1B000DD508 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F71CE82BC000C1F2C2 /* CFNetwork.framework */; };
@@ -22,26 +17,9 @@
 		8B08B7C81CE96E1B000DD508 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FE1CE82BC000C1F2C2 /* StoreKit.framework */; };
 		8B08B7C91CE96E1B000DD508 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FF1CE82BC000C1F2C2 /* SystemConfiguration.framework */; };
 		8B08B7D61CE96F24000DD508 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7D01CE96ECC000DD508 /* FBSDKCoreKit.framework */; };
-		8B08B7D71CE96F24000DD508 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7D11CE96ECC000DD508 /* FBSDKLoginKit.framework */; };
 		8B08B7D81CE96F24000DD508 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7D21CE96ECC000DD508 /* FBSDKShareKit.framework */; };
-		8B08B7E11CE970CA000DD508 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7BF1CE96D08000DD508 /* AWSMobileHubHelper.framework */; };
-		8B08B7E21CE970CA000DD508 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7AF1CE96C5D000DD508 /* AWSCore.framework */; };
-		8B08B7E31CE970CA000DD508 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B01CE96C5D000DD508 /* AWSDynamoDB.framework */; };
-		8B08B7E41CE970CA000DD508 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B11CE96C5D000DD508 /* AWSLambda.framework */; };
-		8B08B7E51CE970CA000DD508 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B21CE96C5D000DD508 /* AWSMobileAnalytics.framework */; };
-		8B08B7E61CE970CA000DD508 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7B31CE96C5D000DD508 /* AWSS3.framework */; };
-		8B08B7EA1CE971C6000DD508 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; };
-		8B08B7EB1CE971CC000DD508 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; };
-		8B08B7EC1CE971CC000DD508 /* AWSCognito.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7E91CE971C6000DD508 /* AWSCognito.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8B08B7ED1CE97299000DD508 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FB1CE82BC000C1F2C2 /* MediaPlayer.framework */; };
-		8B08B7F51CE974A7000DD508 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */; };
-		8B08B8061CE974B2000DD508 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F81CE974B2000DD508 /* AWSCore.framework */; };
-		8B08B8071CE974B2000DD508 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7F91CE974B2000DD508 /* AWSDynamoDB.framework */; };
-		8B08B8081CE974B2000DD508 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7FA1CE974B2000DD508 /* AWSLambda.framework */; };
-		8B08B8091CE974B2000DD508 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7FB1CE974B2000DD508 /* AWSMobileAnalytics.framework */; };
-		8B08B80A1CE974B2000DD508 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7FC1CE974B2000DD508 /* AWSS3.framework */; };
 		8B08B80B1CE974B2000DD508 /* Amazon_Software_License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */; };
-		8B08B80C1CE974B2000DD508 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7FF1CE974B2000DD508 /* AWSCognito.framework */; };
 		8B08B80D1CE974B2000DD508 /* NOTICE in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B8001CE974B2000DD508 /* NOTICE */; };
 		8B08B80E1CE974B2000DD508 /* CheckXcodeVersion.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B8011CE974B2000DD508 /* CheckXcodeVersion.sh */; };
 		8B08B80F1CE974B2000DD508 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B8031CE974B2000DD508 /* FBSDKCoreKit.framework */; };
@@ -72,6 +50,26 @@
 		8B5815621C265C6900F3A151 /* ORMControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5815611C265C6900F3A151 /* ORMControlsViewController.swift */; };
 		8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */; };
 		8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */; };
+		8B6F4F071D62A8E80021C590 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B6F4F061D62A8E80021C590 /* Info.plist */; };
+		8B6F4F0E1D62AB890021C590 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F081D62AB890021C590 /* AWSS3.framework */; };
+		8B6F4F0F1D62AB890021C590 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */; };
+		8B6F4F101D62AB890021C590 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */; };
+		8B6F4F111D62AB890021C590 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */; };
+		8B6F4F121D62AB890021C590 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0C1D62AB890021C590 /* AWSCore.framework */; };
+		8B6F4F131D62AB890021C590 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */; };
+		8B6F4F141D62AB910021C590 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F081D62AB890021C590 /* AWSS3.framework */; };
+		8B6F4F151D62AB910021C590 /* AWSS3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F081D62AB890021C590 /* AWSS3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B6F4F161D62AB910021C590 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */; };
+		8B6F4F171D62AB910021C590 /* AWSMobileAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B6F4F181D62AB910021C590 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */; };
+		8B6F4F191D62AB910021C590 /* AWSLambda.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B6F4F1A1D62AB910021C590 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */; };
+		8B6F4F1B1D62AB910021C590 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B6F4F1C1D62AB910021C590 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0C1D62AB890021C590 /* AWSCore.framework */; };
+		8B6F4F1D1D62AB910021C590 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0C1D62AB890021C590 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B6F4F1E1D62AB910021C590 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */; };
+		8B6F4F1F1D62AB910021C590 /* AWSCognito.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B6F4F211D62ABF60021C590 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F201D62ABF60021C590 /* AWSMobileHubHelper.framework */; };
 		8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D01BA764DE0083980E /* AppDelegate.swift */; };
 		8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123D91BA764DE0083980E /* Main.storyboard */; };
 		8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DC1BA764DE0083980E /* Assets.xcassets */; };
@@ -98,13 +96,11 @@
 		8BDC400E1C698A1F003F177D /* DataViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */; };
 		8BDF96EA1C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */; };
 		8BDF96FB1C76D0DB00088B85 /* StatPanelRowSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF96FA1C76D0DB00088B85 /* StatPanelRowSeparator.swift */; };
-		8BE1942F1D5BF50600625483 /* SwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE1942E1D5BF50600625483 /* SwiftTools.framework */; };
 		8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */; };
 		8BE55C551C2A05AE005948D9 /* FocusResizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */; };
 		8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C581C2A5967005948D9 /* PercentageView.swift */; };
 		8BE68B111D5C150200B46FBF /* SwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */; };
 		8BE68B121D5C150200B46FBF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0F1D5C150200B46FBF /* RealmSwift.framework */; };
-		8BE68B131D5C150200B46FBF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B101D5C150200B46FBF /* Realm.framework */; };
 		8BE68B141D5C151700B46FBF /* SwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */; };
 		8BE68B151D5C151700B46FBF /* SwiftTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BE68B161D5C151700B46FBF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0F1D5C150200B46FBF /* RealmSwift.framework */; };
@@ -114,7 +110,6 @@
 		8BE68B1B1D5C159600B46FBF /* LiftTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BE68B1A1D5C159600B46FBF /* LiftTableView.xib */; };
 		8BE68B1D1D5C167000B46FBF /* LiftTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE68B1C1D5C167000B46FBF /* LiftTableView.swift */; };
 		8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */; };
-		8BF4B2AE1D5BCDA90072C364 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BF4B2AD1D5BCDA90072C364 /* Info.plist */; };
 		8BF4B2B01D5BCE810072C364 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */; };
 		8BFED0591C658FAF0002FE17 /* RecentLiftEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */; };
 /* End PBXBuildFile section */
@@ -143,15 +138,15 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				8B6F4F1F1D62AB910021C590 /* AWSCognito.framework in Embed Frameworks */,
+				8B6F4F151D62AB910021C590 /* AWSS3.framework in Embed Frameworks */,
+				8B6F4F1D1D62AB910021C590 /* AWSCore.framework in Embed Frameworks */,
 				8BE68B191D5C151800B46FBF /* Realm.framework in Embed Frameworks */,
-				8B08B7B41CE96C5D000DD508 /* AWSCore.framework in Embed Frameworks */,
-				8B08B7B51CE96C5D000DD508 /* AWSDynamoDB.framework in Embed Frameworks */,
-				8B08B7B61CE96C5D000DD508 /* AWSLambda.framework in Embed Frameworks */,
-				8B08B7B71CE96C5D000DD508 /* AWSMobileAnalytics.framework in Embed Frameworks */,
-				8B08B7B81CE96C5D000DD508 /* AWSS3.framework in Embed Frameworks */,
 				8BE68B151D5C151700B46FBF /* SwiftTools.framework in Embed Frameworks */,
+				8B6F4F191D62AB910021C590 /* AWSLambda.framework in Embed Frameworks */,
 				8BE68B171D5C151700B46FBF /* RealmSwift.framework in Embed Frameworks */,
-				8B08B7EC1CE971CC000DD508 /* AWSCognito.framework in Embed Frameworks */,
+				8B6F4F1B1D62AB910021C590 /* AWSDynamoDB.framework in Embed Frameworks */,
+				8B6F4F171D62AB910021C590 /* AWSMobileAnalytics.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -170,14 +165,7 @@
 		8B08B7D11CE96ECC000DD508 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		8B08B7D21CE96ECC000DD508 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		8B08B7E91CE971C6000DD508 /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
-		8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileHubHelper.framework; sourceTree = "<group>"; };
-		8B08B7F81CE974B2000DD508 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
-		8B08B7F91CE974B2000DD508 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSDynamoDB.framework; sourceTree = "<group>"; };
-		8B08B7FA1CE974B2000DD508 /* AWSLambda.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSLambda.framework; sourceTree = "<group>"; };
-		8B08B7FB1CE974B2000DD508 /* AWSMobileAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileAnalytics.framework; sourceTree = "<group>"; };
-		8B08B7FC1CE974B2000DD508 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSS3.framework; sourceTree = "<group>"; };
 		8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Amazon_Software_License.txt; sourceTree = "<group>"; };
-		8B08B7FF1CE974B2000DD508 /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
 		8B08B8001CE974B2000DD508 /* NOTICE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
 		8B08B8011CE974B2000DD508 /* CheckXcodeVersion.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CheckXcodeVersion.sh; sourceTree = "<group>"; };
 		8B08B8031CE974B2000DD508 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
@@ -223,6 +211,14 @@
 		8B6A56521BA9EF8E00965E4B /* TheOneRepMax-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TheOneRepMax-iOS.entitlements"; sourceTree = "<group>"; };
 		8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveMaxViewController.swift; sourceTree = "<group>"; };
 		8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
+		8B6F4F061D62A8E80021C590 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8B6F4F081D62AB890021C590 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSS3.framework; sourceTree = "<group>"; };
+		8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileAnalytics.framework; sourceTree = "<group>"; };
+		8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSLambda.framework; sourceTree = "<group>"; };
+		8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSDynamoDB.framework; sourceTree = "<group>"; };
+		8B6F4F0C1D62AB890021C590 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
+		8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
+		8B6F4F201D62ABF60021C590 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileHubHelper.framework; sourceTree = "<group>"; };
 		8B7123CE1BA764DE0083980E /* TheOneRepMax-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheOneRepMax-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7123D01BA764DE0083980E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B7123DA1BA764DE0083980E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -267,7 +263,6 @@
 		8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewerViewController.swift; sourceTree = "<group>"; };
 		8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageIntervalRangeProgressStatView.swift; sourceTree = "<group>"; };
 		8BDF96FA1C76D0DB00088B85 /* StatPanelRowSeparator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRowSeparator.swift; sourceTree = "<group>"; };
-		8BE1942E1D5BF50600625483 /* SwiftTools.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftTools.framework; path = "/Users/developer/Documents/Projects/TheOneRepMax-CK/Carthage/Build/iOS/SwiftTools.framework"; sourceTree = "<absolute>"; };
 		8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageScrollerView.swift; sourceTree = "<group>"; };
 		8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FocusResizingLabel.swift; sourceTree = "<group>"; };
 		8BE55C581C2A5967005948D9 /* PercentageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentageView.swift; sourceTree = "<group>"; };
@@ -277,7 +272,6 @@
 		8BE68B1A1D5C159600B46FBF /* LiftTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftTableView.xib; sourceTree = "<group>"; };
 		8BE68B1C1D5C167000B46FBF /* LiftTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableView.swift; sourceTree = "<group>"; };
 		8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORViewController.swift; sourceTree = "<group>"; };
-		8BF4B2AD1D5BCDA90072C364 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentLiftEntry.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -287,48 +281,43 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B6F4F211D62ABF60021C590 /* AWSMobileHubHelper.framework in Frameworks */,
 				8B08B7ED1CE97299000DD508 /* MediaPlayer.framework in Frameworks */,
+				8B6F4F121D62AB890021C590 /* AWSCore.framework in Frameworks */,
 				8B08B8111CE974B2000DD508 /* FBSDKShareKit.framework in Frameworks */,
+				8B6F4F181D62AB910021C590 /* AWSLambda.framework in Frameworks */,
 				8BE68B161D5C151700B46FBF /* RealmSwift.framework in Frameworks */,
 				8B08B7D61CE96F24000DD508 /* FBSDKCoreKit.framework in Frameworks */,
 				8B08B8101CE974B2000DD508 /* FBSDKLoginKit.framework in Frameworks */,
-				8BE68B131D5C150200B46FBF /* Realm.framework in Frameworks */,
-				8B08B80C1CE974B2000DD508 /* AWSCognito.framework in Frameworks */,
-				8B08B7D71CE96F24000DD508 /* FBSDKLoginKit.framework in Frameworks */,
+				8B6F4F131D62AB890021C590 /* AWSCognito.framework in Frameworks */,
+				8B6F4F111D62AB890021C590 /* AWSDynamoDB.framework in Frameworks */,
 				8BE68B181D5C151800B46FBF /* Realm.framework in Frameworks */,
-				8B08B8091CE974B2000DD508 /* AWSMobileAnalytics.framework in Frameworks */,
 				8B08B7D81CE96F24000DD508 /* FBSDKShareKit.framework in Frameworks */,
-				8B08B8071CE974B2000DD508 /* AWSDynamoDB.framework in Frameworks */,
-				8B08B7EA1CE971C6000DD508 /* AWSCognito.framework in Frameworks */,
-				8B08B8061CE974B2000DD508 /* AWSCore.framework in Frameworks */,
-				8B08B7E21CE970CA000DD508 /* AWSCore.framework in Frameworks */,
-				8B08B7E31CE970CA000DD508 /* AWSDynamoDB.framework in Frameworks */,
-				8B08B7E41CE970CA000DD508 /* AWSLambda.framework in Frameworks */,
-				8B08B8081CE974B2000DD508 /* AWSLambda.framework in Frameworks */,
-				8B08B7E51CE970CA000DD508 /* AWSMobileAnalytics.framework in Frameworks */,
-				8B08B7E11CE970CA000DD508 /* AWSMobileHubHelper.framework in Frameworks */,
-				8B08B7E61CE970CA000DD508 /* AWSS3.framework in Frameworks */,
 				8B08B7C21CE96E1B000DD508 /* AddressBook.framework in Frameworks */,
 				8BE68B141D5C151700B46FBF /* SwiftTools.framework in Frameworks */,
-				8BE1942F1D5BF50600625483 /* SwiftTools.framework in Frameworks */,
 				8B08B7C31CE96E1B000DD508 /* AssetsLibrary.framework in Frameworks */,
-				8B08B80A1CE974B2000DD508 /* AWSS3.framework in Frameworks */,
+				8B6F4F161D62AB910021C590 /* AWSMobileAnalytics.framework in Frameworks */,
 				8B08B7C41CE96E1B000DD508 /* CFNetwork.framework in Frameworks */,
 				8B08B7C51CE96E1B000DD508 /* CoreMotion.framework in Frameworks */,
 				8B76B5061CE82BC000C1F2C2 /* Foundation.framework in Frameworks */,
+				8B6F4F1A1D62AB910021C590 /* AWSDynamoDB.framework in Frameworks */,
 				8B76B5A61CE9608800C1F2C2 /* QuartzCore.framework in Frameworks */,
+				8B6F4F141D62AB910021C590 /* AWSS3.framework in Frameworks */,
+				8B6F4F101D62AB890021C590 /* AWSLambda.framework in Frameworks */,
 				8BE68B121D5C150200B46FBF /* RealmSwift.framework in Frameworks */,
+				8B6F4F1E1D62AB910021C590 /* AWSCognito.framework in Frameworks */,
 				8B08B7C61CE96E1B000DD508 /* SafariServices.framework in Frameworks */,
 				8B08B7C71CE96E1B000DD508 /* Security.framework in Frameworks */,
 				8BE68B111D5C150200B46FBF /* SwiftTools.framework in Frameworks */,
 				8B08B80F1CE974B2000DD508 /* FBSDKCoreKit.framework in Frameworks */,
 				8B08B7C81CE96E1B000DD508 /* StoreKit.framework in Frameworks */,
+				8B6F4F1C1D62AB910021C590 /* AWSCore.framework in Frameworks */,
+				8B6F4F0F1D62AB890021C590 /* AWSMobileAnalytics.framework in Frameworks */,
 				8B08B7C91CE96E1B000DD508 /* SystemConfiguration.framework in Frameworks */,
 				8B76B54A1CE836B300C1F2C2 /* UIKit.framework in Frameworks */,
 				8B76B5101CE82BEE00C1F2C2 /* libz.tbd in Frameworks */,
+				8B6F4F0E1D62AB890021C590 /* AWSS3.framework in Frameworks */,
 				8B76B50E1CE82BE700C1F2C2 /* libsqlite3.tbd in Frameworks */,
-				8B08B7EB1CE971CC000DD508 /* AWSCognito.framework in Frameworks */,
-				8B08B7F51CE974A7000DD508 /* AWSMobileHubHelper.framework in Frameworks */,
 				8B76B4A41CE823DD00C1F2C2 /* libc++.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -391,8 +380,8 @@
 		8B08B7F11CE974A7000DD508 /* AmazonAws */ = {
 			isa = PBXGroup;
 			children = (
+				8B6F4F201D62ABF60021C590 /* AWSMobileHubHelper.framework */,
 				8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */,
-				8B08B7F31CE974A7000DD508 /* AWSMobileHubHelper.framework */,
 			);
 			name = AmazonAws;
 			path = "TheOneRepMax-iOS/AmazonAws";
@@ -412,11 +401,12 @@
 		8B08B7F71CE974B2000DD508 /* Aws */ = {
 			isa = PBXGroup;
 			children = (
-				8B08B7F81CE974B2000DD508 /* AWSCore.framework */,
-				8B08B7F91CE974B2000DD508 /* AWSDynamoDB.framework */,
-				8B08B7FA1CE974B2000DD508 /* AWSLambda.framework */,
-				8B08B7FB1CE974B2000DD508 /* AWSMobileAnalytics.framework */,
-				8B08B7FC1CE974B2000DD508 /* AWSS3.framework */,
+				8B6F4F081D62AB890021C590 /* AWSS3.framework */,
+				8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */,
+				8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */,
+				8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */,
+				8B6F4F0C1D62AB890021C590 /* AWSCore.framework */,
+				8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */,
 				8B08B7FD1CE974B2000DD508 /* extras */,
 			);
 			path = Aws;
@@ -426,7 +416,6 @@
 			isa = PBXGroup;
 			children = (
 				8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */,
-				8B08B7FF1CE974B2000DD508 /* AWSCognito.framework */,
 				8B08B8001CE974B2000DD508 /* NOTICE */,
 			);
 			path = extras;
@@ -497,7 +486,6 @@
 				8B7123D01BA764DE0083980E /* AppDelegate.swift */,
 				8B4607201BAF0D4600E953D7 /* MainViewController.swift */,
 				8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */,
-				8B2D0DCB1D626889009BD60C /* PercentagesWheel.swift */,
 				8BE649C71C84062700CD6B54 /* Home View */,
 				8BE649C41C8405B300CD6B54 /* Data Viewer */,
 				8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */,
@@ -507,7 +495,7 @@
 				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
 				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
 				8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */,
-				8BF4B2AD1D5BCDA90072C364 /* Info.plist */,
+				8B6F4F061D62A8E80021C590 /* Info.plist */,
 			);
 			path = "TheOneRepMax-iOS";
 			sourceTree = "<group>";
@@ -612,6 +600,7 @@
 				8B12C1771C2521840053841E /* PercentagesViewController.swift */,
 				8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */,
 				8BE55C581C2A5967005948D9 /* PercentageView.swift */,
+				8B2D0DCB1D626889009BD60C /* PercentagesWheel.swift */,
 			);
 			name = Percentages;
 			sourceTree = "<group>";
@@ -765,13 +754,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B6F4F071D62A8E80021C590 /* Info.plist in Resources */,
 				8B08B80E1CE974B2000DD508 /* CheckXcodeVersion.sh in Resources */,
 				8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */,
 				8B08B80D1CE974B2000DD508 /* NOTICE in Resources */,
 				8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */,
 				8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */,
 				8B08B80B1CE974B2000DD508 /* Amazon_Software_License.txt in Resources */,
-				8BF4B2AE1D5BCDA90072C364 /* Info.plist in Resources */,
 				8BE68B1B1D5C159600B46FBF /* LiftTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

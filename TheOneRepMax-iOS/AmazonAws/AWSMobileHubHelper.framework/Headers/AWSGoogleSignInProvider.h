@@ -25,6 +25,18 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)sharedInstance;
 
+/**
+ Sets the scopes required by the app during login.
+ Defaults are openid and profile.
+ */
+- (void)setScopes:(NSArray *)scopes;
+
+/**
+ Sets the ViewController used for Google SignIn.
+ Defaults to rootViewController in keyWindow during signin.
+*/
+- (void)setViewControllerForGoogleSignIn:(UIViewController *)signInViewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

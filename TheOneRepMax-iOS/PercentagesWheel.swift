@@ -10,14 +10,16 @@ import UIKit
 
 class PercentagesWheel: UIView {
     
-    var fraction: CGFloat = 0.7 {
+    var percent: CGFloat = 0.7 {
         didSet { setNeedsDisplay() }
     }
     
-    var shouldMove = false
+    var percentChangedBlock: ((CGFloat)->())?
+    
+    private var shouldMove = false
 
     override func drawRect(rect: CGRect) {
-        TORMStyleKit.drawCanvas1(strokeWidth: 3, fraction: fraction, containerFrame: rect, handleSize: CGSize(width: 30, height: 30))
+        TORMStyleKit.drawCanvas1(strokeWidth: 3, fraction: percent, containerFrame: rect, handleSize: CGSize(width: 30, height: 30))
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -35,7 +37,8 @@ class PercentagesWheel: UIView {
             
             shouldMove = true
             
-            fraction = calculateFraction(deltaX: deltaX, deltaY: deltaY)
+            percent = calculateFraction(deltaX: deltaX, deltaY: deltaY)
+            percentChangedBlock?(percent)
         }
     }
     
@@ -52,7 +55,8 @@ class PercentagesWheel: UIView {
             let distance = sqrt(pow(deltaX, 2) + pow(deltaY, 2))
             guard shouldMove else { return }
 
-            fraction = calculateFraction(deltaX: deltaX, deltaY: deltaY)
+            percent = calculateFraction(deltaX: deltaX, deltaY: deltaY)
+            percentChangedBlock?(percent)
         }
     }
     
@@ -67,8 +71,8 @@ class PercentagesWheel: UIView {
             degrees += 360
         }
         
-        return degrees / 360.0
+        let value = degrees / 360.0
+        return value >= 0 ? value : 0.75 + (0.25 + value)
     }
-    
     
 }

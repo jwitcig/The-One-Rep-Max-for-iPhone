@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="dFq-Nd-qMc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -843,34 +844,54 @@
                         <rect key="frame" x="0.0" y="0.0" width="220" height="400"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZKT-Qz-OLc">
-                                <rect key="frame" x="0.0" y="20" width="220" height="380"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wE9-IO-FHR">
+                                <rect key="frame" x="16" y="40" width="188" height="340"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Chd-rZ-aOG">
-                                        <rect key="frame" x="0.0" y="0.0" width="220" height="380"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="HXf-Mq-rme">
+                                        <rect key="frame" x="9" y="0.0" width="171" height="110"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="0 lbs." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xl7-Zh-rYA">
+                                                <rect key="frame" x="0.0" y="0.0" width="107" height="110"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="90%" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aaa-Ue-OrR">
+                                                <rect key="frame" x="127" y="0.0" width="44" height="110"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Om5-cV-byl">
+                                        <rect key="frame" x="0.0" y="110" width="188" height="230"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Om5-cV-byl" secondAttribute="height" multiplier="1:1" id="Tjd-rU-i5M"/>
+                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="230" id="mgl-Ot-cbV"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Chd-rZ-aOG" secondAttribute="bottom" id="U3P-Zc-kon"/>
-                                    <constraint firstItem="Chd-rZ-aOG" firstAttribute="width" secondItem="ZKT-Qz-OLc" secondAttribute="width" id="VTf-wS-cv4"/>
-                                    <constraint firstItem="Chd-rZ-aOG" firstAttribute="top" secondItem="ZKT-Qz-OLc" secondAttribute="top" id="wco-g6-gAM"/>
-                                    <constraint firstAttribute="trailing" secondItem="Chd-rZ-aOG" secondAttribute="trailing" id="wfg-Ql-J77"/>
-                                    <constraint firstItem="Chd-rZ-aOG" firstAttribute="leading" secondItem="ZKT-Qz-OLc" secondAttribute="leading" id="wnY-Je-i9Q"/>
+                                    <constraint firstItem="Om5-cV-byl" firstAttribute="height" relation="greaterThanOrEqual" secondItem="wE9-IO-FHR" secondAttribute="height" multiplier="0.6" id="rg3-jh-1sB"/>
                                 </constraints>
-                            </scrollView>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZKT-Qz-OLc" firstAttribute="top" secondItem="lYo-l9-mb4" secondAttribute="bottom" id="7kV-dg-9y9"/>
-                            <constraint firstItem="ZKT-Qz-OLc" firstAttribute="leading" secondItem="LLc-ym-CMY" secondAttribute="leading" id="ULQ-ef-Sas"/>
-                            <constraint firstItem="ZKT-Qz-OLc" firstAttribute="bottom" secondItem="tfy-iu-wyz" secondAttribute="top" id="bd0-d6-ocP"/>
-                            <constraint firstAttribute="trailing" secondItem="ZKT-Qz-OLc" secondAttribute="trailing" id="dGt-Ui-MEY"/>
+                            <constraint firstItem="tfy-iu-wyz" firstAttribute="top" secondItem="wE9-IO-FHR" secondAttribute="bottom" constant="20" id="87u-qD-Ffv"/>
+                            <constraint firstItem="wE9-IO-FHR" firstAttribute="leading" secondItem="LLc-ym-CMY" secondAttribute="leadingMargin" id="D5b-c6-z6d"/>
+                            <constraint firstItem="wE9-IO-FHR" firstAttribute="top" secondItem="lYo-l9-mb4" secondAttribute="bottom" constant="20" id="MYb-LM-Lql"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="wE9-IO-FHR" secondAttribute="trailing" id="iRr-Jr-nOT"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="220" height="400"/>
                     <connections>
-                        <outlet property="mainStackView" destination="Chd-rZ-aOG" id="WcL-y9-1Su"/>
+                        <outlet property="percentLabel" destination="Aaa-Ue-OrR" id="Hnn-76-T39"/>
+                        <outlet property="percentageLabel" destination="Xl7-Zh-rYA" id="hdR-eL-WuT"/>
+                        <outlet property="wheelContainer" destination="Om5-cV-byl" id="oE7-5I-x9t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gNS-37-U2W" userLabel="First Responder" sceneMemberID="firstResponder"/>

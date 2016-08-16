@@ -26,6 +26,28 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (instancetype)sharedInstance;
 
+/**
+ Sets the login behavior of the Facebook SignIn SDK.
+ Choices are listed in enum FBSDKLoginBehavior.
+ Default behaviors for iOS:
+     9+ SFSafariViewController used.
+     8  WebViewController used.
+ @loginBehavior a FBSDKLoginBehavior enum entry
+ */
+- (void)setLoginBehavior:(NSUInteger)loginBehavior;
+
+/**
+ Sets the permissions requested during login.
+ Default behavior is no permissions are required.
+ */
+- (void)setPermissions:(NSArray *)permissions;
+
+/**
+ Sets the ViewController used for Facebook SignIn.
+ Defaults to nil and handled by Facebook SDK.
+ */
+- (void)setViewControllerForFacebookSignIn:(UIViewController *)signInViewController;
+
 @end
 
 NS_ASSUME_NONNULL_END

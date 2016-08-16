@@ -71,7 +71,7 @@ class AWSMobileClient: NSObject {
     
     private func initializeMobileAnalytics() {
         if (mobileAnalytics == nil) {
-            mobileAnalytics = AWSMobileAnalytics.defaultMobileAnalytics()
+//            mobileAnalytics = AWSMobileAnalytics.defaultMobileAnalytics()
         }
     }
     
