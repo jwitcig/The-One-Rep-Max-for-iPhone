@@ -50,7 +50,14 @@ class LiftTableView: UIView, UITableViewDataSource, UITableViewDelegate {
         didSelectLiftBlock?(lift: lifts[indexPath.row])
         
         removeFromSuperview()
+        
+        let eventClient = AWSMobileClient.sharedInstance.mobileAnalytics.eventClient
+        let event = eventClient.createEventWithEventType("Action_FilterByLift")
+        let device = UIDevice.currentDevice()
+        if device.batteryMonitoringEnabled {
+            event.addMetric(device.batteryLevel, forKey: "battery_level")
+        }
+        eventClient.recordEvent(event)
     }
-    
     
 }

@@ -183,6 +183,30 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         
         ormControlsViewController.weightLifted = recentEntryStackView.entry.weightLifted
         ormControlsViewController.reps = recentEntryStackView.entry.reps
+        
+        
+        let eventClient = AWSMobileClient.sharedInstance.mobileAnalytics.eventClient
+        let event = eventClient.createEventWithEventType("Action_SavedWeightLiftingMax")
+        
+        let device = UIDevice.currentDevice()
+        if device.batteryMonitoringEnabled {
+            event.addMetric(device.batteryLevel, forKey: "battery_level")
+        }
+        
+        let lift = try! Realm().objects(LocalLift.self).filter("_id == %@", recentEntryStackView.entry.liftId).first
+        event.addAttribute(lift?.name ?? "", forKey: "entry_category")
+        
+        let calendar = NSCalendar.currentCalendar()
+        
+        let date1 = calendar.startOfDayForDate(recentEntryStackView.entry.date)
+        let date2 = calendar.startOfDayForDate(NSDate())
+        
+        let flags = NSCalendarUnit.Day
+        let components = calendar.components(flags, fromDate: date1, toDate: date2, options: [])
+        event.addMetric(components.day, forKey: "entry_age")
+        
+        eventClient.recordEvent(event)
+
     }
     
     func updateSaveButtonStatus(oneRepMax: Int) {

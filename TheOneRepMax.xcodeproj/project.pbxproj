@@ -42,6 +42,8 @@
 		8B1B12E61CE1684700CDBE22 /* ORSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12E41CE1684700CDBE22 /* ORSession.swift */; };
 		8B1B12FC1CE179BE00CDBE22 /* TheOneRepMax.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12EC1CE179BE00CDBE22 /* TheOneRepMax.xcdatamodeld */; };
 		8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */; };
+		8B2C0FE61D64383A00E87AFE /* TheOneRepMax-iOSTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123E61BA764DE0083980E /* TheOneRepMax-iOSTests.xctest */; };
+		8B2C0FE71D64383C00E87AFE /* TheOneRepMax-iOSUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123F11BA764DE0083980E /* TheOneRepMax-iOSUITests.xctest */; };
 		8B2D0DCC1D626889009BD60C /* PercentagesWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D0DCB1D626889009BD60C /* PercentagesWheel.swift */; };
 		8B2D0DDA1D626EBC009BD60C /* TORMStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D0DD91D626EBC009BD60C /* TORMStyleKit.swift */; };
 		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; };
@@ -274,6 +276,7 @@
 		8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORViewController.swift; sourceTree = "<group>"; };
 		8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentLiftEntry.swift; sourceTree = "<group>"; };
+		C175B7FEB890EC525F593CBE /* Pods_TheOneRepMax_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheOneRepMax_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +376,7 @@
 				8B76B4A31CE823DD00C1F2C2 /* libc++.tbd */,
 				8B76B4B21CE8299C00C1F2C2 /* Realm.framework */,
 				8B76B4B31CE8299C00C1F2C2 /* RealmSwift.framework */,
+				C175B7FEB890EC525F593CBE /* Pods_TheOneRepMax_iOS.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -769,6 +773,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2C0FE61D64383A00E87AFE /* TheOneRepMax-iOSTests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -776,6 +781,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2C0FE71D64383C00E87AFE /* TheOneRepMax-iOSUITests.xctest in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,7 +815,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh\"\n\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+			shellScript = "#bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh\"\n\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -940,7 +946,6 @@
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Facebook",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws/extras",
 				);
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -978,7 +983,6 @@
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Facebook",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws/extras",
 				);
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

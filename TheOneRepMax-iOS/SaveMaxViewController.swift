@@ -6,6 +6,7 @@
 //  Copyright © 2015 JwitApps. All rights reserved.
 //
 
+import AWSMobileHubHelper
 import RealmSwift
 
 import SwiftTools
@@ -60,20 +61,45 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         scrollToOptionPage(0)
     }
 
-    @IBAction func saveMaxPressed(button: UIBarButtonItem) {        
+    @IBAction func saveMaxPressed(button: UIBarButtonItem) {
+        let lift = lifts[templatePicker.selectedRowInComponent(0)]
+        
         var entry = LocalEntry()
         entry.weightLifted = self.weightLifted
         entry.reps = self.reps
         entry.userId = ""
-        entry.liftId = lifts[templatePicker.selectedRowInComponent(0)].id
+        entry.liftId = lift.id
         entry.maxOut = true
         entry.date = datePicker.date
+        entry.createdDate = NSDate()
         
         let realm = try! Realm()
         
         try! realm.write {
             realm.add(entry)
         }
+                
+        let eventClient = AWSMobileClient.sharedInstance.mobileAnalytics.eventClient
+        let event = eventClient.createEventWithEventType("Action_SavedWeightLiftingMax")
+
+        let device = UIDevice.currentDevice()
+        if device.batteryMonitoringEnabled {
+            event.addMetric(device.batteryLevel, forKey: "battery_level")
+        }
+
+        event.addMetric(entry.reps, forKey: "repetitions")
+        event.addMetric(entry.weightLifted, forKey: "weight_lifted")
+        event.addAttribute("epley", forKey: "one_rep_max_formula")
+        event.addAttribute(String(Int(entry.date.timeIntervalSince1970)), forKey: "entry_timestamp")
+        event.addAttribute(lift.name, forKey: "entry_category")
+        
+        let calendar = NSCalendar.currentCalendar()
+        let date1 = calendar.startOfDayForDate(entry.date)
+        let date2 = calendar.startOfDayForDate(NSDate())
+        let offset = calendar.components(.Day, fromDate: date1, toDate: date2, options: []).day
+        event.addMetric(offset, forKey: "day_offset")
+        
+        eventClient.recordEvent(event)
         
         navigationController?.popViewControllerAnimated(true)
     }

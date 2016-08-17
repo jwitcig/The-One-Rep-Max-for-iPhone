@@ -69,6 +69,8 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
         }
         
         selectedLiftPath = indexPath
+        
+        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

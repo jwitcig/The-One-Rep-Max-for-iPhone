@@ -48,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
+        
         let serviceInfo = AWSInfo.defaultAWSInfo().defaultServiceInfo("DynamoDBObjectMapper")
         
         if let credentialsProvider = serviceInfo?.cognitoCredentialsProvider {

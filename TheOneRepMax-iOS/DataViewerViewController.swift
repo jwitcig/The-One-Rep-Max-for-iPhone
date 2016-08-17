@@ -41,6 +41,17 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         updateDelegates()
+        
+        
+        let eventClient = AWSMobileClient.sharedInstance.mobileAnalytics.eventClient
+        let event = eventClient.createEventWithEventType("View_DataViewer")
+        
+        let device = UIDevice.currentDevice()
+        if device.batteryMonitoringEnabled {
+            event.addMetric(device.batteryLevel, forKey: "battery_level")
+        }
+        
+        eventClient.recordEvent(event)
     }
     
     func setupFilterViewController() {
