@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		55928B5DF03A507442C6AFDC /* Pods_TheOneRepMax_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F9C830F2DD075B74A8BD645 /* Pods_TheOneRepMax_iOSTests.framework */; };
+		7F0A259EFBE36D83F7BA1A31 /* Pods_TheOneRepMax_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F73A00FE83B4538DF3302A74 /* Pods_TheOneRepMax_iOS.framework */; };
 		8B02E4721C75334900A949E6 /* NoLiftSelectedStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */; };
 		8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */; };
 		8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12C1771C2521840053841E /* PercentagesViewController.swift */; };
@@ -76,6 +78,7 @@
 		8BE7C1081D68533A0062BA55 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 8BE7C1071D68533A0062BA55 /* Fastfile */; };
 		8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */; };
 		8BFED0591C658FAF0002FE17 /* RecentLiftEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */; };
+		BF6CD612B544914E075DBC10 /* Pods_TheOneRepMax_iOSUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 15FDB8676112C6FC51445A68 /* Pods_TheOneRepMax_iOSUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +115,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0B181049F4CA5D7250889A64 /* Pods-TheOneRepMax-iOSUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOSUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOSUITests/Pods-TheOneRepMax-iOSUITests.release.xcconfig"; sourceTree = "<group>"; };
+		15FDB8676112C6FC51445A68 /* Pods_TheOneRepMax_iOSUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheOneRepMax_iOSUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		228E44FFFC762463C2D0350D /* Pods-TheOneRepMax-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOSTests/Pods-TheOneRepMax-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		79AD13E4D0605C93F32FA545 /* Pods-TheOneRepMax-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		80156CEF459FF2C220CAB90C /* Pods-TheOneRepMax-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoLiftSelectedStatView.swift; sourceTree = "<group>"; };
 		8B08B7AF1CE96C5D000DD508 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSCore.framework; path = "TheOneRepMax-iOS/Sdk/Aws/AWSCore.framework"; sourceTree = "<group>"; };
 		8B08B7B01CE96C5D000DD508 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = "TheOneRepMax-iOS/Sdk/Aws/AWSDynamoDB.framework"; sourceTree = "<group>"; };
@@ -223,6 +231,13 @@
 		8BE7C1071D68533A0062BA55 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORViewController.swift; sourceTree = "<group>"; };
 		8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentLiftEntry.swift; sourceTree = "<group>"; };
+		926781C9FC886F218BED5D91 /* Pods-TheOneRepMax-iOSUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOSUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOSUITests/Pods-TheOneRepMax-iOSUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9839BBD89F8A1A2937A7B1CA /* Pods-TheOneRepMax-iOSUITests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOSUITests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOSUITests/Pods-TheOneRepMax-iOSUITests.testflight.xcconfig"; sourceTree = "<group>"; };
+		9F9C830F2DD075B74A8BD645 /* Pods_TheOneRepMax_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheOneRepMax_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54390EEB4306DED6FC4DFC5 /* Pods-TheOneRepMax-iOSTests.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOSTests.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOSTests/Pods-TheOneRepMax-iOSTests.testflight.xcconfig"; sourceTree = "<group>"; };
+		F1BF8E42029CD3DAF71E2DE4 /* Pods-TheOneRepMax-iOS.testflight.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOS.testflight.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS.testflight.xcconfig"; sourceTree = "<group>"; };
+		F73A00FE83B4538DF3302A74 /* Pods_TheOneRepMax_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheOneRepMax_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FDF630B6541CDD5902F3C406 /* Pods-TheOneRepMax-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOSTests/Pods-TheOneRepMax-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +251,7 @@
 				8B989B901D653DC100F706FD /* SwiftTools.framework in Frameworks */,
 				8B989B8D1D653DBA00F706FD /* RealmSwift.framework in Frameworks */,
 				8B989B8B1D653DBA00F706FD /* Realm.framework in Frameworks */,
+				7F0A259EFBE36D83F7BA1A31 /* Pods_TheOneRepMax_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +259,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				55928B5DF03A507442C6AFDC /* Pods_TheOneRepMax_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +267,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF6CD612B544914E075DBC10 /* Pods_TheOneRepMax_iOSUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +309,27 @@
 				8B76B4A31CE823DD00C1F2C2 /* libc++.tbd */,
 				8B76B4B21CE8299C00C1F2C2 /* Realm.framework */,
 				8B76B4B31CE8299C00C1F2C2 /* RealmSwift.framework */,
+				F73A00FE83B4538DF3302A74 /* Pods_TheOneRepMax_iOS.framework */,
+				9F9C830F2DD075B74A8BD645 /* Pods_TheOneRepMax_iOSTests.framework */,
+				15FDB8676112C6FC51445A68 /* Pods_TheOneRepMax_iOSUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		144473F0689680B28E25ED83 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79AD13E4D0605C93F32FA545 /* Pods-TheOneRepMax-iOS.debug.xcconfig */,
+				F1BF8E42029CD3DAF71E2DE4 /* Pods-TheOneRepMax-iOS.testflight.xcconfig */,
+				80156CEF459FF2C220CAB90C /* Pods-TheOneRepMax-iOS.release.xcconfig */,
+				FDF630B6541CDD5902F3C406 /* Pods-TheOneRepMax-iOSTests.debug.xcconfig */,
+				A54390EEB4306DED6FC4DFC5 /* Pods-TheOneRepMax-iOSTests.testflight.xcconfig */,
+				228E44FFFC762463C2D0350D /* Pods-TheOneRepMax-iOSTests.release.xcconfig */,
+				926781C9FC886F218BED5D91 /* Pods-TheOneRepMax-iOSUITests.debug.xcconfig */,
+				9839BBD89F8A1A2937A7B1CA /* Pods-TheOneRepMax-iOSUITests.testflight.xcconfig */,
+				0B181049F4CA5D7250889A64 /* Pods-TheOneRepMax-iOSUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		8B1B12A11CE167CD00CDBE22 /* ORMKit */ = {
@@ -490,6 +527,7 @@
 				8B1B12A11CE167CD00CDBE22 /* ORMKit */,
 				8BF343581B27FA08007CBF44 /* Products */,
 				0A18E43CBDE524072F87162C /* Frameworks */,
+				144473F0689680B28E25ED83 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -510,6 +548,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B7123FE1BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOS" */;
 			buildPhases = (
+				A378A6D2A257EFFA2E82B315 /* [CP] Check Pods Manifest.lock */,
 				8B7123CA1BA764DE0083980E /* Sources */,
 				8B7123CB1BA764DE0083980E /* Frameworks */,
 				8B7123CC1BA764DE0083980E /* Resources */,
@@ -517,6 +556,8 @@
 				8B76B5191CE82E4000C1F2C2 /* ShellScript */,
 				8B989B8F1D653DBA00F706FD /* Embed Frameworks */,
 				8BD9E4FD1D66D4A800FF5726 /* ShellScript */,
+				BF591FB9C895CD96D39B399A /* [CP] Embed Pods Frameworks */,
+				C5EBDA325FF4865EEE4C6AA1 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -531,9 +572,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B7123FF1BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOSTests" */;
 			buildPhases = (
+				24328AD49A32C9804DD684BE /* [CP] Check Pods Manifest.lock */,
 				8B7123E21BA764DE0083980E /* Sources */,
 				8B7123E31BA764DE0083980E /* Frameworks */,
 				8B7123E41BA764DE0083980E /* Resources */,
+				BB656344FF8363F19B8017C4 /* [CP] Embed Pods Frameworks */,
+				A345CC664BAE302E285CB87F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -549,9 +593,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B7124001BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOSUITests" */;
 			buildPhases = (
+				1F29DE2DD70DEB8D153C68A2 /* [CP] Check Pods Manifest.lock */,
 				8B7123ED1BA764DE0083980E /* Sources */,
 				8B7123EE1BA764DE0083980E /* Frameworks */,
 				8B7123EF1BA764DE0083980E /* Resources */,
+				03E462908FDB13A0921B1B32 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -652,6 +698,51 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		03E462908FDB13A0921B1B32 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheOneRepMax-iOSUITests/Pods-TheOneRepMax-iOSUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1F29DE2DD70DEB8D153C68A2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		24328AD49A32C9804DD684BE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		8B0D92E71C8FACD5003DFE45 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -693,6 +784,81 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
+		A345CC664BAE302E285CB87F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheOneRepMax-iOSTests/Pods-TheOneRepMax-iOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A378A6D2A257EFFA2E82B315 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BB656344FF8363F19B8017C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheOneRepMax-iOSTests/Pods-TheOneRepMax-iOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BF591FB9C895CD96D39B399A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5EBDA325FF4865EEE4C6AA1 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -804,6 +970,7 @@
 /* Begin XCBuildConfiguration section */
 		8B7123F81BA764DE0083980E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79AD13E4D0605C93F32FA545 /* Pods-TheOneRepMax-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -851,6 +1018,7 @@
 		};
 		8B7123F91BA764DE0083980E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 80156CEF459FF2C220CAB90C /* Pods-TheOneRepMax-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -898,6 +1066,7 @@
 		};
 		8B7123FA1BA764DE0083980E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FDF630B6541CDD5902F3C406 /* Pods-TheOneRepMax-iOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "TheOneRepMax-iOSTests/Info.plist";
@@ -912,6 +1081,7 @@
 		};
 		8B7123FB1BA764DE0083980E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 228E44FFFC762463C2D0350D /* Pods-TheOneRepMax-iOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "TheOneRepMax-iOSTests/Info.plist";
@@ -927,6 +1097,7 @@
 		};
 		8B7123FC1BA764DE0083980E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 926781C9FC886F218BED5D91 /* Pods-TheOneRepMax-iOSUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "TheOneRepMax-iOSUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -941,6 +1112,7 @@
 		};
 		8B7123FD1BA764DE0083980E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B181049F4CA5D7250889A64 /* Pods-TheOneRepMax-iOSUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "TheOneRepMax-iOSUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1000,6 +1172,7 @@
 		};
 		8BD9E4F61D66B1D200FF5726 /* TestFlight */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F1BF8E42029CD3DAF71E2DE4 /* Pods-TheOneRepMax-iOS.testflight.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -1050,6 +1223,7 @@
 		};
 		8BD9E4F71D66B1D200FF5726 /* TestFlight */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A54390EEB4306DED6FC4DFC5 /* Pods-TheOneRepMax-iOSTests.testflight.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "TheOneRepMax-iOSTests/Info.plist";
@@ -1064,6 +1238,7 @@
 		};
 		8BD9E4F81D66B1D200FF5726 /* TestFlight */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9839BBD89F8A1A2937A7B1CA /* Pods-TheOneRepMax-iOSUITests.testflight.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "TheOneRepMax-iOSUITests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
