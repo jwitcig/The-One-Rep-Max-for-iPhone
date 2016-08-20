@@ -1,0 +1,3 @@
+One Rep Max calculator uses a little previous knowledge to give you an approximation of what amount of weight you could lift one time at most.
+
+Save and watch your progress over time!

@@ -74,6 +74,7 @@
 		8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C581C2A5967005948D9 /* PercentageView.swift */; };
 		8BE68B1B1D5C159600B46FBF /* LiftTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BE68B1A1D5C159600B46FBF /* LiftTableView.xib */; };
 		8BE68B1D1D5C167000B46FBF /* LiftTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE68B1C1D5C167000B46FBF /* LiftTableView.swift */; };
+		8BE7C1081D68533A0062BA55 /* Fastfile in Resources */ = {isa = PBXBuildFile; fileRef = 8BE7C1071D68533A0062BA55 /* Fastfile */; };
 		8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */; };
 		8BFED0591C658FAF0002FE17 /* RecentLiftEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */; };
 /* End PBXBuildFile section */
@@ -220,6 +221,7 @@
 		8BE68B101D5C150200B46FBF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Realm.framework; path = Carthage/Build/iOS/Realm.framework; sourceTree = "<group>"; };
 		8BE68B1A1D5C159600B46FBF /* LiftTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftTableView.xib; sourceTree = "<group>"; };
 		8BE68B1C1D5C167000B46FBF /* LiftTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableView.swift; sourceTree = "<group>"; };
+		8BE7C1071D68533A0062BA55 /* Fastfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Fastfile; path = fastlane/Fastfile; sourceTree = "<group>"; };
 		8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORViewController.swift; sourceTree = "<group>"; };
 		8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentLiftEntry.swift; sourceTree = "<group>"; };
 		C175B7FEB890EC525F593CBE /* Pods_TheOneRepMax_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheOneRepMax_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -496,6 +498,7 @@
 		8BF3434E1B27FA08007CBF44 = {
 			isa = PBXGroup;
 			children = (
+				8BE7C1071D68533A0062BA55 /* Fastfile */,
 				8B7123CF1BA764DE0083980E /* TheOneRepMax-iOS */,
 				8B7123E91BA764DE0083980E /* TheOneRepMax-iOSTests */,
 				8B7123F41BA764DE0083980E /* TheOneRepMax-iOSUITests */,
@@ -637,6 +640,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BE7C1081D68533A0062BA55 /* Fastfile in Resources */,
 				8B6F4F071D62A8E80021C590 /* Info.plist in Resources */,
 				8BD9E4FA1D66BC4F00FF5726 /* GoogleService-Info-Dev.plist in Resources */,
 				8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */,
