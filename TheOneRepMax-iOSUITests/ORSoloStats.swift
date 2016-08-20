@@ -23,9 +23,11 @@ public class ORSoloStats: ORStats {
         super.init()
     }
     
-    private var _allEntries: [LocalEntry]?
-    var allEntries: [LocalEntry] {
-        self._allEntries = Array(try! Realm().objects(LocalEntry).filter("_userId == %@", userId))
+    private var _allEntries: [Entry]?
+    var allEntries: [Entry] {
+        // line below only used to compile, delete it
+        let entries = [Entry]()
+        self._allEntries = entries.filter{$0.id==userId}
         return self._allEntries!
     }
     
@@ -37,13 +39,8 @@ public class ORSoloStats: ORStats {
         return currentEntry?.date.daysBeforeToday()
     }
     
-    func entries(chronologicalOrder chronologicalOrder: Bool) -> [LocalEntry] {
-        var desiredEntries = self.allEntries
-    
-        let descriptor = NSSortDescriptor(key: "date", ascending: chronologicalOrder)
-        
-        desiredEntries = NSArray(array: desiredEntries).sortedArrayUsingDescriptors([descriptor]) as! [LocalEntry]
-        return desiredEntries
+    func entries(chronologicalOrder chronologicalOrder: Bool) -> [Entry] {
+        return allEntries.sort{$0.0.date.compare($0.1.date) == .OrderedAscending}
     }
     
     // Gives increase as a percentage of the firstEntry's max

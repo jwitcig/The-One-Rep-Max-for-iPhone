@@ -8,17 +8,20 @@
 
 import UIKit
 
+import Firebase
 import RealmSwift
 
 class LiftTableView: UIView, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableview: UITableView!
     
-    let lifts = try! Realm().objects(LocalLift)
+    var lifts = [Lift]() {
+        didSet { tableview.reloadData() }
+    }
     
-    var didSelectLiftBlock: ((lift: LocalLift)->())?
+    var didSelectLiftBlock: ((lift: Lift)->())?
     
-    var selectedLift: LocalLift? {
+    var selectedLift: Lift? {
         if let row = tableview.indexPathForSelectedRow?.row {
             return lifts[row]
         }
@@ -51,13 +54,9 @@ class LiftTableView: UIView, UITableViewDataSource, UITableViewDelegate {
         
         removeFromSuperview()
         
-        let eventClient = AWSMobileClient.sharedInstance.mobileAnalytics.eventClient
-        let event = eventClient.createEventWithEventType("Action_FilterByLift")
         let device = UIDevice.currentDevice()
-        if device.batteryMonitoringEnabled {
-            event.addMetric(device.batteryLevel, forKey: "battery_level")
-        }
-        eventClient.recordEvent(event)
+        let analyticsItems = device.batteryMonitoringEnabled ? ["battery_level": device.batteryLevel] : [String: NSObject]()
+        FIRAnalytics.logEventWithName("ACTION_filtered_by_lift", parameters: analyticsItems)
     }
     
 }

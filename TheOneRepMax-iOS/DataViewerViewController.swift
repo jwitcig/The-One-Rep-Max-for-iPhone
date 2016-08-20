@@ -6,6 +6,8 @@
 //  Copyright © 2016 JwitApps. All rights reserved.
 //
 
+import Firebase
+import FirebaseAuth
 import RealmSwift
 
 import SwiftTools
@@ -14,7 +16,7 @@ protocol DataViewerDelegate {
     
     var dataViewerViewController: DataViewerViewController! { get set }
     
-    func selectedLiftDidChange(lift lift: LocalLift?, liftEntries: Results<LocalEntry>)
+    func selectedLiftDidChange(lift lift: Lift?, liftEntries: [Entry])
 }
 
 class DataViewerViewController: ORViewController, UIPopoverPresentationControllerDelegate {
@@ -33,49 +35,36 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         // Corrects offset for container views' content
         self.edgesForExtendedLayout = .None
         
-//        filterViewController?.selectedLiftTemplate = templates.first
-        
         presentFilterViewController()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         updateDelegates()
-        
-        
-        let eventClient = AWSMobileClient.sharedInstance.mobileAnalytics.eventClient
-        let event = eventClient.createEventWithEventType("View_DataViewer")
-        
-        let device = UIDevice.currentDevice()
-        if device.batteryMonitoringEnabled {
-            event.addMetric(device.batteryLevel, forKey: "battery_level")
-        }
-        
-        eventClient.recordEvent(event)
-    }
     
-    func setupFilterViewController() {
-//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-//        filterViewController = storyboard.instantiateViewControllerWithIdentifier("FilterPopover") as? FilterPopoverViewController
-//        
-//        filterViewController?.dataViewerViewController = self
-//        
-//        filterViewController?.modalPresentationStyle = .FullScreen
+        // analytics
+        let device = UIDevice.currentDevice()
+        let analyticsItems = device.batteryMonitoringEnabled ? ["battery_level": device.batteryLevel] : [String: NSObject]()
+        FIRAnalytics.logEventWithName("VIEW_launched_data_viewer", parameters: analyticsItems)
     }
     
     func updateDelegates() {
         updateFilterBar()
         
-        var liftEntries = try! Realm().objects(LocalEntry)//.filter("_userId == %@", "")
+        guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         
-        if let lift = filterView?.selectedLift {
-            liftEntries = liftEntries.filter("_categoryId == %@", lift.id)
-        }
+        guard let lift = filterView?.selectedLift else { return }
         
-        delegates.forEach {
-            $0.selectedLiftDidChange(lift: filterView?.selectedLift, liftEntries: liftEntries)
-        }
+        let database = FIRDatabase.database().reference()
+        let categoryRef = database.child("entries/\(userID)/\(lift.id)")
+        categoryRef.keepSynced(true)
+        categoryRef.observeEventType(.Value, withBlock: { snapshot in
+            let entries = snapshot.children.map { Entry(snapshot: $0 as! FIRDataSnapshot) }
+            
+            self.delegates.forEach {
+                $0.selectedLiftDidChange(lift: lift, liftEntries: entries)
+            }
+        })
     }
     
     func updateFilterBar() {
@@ -109,6 +98,15 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
             self.blurView = nil
         }
         self.view.addSubview(filterView!)
+        
+        let database = FIRDatabase.database().reference()
+        let categoriesRef = database.child("categories/Weight Lifting")
+                                     .queryOrderedByChild("type")
+                                     .queryEqualToValue("entry")
+        categoriesRef.keepSynced(true)
+        categoriesRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            self.filterView?.lifts = snapshot.children.map{Lift(snapshot: $0 as! FIRDataSnapshot)}.sort{$0.0.name<$0.1.name}
+        })
         
         NSLayoutConstraint.activateConstraints([
             filterView!.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.8),

@@ -8,6 +8,8 @@
 
 import UIKit
 
+import Firebase
+import FirebaseAuth
 import RealmSwift
 
 class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewDataSource, DataViewerDelegate {
@@ -17,8 +19,10 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var entriesTableView: UITableView!
     
     var dataViewerViewController: DataViewerViewController!
-        
-    var liftEntries = try! Realm().objects(LocalEntry) {
+    
+    var lift: Lift!
+    
+    var liftEntries = [Entry]() {
         didSet { entriesTableView.reloadData() }
     }
     
@@ -35,8 +39,9 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         entriesTableView.separatorColor = UIColor.blackColor()
     }
     
-    func selectedLiftDidChange(lift lift: LocalLift?, liftEntries entries: Results<LocalEntry>) {
-        self.liftEntries = entries.sorted("_date", ascending: false)
+    func selectedLiftDidChange(lift lift: Lift?, liftEntries entries: [Entry]) {
+        self.lift = lift
+        self.liftEntries = entries.sort { $0.0.date.compare($0.1.date) == .OrderedDescending }
         
         filterBar?.topItem?.title = lift?.name ?? "All Entries"
         
@@ -167,7 +172,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
             return
         }
         
-        presentDeletionDialog(cell.entry as! LocalEntry)
+        presentDeletionDialog(cell.entry as! Entry)
     }
     
     func maxEntryCellLongPressStateChanged(longPressRecognizer: UILongPressGestureRecognizer) {
@@ -176,7 +181,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         switch longPressRecognizer.state {
         case .Began:
             
-            presentDeletionDialog(cell.entry as! LocalEntry)
+            presentDeletionDialog(cell.entry as! Entry)
             
         default:
             break
@@ -184,7 +189,7 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         }
     }
     
-    func presentDeletionDialog(entry: LocalEntry) {
+    func presentDeletionDialog(entry: Entry) {
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateFormat = "M/d"
         let dateString = dateFormatter.stringFromDate(entry.date)
@@ -193,14 +198,34 @@ class HistoryViewController: ORViewController, UITableViewDelegate, UITableViewD
         
         deleteEntryViewController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.Destructive) { (action) in
             
-            try! Realm().delete(entry)
+            guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
+            let database = FIRDatabase.database().reference()
+            database.child("entries/\(userID)/\(self.lift.id)/\(entry.id)").removeValue()
             
             self.entriesTableView.reloadData()
+            
+            // analytics
+            let calendar = NSCalendar.currentCalendar()
+            var analyticsItems: [String: NSObject] = [
+                "category_id": self.lift.id,
+                "entry_id": entry.id,
+                "entry_timestamp": Int(entry.createdDate.timeIntervalSince1970),
+                "entry_date": Int(entry.date.timeIntervalSince1970),
+                
+                // seconds between the entry's marked date and the current deletion date
+                "entry_second_offset_marked": calendar.components(.Second, fromDate: entry.date, toDate: NSDate(), options: []).second,
+                // seconds between the entry's timestamped date and the current deletion date
+                "entry_second_offset_created": calendar.components(.Second, fromDate: entry.createdDate, toDate: NSDate(), options: []).second,
+            ]
+            let device = UIDevice.currentDevice()
+            if device.batteryMonitoringEnabled {
+                analyticsItems["battery_level"] = device.batteryLevel
+            }
+            FIRAnalytics.logEventWithName("ACTION_deleted_entry", parameters: analyticsItems)
         })
         deleteEntryViewController.addAction(UIAlertAction(title: "No", style: .Cancel, handler: nil))
         
         self.presentViewController(deleteEntryViewController, animated: true, completion: nil)
-        
     }
     
 }

@@ -6,7 +6,8 @@
 //  Copyright © 2015 JwitApps. All rights reserved.
 //
 
-import AWSMobileHubHelper
+import Firebase
+import FirebaseAuth
 import RealmSwift
 
 import SwiftTools
@@ -24,26 +25,28 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     var weightLifted: Int!
     var reps: Int!
     
-    var lifts: Results<LocalLift>! {
-        didSet {
-            liftNames = lifts.map{$0.name}
-            templatePicker.reloadAllComponents()
-        }
+    var lifts = [Lift]() {
+        didSet { templatePicker.reloadAllComponents() }
     }
-    var liftNames = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.updateLabels()
         
-        lifts = try! Realm().objects(LocalLift).sorted("_name")
+        let database = FIRDatabase.database().reference()
+        let liftsRef = database.child("categories/Weight Lifting").queryOrderedByChild("type").queryEqualToValue("entry")
         
-        self.templatePicker.reloadAllComponents()
+        liftsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
+            self.lifts = snapshot.children
+                                        .map { Lift(snapshot: $0 as! FIRDataSnapshot) }
+                                        .sort { $0.0.name < $0.1.name }
+            self.templatePicker.reloadAllComponents()
+        })
     }
     
     func updateLabels() {
-        let max = LocalEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
+        let max = Entry.oneRepMax(weightLifted: weightLifted, reps: reps)
         self.maxLabel.text = "\(max) lbs."
         
         if reps == 1 {
@@ -62,46 +65,63 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
 
     @IBAction func saveMaxPressed(button: UIBarButtonItem) {
-        let lift = lifts[templatePicker.selectedRowInComponent(0)]
         
-        var entry = LocalEntry()
-        entry.weightLifted = self.weightLifted
-        entry.reps = self.reps
-        entry.userId = ""
-        entry.liftId = lift.id
-        entry.maxOut = true
-        entry.date = datePicker.date
-        entry.createdDate = NSDate()
-        
-        let realm = try! Realm()
-        
-        try! realm.write {
-            realm.add(entry)
-        }
-                
-        let eventClient = AWSMobileClient.sharedInstance.mobileAnalytics.eventClient
-        let event = eventClient.createEventWithEventType("Action_SavedWeightLiftingMax")
-
-        let device = UIDevice.currentDevice()
-        if device.batteryMonitoringEnabled {
-            event.addMetric(device.batteryLevel, forKey: "battery_level")
-        }
-
-        event.addMetric(entry.reps, forKey: "repetitions")
-        event.addMetric(entry.weightLifted, forKey: "weight_lifted")
-        event.addAttribute("epley", forKey: "one_rep_max_formula")
-        event.addAttribute(String(Int(entry.date.timeIntervalSince1970)), forKey: "entry_timestamp")
-        event.addAttribute(lift.name, forKey: "entry_category")
+        guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
+        let database = FIRDatabase.database().reference()
         
         let calendar = NSCalendar.currentCalendar()
-        let date1 = calendar.startOfDayForDate(entry.date)
-        let date2 = calendar.startOfDayForDate(NSDate())
-        let offset = calendar.components(.Day, fromDate: date1, toDate: date2, options: []).day
-        event.addMetric(offset, forKey: "day_offset")
+        let pickedDate = calendar.startOfDayForDate(datePicker.date)
+        let currentDate = calendar.startOfDayForDate(NSDate())
+        let day_offset = calendar.components(.Day, fromDate: pickedDate, toDate: currentDate, options: []).day
         
-        eventClient.recordEvent(event)
+        let lift = lifts[templatePicker.selectedRowInComponent(0)]
         
-        navigationController?.popViewControllerAnimated(true)
+        let currentTimestamp = Int(NSDate().timeIntervalSince1970)
+        
+        let weightLifted = self.weightLifted
+        let reps = self.reps
+        let formula = "epley"
+        let entryType = "max"
+        let entryDate = day_offset == 0 ? currentTimestamp : Int(pickedDate.timeIntervalSince1970)
+        
+        let fullEntryData = [
+            "weight_lifted": weightLifted,
+            "reps": reps,
+            "date": entryDate,
+            "timestamp": currentTimestamp,
+            "formula": formula,
+            "entry_type": entryType,
+        ]
+        
+        let usersEntriesRef = database.child("entries/\(userID)")
+        let entryId = usersEntriesRef.childByAutoId().key
+
+//        var recentEntryData = fullEntryData.dictionaryWithValuesForKeys(["reps", "weight_lifted", "date", "category_name", "category_type"])
+//        recentEntryData["entry_id"] = entryId
+        
+        let updates = [
+//            "recent/\(lift.id)": recentEntryData,
+            "\(lift.id)/\(entryId)": fullEntryData,
+        ]
+        usersEntriesRef.updateChildValues(updates)
+        
+        self.navigationController?.popViewControllerAnimated(true)
+
+        // analytics
+        var analyticsItems: [String: NSObject] = [
+            "weight_lifted": weightLifted,
+            "reps": reps,
+            "formula": formula,
+            "entry_type": entryType,
+            "entry_timestamp": entryDate,
+            "entry_day_offset": day_offset,
+        ]
+        
+        let device = UIDevice.currentDevice()
+        if device.batteryMonitoringEnabled {
+            analyticsItems["battery_level"] = device.batteryLevel
+        }
+        FIRAnalytics.logEventWithName("ACTION_saved_entry", parameters: analyticsItems)
     }
     
     func numberOfComponentsInPickerView(pickerView: UIPickerView) -> Int {
@@ -113,7 +133,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.liftNames[row]
+        return self.lifts[row].name
     }
     
     func scrollToOptionPage(optionPage: Int) {

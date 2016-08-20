@@ -7,24 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D8F8E21836873C820E13F8C /* Pods_TheOneRepMax_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C175B7FEB890EC525F593CBE /* Pods_TheOneRepMax_iOS.framework */; };
 		8B02E4721C75334900A949E6 /* NoLiftSelectedStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B02E4711C75334900A949E6 /* NoLiftSelectedStatView.swift */; };
-		8B08B7C21CE96E1B000DD508 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F51CE82BC000C1F2C2 /* AddressBook.framework */; };
-		8B08B7C31CE96E1B000DD508 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F61CE82BC000C1F2C2 /* AssetsLibrary.framework */; };
-		8B08B7C41CE96E1B000DD508 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F71CE82BC000C1F2C2 /* CFNetwork.framework */; };
-		8B08B7C51CE96E1B000DD508 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F91CE82BC000C1F2C2 /* CoreMotion.framework */; };
-		8B08B7C61CE96E1B000DD508 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FC1CE82BC000C1F2C2 /* SafariServices.framework */; };
-		8B08B7C71CE96E1B000DD508 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FD1CE82BC000C1F2C2 /* Security.framework */; };
-		8B08B7C81CE96E1B000DD508 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FE1CE82BC000C1F2C2 /* StoreKit.framework */; };
-		8B08B7C91CE96E1B000DD508 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FF1CE82BC000C1F2C2 /* SystemConfiguration.framework */; };
-		8B08B7D61CE96F24000DD508 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7D01CE96ECC000DD508 /* FBSDKCoreKit.framework */; };
-		8B08B7D81CE96F24000DD508 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B7D21CE96ECC000DD508 /* FBSDKShareKit.framework */; };
-		8B08B7ED1CE97299000DD508 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FB1CE82BC000C1F2C2 /* MediaPlayer.framework */; };
-		8B08B80B1CE974B2000DD508 /* Amazon_Software_License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */; };
-		8B08B80D1CE974B2000DD508 /* NOTICE in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B8001CE974B2000DD508 /* NOTICE */; };
-		8B08B80E1CE974B2000DD508 /* CheckXcodeVersion.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8B08B8011CE974B2000DD508 /* CheckXcodeVersion.sh */; };
-		8B08B80F1CE974B2000DD508 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B8031CE974B2000DD508 /* FBSDKCoreKit.framework */; };
-		8B08B8101CE974B2000DD508 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B8041CE974B2000DD508 /* FBSDKLoginKit.framework */; };
-		8B08B8111CE974B2000DD508 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B08B8051CE974B2000DD508 /* FBSDKShareKit.framework */; };
 		8B0AF8101C55BECF0068F748 /* PullableToolbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */; };
 		8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B12C1771C2521840053841E /* PercentagesViewController.swift */; };
 		8B1B12B31CE167FF00CDBE22 /* ORStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B1B12AE1CE167FF00CDBE22 /* ORStats.swift */; };
@@ -46,6 +30,7 @@
 		8B2C0FE71D64383C00E87AFE /* TheOneRepMax-iOSUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123F11BA764DE0083980E /* TheOneRepMax-iOSUITests.xctest */; };
 		8B2D0DCC1D626889009BD60C /* PercentagesWheel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D0DCB1D626889009BD60C /* PercentagesWheel.swift */; };
 		8B2D0DDA1D626EBC009BD60C /* TORMStyleKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D0DD91D626EBC009BD60C /* TORMStyleKit.swift */; };
+		8B36A0351D682BF50062FC62 /* GoogleService-Info-Staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B36A0341D682BF50062FC62 /* GoogleService-Info-Staging.plist */; };
 		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; };
 		8B495E901C854B3000221F62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B495E8F1C854B3000221F62 /* ChartsViewController.swift */; };
 		8B569BB01C2322810052BAEC /* LiftEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B569BAF1C2322810052BAEC /* LiftEntryTableViewCell.swift */; };
@@ -53,39 +38,23 @@
 		8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */; };
 		8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */; };
 		8B6F4F071D62A8E80021C590 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B6F4F061D62A8E80021C590 /* Info.plist */; };
-		8B6F4F0E1D62AB890021C590 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F081D62AB890021C590 /* AWSS3.framework */; };
-		8B6F4F0F1D62AB890021C590 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */; };
-		8B6F4F101D62AB890021C590 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */; };
-		8B6F4F111D62AB890021C590 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */; };
-		8B6F4F121D62AB890021C590 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0C1D62AB890021C590 /* AWSCore.framework */; };
-		8B6F4F131D62AB890021C590 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */; };
-		8B6F4F141D62AB910021C590 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F081D62AB890021C590 /* AWSS3.framework */; };
-		8B6F4F151D62AB910021C590 /* AWSS3.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F081D62AB890021C590 /* AWSS3.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B6F4F161D62AB910021C590 /* AWSMobileAnalytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */; };
-		8B6F4F171D62AB910021C590 /* AWSMobileAnalytics.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B6F4F181D62AB910021C590 /* AWSLambda.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */; };
-		8B6F4F191D62AB910021C590 /* AWSLambda.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B6F4F1A1D62AB910021C590 /* AWSDynamoDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */; };
-		8B6F4F1B1D62AB910021C590 /* AWSDynamoDB.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B6F4F1C1D62AB910021C590 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0C1D62AB890021C590 /* AWSCore.framework */; };
-		8B6F4F1D1D62AB910021C590 /* AWSCore.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0C1D62AB890021C590 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B6F4F1E1D62AB910021C590 /* AWSCognito.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */; };
-		8B6F4F1F1D62AB910021C590 /* AWSCognito.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8B6F4F211D62ABF60021C590 /* AWSMobileHubHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B6F4F201D62ABF60021C590 /* AWSMobileHubHelper.framework */; };
 		8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123D01BA764DE0083980E /* AppDelegate.swift */; };
 		8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123D91BA764DE0083980E /* Main.storyboard */; };
 		8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DC1BA764DE0083980E /* Assets.xcassets */; };
 		8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */; };
 		8B7123EB1BA764DE0083980E /* TheOneRepMax_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123EA1BA764DE0083980E /* TheOneRepMax_iOSTests.swift */; };
 		8B7123F61BA764DE0083980E /* TheOneRepMax_iOSUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B7123F51BA764DE0083980E /* TheOneRepMax_iOSUITests.swift */; };
-		8B76B4A41CE823DD00C1F2C2 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4A31CE823DD00C1F2C2 /* libc++.tbd */; };
-		8B76B5061CE82BC000C1F2C2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4FA1CE82BC000C1F2C2 /* Foundation.framework */; };
-		8B76B50E1CE82BE700C1F2C2 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50D1CE82BE700C1F2C2 /* libsqlite3.tbd */; };
-		8B76B5101CE82BEE00C1F2C2 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50F1CE82BEE00C1F2C2 /* libz.tbd */; };
-		8B76B54A1CE836B300C1F2C2 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B5001CE82BC000C1F2C2 /* UIKit.framework */; };
-		8B76B5A61CE9608800C1F2C2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B5A51CE9608800C1F2C2 /* QuartzCore.framework */; };
 		8B81E9E01C1B5F1A00291443 /* FilterPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */; };
 		8B8D440D1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h in Sources */ = {isa = PBXBuildFile; fileRef = 8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */; };
+		8B989B8B1D653DBA00F706FD /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B21CE8299C00C1F2C2 /* Realm.framework */; };
+		8B989B8C1D653DBA00F706FD /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B21CE8299C00C1F2C2 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B989B8D1D653DBA00F706FD /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B31CE8299C00C1F2C2 /* RealmSwift.framework */; };
+		8B989B8E1D653DBA00F706FD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4B31CE8299C00C1F2C2 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B989B901D653DC100F706FD /* SwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */; };
+		8B989B911D653DC100F706FD /* SwiftTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		8B989B9B1D65402700F706FD /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4F51CE82BC000C1F2C2 /* AddressBook.framework */; };
+		8B989B9C1D65402D00F706FD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B4A31CE823DD00C1F2C2 /* libc++.tbd */; };
+		8B989B9D1D65403600F706FD /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B76B50D1CE82BE700C1F2C2 /* libsqlite3.tbd */; };
 		8B9CD6B01C6F92EC00DED6BF /* LookbackProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */; };
 		8B9CD6C11C6FBF0700DED6BF /* StatPanelRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */; };
 		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */; };
@@ -94,6 +63,8 @@
 		8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */; };
 		8BD936A81C6A7F0B00615A12 /* CurrentMaxStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */; };
 		8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */; };
+		8BD9E4FA1D66BC4F00FF5726 /* GoogleService-Info-Dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BD9E4F91D66BC4F00FF5726 /* GoogleService-Info-Dev.plist */; };
+		8BD9E4FC1D66BCB800FF5726 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8BD9E4FB1D66BCB800FF5726 /* GoogleService-Info.plist */; };
 		8BDB81031C856357007B0598 /* IncreaseIndicatorStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB81021C856357007B0598 /* IncreaseIndicatorStatView.swift */; };
 		8BDC400E1C698A1F003F177D /* DataViewerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */; };
 		8BDF96EA1C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */; };
@@ -101,18 +72,9 @@
 		8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C521C29CF11005948D9 /* PercentageScrollerView.swift */; };
 		8BE55C551C2A05AE005948D9 /* FocusResizingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C541C2A05AE005948D9 /* FocusResizingLabel.swift */; };
 		8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE55C581C2A5967005948D9 /* PercentageView.swift */; };
-		8BE68B111D5C150200B46FBF /* SwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */; };
-		8BE68B121D5C150200B46FBF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0F1D5C150200B46FBF /* RealmSwift.framework */; };
-		8BE68B141D5C151700B46FBF /* SwiftTools.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */; };
-		8BE68B151D5C151700B46FBF /* SwiftTools.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8BE68B161D5C151700B46FBF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0F1D5C150200B46FBF /* RealmSwift.framework */; };
-		8BE68B171D5C151700B46FBF /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B0F1D5C150200B46FBF /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8BE68B181D5C151800B46FBF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B101D5C150200B46FBF /* Realm.framework */; };
-		8BE68B191D5C151800B46FBF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8BE68B101D5C150200B46FBF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8BE68B1B1D5C159600B46FBF /* LiftTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BE68B1A1D5C159600B46FBF /* LiftTableView.xib */; };
 		8BE68B1D1D5C167000B46FBF /* LiftTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE68B1C1D5C167000B46FBF /* LiftTableView.swift */; };
 		8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */; };
-		8BF4B2B01D5BCE810072C364 /* AWSMobileClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */; };
 		8BFED0591C658FAF0002FE17 /* RecentLiftEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */; };
 /* End PBXBuildFile section */
 
@@ -134,21 +96,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		8B76B4C51CE829B400C1F2C2 /* Embed Frameworks */ = {
+		8B989B8F1D653DBA00F706FD /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8B6F4F1F1D62AB910021C590 /* AWSCognito.framework in Embed Frameworks */,
-				8B6F4F151D62AB910021C590 /* AWSS3.framework in Embed Frameworks */,
-				8B6F4F1D1D62AB910021C590 /* AWSCore.framework in Embed Frameworks */,
-				8BE68B191D5C151800B46FBF /* Realm.framework in Embed Frameworks */,
-				8BE68B151D5C151700B46FBF /* SwiftTools.framework in Embed Frameworks */,
-				8B6F4F191D62AB910021C590 /* AWSLambda.framework in Embed Frameworks */,
-				8BE68B171D5C151700B46FBF /* RealmSwift.framework in Embed Frameworks */,
-				8B6F4F1B1D62AB910021C590 /* AWSDynamoDB.framework in Embed Frameworks */,
-				8B6F4F171D62AB910021C590 /* AWSMobileAnalytics.framework in Embed Frameworks */,
+				8B989B911D653DC100F706FD /* SwiftTools.framework in Embed Frameworks */,
+				8B989B8E1D653DBA00F706FD /* RealmSwift.framework in Embed Frameworks */,
+				8B989B8C1D653DBA00F706FD /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -167,12 +123,6 @@
 		8B08B7D11CE96ECC000DD508 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKLoginKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKLoginKit.framework"; sourceTree = "<group>"; };
 		8B08B7D21CE96ECC000DD508 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FBSDKShareKit.framework; path = "TheOneRepMax-iOS/Sdk/Facebook/FBSDKShareKit.framework"; sourceTree = "<group>"; };
 		8B08B7E91CE971C6000DD508 /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
-		8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Amazon_Software_License.txt; sourceTree = "<group>"; };
-		8B08B8001CE974B2000DD508 /* NOTICE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NOTICE; sourceTree = "<group>"; };
-		8B08B8011CE974B2000DD508 /* CheckXcodeVersion.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = CheckXcodeVersion.sh; sourceTree = "<group>"; };
-		8B08B8031CE974B2000DD508 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
-		8B08B8041CE974B2000DD508 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
-		8B08B8051CE974B2000DD508 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
 		8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PullableToolbar.swift; sourceTree = "<group>"; };
 		8B12C1771C2521840053841E /* PercentagesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesViewController.swift; sourceTree = "<group>"; };
 		8B1B12AE1CE167FF00CDBE22 /* ORStats.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORStats.swift; sourceTree = "<group>"; };
@@ -206,6 +156,7 @@
 		8B294D901C6A3F390088D7A4 /* ProgressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		8B2D0DCB1D626889009BD60C /* PercentagesWheel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PercentagesWheel.swift; sourceTree = "<group>"; };
 		8B2D0DD91D626EBC009BD60C /* TORMStyleKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TORMStyleKit.swift; sourceTree = "<group>"; };
+		8B36A0341D682BF50062FC62 /* GoogleService-Info-Staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Staging.plist"; sourceTree = "<group>"; };
 		8B4607201BAF0D4600E953D7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B495E8F1C854B3000221F62 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
 		8B569BAF1C2322810052BAEC /* LiftEntryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntryTableViewCell.swift; sourceTree = "<group>"; };
@@ -214,13 +165,6 @@
 		8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveMaxViewController.swift; sourceTree = "<group>"; };
 		8B6EEF7F1BE1C9DA002AD28B /* HistoryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		8B6F4F061D62A8E80021C590 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8B6F4F081D62AB890021C590 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSS3.framework; sourceTree = "<group>"; };
-		8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileAnalytics.framework; sourceTree = "<group>"; };
-		8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSLambda.framework; sourceTree = "<group>"; };
-		8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSDynamoDB.framework; sourceTree = "<group>"; };
-		8B6F4F0C1D62AB890021C590 /* AWSCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCore.framework; sourceTree = "<group>"; };
-		8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSCognito.framework; sourceTree = "<group>"; };
-		8B6F4F201D62ABF60021C590 /* AWSMobileHubHelper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSMobileHubHelper.framework; sourceTree = "<group>"; };
 		8B7123CE1BA764DE0083980E /* TheOneRepMax-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TheOneRepMax-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8B7123D01BA764DE0083980E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8B7123DA1BA764DE0083980E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -253,6 +197,7 @@
 		8B81E9DE1C1B5F1A00291443 /* FilterPopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterPopoverViewController.swift; sourceTree = "<group>"; };
 		8B836BCB1CE2C47900A06DFE /* TheOneRepMax_v1.2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TheOneRepMax_v1.2.xcdatamodel; sourceTree = "<group>"; };
 		8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TheOneRepMax-iOS-Bridging-Header.h"; sourceTree = "<group>"; };
+		8B989B9F1D65413800F706FD /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.3.sdk/usr/lib/libicucore.tbd; sourceTree = DEVELOPER_DIR; };
 		8B9CD6AF1C6F92EC00DED6BF /* LookbackProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookbackProgressStatView.swift; sourceTree = "<group>"; };
 		8B9CD6C01C6FBF0700DED6BF /* StatPanelRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatPanelRow.swift; sourceTree = "<group>"; };
 		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatView.swift; sourceTree = "<group>"; };
@@ -261,6 +206,8 @@
 		8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStatStackView.swift; sourceTree = "<group>"; };
 		8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMaxStatView.swift; sourceTree = "<group>"; };
 		8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObjects.swift; sourceTree = "<group>"; };
+		8BD9E4F91D66BC4F00FF5726 /* GoogleService-Info-Dev.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Dev.plist"; sourceTree = "<group>"; };
+		8BD9E4FB1D66BCB800FF5726 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8BDB81021C856357007B0598 /* IncreaseIndicatorStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IncreaseIndicatorStatView.swift; sourceTree = "<group>"; };
 		8BDC400D1C698A1F003F177D /* DataViewerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataViewerViewController.swift; sourceTree = "<group>"; };
 		8BDF96E91C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AverageIntervalRangeProgressStatView.swift; sourceTree = "<group>"; };
@@ -274,9 +221,10 @@
 		8BE68B1A1D5C159600B46FBF /* LiftTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LiftTableView.xib; sourceTree = "<group>"; };
 		8BE68B1C1D5C167000B46FBF /* LiftTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftTableView.swift; sourceTree = "<group>"; };
 		8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORViewController.swift; sourceTree = "<group>"; };
-		8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClient.swift; sourceTree = "<group>"; };
 		8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecentLiftEntry.swift; sourceTree = "<group>"; };
 		C175B7FEB890EC525F593CBE /* Pods_TheOneRepMax_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheOneRepMax_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8541263BD1BAB78F9732E5C /* Pods-TheOneRepMax-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		ECCB82A24108B3D1CD765AD5 /* Pods-TheOneRepMax-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheOneRepMax-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,44 +232,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8B6F4F211D62ABF60021C590 /* AWSMobileHubHelper.framework in Frameworks */,
-				8B08B7ED1CE97299000DD508 /* MediaPlayer.framework in Frameworks */,
-				8B6F4F121D62AB890021C590 /* AWSCore.framework in Frameworks */,
-				8B08B8111CE974B2000DD508 /* FBSDKShareKit.framework in Frameworks */,
-				8B6F4F181D62AB910021C590 /* AWSLambda.framework in Frameworks */,
-				8BE68B161D5C151700B46FBF /* RealmSwift.framework in Frameworks */,
-				8B08B7D61CE96F24000DD508 /* FBSDKCoreKit.framework in Frameworks */,
-				8B08B8101CE974B2000DD508 /* FBSDKLoginKit.framework in Frameworks */,
-				8B6F4F131D62AB890021C590 /* AWSCognito.framework in Frameworks */,
-				8B6F4F111D62AB890021C590 /* AWSDynamoDB.framework in Frameworks */,
-				8BE68B181D5C151800B46FBF /* Realm.framework in Frameworks */,
-				8B08B7D81CE96F24000DD508 /* FBSDKShareKit.framework in Frameworks */,
-				8B08B7C21CE96E1B000DD508 /* AddressBook.framework in Frameworks */,
-				8BE68B141D5C151700B46FBF /* SwiftTools.framework in Frameworks */,
-				8B08B7C31CE96E1B000DD508 /* AssetsLibrary.framework in Frameworks */,
-				8B6F4F161D62AB910021C590 /* AWSMobileAnalytics.framework in Frameworks */,
-				8B08B7C41CE96E1B000DD508 /* CFNetwork.framework in Frameworks */,
-				8B08B7C51CE96E1B000DD508 /* CoreMotion.framework in Frameworks */,
-				8B76B5061CE82BC000C1F2C2 /* Foundation.framework in Frameworks */,
-				8B6F4F1A1D62AB910021C590 /* AWSDynamoDB.framework in Frameworks */,
-				8B76B5A61CE9608800C1F2C2 /* QuartzCore.framework in Frameworks */,
-				8B6F4F141D62AB910021C590 /* AWSS3.framework in Frameworks */,
-				8B6F4F101D62AB890021C590 /* AWSLambda.framework in Frameworks */,
-				8BE68B121D5C150200B46FBF /* RealmSwift.framework in Frameworks */,
-				8B6F4F1E1D62AB910021C590 /* AWSCognito.framework in Frameworks */,
-				8B08B7C61CE96E1B000DD508 /* SafariServices.framework in Frameworks */,
-				8B08B7C71CE96E1B000DD508 /* Security.framework in Frameworks */,
-				8BE68B111D5C150200B46FBF /* SwiftTools.framework in Frameworks */,
-				8B08B80F1CE974B2000DD508 /* FBSDKCoreKit.framework in Frameworks */,
-				8B08B7C81CE96E1B000DD508 /* StoreKit.framework in Frameworks */,
-				8B6F4F1C1D62AB910021C590 /* AWSCore.framework in Frameworks */,
-				8B6F4F0F1D62AB890021C590 /* AWSMobileAnalytics.framework in Frameworks */,
-				8B08B7C91CE96E1B000DD508 /* SystemConfiguration.framework in Frameworks */,
-				8B76B54A1CE836B300C1F2C2 /* UIKit.framework in Frameworks */,
-				8B76B5101CE82BEE00C1F2C2 /* libz.tbd in Frameworks */,
-				8B6F4F0E1D62AB890021C590 /* AWSS3.framework in Frameworks */,
-				8B76B50E1CE82BE700C1F2C2 /* libsqlite3.tbd in Frameworks */,
-				8B76B4A41CE823DD00C1F2C2 /* libc++.tbd in Frameworks */,
+				8B989B9D1D65403600F706FD /* libsqlite3.tbd in Frameworks */,
+				8B989B9C1D65402D00F706FD /* libc++.tbd in Frameworks */,
+				8B989B9B1D65402700F706FD /* AddressBook.framework in Frameworks */,
+				8B989B901D653DC100F706FD /* SwiftTools.framework in Frameworks */,
+				8B989B8D1D653DBA00F706FD /* RealmSwift.framework in Frameworks */,
+				8B989B8B1D653DBA00F706FD /* Realm.framework in Frameworks */,
+				5D8F8E21836873C820E13F8C /* Pods_TheOneRepMax_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +262,7 @@
 		0A18E43CBDE524072F87162C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				8B989B9F1D65413800F706FD /* libicucore.tbd */,
 				8BE68B0E1D5C150200B46FBF /* SwiftTools.framework */,
 				8BE68B0F1D5C150200B46FBF /* RealmSwift.framework */,
 				8BE68B101D5C150200B46FBF /* Realm.framework */,
@@ -381,58 +299,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		8B08B7F11CE974A7000DD508 /* AmazonAws */ = {
+		16D5358C360DB2763571CF74 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8B6F4F201D62ABF60021C590 /* AWSMobileHubHelper.framework */,
-				8BF4B2AF1D5BCE810072C364 /* AWSMobileClient.swift */,
+				C8541263BD1BAB78F9732E5C /* Pods-TheOneRepMax-iOS.debug.xcconfig */,
+				ECCB82A24108B3D1CD765AD5 /* Pods-TheOneRepMax-iOS.release.xcconfig */,
 			);
-			name = AmazonAws;
-			path = "TheOneRepMax-iOS/AmazonAws";
-			sourceTree = "<group>";
-		};
-		8B08B7F61CE974B2000DD508 /* SDK */ = {
-			isa = PBXGroup;
-			children = (
-				8B08B7F71CE974B2000DD508 /* Aws */,
-				8B08B8011CE974B2000DD508 /* CheckXcodeVersion.sh */,
-				8B08B8021CE974B2000DD508 /* Facebook */,
-			);
-			name = SDK;
-			path = "TheOneRepMax-iOS/Sdk";
-			sourceTree = "<group>";
-		};
-		8B08B7F71CE974B2000DD508 /* Aws */ = {
-			isa = PBXGroup;
-			children = (
-				8B6F4F081D62AB890021C590 /* AWSS3.framework */,
-				8B6F4F091D62AB890021C590 /* AWSMobileAnalytics.framework */,
-				8B6F4F0A1D62AB890021C590 /* AWSLambda.framework */,
-				8B6F4F0B1D62AB890021C590 /* AWSDynamoDB.framework */,
-				8B6F4F0C1D62AB890021C590 /* AWSCore.framework */,
-				8B6F4F0D1D62AB890021C590 /* AWSCognito.framework */,
-				8B08B7FD1CE974B2000DD508 /* extras */,
-			);
-			path = Aws;
-			sourceTree = "<group>";
-		};
-		8B08B7FD1CE974B2000DD508 /* extras */ = {
-			isa = PBXGroup;
-			children = (
-				8B08B7FE1CE974B2000DD508 /* Amazon_Software_License.txt */,
-				8B08B8001CE974B2000DD508 /* NOTICE */,
-			);
-			path = extras;
-			sourceTree = "<group>";
-		};
-		8B08B8021CE974B2000DD508 /* Facebook */ = {
-			isa = PBXGroup;
-			children = (
-				8B08B8031CE974B2000DD508 /* FBSDKCoreKit.framework */,
-				8B08B8041CE974B2000DD508 /* FBSDKLoginKit.framework */,
-				8B08B8051CE974B2000DD508 /* FBSDKShareKit.framework */,
-			);
-			path = Facebook;
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		8B1B12A11CE167CD00CDBE22 /* ORMKit */ = {
@@ -499,6 +372,9 @@
 				8B7123DC1BA764DE0083980E /* Assets.xcassets */,
 				8B7123DE1BA764DE0083980E /* LaunchScreen.storyboard */,
 				8B8D440C1C68F85500BADB4C /* TheOneRepMax-iOS-Bridging-Header.h */,
+				8BD9E4FB1D66BCB800FF5726 /* GoogleService-Info.plist */,
+				8BD9E4F91D66BC4F00FF5726 /* GoogleService-Info-Dev.plist */,
+				8B36A0341D682BF50062FC62 /* GoogleService-Info-Staging.plist */,
 				8B6F4F061D62A8E80021C590 /* Info.plist */,
 			);
 			path = "TheOneRepMax-iOS";
@@ -620,14 +496,13 @@
 		8BF3434E1B27FA08007CBF44 = {
 			isa = PBXGroup;
 			children = (
-				8B08B7F11CE974A7000DD508 /* AmazonAws */,
-				8B08B7F61CE974B2000DD508 /* SDK */,
 				8B7123CF1BA764DE0083980E /* TheOneRepMax-iOS */,
 				8B7123E91BA764DE0083980E /* TheOneRepMax-iOSTests */,
 				8B7123F41BA764DE0083980E /* TheOneRepMax-iOSUITests */,
 				8B1B12A11CE167CD00CDBE22 /* ORMKit */,
 				8BF343581B27FA08007CBF44 /* Products */,
 				0A18E43CBDE524072F87162C /* Frameworks */,
+				16D5358C360DB2763571CF74 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -648,12 +523,16 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8B7123FE1BA764DE0083980E /* Build configuration list for PBXNativeTarget "TheOneRepMax-iOS" */;
 			buildPhases = (
+				B1C4A31E51EF68C38FB63AF3 /* Check Pods Manifest.lock */,
 				8B7123CA1BA764DE0083980E /* Sources */,
 				8B7123CB1BA764DE0083980E /* Frameworks */,
 				8B7123CC1BA764DE0083980E /* Resources */,
-				8B76B4C51CE829B400C1F2C2 /* Embed Frameworks */,
 				8B0D92E71C8FACD5003DFE45 /* ShellScript */,
 				8B76B5191CE82E4000C1F2C2 /* ShellScript */,
+				8B989B8F1D653DBA00F706FD /* Embed Frameworks */,
+				BD213BABD368B37A7BEE8125 /* Embed Pods Frameworks */,
+				9DEF414FD47732CB3F69D3D5 /* Copy Pods Resources */,
+				8BD9E4FD1D66D4A800FF5726 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -759,13 +638,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				8B6F4F071D62A8E80021C590 /* Info.plist in Resources */,
-				8B08B80E1CE974B2000DD508 /* CheckXcodeVersion.sh in Resources */,
+				8BD9E4FA1D66BC4F00FF5726 /* GoogleService-Info-Dev.plist in Resources */,
 				8B7123E01BA764DE0083980E /* LaunchScreen.storyboard in Resources */,
-				8B08B80D1CE974B2000DD508 /* NOTICE in Resources */,
 				8B7123DD1BA764DE0083980E /* Assets.xcassets in Resources */,
 				8B7123DB1BA764DE0083980E /* Main.storyboard in Resources */,
-				8B08B80B1CE974B2000DD508 /* Amazon_Software_License.txt in Resources */,
 				8BE68B1B1D5C159600B46FBF /* LiftTableView.xib in Resources */,
+				8B36A0351D682BF50062FC62 /* GoogleService-Info-Staging.plist in Resources */,
+				8BD9E4FC1D66BCB800FF5726 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -815,7 +694,65 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "#bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/AWSCore.framework/strip-frameworks.sh\"\n\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+			shellScript = "bash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"";
+		};
+		8BD9E4FD1D66D4A800FF5726 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "APP_PATH=\"${TARGET_BUILD_DIR}/${WRAPPER_NAME}\"\n\n# This script loops through the frameworks embedded in the application and\n# removes unused architectures.\nfind \"$APP_PATH\" -name '*.framework' -type d | while read -r FRAMEWORK\ndo\nFRAMEWORK_EXECUTABLE_NAME=$(defaults read \"$FRAMEWORK/Info.plist\" CFBundleExecutable)\nFRAMEWORK_EXECUTABLE_PATH=\"$FRAMEWORK/$FRAMEWORK_EXECUTABLE_NAME\"\necho \"Executable is $FRAMEWORK_EXECUTABLE_PATH\"\n\nEXTRACTED_ARCHS=()\n\nfor ARCH in $ARCHS\ndo\necho \"Extracting $ARCH from $FRAMEWORK_EXECUTABLE_NAME\"\nlipo -extract \"$ARCH\" \"$FRAMEWORK_EXECUTABLE_PATH\" -o \"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\"\nEXTRACTED_ARCHS+=(\"$FRAMEWORK_EXECUTABLE_PATH-$ARCH\")\ndone\n\necho \"Merging extracted architectures: ${ARCHS}\"\nlipo -o \"$FRAMEWORK_EXECUTABLE_PATH-merged\" -create \"${EXTRACTED_ARCHS[@]}\"\nrm \"${EXTRACTED_ARCHS[@]}\"\n\necho \"Replacing original executable with thinned version\"\nrm \"$FRAMEWORK_EXECUTABLE_PATH\"\nmv \"$FRAMEWORK_EXECUTABLE_PATH-merged\" \"$FRAMEWORK_EXECUTABLE_PATH\"\n\ndone";
+		};
+		9DEF414FD47732CB3F69D3D5 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B1C4A31E51EF68C38FB63AF3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BD213BABD368B37A7BEE8125 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-TheOneRepMax-iOS/Pods-TheOneRepMax-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -861,7 +798,6 @@
 				8B1B12C51CE1681100CDBE22 /* LiftEntry.swift in Sources */,
 				8B294D911C6A3F390088D7A4 /* ProgressViewController.swift in Sources */,
 				8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */,
-				8BF4B2B01D5BCE810072C364 /* AWSMobileClient.swift in Sources */,
 				8B1B12B51CE167FF00CDBE22 /* ORSoloStats.swift in Sources */,
 				8B6EEF801BE1C9DA002AD28B /* HistoryViewController.swift in Sources */,
 				8BDF96EA1C765C1000088B85 /* AverageIntervalRangeProgressStatView.swift in Sources */,
@@ -928,6 +864,7 @@
 /* Begin XCBuildConfiguration section */
 		8B7123F81BA764DE0083980E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8541263BD1BAB78F9732E5C /* Pods-TheOneRepMax-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -940,17 +877,27 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/TheOneRepMax-iOS/AmazonAws",
-					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS",
-					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Facebook",
-					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws/extras",
+					"$(PROJECT_DIR)/Firebase/AdMob",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/AppIndexing",
+					"$(PROJECT_DIR)/Firebase/Auth",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/DynamicLinks",
+					"$(PROJECT_DIR)/Firebase/Invites",
+					"$(PROJECT_DIR)/Firebase/Messaging",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GOOGLE_SERVICES_FILE = "GoogleService-Info-Dev";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -965,6 +912,7 @@
 		};
 		8B7123F91BA764DE0083980E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECCB82A24108B3D1CD765AD5 /* Pods-TheOneRepMax-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -977,17 +925,27 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/TheOneRepMax-iOS/AmazonAws",
-					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws",
 					"$(PROJECT_DIR)/TheOneRepMax-iOS",
-					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Facebook",
-					"$(PROJECT_DIR)/TheOneRepMax-iOS/Sdk/Aws/extras",
+					"$(PROJECT_DIR)/Firebase/AdMob",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/AppIndexing",
+					"$(PROJECT_DIR)/Firebase/Auth",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/DynamicLinks",
+					"$(PROJECT_DIR)/Firebase/Invites",
+					"$(PROJECT_DIR)/Firebase/Messaging",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase",
 				);
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GOOGLE_SERVICES_FILE = "GoogleService-Info";
 				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1057,6 +1015,129 @@
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
+		};
+		8BD9E4F51D66B1D200FF5726 /* TestFlight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "Developer ID Application";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "$(inherited)";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VALID_ARCHS = "i386 x86_64 armv7s armv7 arm64";
+			};
+			name = TestFlight;
+		};
+		8BD9E4F61D66B1D200FF5726 /* TestFlight */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C8541263BD1BAB78F9732E5C /* Pods-TheOneRepMax-iOS.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEFINES_MODULE = YES;
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/TheOneRepMax-iOS",
+					"$(PROJECT_DIR)/Firebase/AdMob",
+					"$(PROJECT_DIR)/Firebase/Analytics",
+					"$(PROJECT_DIR)/Firebase/AppIndexing",
+					"$(PROJECT_DIR)/Firebase/Auth",
+					"$(PROJECT_DIR)/Firebase/Crash",
+					"$(PROJECT_DIR)/Firebase/Database",
+					"$(PROJECT_DIR)/Firebase/DynamicLinks",
+					"$(PROJECT_DIR)/Firebase/Invites",
+					"$(PROJECT_DIR)/Firebase/Messaging",
+					"$(PROJECT_DIR)/Firebase/RemoteConfig",
+					"$(PROJECT_DIR)/Firebase/Storage",
+					"$(PROJECT_DIR)/Firebase",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"TESTFLIGHT=1",
+				);
+				GOOGLE_SERVICES_FILE = "GoogleService-Info-Staging";
+				INFOPLIST_FILE = "TheOneRepMax-iOS/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.jwitapps.ORM;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
+				SWIFT_OBJC_BRIDGING_HEADER = "TheOneRepMax-iOS/TheOneRepMax-iOS-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7s armv7";
+			};
+			name = TestFlight;
+		};
+		8BD9E4F71D66B1D200FF5726 /* TestFlight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "TheOneRepMax-iOSTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.TheOneRepMax-iOSTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TheOneRepMax-iOS.app/TheOneRepMax-iOS";
+			};
+			name = TestFlight;
+		};
+		8BD9E4F81D66B1D200FF5726 /* TestFlight */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "TheOneRepMax-iOSUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jwitapps.TheOneRepMax-iOSUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TEST_TARGET_NAME = "TheOneRepMax-iOS";
+				USES_XCTRUNNER = YES;
+			};
+			name = TestFlight;
 		};
 		8BF343741B27FA08007CBF44 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1150,6 +1231,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B7123F81BA764DE0083980E /* Debug */,
+				8BD9E4F61D66B1D200FF5726 /* TestFlight */,
 				8B7123F91BA764DE0083980E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1159,6 +1241,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B7123FA1BA764DE0083980E /* Debug */,
+				8BD9E4F71D66B1D200FF5726 /* TestFlight */,
 				8B7123FB1BA764DE0083980E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1168,6 +1251,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8B7123FC1BA764DE0083980E /* Debug */,
+				8BD9E4F81D66B1D200FF5726 /* TestFlight */,
 				8B7123FD1BA764DE0083980E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1177,6 +1261,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8BF343741B27FA08007CBF44 /* Debug */,
+				8BD9E4F51D66B1D200FF5726 /* TestFlight */,
 				8BF343751B27FA08007CBF44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

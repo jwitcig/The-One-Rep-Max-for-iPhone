@@ -8,7 +8,8 @@
 
 import UIKit
 
-import AWSMobileHubHelper
+import Firebase
+import FirebaseAuth
 import RealmSwift
 
 class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelegate, UIScrollViewDelegate {
@@ -43,7 +44,7 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     let saveToolbarAnimationTime = 0.5
     
-    var recentEntryData = [UIStackView: RecentLiftEntry]()
+    var recentEntryData = [String: RecentLiftEntry]()
     
     var oneRepMax: Int {
         return ormControlsViewController.oneRepMax
@@ -72,10 +73,12 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         ], animated: false)
         
         
-        let heightConstraint = saveToolbar.heightAnchor.constraintEqualToConstant(44)
+        let saveToolbarMaxHeight: CGFloat = 44
+        let heightConstraint = saveToolbar.heightAnchor.constraintEqualToConstant(saveToolbarMaxHeight)
         heightConstraint.priority = 999
         NSLayoutConstraint.activateConstraints([
-            heightConstraint
+            heightConstraint,
+            saveToolbar.heightAnchor.constraintLessThanOrEqualToConstant(saveToolbarMaxHeight)
         ])
         
         contentStackView.addArrangedSubview(saveToolbar)
@@ -127,6 +130,8 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         
         ormControlsViewController.addDelegate(self)
         
+        self.recentMaxStackView.superview?.hidden =  true
+
         populateRecentMaxStackView()
     }
     
@@ -134,79 +139,81 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         super.viewWillAppear(animated)
         
         updateORMDisplay(oneRepMax: oneRepMax)
-        
-        populateRecentMaxStackView()
-        
-//        session.cloudData.syncronizeDataToLocalStore {
-//            print($0.success)
-//        }
     }
     
     func populateRecentMaxStackView() {
-        recentMaxStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         
-        let realm = try! Realm()
+        let databaseRef = FIRDatabase.database().reference()
         
-        let lifts = realm.objects(LocalLift)
-        
-        var latestEntries = [Entry]()
-        
-        defer {
-            if latestEntries.count == 0 {
-                recentMaxStackView.superview?.hidden = true
-            } else {
-                recentMaxStackView.superview?.hidden = false
-            }
-        }
-        
-        for lift in lifts {
-            if let latestEntry = realm.objects(LocalEntry).filter("_categoryId == %@", lift.id).sorted("_date").reverse().first {
-                
-                latestEntries.append(latestEntry)
-            }
-        }
-        
-        for entry in latestEntries {
-            let recentEntry = RecentLiftEntry(entry: entry, target: self, selector: #selector(HomeViewController.recentMaxPressed(_:)))
+        let liftTypesRef = databaseRef.child("categories/Weight Lifting")
+                                      .queryOrderedByChild("type")
+                                      .queryEqualToValue("entry")
             
-            recentEntryData[recentEntry.stackView] = recentEntry
-            
-            recentMaxStackView.addArrangedSubview(recentEntry.stackView)
-        }
+        let entriesRef = databaseRef.child("entries/\(userID)")
+        entriesRef.keepSynced(true)
         
+        liftTypesRef.observeSingleEventOfType(.Value, withBlock: { liftSnapshot in
+            let lifts = liftSnapshot.children
+                                        .map{Lift(snapshot: $0 as! FIRDataSnapshot)}
+            
+            for lift in lifts {
+                let recentEntryRef = entriesRef.child("\(lift.id)")
+                .queryOrderedByChild("date")
+                .queryLimitedToLast(1)
+                recentEntryRef.observeEventType(.Value, withBlock: { liftSnapshot in
+                    var recentEntry = self.recentEntryData[lift.id]
+                    recentEntry?.stackView?.removeFromSuperview()
+                    
+                    
+                    if let entrySnapshot = liftSnapshot.children.nextObject() as? FIRDataSnapshot {
+                        let entry = Entry(snapshot: entrySnapshot)
+                        
+                        if recentEntry == nil {
+                            recentEntry = RecentLiftEntry(liftName: lift.name, categoryID: lift.id, entry: entry, target: self, selector: #selector(HomeViewController.recentMaxPressed(_:)))
+                        } else {
+                            recentEntry!.update(entry: entry)
+                        }
+                    } else {
+                        // no entries found
+                        recentEntry = nil
+                    }
+                    self.recentEntryData[lift.id] = recentEntry
+                    if let recentEntry = recentEntry {
+                        self.recentMaxStackView.addArrangedSubview(recentEntry.stackView)
+                    }
+                    
+                    self.recentMaxStackView.superview?.hidden = self.recentMaxStackView.subviews.count == 0
+                })
+            }
+        })
     }
     
     func recentMaxPressed(tapRecognizer: UITapGestureRecognizer) {
         guard let pressedStackView = tapRecognizer.view as? UIStackView else { return }
         
-        guard let recentEntryStackView = recentEntryData[pressedStackView] else { return }
+        guard let recentEntry = (recentEntryData.filter{$0.1.stackView==pressedStackView}).first?.1 else { return }
         
-        ormControlsViewController.weightLifted = recentEntryStackView.entry.weightLifted
-        ormControlsViewController.reps = recentEntryStackView.entry.reps
+        ormControlsViewController.weightLifted = recentEntry.entry.weightLifted
+        ormControlsViewController.reps = recentEntry.entry.reps
         
         
-        let eventClient = AWSMobileClient.sharedInstance.mobileAnalytics.eventClient
-        let event = eventClient.createEventWithEventType("Action_SavedWeightLiftingMax")
+        // analytics
+        let calendar = NSCalendar.currentCalendar()
+        let date1 = calendar.startOfDayForDate(recentEntry.entry.date)
+        let date2 = calendar.startOfDayForDate(NSDate())
+        let components = calendar.components(.Day, fromDate: date1, toDate: date2, options: [])
+        
+        var analyticsItems: [String: NSObject] = [
+            "entry_age": components.day,
+            "entry_category": recentEntry.categoryID,
+        ]
         
         let device = UIDevice.currentDevice()
         if device.batteryMonitoringEnabled {
-            event.addMetric(device.batteryLevel, forKey: "battery_level")
+            analyticsItems["battery_level"] = device.batteryLevel
         }
-        
-        let lift = try! Realm().objects(LocalLift.self).filter("_id == %@", recentEntryStackView.entry.liftId).first
-        event.addAttribute(lift?.name ?? "", forKey: "entry_category")
-        
-        let calendar = NSCalendar.currentCalendar()
-        
-        let date1 = calendar.startOfDayForDate(recentEntryStackView.entry.date)
-        let date2 = calendar.startOfDayForDate(NSDate())
-        
-        let flags = NSCalendarUnit.Day
-        let components = calendar.components(flags, fromDate: date1, toDate: date2, options: [])
-        event.addMetric(components.day, forKey: "entry_age")
-        
-        eventClient.recordEvent(event)
-
+        FIRAnalytics.logEventWithName("Action_recent_max_loaded", parameters: analyticsItems)
     }
     
     func updateSaveButtonStatus(oneRepMax: Int) {

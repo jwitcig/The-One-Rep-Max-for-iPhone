@@ -6,6 +6,9 @@ use_frameworks!
 target 'TheOneRepMax-iOS' do
 
 pod 'Firebase/Core'
+pod 'Firebase/Analytics'
+pod 'Firebase/Database'
+pod 'Firebase/Auth'
 
 end
 

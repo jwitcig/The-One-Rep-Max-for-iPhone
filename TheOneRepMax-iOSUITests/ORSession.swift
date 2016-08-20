@@ -12,6 +12,7 @@
     import Cocoa
 #endif
 
+import Firebase
 import RealmSwift
 
 import SwiftTools
@@ -58,35 +59,6 @@ public class ORSession {
     }
     
     public init() { }
-    
-    public func initDefaultData() {
-        let realm = try! Realm()
-        
-        guard realm.objects(LocalLift).count == 0 else {
-            print("Default data in place")
-            return
-        }
-        
-        try! realm.write {
-            generateDefaultLiftTemplates().forEach { realm.add($0) }
-        }
-    }
-    
-    func generateDefaultLiftTemplates() -> [LocalLift] {
-        var hangCleanTemplate = LocalLift()
-        hangCleanTemplate.name = "Hang Clean"
-        
-        var squatTemplate = LocalLift()
-        squatTemplate.name = "Squat"
-        
-        var benchPressTemplate = LocalLift()
-        benchPressTemplate.name = "Bench Press"
-        
-        var deadLiftTemplate = LocalLift()
-        deadLiftTemplate.name = "Dead Lift"
-        
-        return [hangCleanTemplate, squatTemplate, benchPressTemplate, deadLiftTemplate]
-    }
     
     public func addUserDataChangeDelegate(delegate: ORUserDataChangeDelegate) {
         userDataChangeDelegates.append(delegate)

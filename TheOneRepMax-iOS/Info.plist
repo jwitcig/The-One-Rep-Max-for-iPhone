@@ -2,78 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>AWS</key>
-	<dict>
-		<key>Cognito</key>
-		<dict>
-			<key>Default</key>
-			<dict>
-				<key>Region</key>
-				<string>us-east-1</string>
-			</dict>
-		</dict>
-		<key>ContentManager</key>
-		<dict>
-			<key>Default</key>
-			<dict>
-				<key>Region</key>
-				<string>us-east-1</string>
-				<key>S3Bucket</key>
-				<string>theonerepmax-contentdelivery-mobilehub-611014852</string>
-			</dict>
-		</dict>
-		<key>CredentialsProvider</key>
-		<dict>
-			<key>CognitoIdentity</key>
-			<dict>
-				<key>Default</key>
-				<dict>
-					<key>PoolId</key>
-					<string>us-east-1:acde1f90-7adc-4390-a910-3f783565d63c</string>
-					<key>Region</key>
-					<string>us-east-1</string>
-				</dict>
-			</dict>
-		</dict>
-		<key>DynamoDBObjectMapper</key>
-		<dict>
-			<key>Default</key>
-			<dict>
-				<key>Region</key>
-				<string>us-east-1</string>
-			</dict>
-		</dict>
-		<key>IdentityManager</key>
-		<dict>
-			<key>Default</key>
-			<dict/>
-		</dict>
-		<key>MobileAnalytics</key>
-		<dict>
-			<key>Default</key>
-			<dict>
-				<key>AppId</key>
-				<string>5a3e6e7fef584a0185a85ddfd8b31eba</string>
-				<key>Region</key>
-				<string>us-east-1</string>
-			</dict>
-		</dict>
-		<key>MobileHub</key>
-		<dict>
-			<key>ProjectClientId</key>
-			<string>MobileHub 7443d621-c28d-40cb-923b-4c4e23a679ed aws-my-sample-app-ios-swift-v0.2</string>
-		</dict>
-		<key>UserFileManager</key>
-		<dict>
-			<key>Default</key>
-			<dict>
-				<key>Region</key>
-				<string>us-east-1</string>
-				<key>S3Bucket</key>
-				<string>theonerepmax-userfiles-mobilehub-611014852</string>
-			</dict>
-		</dict>
-	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -104,11 +32,13 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>27</string>
+	<string>30</string>
 	<key>FacebookAppID</key>
 	<string>1536821823291404</string>
 	<key>FacebookDisplayName</key>
 	<string>MySampleApp</string>
+	<key>Google Services File</key>
+	<string>$(GOOGLE_SERVICES_FILE)</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -160,6 +90,13 @@
 				<false/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
+			</dict>
+			<key>firebaseio.com</key>
+			<dict>
+				<key>NSIncludesSubdomains</key>
+				<true/>
+				<key>NSThirdPartyExceptionRequiresForwardSecrecy</key>
+				<false/>
 			</dict>
 		</dict>
 	</dict>

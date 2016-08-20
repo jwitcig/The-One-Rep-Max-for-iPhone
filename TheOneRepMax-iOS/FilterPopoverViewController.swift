@@ -16,13 +16,14 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
 
     @IBOutlet weak var liftTemplatesTableView: UITableView!
     
-    let lifts = try! Realm().objects(LocalLift)
+//    let lifts = try! Realm().objects(Lift)
+    let lifts = [Lift]()
     
     var selectedLiftPath: NSIndexPath?
     
     var dataViewerViewController: DataViewerViewController!
     
-    var selectedLift: LocalLift? {
+    var selectedLift: Lift? {
         get {
             guard let row = selectedLiftPath?.row else {
                 return nil
@@ -69,8 +70,6 @@ class FilterPopoverViewController: ORViewController, UITableViewDelegate, UITabl
         }
         
         selectedLiftPath = indexPath
-        
-        
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {

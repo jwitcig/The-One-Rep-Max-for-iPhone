@@ -53,7 +53,7 @@ class ORMControlsViewController: UIViewController, UITextFieldDelegate {
     }
     
     var oneRepMax: Int {
-        return LocalEntry.oneRepMax(weightLifted: weightLifted, reps: reps)
+        return Entry.oneRepMax(weightLifted: weightLifted, reps: reps)
     }
     
     override func viewDidLoad() {

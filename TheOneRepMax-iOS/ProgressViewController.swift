@@ -132,7 +132,7 @@ class ProgressViewController: ORViewController, DataViewerDelegate {
         statListItemsSpecificLift.forEach { ($0 as! UIView).hidden = specificLiftPanelRowsHidden }
     }
     
-    func selectedLiftDidChange(lift lift: LocalLift?, liftEntries: Results<LocalEntry>) {
+    func selectedLiftDidChange(lift lift: Lift?, liftEntries: [Entry]) {
         updateStatPanels()
         updateRowsCollectionVisibility()
     }

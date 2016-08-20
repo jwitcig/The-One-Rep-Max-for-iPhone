@@ -20,7 +20,7 @@ class ChartsViewController: ORViewController, DataViewerDelegate {
         super.viewDidLoad()
     }
     
-    func selectedLiftDidChange(lift lift: LocalLift?, liftEntries: Results<LocalEntry>) {
+    func selectedLiftDidChange(lift lift: Lift?, liftEntries: [Entry]) {
         
         
         
