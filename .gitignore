@@ -9,7 +9,7 @@ build/
 *.perspectivev3
 !default.perspectivev3
 *.xcworkspace
-!TheOneRepMax.xcworkspace
+!Default.xcworkspace
 xcuserdata
 profile
 *.moved-aside
@@ -17,3 +17,5 @@ DerivedData
 .idea/
 # Pods - for those of you who use CocoaPods
 Pods
+
+.DS_Store
