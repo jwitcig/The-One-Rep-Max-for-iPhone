@@ -27,12 +27,33 @@ platform :ios do
     scan
   end
 
+  lane :before_integration do
+    # fetch the number of commits in the current branch
+    # build_number = number_of_commits
+
+    # Set number of commits as the build number in the project's plist file before the bot actually start building the project.
+    # This way, the generated archive will have an auto-incremented build number.
+    # set_info_plist_value(
+    #   path: './MyApp-Info.plist',
+    #   key: 'CFBundleVersion',
+    #   value: "#{build_number}"
+    # )
+
+    # Run `pod install`
+    cocoapods
+    carthage
+
+    # Download provisioning profiles for the app and copy them to the correct folder.
+    sigh(output_path: '/Library/Developer/XcodeServer/ProvisioningProfiles', skip_install: true)
+  end
+
   desc "Submit a new Beta Build to Apple TestFlight"
   desc "This will also make sure the profile is up to date"
   lane :beta do
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: “TestFlight”) # Build your app - more options available
-    pilot
+    pilot upload
+    pilot upload -u jwitapps@gmail.com -s --verbose
 
     # sh "your_script.sh"
     # You can also use other beta testing services here (run `fastlane actions`)
