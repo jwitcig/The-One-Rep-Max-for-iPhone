@@ -52,8 +52,7 @@ platform :ios do
   lane :beta do
     # match(type: "appstore") # more information: https://codesigning.guide
     gym(scheme: “TestFlight”) # Build your app - more options available
-    pilot upload
-    pilot upload -u jwitapps@gmail.com -s --verbose
+    pilot
 
     # sh "your_script.sh"
     # You can also use other beta testing services here (run `fastlane actions`)
