@@ -83,10 +83,10 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
     var blurView: UIVisualEffectView?
     
     func presentFilterViewController() {
-        
         let blur = UIBlurEffect(style: .Light)
         blurView = UIVisualEffectView(effect: blur)
         blurView?.translatesAutoresizingMaskIntoConstraints = false
+        blurView?.alpha = 0
         self.view.addSubview(blurView!)
         
         filterView = LiftTableView.create()
@@ -94,8 +94,12 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         filterView?.didSelectLiftBlock = { lift in
             self.updateDelegates()
             
-            self.blurView?.removeFromSuperview()
-            self.blurView = nil
+            UIView.animateWithDuration(0.1, animations: { 
+                self.blurView?.alpha = 0
+            }, completion: { finished in
+                self.blurView?.removeFromSuperview()
+                self.blurView = nil
+            })
         }
         self.view.addSubview(filterView!)
         
@@ -110,7 +114,7 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
         
         NSLayoutConstraint.activateConstraints([
             filterView!.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor, multiplier: 0.8),
-            filterView!.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor, multiplier: 0.6),
+            filterView!.heightAnchor.constraintEqualToAnchor(self.view.heightAnchor),
             
             filterView!.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor),
             filterView!.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor),
@@ -121,6 +125,10 @@ class DataViewerViewController: ORViewController, UIPopoverPresentationControlle
             blurView!.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor),
             blurView!.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor),
         ])
+        
+        UIView.animateWithDuration(0.1) { 
+            self.blurView?.alpha = 1
+        }
     }
     
     func addDelegate(delegate: DataViewerDelegate) {

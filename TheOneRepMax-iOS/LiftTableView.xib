@@ -10,15 +10,39 @@
             <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7OY-r7-tt4">
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VTH-l4-aBj">
                     <rect key="frame" x="0.0" y="0.0" width="300" height="400"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="iN0-l3-epB" id="DII-9d-LSd"/>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="6FD-uI-Y7J"/>
-                    </connections>
-                </tableView>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lifts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rsm-Lg-RlQ">
+                            <rect key="frame" x="0.0" y="0.0" width="300" height="53"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EBU-FC-J3A">
+                            <rect key="frame" x="0.0" y="53" width="300" height="1"/>
+                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="1" id="oso-aJ-xH5"/>
+                            </constraints>
+                        </view>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7OY-r7-tt4">
+                            <rect key="frame" x="0.0" y="54" width="300" height="346"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <outlet property="dataSource" destination="iN0-l3-epB" id="DII-9d-LSd"/>
+                                <outlet property="delegate" destination="iN0-l3-epB" id="6FD-uI-Y7J"/>
+                            </connections>
+                        </tableView>
+                    </subviews>
+                </stackView>
             </subviews>
+            <constraints>
+                <constraint firstItem="VTH-l4-aBj" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5eA-bn-Hha"/>
+                <constraint firstAttribute="trailing" secondItem="VTH-l4-aBj" secondAttribute="trailing" id="eDB-0j-1P4"/>
+                <constraint firstAttribute="bottom" secondItem="VTH-l4-aBj" secondAttribute="bottom" id="evw-tJ-h0U"/>
+                <constraint firstItem="VTH-l4-aBj" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mdD-3O-c8a"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>

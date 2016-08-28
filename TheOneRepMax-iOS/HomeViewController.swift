@@ -46,9 +46,21 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
     
     var recentEntryData = [String: RecentLiftEntry]()
     
-    var oneRepMax: Int {
-        return ormControlsViewController.oneRepMax
-    }
+    var oneRepMax: Int { return ormControlsViewController.oneRepMax }
+    
+    lazy var historyBarButtonItem: UIBarButtonItem = {
+        let frame = CGRect(origin: .zero, size: CGSize(width: 24, height: 24))
+        let customButton = HistoryIconButton(frame: frame)
+        customButton.addTarget(self, action: #selector(HomeViewController.historyButtonTouched(_:)), forControlEvents: .TouchUpInside)
+        return UIBarButtonItem(customView: customButton)
+    }()
+    
+    lazy var accountBarButtonItem: UIBarButtonItem = {
+        let frame = CGRect(origin: .zero, size: CGSize(width: 24, height: 24))
+        let customButton = AccountIconButton(frame: frame)
+        customButton.addTarget(self, action: #selector(HomeViewController.accountButtonTouched(_:)), forControlEvents: .TouchUpInside)
+        return UIBarButtonItem(customView: customButton)
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,7 +83,6 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
             UIBarButtonItem(customView: instructionLabel),
             UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
         ], animated: false)
-        
         
         let saveToolbarMaxHeight: CGFloat = 44
         let heightConstraint = saveToolbar.heightAnchor.constraintEqualToConstant(saveToolbarMaxHeight)
@@ -133,6 +144,17 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         self.recentMaxStackView.superview?.hidden =  true
 
         populateRecentMaxStackView()
+        
+        let flexableWidthItem = UIBarButtonItem(barButtonSystemItem: .FlexibleSpace, target: nil, action: nil)
+        toolbar.setItems([historyBarButtonItem, flexableWidthItem, accountBarButtonItem], animated: false)
+    }
+    
+    func historyButtonTouched(sender: AnyObject) {
+        performSegueWithIdentifier("History", sender: self)
+    }
+    
+    func accountButtonTouched(sender: AnyObject) {
+        performSegueWithIdentifier("Account", sender: self)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -153,7 +175,7 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
         let entriesRef = databaseRef.child("entries/\(userID)")
         entriesRef.keepSynced(true)
         
-        liftTypesRef.observeSingleEventOfType(.Value, withBlock: { liftSnapshot in
+        liftTypesRef.observeEventType(.Value, withBlock: { liftSnapshot in
             let lifts = liftSnapshot.children
                                         .map{Lift(snapshot: $0 as! FIRDataSnapshot)}
             
@@ -164,7 +186,6 @@ class HomeViewController: ORViewController, OneRepMaxDelegate, UITextFieldDelega
                 recentEntryRef.observeEventType(.Value, withBlock: { liftSnapshot in
                     var recentEntry = self.recentEntryData[lift.id]
                     recentEntry?.stackView?.removeFromSuperview()
-                    
                     
                     if let entrySnapshot = liftSnapshot.children.nextObject() as? FIRDataSnapshot {
                         let entry = Entry(snapshot: entrySnapshot)

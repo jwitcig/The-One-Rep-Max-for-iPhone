@@ -36,7 +36,7 @@
                   moduleName = "TheOneRepMax-iOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Documents/Projects/theonerepmax-ios/TheOneRepMax-iOS/FilterPopoverViewController.swift"
-                  timestampString = "493370399.880542"
+                  timestampString = "494111727.356811"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
@@ -51,27 +51,12 @@
                   moduleName = "TheOneRepMax-iOS"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/developer/Documents/Projects/theonerepmax-ios/TheOneRepMax-iOS/FilterPopoverViewController.swift"
-                  timestampString = "493370399.880657"
+                  timestampString = "494111727.357002"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
                   endingLineNumber = "20"
                   offsetFromSymbolStart = "157">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheOneRepMax_iOS.FilterPopoverViewController.init (coder : __ObjC.NSCoder) -&gt; Swift.Optional&lt;TheOneRepMax_iOS.FilterPopoverViewController&gt;"
-                  moduleName = "TheOneRepMax-iOS"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/developer/Documents/Projects/theonerepmax-ios/TheOneRepMax-iOS/FilterPopoverViewController.swift"
-                  timestampString = "493370399.88075"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "20"
-                  endingLineNumber = "20"
-                  offsetFromSymbolStart = "80">
                </Location>
             </Locations>
          </BreakpointContent>

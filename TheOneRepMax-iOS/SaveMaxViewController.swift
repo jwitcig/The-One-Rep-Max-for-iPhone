@@ -26,7 +26,15 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     var reps: Int!
     
     var lifts = [Lift]() {
-        didSet { templatePicker.reloadAllComponents() }
+        didSet {
+            lifts.sortInPlace {$0.0.name<$0.1.name}
+            templatePicker.reloadAllComponents()
+            templatePicker.selectRow(1, inComponent: 0, animated: true)
+        }
+    }
+    
+    var liftPickerTitles: [String] {
+        return ["new lift"] + lifts.map{$0.name}
     }
     
     override func viewDidLoad() {
@@ -39,9 +47,8 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         
         liftsRef.observeSingleEventOfType(.Value, withBlock: { snapshot in
             self.lifts = snapshot.children
-                                        .map { Lift(snapshot: $0 as! FIRDataSnapshot) }
-                                        .sort { $0.0.name < $0.1.name }
-            self.templatePicker.reloadAllComponents()
+                                    .map { Lift(snapshot: $0 as! FIRDataSnapshot) }
+                                    .sort { $0.0.name < $0.1.name }
         })
     }
     
@@ -65,7 +72,6 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
 
     @IBAction func saveMaxPressed(button: UIBarButtonItem) {
-        
         guard let userID = FIRAuth.auth()?.currentUser?.uid else { return }
         let database = FIRDatabase.database().reference()
         
@@ -74,7 +80,7 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         let currentDate = calendar.startOfDayForDate(NSDate())
         let day_offset = calendar.components(.Day, fromDate: pickedDate, toDate: currentDate, options: []).day
         
-        let lift = lifts[templatePicker.selectedRowInComponent(0)]
+        let lift = lifts[templatePicker.selectedRowInComponent(0)-1]
         
         let currentTimestamp = Int(NSDate().timeIntervalSince1970)
         
@@ -96,14 +102,9 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
         let usersEntriesRef = database.child("entries/\(userID)")
         let entryId = usersEntriesRef.childByAutoId().key
 
-//        var recentEntryData = fullEntryData.dictionaryWithValuesForKeys(["reps", "weight_lifted", "date", "category_name", "category_type"])
-//        recentEntryData["entry_id"] = entryId
-        
-        let updates = [
-//            "recent/\(lift.id)": recentEntryData,
-            "\(lift.id)/\(entryId)": fullEntryData,
-        ]
-        usersEntriesRef.updateChildValues(updates)
+        usersEntriesRef.updateChildValues([
+            "\(lift.id)/\(entryId)": fullEntryData
+        ])
         
         self.navigationController?.popViewControllerAnimated(true)
 
@@ -129,11 +130,98 @@ class SaveMaxViewController: ORViewController, UIPickerViewDelegate, UIPickerVie
     }
     
     func pickerView(pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return self.lifts.count
+        return liftPickerTitles.count
     }
     
     func pickerView(pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return self.lifts[row].name
+        return liftPickerTitles[row]
+    }
+    
+    func pickerView(pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        guard row == 0 else { return }
+        
+        displayNewLiftForm()
+    }
+    
+    var blurView: UIVisualEffectView?
+    
+    var createLiftView: NewLiftFormView?
+    
+    let BlurAnimationDuration = 0.2
+    
+    let CreateNewCategoryWarning = "CreateNewCategoryWarning"
+    
+    func displayNewLiftForm() {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        if userDefaults.valueForKey(CreateNewCategoryWarning) as? Bool != true {
+            let alert = UIAlertController(title: "New lifts are public", message: "While your entries will remain private, new lifts are able to be used by other people!", preferredStyle: .Alert)
+            alert.addAction(UIAlertAction(title: "Okay", style: .Default, handler: nil))
+            presentViewController(alert, animated: true, completion: nil)
+        }
+        userDefaults.setValue(true, forKey: CreateNewCategoryWarning)
+        
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .Light))
+        blurView!.translatesAutoresizingMaskIntoConstraints = false
+        blurView!.frame = self.view.bounds
+        blurView!.alpha = 0
+        self.view.addSubview(self.blurView!)
+        
+        createLiftView = NewLiftFormView(frame: .zero)
+        createLiftView!.translatesAutoresizingMaskIntoConstraints = false
+        createLiftView!.textField.becomeFirstResponder()
+        createLiftView!.saveMaxViewController = self
+        createLiftView!.alpha = 0
+        self.view.addSubview(createLiftView!)
+        
+        UIView.animateWithDuration(BlurAnimationDuration) {
+            self.createLiftView!.alpha = 1
+            self.blurView!.alpha = 1
+        }
+        
+        NSLayoutConstraint.activateConstraints([
+            createLiftView!.centerXAnchor.constraintEqualToAnchor(self.view.centerXAnchor),
+            createLiftView!.centerYAnchor.constraintEqualToAnchor(self.view.centerYAnchor),
+            
+            createLiftView!.widthAnchor.constraintEqualToAnchor(self.view.widthAnchor),
+        ])
+        
+        blurView?.addGestureRecognizer(
+            UITapGestureRecognizer(target: self, action: #selector(SaveMaxViewController.hideNewLiftForm))
+        )
+    }
+    
+    func hideNewLiftForm() {
+        UIView.animateWithDuration(BlurAnimationDuration, animations: { 
+            self.blurView?.alpha = 0
+            self.createLiftView?.alpha = 0
+            }) { finished in
+            self.blurView?.removeFromSuperview()
+            self.blurView = nil
+            
+            self.createLiftView?.removeFromSuperview()
+            self.createLiftView = nil
+        }
+    }
+    
+    func saveNewLiftPressed(sender: AnyObject) {
+        guard let liftName = createLiftView?.textField.text else { return }
+        
+        let databaseRef = FIRDatabase.database().reference()
+        let newLiftRef = databaseRef.child("categories/Weight Lifting").childByAutoId()
+            
+        newLiftRef.setValue([
+            "name": liftName,
+            "type": "entry",
+        ])
+        
+        hideNewLiftForm()
+        
+        lifts += [Lift(id: newLiftRef.key, name: liftName)]
+        if let index = liftPickerTitles.indexOf(liftName) {
+            templatePicker.selectRow(index, inComponent: 0, animated: true)
+        } else {
+            templatePicker.selectRow(1, inComponent: 0, animated: true)
+        }
     }
     
     func scrollToOptionPage(optionPage: Int) {

@@ -13,12 +13,23 @@ import Firebase
 import FirebaseAuth
 import RealmSwift
 
-class MainViewController: UIViewController {
+class MainViewController: ORViewController {
 
     var shouldAttemptAuthOnReconnect = false
     
+    let connectionRef = FIRDatabase.database().referenceWithPath(".info/connected")
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+//        let lift = LocalLift()
+//        lift.setValue("_liftID", forKey: "_liftId")
+//        
+//        let realm = try! Realm()
+//        try! realm.write {
+//            realm.add(managedObjects.map(createRealmObject), update: true)
+//        }
+//        
         
         ORSession.currentSession.soloStats = ORSoloStats(userId: "")
         
@@ -32,18 +43,22 @@ class MainViewController: UIViewController {
             self.performSegueWithIdentifier("LoginSegue", sender: self)
         }
         
-        let connectedRef = FIRDatabase.database().referenceWithPath(".info/connected")
-        connectedRef.observeEventType(.Value, withBlock: { snapshot in
+        connectionRef.observeEventType(.Value, withBlock: { snapshot in
             if let connected = snapshot.value as? Bool where connected {
 
                 guard self.shouldAttemptAuthOnReconnect else { return }
                 
-                self.attemptAuth(successBlock: successBlock)
+                self.attemptAnonymousAuth(successBlock: successBlock)
             }
         })
     }
     
-    func attemptAuth(successBlock successBlock: ((user: FIRUser)->())) {
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(animated)
+        connectionRef.removeAllObservers()
+    }
+    
+    func attemptAnonymousAuth(successBlock successBlock: ((user: FIRUser)->())) {
         FIRAuth.auth()?.signInAnonymouslyWithCompletion({ user, error in
             guard error == nil else {
                 
@@ -77,16 +92,84 @@ class MainViewController: UIViewController {
                     }
                 })
             }
+            
             successBlock(user: user)
         })
     }
     
     override func viewDidAppear(animated: Bool) {
-        let successBlock: ((FIRUser)->()) = { user in
+        let loginSuccessBlock = {
             self.performSegueWithIdentifier("LoginSegue", sender: self)
         }
         
-        attemptAuth(successBlock: successBlock)
+        let startLinkBlock = {
+            guard let signUpViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SignUpViewController") as? SignUpViewController else {
+                return
+            }
+            signUpViewController.successBlock = loginSuccessBlock
+            self.presentViewController(signUpViewController, animated: true, completion: nil)
+        }
+        
+        let proceedAnonymouslyBlock = {
+            self.attemptAnonymousAuth(successBlock: { (user) in
+                loginSuccessBlock()
+            })
+        }
+        
+        let linkageBlock = {
+            self.proposeAccountLinkage(selectionBlock: { startLink in
+                if startLink {
+                    startLinkBlock()
+                } else {
+                    proceedAnonymouslyBlock()
+                }
+            })
+        }
+        
+        if let currentUser = FIRAuth.auth()?.currentUser {
+            if currentUser.anonymous {
+                if self.linkageProposalExpired {
+                    linkageBlock()
+                } else {
+                    proceedAnonymouslyBlock()
+                }
+            } else {
+                loginSuccessBlock()
+            }
+        } else {
+            linkageBlock()
+        }
+    }
+    
+    let ProposeAccountLinkingTimestampKey = "ProposeAccountLinkingTimestamp"
+    
+    var linkageProposalExpired: Bool {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setValue(nil, forKey: ProposeAccountLinkingTimestampKey)
+       
+        guard let lastPresentedTimestamp = userDefaults.valueForKey(ProposeAccountLinkingTimestampKey) as? Double else {
+            return true
+        }
+        
+        let lastPresented = NSDate(timeIntervalSince1970: lastPresentedTimestamp)
+        
+        // if last presented over 2 days ago
+        return NSDate().timeIntervalSinceDate(lastPresented) > 60*60*24 * 2
+    }
+    
+    func proposeAccountLinkage(selectionBlock selectionBlock: (startLink: Bool)->()) {
+        let alert = UIAlertController(title: "Secure your data", message: "Linking your data to an email will ensure have everything you need, wherever you need it!", preferredStyle: .Alert)
+        alert.addAction(UIAlertAction(title: "Secure Now", style: .Default, handler: { action in
+            selectionBlock(startLink: true)
+        }))
+        alert.addAction(UIAlertAction(title: "No Thanks", style: .Default, handler: { action in
+            selectionBlock(startLink: false)
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+        
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        userDefaults.setValue(NSDate().timeIntervalSince1970, forKey: ProposeAccountLinkingTimestampKey)
+        userDefaults.synchronize()
     }
     
     var coreDataStoreExists: Bool {
@@ -169,52 +252,61 @@ class MainViewController: UIViewController {
     }
     
     func copyCoreDataToRealm() -> Bool {
-        let types = ["ORLiftTemplate", "ORLiftEntry"]
         
-        var managedObjects = [NSManagedObject]()
-        
-        for type in types {
-            let fetchRequest = NSFetchRequest(entityName: type)
-            
-            do {
-                managedObjects += try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-            } catch {
-                print(error)
-                return false
-            }
-        }
-        
-        func createRealmObject(managedObject managedObject: NSManagedObject) -> Object {
+        func createRealmObject<T: Object>(managedObject managedObject: NSManagedObject, type: T.Type) -> T {
             var object: Object!
             
             switch managedObject.entity.name! {
                 
             case "ORLiftTemplate":
-                object = Object(value: [
+                object = LocalLift(value: [
                     "_id": "Lift:\(managedObject.objectID.hashValue)",
                     "_name": managedObject["liftName"] as? String ?? "error_lift_name"
                     ])
                 
             case "ORLiftEntry":
-                object = Object(value: [
+                let date = managedObject["date"] as? NSDate ?? NSDate()
+                let createdDate = managedObject["date"] as? NSDate ?? NSDate()
+
+                object = LocalEntry(value: [
                     "_id": NSUUID().UUIDString,
-                    "_date": managedObject["date"] as? NSDate ?? NSDate(),
-                    "_createdDate": managedObject["date"] as? NSDate ?? NSDate(),
+                    "_date": Int(date.timeIntervalSince1970),
+                    "_createdDate": Int(createdDate.timeIntervalSince1970),
                     "_maxOut": managedObject["maxOut"] as? Bool ?? false,
                     "_reps": managedObject["reps"] as? Int ?? 0,
                     "_weightLifted": managedObject["weightLifted"] as? Int ?? 0,
-                    "_liftId": "Lift:\((managedObject["liftTemplate"]as! NSManagedObject).objectID.hashValue)",
+                    "_categoryId": "Lift:\((managedObject["liftTemplate"]as! NSManagedObject).objectID.hashValue)",
                     "_userId": "",
                     ])
             default:
                 break
             }
-            return object
+            return object as! T
         }
         
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(managedObjects.map(createRealmObject), update: true)
+        let types: [String: Object.Type] = ["ORLiftTemplate": LocalLift.self, "ORLiftEntry": LocalEntry.self]
+        
+        var managedObjects = [NSManagedObject]()
+        
+        for (className, realmType) in types {
+            let fetchRequest = NSFetchRequest(entityName: className)
+            
+            do {
+                managedObjects += try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+                
+                            } catch {
+                print(error)
+                return false
+            }
+            
+            let realmObjects = managedObjects.map {
+                createRealmObject(managedObject: $0, type: realmType)
+            }
+            
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(realmObjects, update: true)
+            }
         }
         
         return true

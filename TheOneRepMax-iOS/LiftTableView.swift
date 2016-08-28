@@ -59,4 +59,12 @@ class LiftTableView: UIView, UITableViewDataSource, UITableViewDelegate {
         FIRAnalytics.logEventWithName("ACTION_filtered_by_lift", parameters: analyticsItems)
     }
     
+    func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 80)))
+    }
+    
+    func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView(frame: CGRect(origin: .zero, size: CGSize(width: 0, height: 80)))
+    }
+    
 }

@@ -16,6 +16,11 @@ struct Lift: Equatable {
     var id: String
     var name: String
     
+    init(id: String, name: String) {
+        self.id = id
+        self.name = name
+    }
+    
     init(snapshot: FIRDataSnapshot) {
         id = snapshot.key
         name = snapshot.value!["name"] as! String

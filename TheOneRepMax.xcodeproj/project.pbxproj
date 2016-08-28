@@ -34,6 +34,10 @@
 		8B36A0351D682BF50062FC62 /* GoogleService-Info-Staging.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8B36A0341D682BF50062FC62 /* GoogleService-Info-Staging.plist */; };
 		8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4607201BAF0D4600E953D7 /* MainViewController.swift */; };
 		8B495E901C854B3000221F62 /* ChartsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B495E8F1C854B3000221F62 /* ChartsViewController.swift */; };
+		8B4ABD4B1D6E849700599D0E /* NewLiftFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4ABD4A1D6E849700599D0E /* NewLiftFormView.swift */; };
+		8B4ABD4D1D6EC78200599D0E /* AccountIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4ABD4C1D6EC78200599D0E /* AccountIconButton.swift */; };
+		8B4ABD4F1D6EDB3000599D0E /* HistoryIconButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4ABD4E1D6EDB3000599D0E /* HistoryIconButton.swift */; };
+		8B4ABD511D6EE5F600599D0E /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B4ABD501D6EE5F600599D0E /* AccountViewController.swift */; };
 		8B569BB01C2322810052BAEC /* LiftEntryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B569BAF1C2322810052BAEC /* LiftEntryTableViewCell.swift */; };
 		8B5815621C265C6900F3A151 /* ORMControlsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B5815611C265C6900F3A151 /* ORMControlsViewController.swift */; };
 		8B6AA3F91BDA865100FC490B /* SaveMaxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */; };
@@ -61,6 +65,7 @@
 		8B9CD6C31C6FC43C00DED6BF /* SinceLastEntryStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */; };
 		8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */; };
 		8BAB72CE1D5ADDBF00EFD128 /* Lift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAB72CD1D5ADDBF00EFD128 /* Lift.swift */; };
+		8BC3D00A1D6D04F00013A01D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BC3D0091D6D04F00013A01D /* SignUpViewController.swift */; };
 		8BD936A61C6A7D7700615A12 /* SimpleStatStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */; };
 		8BD936A81C6A7F0B00615A12 /* CurrentMaxStatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */; };
 		8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */; };
@@ -167,6 +172,10 @@
 		8B36A0341D682BF50062FC62 /* GoogleService-Info-Staging.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info-Staging.plist"; sourceTree = "<group>"; };
 		8B4607201BAF0D4600E953D7 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		8B495E8F1C854B3000221F62 /* ChartsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChartsViewController.swift; sourceTree = "<group>"; };
+		8B4ABD4A1D6E849700599D0E /* NewLiftFormView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewLiftFormView.swift; sourceTree = "<group>"; };
+		8B4ABD4C1D6EC78200599D0E /* AccountIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountIconButton.swift; sourceTree = "<group>"; };
+		8B4ABD4E1D6EDB3000599D0E /* HistoryIconButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryIconButton.swift; sourceTree = "<group>"; };
+		8B4ABD501D6EE5F600599D0E /* AccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		8B569BAF1C2322810052BAEC /* LiftEntryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LiftEntryTableViewCell.swift; sourceTree = "<group>"; };
 		8B5815611C265C6900F3A151 /* ORMControlsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ORMControlsViewController.swift; sourceTree = "<group>"; };
 		8B6A56521BA9EF8E00965E4B /* TheOneRepMax-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "TheOneRepMax-iOS.entitlements"; sourceTree = "<group>"; };
@@ -211,6 +220,7 @@
 		8B9CD6C21C6FC43C00DED6BF /* SinceLastEntryStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SinceLastEntryStatView.swift; sourceTree = "<group>"; };
 		8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		8BAB72CD1D5ADDBF00EFD128 /* Lift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lift.swift; sourceTree = "<group>"; };
+		8BC3D0091D6D04F00013A01D /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		8BD936A51C6A7D7700615A12 /* SimpleStatStackView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleStatStackView.swift; sourceTree = "<group>"; };
 		8BD936A71C6A7F0B00615A12 /* CurrentMaxStatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentMaxStatView.swift; sourceTree = "<group>"; };
 		8BD991C01C326BA600FE24B0 /* NotificationObjects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationObjects.swift; sourceTree = "<group>"; };
@@ -386,6 +396,9 @@
 				8B6A56521BA9EF8E00965E4B /* TheOneRepMax-iOS.entitlements */,
 				8B7123D01BA764DE0083980E /* AppDelegate.swift */,
 				8B4607201BAF0D4600E953D7 /* MainViewController.swift */,
+				8BC3D0091D6D04F00013A01D /* SignUpViewController.swift */,
+				8B4ABD4C1D6EC78200599D0E /* AccountIconButton.swift */,
+				8B4ABD4E1D6EDB3000599D0E /* HistoryIconButton.swift */,
 				8BEF3EDF1BB9954600F0F5B6 /* ORViewController.swift */,
 				8BE649C71C84062700CD6B54 /* Home View */,
 				8BE649C41C8405B300CD6B54 /* Data Viewer */,
@@ -483,6 +496,7 @@
 				8B9FD1D81BD7E3F7002FE7C0 /* HomeViewController.swift */,
 				8B0AF80F1C55BECF0068F748 /* PullableToolbar.swift */,
 				8BFED0581C658FAF0002FE17 /* RecentLiftEntry.swift */,
+				8B4ABD501D6EE5F600599D0E /* AccountViewController.swift */,
 				8BE649C81C84063800CD6B54 /* ORM Controls */,
 				8BE649C91C84063E00CD6B54 /* Percentages */,
 				8BE649CA1C8406B500CD6B54 /* Save Max */,
@@ -513,6 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				8B6AA3F81BDA865100FC490B /* SaveMaxViewController.swift */,
+				8B4ABD4A1D6E849700599D0E /* NewLiftFormView.swift */,
 			);
 			name = "Save Max";
 			sourceTree = "<group>";
@@ -869,7 +884,9 @@
 			files = (
 				8B1B12D41CE1683100CDBE22 /* ORDataTools.swift in Sources */,
 				8BE55C531C29CF11005948D9 /* PercentageScrollerView.swift in Sources */,
+				8B4ABD511D6EE5F600599D0E /* AccountViewController.swift in Sources */,
 				8B1B12D81CE1683100CDBE22 /* ORDataResponse.swift in Sources */,
+				8B4ABD4F1D6EDB3000599D0E /* HistoryIconButton.swift in Sources */,
 				8BE55C591C2A5967005948D9 /* PercentageView.swift in Sources */,
 				8B1B12FC1CE179BE00CDBE22 /* TheOneRepMax.xcdatamodeld in Sources */,
 				8BEF3EE01BB9954600F0F5B6 /* ORViewController.swift in Sources */,
@@ -886,6 +903,7 @@
 				8B1B12D61CE1683100CDBE22 /* ORDataOperationOptions.swift in Sources */,
 				8B1B12DC1CE1683100CDBE22 /* ORLocalDataResponse.swift in Sources */,
 				8B12C1781C2521840053841E /* PercentagesViewController.swift in Sources */,
+				8B4ABD4B1D6E849700599D0E /* NewLiftFormView.swift in Sources */,
 				8B7123D11BA764DE0083980E /* AppDelegate.swift in Sources */,
 				8BD991C11C326BA600FE24B0 /* NotificationObjects.swift in Sources */,
 				8BDB81031C856357007B0598 /* IncreaseIndicatorStatView.swift in Sources */,
@@ -911,6 +929,8 @@
 				8BE68B1D1D5C167000B46FBF /* LiftTableView.swift in Sources */,
 				8B02E4721C75334900A949E6 /* NoLiftSelectedStatView.swift in Sources */,
 				8B1B12B91CE167FF00CDBE22 /* Extensions.swift in Sources */,
+				8B4ABD4D1D6EC78200599D0E /* AccountIconButton.swift in Sources */,
+				8BC3D00A1D6D04F00013A01D /* SignUpViewController.swift in Sources */,
 				8B9FD1D91BD7E3F7002FE7C0 /* HomeViewController.swift in Sources */,
 				8B4607211BAF0D4600E953D7 /* MainViewController.swift in Sources */,
 				8B1B12E61CE1684700CDBE22 /* ORSession.swift in Sources */,
