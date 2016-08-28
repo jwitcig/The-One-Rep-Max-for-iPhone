@@ -21,7 +21,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         ORSession.currentSession.soloStats = ORSoloStats(userId: "")
-        
+                
         if coreDataStoreExists {
             if copyCoreDataToRealm() {
                 removeCoreDataStore()
@@ -168,53 +168,62 @@ class MainViewController: UIViewController {
         }
     }
     
-    func copyCoreDataToRealm() -> Bool {
-        let types = ["ORLiftTemplate", "ORLiftEntry"]
+        func copyCoreDataToRealm() -> Bool {
         
-        var managedObjects = [NSManagedObject]()
-        
-        for type in types {
-            let fetchRequest = NSFetchRequest(entityName: type)
-            
-            do {
-                managedObjects += try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
-            } catch {
-                print(error)
-                return false
-            }
-        }
-        
-        func createRealmObject(managedObject managedObject: NSManagedObject) -> Object {
+        func createRealmObject<T: Object>(managedObject managedObject: NSManagedObject, type: T.Type) -> T {
             var object: Object!
             
             switch managedObject.entity.name! {
                 
             case "ORLiftTemplate":
-                object = Object(value: [
+                object = LocalLift(value: [
                     "_id": "Lift:\(managedObject.objectID.hashValue)",
                     "_name": managedObject["liftName"] as? String ?? "error_lift_name"
                     ])
                 
             case "ORLiftEntry":
-                object = Object(value: [
+                let date = managedObject["date"] as? NSDate ?? NSDate()
+                let createdDate = managedObject["date"] as? NSDate ?? NSDate()
+                
+                object = LocalEntry(value: [
                     "_id": NSUUID().UUIDString,
-                    "_date": managedObject["date"] as? NSDate ?? NSDate(),
-                    "_createdDate": managedObject["date"] as? NSDate ?? NSDate(),
+                    "_date": Int(date.timeIntervalSince1970),
+                    "_createdDate": Int(createdDate.timeIntervalSince1970),
                     "_maxOut": managedObject["maxOut"] as? Bool ?? false,
                     "_reps": managedObject["reps"] as? Int ?? 0,
                     "_weightLifted": managedObject["weightLifted"] as? Int ?? 0,
-                    "_liftId": "Lift:\((managedObject["liftTemplate"]as! NSManagedObject).objectID.hashValue)",
+                    "_categoryId": "Lift:\((managedObject["liftTemplate"]as! NSManagedObject).objectID.hashValue)",
                     "_userId": "",
                     ])
             default:
                 break
             }
-            return object
+            return object as! T
         }
         
-        let realm = try! Realm()
-        try! realm.write {
-            realm.add(managedObjects.map(createRealmObject), update: true)
+        let types: [String: Object.Type] = ["ORLiftTemplate": LocalLift.self, "ORLiftEntry": LocalEntry.self]
+        
+        var managedObjects = [NSManagedObject]()
+        
+        for (className, realmType) in types {
+            let fetchRequest = NSFetchRequest(entityName: className)
+            
+            do {
+                managedObjects += try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
+                
+            } catch {
+                print(error)
+                return false
+            }
+            
+            let realmObjects = managedObjects.map {
+                createRealmObject(managedObject: $0, type: realmType)
+            }
+            
+            let realm = try! Realm()
+            try! realm.write {
+                realm.add(realmObjects, update: true)
+            }
         }
         
         return true
