@@ -32,7 +32,7 @@ class MainViewController: ORViewController {
 //        
         
         ORSession.currentSession.soloStats = ORSoloStats(userId: "")
-        
+                
         if coreDataStoreExists {
             if copyCoreDataToRealm() {
                 removeCoreDataStore()
@@ -294,7 +294,7 @@ class MainViewController: ORViewController {
             do {
                 managedObjects += try managedObjectContext.executeFetchRequest(fetchRequest) as! [NSManagedObject]
                 
-                            } catch {
+            } catch {
                 print(error)
                 return false
             }
