@@ -22,15 +22,6 @@ class MainViewController: ORViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let lift = LocalLift()
-//        lift.setValue("_liftID", forKey: "_liftId")
-//        
-//        let realm = try! Realm()
-//        try! realm.write {
-//            realm.add(managedObjects.map(createRealmObject), update: true)
-//        }
-//        
-        
         ORSession.currentSession.soloStats = ORSoloStats(userId: "")
                 
         if coreDataStoreExists {
@@ -61,23 +52,15 @@ class MainViewController: ORViewController {
     func attemptAnonymousAuth(successBlock successBlock: ((user: FIRUser)->())) {
         FIRAuth.auth()?.signInAnonymouslyWithCompletion({ user, error in
             guard error == nil else {
-                
-                let alert = UIAlertController(title: nil, message: nil, preferredStyle: .Alert)
-                
-                var title = "An error has occured😕"
-                var message = "Give it another go."
-                
+                let alert = UIAlertController(title: "An error has occured😕", message: "Give it another go.", preferredStyle: .Alert)
                 let errorName = error?.userInfo[FIRAuthErrorNameKey] as? String
                 if errorName == "ERROR_NETWORK_REQUEST_FAILED" {
-                    title = "You're not connected!"
-                    message = "Make sure you're connected to the internet to get going!"
+                    alert.title = "You're not connected!"
+                    alert.message = "Make sure you're connected to the internet to get going!"
                     
                     alert.addAction(UIAlertAction(title: "Ah okay", style: .Default, handler: nil))
                     self.shouldAttemptAuthOnReconnect = true
                 }
-                
-                alert.title = title
-                alert.message = message
                 self.presentViewController(alert, animated: true, completion: nil)
                 return
             }
@@ -102,13 +85,13 @@ class MainViewController: ORViewController {
             self.performSegueWithIdentifier("LoginSegue", sender: self)
         }
         
-        let startLinkBlock = {
-            guard let signUpViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SignUpViewController") as? SignUpViewController else {
-                return
-            }
-            signUpViewController.successBlock = loginSuccessBlock
-            self.presentViewController(signUpViewController, animated: true, completion: nil)
-        }
+//        let startLinkBlock = {
+//            guard let signUpViewController = self.storyboard?.instantiateViewControllerWithIdentifier("SignUpViewController") as? SignUpViewController else {
+//                return
+//            }
+//            signUpViewController.successBlock = loginSuccessBlock
+//            self.presentViewController(signUpViewController, animated: true, completion: nil)
+//        }
         
         let proceedAnonymouslyBlock = {
             self.attemptAnonymousAuth(successBlock: { (user) in
@@ -116,28 +99,14 @@ class MainViewController: ORViewController {
             })
         }
         
-        let linkageBlock = {
-            self.proposeAccountLinkage(selectionBlock: { startLink in
-                if startLink {
-                    startLinkBlock()
-                } else {
-                    proceedAnonymouslyBlock()
-                }
-            })
-        }
-        
         if let currentUser = FIRAuth.auth()?.currentUser {
             if currentUser.anonymous {
-                if self.linkageProposalExpired {
-                    linkageBlock()
-                } else {
-                    proceedAnonymouslyBlock()
-                }
+                proceedAnonymouslyBlock()
             } else {
                 loginSuccessBlock()
             }
         } else {
-            linkageBlock()
+            proceedAnonymouslyBlock()
         }
     }
     
@@ -155,21 +124,6 @@ class MainViewController: ORViewController {
         
         // if last presented over 2 days ago
         return NSDate().timeIntervalSinceDate(lastPresented) > 60*60*24 * 2
-    }
-    
-    func proposeAccountLinkage(selectionBlock selectionBlock: (startLink: Bool)->()) {
-        let alert = UIAlertController(title: "Secure your data", message: "Linking your data to an email will ensure have everything you need, wherever you need it!", preferredStyle: .Alert)
-        alert.addAction(UIAlertAction(title: "Secure Now", style: .Default, handler: { action in
-            selectionBlock(startLink: true)
-        }))
-        alert.addAction(UIAlertAction(title: "No Thanks", style: .Default, handler: { action in
-            selectionBlock(startLink: false)
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
-        
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.setValue(NSDate().timeIntervalSince1970, forKey: ProposeAccountLinkingTimestampKey)
-        userDefaults.synchronize()
     }
     
     var coreDataStoreExists: Bool {
